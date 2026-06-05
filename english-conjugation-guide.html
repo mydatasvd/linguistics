@@ -1,0 +1,1671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Verb Conjugation Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=DM+Mono:wght@400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f8f6f0;--s1:#ffffff;--s2:#f1ede4;--s3:#e8e3d8;
+  --br:#ddd8cc;--tx:#1c1a15;--t2:#5c5850;--t3:#9c9890;
+  --navy:#1b3a5e;--teal:#1a6b5a;--rust:#8b3a2a;--gold:#9a6f0a;
+  --sage:#3d6b4f;--slate:#2d4f6b;--purple:#5a3d7a;--red:#c0392b;
+  --wh:#ffffff;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Lato',sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;line-height:1.6}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#1b3a5e 0%,#0d2440 60%,#1a3a4e 100%);padding:56px 24px 48px;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:'"To be or not to be"';position:absolute;bottom:-16px;right:5%;font-family:'Playfair Display',serif;font-size:5rem;font-weight:700;color:rgba(255,255,255,.03);white-space:nowrap;pointer-events:none}
+.hero-tag{display:inline-block;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:4px 16px;font-size:.72rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:18px;font-family:'DM Mono',monospace}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5.5vw,3.6rem);font-weight:700;color:#fff;line-height:1.1;margin-bottom:10px}
+.hero h1 em{font-style:italic;color:#a8d4c2}
+.hero p{color:rgba(255,255,255,.6);font-size:.95rem;font-weight:300;max-width:540px;margin:0 auto 22px}
+.stats{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+.stat{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:8px;padding:7px 16px;font-size:.8rem;color:rgba(255,255,255,.75)}
+.stat strong{color:#fff}
+
+/* CONTROLS */
+.controls{background:var(--s1);border-bottom:2px solid var(--br);padding:13px 16px;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.ci{max-width:1160px;margin:0 auto;display:flex;flex-direction:column;gap:9px}
+.sr{position:relative}
+.sr input{width:100%;background:var(--bg);border:1.5px solid var(--br);border-radius:8px;padding:8px 14px 8px 40px;font-family:'Lato',sans-serif;font-size:.9rem;color:var(--tx);outline:none;transition:border-color .2s}
+.sr input:focus{border-color:var(--navy)}
+.sr input::placeholder{color:var(--t3)}
+.si{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--t3)}
+.tabs{display:flex;gap:5px;flex-wrap:wrap}
+.tb{padding:5px 13px;border-radius:18px;border:1.5px solid var(--br);background:transparent;font-family:'Lato',sans-serif;font-size:.74rem;font-weight:700;cursor:pointer;color:var(--t2);transition:all .17s;white-space:nowrap}
+.tb:hover{border-color:var(--navy);color:var(--navy)}
+.tb.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.tb.on.t2{background:var(--teal);border-color:var(--teal)}
+.tb.on.t3{background:var(--rust);border-color:var(--rust)}
+.tb.on.t4{background:var(--sage);border-color:var(--sage)}
+.tb.on.t5{background:var(--purple);border-color:var(--purple)}
+.tb.on.t6{background:var(--gold);border-color:var(--gold)}
+.tb.on.t7{background:var(--slate);border-color:var(--slate)}
+
+/* LAYOUT */
+.wrap{max-width:1160px;margin:0 auto;padding:24px 14px 60px}
+.sec{margin-bottom:44px}
+.sec-hd{display:flex;align-items:center;gap:12px;margin-bottom:18px;padding-bottom:9px;border-bottom:2px solid var(--br)}
+.sec-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--br);line-height:1;flex-shrink:0}
+.sec-info{flex:1}
+.sec-title{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:600;color:var(--tx)}
+.sec-sub{font-size:.7rem;color:var(--t3);font-family:'DM Mono',monospace}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.grid-wide{display:grid;grid-template-columns:repeat(auto-fill,minmax(480px,1fr));gap:14px}
+@media(max-width:680px){.grid,.grid-wide{grid-template-columns:1fr}}
+
+/* CARD */
+.card{background:var(--s1);border:1.5px solid var(--br);border-radius:11px;overflow:hidden;transition:transform .13s,box-shadow .13s}
+.card:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(0,0,0,.07)}
+.card.hide{display:none}
+.ch{display:flex;align-items:center;gap:10px;padding:13px 16px;cursor:pointer;background:var(--s2);border-bottom:1.5px solid var(--br);transition:background .13s}
+.ch:hover,.card.open .ch{background:var(--s3)}
+.vnum{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--br);line-height:1;flex-shrink:0;min-width:28px}
+.vmeta{flex:1}
+.vname{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--tx)}
+.vsub{font-size:.74rem;color:var(--t2);margin-top:1px;font-family:'DM Mono',monospace}
+.vbadge{display:inline-block;font-family:'DM Mono',monospace;font-size:.58rem;padding:2px 6px;border-radius:3px;margin-top:3px;border:1px solid}
+.vbadge.reg{background:#e8f4ed;color:#1a6b3a;border-color:#a8d4b8}
+.vbadge.irreg{background:#fce8e8;color:#8b1a1a;border-color:#dcb0b0}
+.vbadge.modal{background:#e8eef8;color:#1a3a8b;border-color:#a8bcdc}
+.vbadge.aux{background:#f8f0e8;color:#6b3a0a;border-color:#d4b888}
+.tog{color:var(--t3);font-size:.82rem;transition:transform .22s;flex-shrink:0}
+.card.open .tog{transform:rotate(180deg)}
+.cb{display:none}
+.card.open .cb{display:block}
+
+/* TENSE TABLE */
+.tblock{border-bottom:1px solid var(--br)}
+.tblock:last-child{border-bottom:none}
+.tlabel{padding:6px 14px;font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.9px;text-transform:uppercase;font-weight:500;border-bottom:1px solid var(--br)}
+.tlabel.pres{color:var(--navy);background:#eef2fa}
+.tlabel.past{color:var(--rust);background:#faf0ee}
+.tlabel.fut{color:var(--teal);background:#eef6f3}
+.tlabel.perf{color:var(--gold);background:#faf5e8}
+.tlabel.cond{color:var(--purple);background:#f4f0fa}
+.tlabel.mod{color:var(--slate);background:#eef3f8}
+.tgrid{display:grid;grid-template-columns:1fr 1fr;gap:0;padding:8px 14px 10px}
+.fi{display:flex;gap:5px;padding:2px 0;font-size:.83rem;line-height:1.45;color:var(--t2)}
+.fp{font-family:'DM Mono',monospace;font-size:.67rem;color:var(--t3);flex-shrink:0;padding-top:2px;min-width:56px}
+.fv{color:var(--tx);font-weight:600}
+.fv em{font-style:normal;color:var(--rust);font-weight:400;font-size:.78rem}
+.fi-full{grid-column:1/-1}
+.tnote{padding:7px 14px 9px;font-size:.76rem;color:var(--t3);font-style:italic;background:rgba(0,0,0,.02);border-top:1px dashed var(--br)}
+.tnote::before{content:'📌 ';font-style:normal}
+
+/* TABLE */
+.tw{overflow-x:auto;padding:10px 14px 12px}
+table{width:100%;border-collapse:collapse;font-size:.82rem}
+th{background:var(--navy);color:#fff;padding:6px 10px;text-align:left;font-family:'DM Mono',monospace;font-size:.67rem;letter-spacing:.5px}
+td{padding:6px 10px;border-bottom:1px solid var(--br);line-height:1.5;color:var(--tx)}
+tr:nth-child(even) td{background:var(--s2)}
+td code{font-family:'DM Mono',monospace;font-size:.79rem;background:var(--s3);padding:1px 4px;border-radius:3px}
+td .ok{color:var(--teal);font-weight:600}
+td .no{color:var(--red)}
+td .note{color:var(--t3);font-style:italic;font-size:.75rem}
+
+/* PATTERN BLOCK */
+.pblock{padding:10px 14px 12px;border-bottom:1px solid var(--br)}
+.pblock:last-child{border-bottom:none}
+.plabel{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.8px;text-transform:uppercase;color:var(--navy);background:#eef2fa;padding:3px 8px;border-radius:3px;display:inline-block;margin-bottom:8px;font-weight:500}
+.pbox{background:var(--s2);border-left:3px solid var(--navy);border-radius:0 6px 6px 0;padding:9px 13px;font-size:.85rem;line-height:1.65;color:var(--tx)}
+.pbox code{font-family:'DM Mono',monospace;font-size:.8rem;background:rgba(27,58,94,.1);padding:1px 5px;border-radius:3px;color:var(--navy)}
+.pbox .eg{color:var(--teal);font-weight:600}
+.pbox .bad{color:var(--red);text-decoration:line-through;opacity:.7}
+.tip{background:#fffaed;border:1px solid #e8d890;border-radius:6px;padding:9px 13px;margin:8px 14px;font-size:.83rem;color:#5a4a10}
+.tip::before{content:'💡 '}
+
+/* EMPTY */
+.empty{text-align:center;padding:50px 20px;color:var(--t3);display:none}
+.empty.show{display:block}
+.empty h3{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--t2);margin-bottom:6px}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-tag">Complete Reference</div>
+  <h1>English <em>Conjugation</em> Guide</h1>
+  <p>All tenses · Regular &amp; irregular verbs · Modals · Phrasal verbs · With full forms and usage notes</p>
+  <div class="stats">
+    <div class="stat"><strong>12</strong> tense forms</div>
+    <div class="stat"><strong>200+</strong> irregular verbs</div>
+    <div class="stat"><strong>9</strong> modal verbs</div>
+    <div class="stat"><strong>All</strong> persons conjugated</div>
+  </div>
+</div>
+
+<div class="controls">
+  <div class="ci">
+    <div class="sr">
+      <span class="si">🔍</span>
+      <input type="text" id="q" placeholder="Search verb… e.g. be, go, have, irregular, modal, regular" oninput="run()">
+    </div>
+    <div class="tabs" id="gtabs">
+      <button class="tb on" onclick="setG('all',this)">All</button>
+      <button class="tb t2" onclick="setG('tenses',this)">Tense System</button>
+      <button class="tb t3" onclick="setG('regular',this)">Regular Verbs</button>
+      <button class="tb t4" onclick="setG('irregular',this)">Irregular Verbs</button>
+      <button class="tb t5" onclick="setG('modal',this)">Modal Verbs</button>
+      <button class="tb t6" onclick="setG('auxiliary',this)">Auxiliary Verbs</button>
+      <button class="tb t7" onclick="setG('patterns',this)">Verb Patterns</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+<div id="empty" class="empty"><h3>No results</h3><p>Try a different search.</p></div>
+
+<!-- ═══════════════════════════
+  SECTION 1: THE TENSE SYSTEM
+════════════════════════════ -->
+<div class="sec" data-g="tenses">
+  <div class="sec-hd">
+    <div class="sec-num">1</div>
+    <div class="sec-info">
+      <div class="sec-title">The English Tense System</div>
+      <div class="sec-sub">12 tenses — full conjugation with all persons</div>
+    </div>
+  </div>
+  <div class="grid">
+
+<!-- FULL TENSE OVERVIEW CARD -->
+<div class="card" data-g="tenses" data-k="tense overview system all 12 tenses simple continuous perfect chart">
+<div class="ch" onclick="tog(this)">
+  <div class="vnum">✦</div>
+  <div class="vmeta"><div class="vname">The 12 Tenses — Overview Chart</div><div class="vsub">Simple · Continuous · Perfect · Perfect Continuous</div></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="tw"><table>
+    <tr><th>Tense</th><th>Form</th><th>Example (verb: work)</th><th>Key Use</th></tr>
+    <tr><td><strong>Present Simple</strong></td><td><code>work / works</code></td><td>She works here.</td><td>Habits, facts</td></tr>
+    <tr><td><strong>Present Continuous</strong></td><td><code>am/is/are working</code></td><td>She is working now.</td><td>Happening now / temporary</td></tr>
+    <tr><td><strong>Present Perfect</strong></td><td><code>have/has worked</code></td><td>She has worked here for 3 years.</td><td>Past → present connection</td></tr>
+    <tr><td><strong>Present Perfect Cont.</strong></td><td><code>have/has been working</code></td><td>She has been working all day.</td><td>Duration up to now</td></tr>
+    <tr><td><strong>Past Simple</strong></td><td><code>worked</code></td><td>She worked yesterday.</td><td>Completed past action</td></tr>
+    <tr><td><strong>Past Continuous</strong></td><td><code>was/were working</code></td><td>She was working at 8pm.</td><td>In progress at past moment</td></tr>
+    <tr><td><strong>Past Perfect</strong></td><td><code>had worked</code></td><td>She had worked there before.</td><td>Before another past event</td></tr>
+    <tr><td><strong>Past Perfect Cont.</strong></td><td><code>had been working</code></td><td>She had been working for hours.</td><td>Duration before a past point</td></tr>
+    <tr><td><strong>Future Simple</strong></td><td><code>will work</code></td><td>She will work tomorrow.</td><td>Decisions, promises, predictions</td></tr>
+    <tr><td><strong>Future Continuous</strong></td><td><code>will be working</code></td><td>She will be working at 8pm.</td><td>In progress at future moment</td></tr>
+    <tr><td><strong>Future Perfect</strong></td><td><code>will have worked</code></td><td>She will have worked 10 years by then.</td><td>Completed before a future point</td></tr>
+    <tr><td><strong>Future Perfect Cont.</strong></td><td><code>will have been working</code></td><td>She will have been working for 5 hours.</td><td>Duration up to a future point</td></tr>
+  </table></div>
+</div></div>
+
+<!-- PRESENT SIMPLE FULL -->
+<div class="card" data-g="tenses" data-k="present simple tense conjugation all persons do does habits facts">
+<div class="ch" onclick="tog(this)">
+  <div class="vnum">1</div>
+  <div class="vmeta"><div class="vname">Present Simple</div><div class="vsub">Habits · Facts · Routines · Truths</div></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="tblock">
+    <div class="tlabel pres">Affirmative — to work</div>
+    <div class="tgrid">
+      <div class="fi"><span class="fp">I</span><span class="fv">work</span></div>
+      <div class="fi"><span class="fp">we</span><span class="fv">work</span></div>
+      <div class="fi"><span class="fp">you</span><span class="fv">work</span></div>
+      <div class="fi"><span class="fp">you (pl.)</span><span class="fv">work</span></div>
+      <div class="fi"><span class="fp">he/she/it</span><span class="fv">works <em>(+s)</em></span></div>
+      <div class="fi"><span class="fp">they</span><span class="fv">work</span></div>
+    </div>
+  </div>
+  <div class="tblock">
+    <div class="tlabel past">Negative</div>
+    <div class="tgrid">
+      <div class="fi"><span class="fp">I/you/we/they</span><span class="fv">do not (don't) work</span></div>
+      <div class="fi"><span class="fp">he/she/it</span><span class="fv">does not (doesn't) work</span></div>
+    </div>
+  </div>
+  <div class="tblock">
+    <div class="tlabel fut">Question</div>
+    <div class="tgrid">
+      <div class="fi fi-full"><span class="fp">I/you/we/they</span><span class="fv">Do I/you/we/they work?</span></div>
+      <div class="fi fi-full"><span class="fp">he/she/it</span><span class="fv">Does he/she/it work?</span></div>
+    </div>
+  </div>
+  <div class="pblock">
+    <div class="plabel">Third Person -s rules</div>
+    <div class="pbox">
+      Most verbs: add <code>-s</code> → works, plays, runs<br>
+      Ends in -s,-ss,-sh,-ch,-x,-z: add <code>-es</code> → watches, washes, fixes<br>
+      Consonant + y: <code>-y → -ies</code> → studies, tries, carries<br>
+      Vowel + y: add <code>-s</code> → plays, buys, says<br>
+      Irregulars: <code class="eg">has</code> (have) · <code class="eg">does</code> (do) · <code class="eg">goes</code> (go) · <code class="eg">is</code> (be)
+    </div>
+  </div>
+  <div class="tnote">Signal words: always, usually, often, sometimes, never, every day/week/year, on Mondays, in general.</div>
+</div></div>
+
+<!-- PRESENT CONTINUOUS FULL -->
+<div class="card" data-g="tenses" data-k="present continuous progressive tense am is are ing now temporary">
+<div class="ch" onclick="tog(this)">
+  <div class="vnum">2</div>
+  <div class="vmeta"><div class="vname">Present Continuous</div><div class="vsub">Now · Temporary · Planned future</div></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="tblock">
+    <div class="tlabel pres">Affirmative — to work</div>
+    <div class="tgrid">
+      <div class="fi"><span class="fp">I</span><span class="fv">am working</span></div>
+      <div class="fi"><span class="fp">we</span><span class="fv">are working</span></div>
+      <div class="fi"><span class="fp">you</span><span class="fv">are working</span></div>
+      <div class="fi"><span class="fp">you (pl.)</span><span class="fv">are working</span></div>
+      <div class="fi"><span class="fp">he/she/it</span><span class="fv">is working</span></div>
+      <div class="fi"><span class="fp">they</span><span class="fv">are working</span></div>
+    </div>
+  </div>
+  <div class="tblock">
+    <div class="tlabel past">Negative</div>
+    <div class="tgrid">
+      <div class="fi"><span class="fp">I</span><span class="fv">am not (I'm not) working</span></div>
+      <div class="fi"><span class="fp">he/she/it</span><span class="fv">is not (isn't) working</span></div>
+      <div class="fi"><span class="fp">we/you/they</span><span class="fv">are not (aren't) working</span></div>
+    </div>
+  </div>
+  <div class="tblock">
+    <div class="tlabel fut">Question</div>
+    <div class="tgrid">
+      <div class="fi fi-full"><span class="fp"></span><span class="fv">Am I / Are you / Is he / Are we / Are they working?</span></div>
+    </div>
+  </div>
+  <div class="pblock">
+    <div class="plabel">-ing spelling rules</div>
+    <div class="pbox">
+      Most verbs: add <code>-ing</code> → working, playing, reading<br>
+      Ends in -e: drop e + <code>-ing</code> → making, writing, coming, having<br>
+      Short CVC (consonant-vowel-consonant): double final consonant → running, sitting, swimming, beginning<br>
+      Ends in -ie: <code>-ie → -ying</code> → dying, lying, tying<br>
+      Ends in -y: just add <code>-ing</code> → playing, studying
+    </div>
+  </div>
+  <div class="tnote">Signal words: now, at the moment, currently, right now, today, this week, Look! Listen! Still.</div>
+</div></div>
+
+<!-- PRESENT PERFECT FULL -->
+<div class="card" data-g="tenses" data-k="present perfect tense have has past participle just already yet ever never">
+<div class="ch" onclick="tog(this)">
+  <div class="vnum">3</div>
+  <div class="vmeta"><div class="vname">Present Perfect</div><div class="vsub">Experience · Result · Unfinished time period</div></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="tblock">
+    <div class="tlabel perf">Affirmative — to work</div>
+    <div class="tgrid">
+      <div class="fi"><span class="fp">I</span><span class="fv">have (I've) worked</span></div>
+      <div class="fi"><span class="fp">we</span><span class="fv">have (we've) worked</span></div>
+      <div class="fi"><span class="fp">you</span><span class="fv">have (you've) worked</span></div>
+      <div class="fi"><span class="fp">you (pl.)</span><span class="fv">have worked</span></div>
+      <div class="fi"><span class="fp">he/she/it</span><span class="fv">has (he's) worked</span></div>
+      <div class="fi"><span class="fp">they</span><span class="fv">have (they've) worked</span></div>
+    </div>
+  </div>
+  <div class="tblock">
+    <div class="tlabel past">Negative</div>
+    <div class="tgrid">
+      <div class="fi"><span class="fp">I/you/we/they</span><span class="fv">have not (haven't) worked</span></div>
+      <div class="fi"><span class="fp">he/she/it</span><span class="fv">has not (hasn't) worked</span></div>
+    </div>
+  </div>
+  <div class="tblock">
+    <div class="tlabel fut">Question</div>
+    <div class="tgrid">
+      <div class="fi fi-full"><span class="fp"></span><span class="fv">Have I/you/we/they worked? — Has he/she/it worked?</span></div>
+    </div>
+  </div>
+  <div class="tnote">Signal words: just, already, yet (negatives/questions), ever, never, recently, lately, so far, up to now, this week/month/year, since, for.</div>
+</div></div>
+
+<!-- PAST SIMPLE FULL -->
+<div class="card" data-g="tenses" data-k="past simple tense did regular -ed irregular completed yesterday ago">
+<div class="ch" onclick="tog(this)">
+  <div class="vnum">4</div>
+  <div class="vmeta"><div class="vname">Past Simple</div><div class="vsub">Completed actions at a specific past time</div></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="tblock">
+    <div class="tlabel past">Affirmative — regular verb: to work</div>
+    <div class="tgrid">
+      <div class="fi fi-full"><span class="fp">ALL persons</span><span class="fv">worked <em>(same form for all)</em></span></div>
+    </div>
+  </div>
+  <div class="tblock">
+    <div class="tlabel pres">Affirmative — irregular verb: to go</div>
+    <div class="tgrid">
+      <div class="fi fi-full"><span class="fp">ALL persons</span><span class="fv">went <em>(must memorize irregular forms)</em></span></div>
+    </div>
+  </div>
+  <div class="tblock">
+    <div class="tlabel past">Negative — ALL persons same</div>
+    <div class="tgrid">
+      <div class="fi fi-full"><span class="fp">ALL persons</span><span class="fv">did not (didn't) work / go</span></div>
+    </div>
+  </div>
+  <div class="tblock">
+    <div class="tlabel fut">Question</div>
+    <div class="tgrid">
+      <div class="fi fi-full"><span class="fp">ALL persons</span><span class="fv">Did I/you/he/she/we/they work/go?</span></div>
+    </div>
+  </div>
+  <div class="pblock">
+    <div class="plabel">Regular -ed spelling rules</div>
+    <div class="pbox">
+      Most verbs: add <code>-ed</code> → worked, played, opened<br>
+      Ends in -e: add <code>-d</code> → loved, hoped, used, liked<br>
+      Short CVC: double final consonant → stopped, planned, dropped, hugged<br>
+      Consonant + y: <code>-y → -ied</code> → tried, studied, carried, replied<br>
+      Vowel + y: add <code>-ed</code> → played, enjoyed, stayed
+    </div>
+  </div>
+  <div class="tnote">Signal words: yesterday, last week/month/year, ago, in 2010, when I was young, then, at that time, in those days.</div>
+</div></div>
+
+<!-- PAST CONTINUOUS -->
+<div class="card" data-g="tenses" data-k="past continuous progressive was were ing interrupted background scene while when">
+<div class="ch" onclick="tog(this)">
+  <div class="vnum">5</div>
+  <div class="vmeta"><div class="vname">Past Continuous</div><div class="vsub">In progress at a past moment · Background scenes</div></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="tblock">
+    <div class="tlabel past">Affirmative — to work</div>
+    <div class="tgrid">
+      <div class="fi"><span class="fp">I</span><span class="fv">was working</span></div>
+      <div class="fi"><span class="fp">we</span><span class="fv">were working</span></div>
+      <div class="fi"><span class="fp">you</span><span class="fv">were working</span></div>
+      <div class="fi"><span class="fp">you (pl.)</span><span class="fv">were working</span></div>
+      <div class="fi"><span class="fp">he/she/it</span><span class="fv">was working</span></div>
+      <div class="fi"><span class="fp">they</span><span class="fv">were working</span></div>
+    </div>
+  </div>
+  <div class="tblock">
+    <div class="tlabel past">Negative / Question</div>
+    <div class="tgrid">
+      <div class="fi fi-full"><span class="fp">neg.</span><span class="fv">I was not (wasn't) / they were not (weren't) working</span></div>
+      <div class="fi fi-full"><span class="fp">question</span><span class="fv">Was I/he working? — Were you/they working?</span></div>
+    </div>
+  </div>
+  <div class="tnote">Signal words: while, when, at that moment, at 8pm last night, all day yesterday, as.</div>
+</div></div>
+
+<!-- PAST PERFECT -->
+<div class="card" data-g="tenses" data-k="past perfect had done past participle before after sequence pluperfect">
+<div class="ch" onclick="tog(this)">
+  <div class="vnum">6</div>
+  <div class="vmeta"><div class="vname">Past Perfect</div><div class="vsub">The "further past" — before another past event</div></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="tblock">
+    <div class="tlabel perf">Affirmative — ALL persons same form</div>
+    <div class="tgrid">
+      <div class="fi fi-full"><span class="fp">ALL persons</span><span class="fv">had (I'd/she'd/they'd) worked / gone / seen</span></div>
+    </div>
+  </div>
+  <div class="tblock">
+    <div class="tlabel past">Negative / Question</div>
+    <div class="tgrid">
+      <div class="fi fi-full"><span class="fp">neg.</span><span class="fv">had not (hadn't) worked</span></div>
+      <div class="fi fi-full"><span class="fp">question</span><span class="fv">Had I/you/he/she/we/they worked?</span></div>
+    </div>
+  </div>
+  <div class="tnote">Signal words: before, after, already, by the time, when, as soon as, because, since, just.</div>
+</div></div>
+
+<!-- FUTURE SIMPLE -->
+<div class="card" data-g="tenses" data-k="future simple will shall won't predictions promises decisions spontaneous">
+<div class="ch" onclick="tog(this)">
+  <div class="vnum">7</div>
+  <div class="vmeta"><div class="vname">Future Simple (will)</div><div class="vsub">Decisions · Promises · Predictions · Facts about future</div></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="tblock">
+    <div class="tlabel fut">Affirmative — ALL persons same</div>
+    <div class="tgrid">
+      <div class="fi fi-full"><span class="fp">ALL persons</span><span class="fv">will (I'll/she'll/they'll) work</span></div>
+    </div>
+  </div>
+  <div class="tblock">
+    <div class="tlabel past">Negative / Question</div>
+    <div class="tgrid">
+      <div class="fi fi-full"><span class="fp">neg.</span><span class="fv">will not (won't) work</span></div>
+      <div class="fi fi-full"><span class="fp">question</span><span class="fv">Will I/you/he/she/we/they work?</span></div>
+    </div>
+  </div>
+  <div class="pblock">
+    <div class="plabel">Going to — planned future</div>
+    <div class="pbox">
+      Use <code>am/is/are going to + base verb</code> for plans already decided or predictions based on evidence:<br>
+      <span class="eg">I'm going to visit Paris next month.</span> (already planned)<br>
+      <span class="eg">Look at those clouds — it's going to rain.</span> (evidence)
+    </div>
+  </div>
+  <div class="tnote">Signal words: tomorrow, next week/month/year, soon, in the future, someday, I think, I believe, I'm sure, probably.</div>
+</div></div>
+
+<!-- FUTURE CONTINUOUS -->
+<div class="card" data-g="tenses" data-k="future continuous progressive will be ing in progress future moment polite">
+<div class="ch" onclick="tog(this)">
+  <div class="vnum">8</div>
+  <div class="vmeta"><div class="vname">Future Continuous</div><div class="vsub">In progress at a future moment · Polite enquiries</div></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="tblock">
+    <div class="tlabel fut">All persons — same form</div>
+    <div class="tgrid">
+      <div class="fi fi-full"><span class="fp">ALL persons</span><span class="fv">will be working</span></div>
+      <div class="fi fi-full"><span class="fp">neg.</span><span class="fv">will not (won't) be working</span></div>
+      <div class="fi fi-full"><span class="fp">question</span><span class="fv">Will you/he/they be working?</span></div>
+    </div>
+  </div>
+  <div class="pblock">
+    <div class="plabel">Uses</div>
+    <div class="pbox">
+      In progress at a specific future time: <span class="eg">At 9pm tomorrow, I'll be sleeping.</span><br>
+      Polite enquiry (softens a question): <span class="eg">Will you be needing the car this evening?</span><br>
+      Inevitable/planned event: <span class="eg">She'll be starting the new job on Monday.</span>
+    </div>
+  </div>
+</div></div>
+
+<!-- FUTURE PERFECT -->
+<div class="card" data-g="tenses" data-k="future perfect will have done completed before future point by then deadline">
+<div class="ch" onclick="tog(this)">
+  <div class="vnum">9</div>
+  <div class="vmeta"><div class="vname">Future Perfect + Future Perfect Continuous</div><div class="vsub">Completed/ongoing up to a future point</div></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="tblock">
+    <div class="tlabel fut">Future Perfect — all persons</div>
+    <div class="tgrid">
+      <div class="fi fi-full"><span class="fp">affirmative</span><span class="fv">will have worked / gone / seen</span></div>
+      <div class="fi fi-full"><span class="fp">negative</span><span class="fv">will not (won't) have worked</span></div>
+      <div class="fi fi-full"><span class="fp">question</span><span class="fv">Will you/he/they have worked?</span></div>
+    </div>
+  </div>
+  <div class="tblock">
+    <div class="tlabel perf">Future Perfect Continuous — all persons</div>
+    <div class="tgrid">
+      <div class="fi fi-full"><span class="fp">affirmative</span><span class="fv">will have been working</span></div>
+      <div class="fi fi-full"><span class="fp">negative</span><span class="fv">won't have been working</span></div>
+    </div>
+  </div>
+  <div class="pblock">
+    <div class="plabel">Examples</div>
+    <div class="pbox">
+      <span class="eg">By Friday, I will have finished the report.</span><br>
+      <span class="eg">By next year, she will have been teaching for 20 years.</span><br>
+      Signal words: <code>by (the time)</code>, <code>by then</code>, <code>by next…</code>, <code>before</code>
+    </div>
+  </div>
+</div></div>
+
+<!-- PERFECT CONTINUOUS ALL -->
+<div class="card" data-g="tenses" data-k="perfect continuous have been has been had been ing duration result activity">
+<div class="ch" onclick="tog(this)">
+  <div class="vnum">10</div>
+  <div class="vmeta"><div class="vname">All Perfect Continuous Forms</div><div class="vsub">Duration · Activity emphasis · Result visible</div></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="tblock">
+    <div class="tlabel perf">Present Perfect Continuous</div>
+    <div class="tgrid">
+      <div class="fi"><span class="fp">I/you/we/they</span><span class="fv">have been working</span></div>
+      <div class="fi"><span class="fp">he/she/it</span><span class="fv">has been working</span></div>
+      <div class="fi fi-full"><span class="fp">neg.</span><span class="fv">haven't / hasn't been working</span></div>
+      <div class="fi fi-full"><span class="fp">question</span><span class="fv">Have you / Has he been working?</span></div>
+    </div>
+  </div>
+  <div class="tblock">
+    <div class="tlabel past">Past Perfect Continuous</div>
+    <div class="tgrid">
+      <div class="fi fi-full"><span class="fp">ALL persons</span><span class="fv">had been working</span></div>
+      <div class="fi fi-full"><span class="fp">neg.</span><span class="fv">hadn't been working</span></div>
+    </div>
+  </div>
+  <div class="pblock">
+    <div class="plabel">Perfect vs Perfect Continuous</div>
+    <div class="pbox">
+      <span class="eg">I've read 50 pages.</span> → focus on result/amount completed<br>
+      <span class="eg">I've been reading all morning.</span> → focus on duration/activity<br><br>
+      <span class="eg">She has been crying.</span> → explains why her eyes are red (visible result of ongoing activity)<br>
+      <span class="eg">He had been waiting for two hours when she arrived.</span>
+    </div>
+  </div>
+</div></div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════
+  SECTION 2: REGULAR VERBS
+════════════════════════════ -->
+<div class="sec" data-g="regular">
+  <div class="sec-hd">
+    <div class="sec-num">2</div>
+    <div class="sec-info">
+      <div class="sec-title">Regular Verbs — Model Conjugations</div>
+      <div class="sec-sub">All 12 tenses · Positive, negative &amp; question forms</div>
+    </div>
+  </div>
+  <div class="grid">
+
+<!-- TO WORK — full model -->
+<div class="card" data-g="regular" data-k="work regular verb full conjugation model all tenses">
+<div class="ch" onclick="tog(this)">
+  <div class="vnum">①</div>
+  <div class="vmeta"><div class="vname">to work</div><div class="vsub">Base · worked · worked — model regular verb</div><span class="vbadge reg">regular</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="tblock"><div class="tlabel pres">Present Simple</div><div class="tgrid">
+    <div class="fi"><span class="fp">I/you/we/they</span><span class="fv">work</span></div>
+    <div class="fi"><span class="fp">he/she/it</span><span class="fv">works</span></div>
+    <div class="fi"><span class="fp">neg.</span><span class="fv">don't / doesn't work</span></div>
+    <div class="fi"><span class="fp">question</span><span class="fv">Do/Does … work?</span></div>
+  </div></div>
+  <div class="tblock"><div class="tlabel pres">Present Continuous</div><div class="tgrid">
+    <div class="fi"><span class="fp">I</span><span class="fv">am working</span></div>
+    <div class="fi"><span class="fp">he/she/it</span><span class="fv">is working</span></div>
+    <div class="fi"><span class="fp">we/you/they</span><span class="fv">are working</span></div>
+  </div></div>
+  <div class="tblock"><div class="tlabel perf">Present Perfect</div><div class="tgrid">
+    <div class="fi"><span class="fp">I/you/we/they</span><span class="fv">have worked</span></div>
+    <div class="fi"><span class="fp">he/she/it</span><span class="fv">has worked</span></div>
+  </div></div>
+  <div class="tblock"><div class="tlabel perf">Present Perfect Continuous</div><div class="tgrid">
+    <div class="fi"><span class="fp">I/you/we/they</span><span class="fv">have been working</span></div>
+    <div class="fi"><span class="fp">he/she/it</span><span class="fv">has been working</span></div>
+  </div></div>
+  <div class="tblock"><div class="tlabel past">Past Simple — ALL persons</div><div class="tgrid">
+    <div class="fi"><span class="fp">ALL</span><span class="fv">worked</span></div>
+    <div class="fi"><span class="fp">neg.</span><span class="fv">didn't work</span></div>
+    <div class="fi"><span class="fp">question</span><span class="fv">Did … work?</span></div>
+  </div></div>
+  <div class="tblock"><div class="tlabel past">Past Continuous</div><div class="tgrid">
+    <div class="fi"><span class="fp">I/he/she/it</span><span class="fv">was working</span></div>
+    <div class="fi"><span class="fp">you/we/they</span><span class="fv">were working</span></div>
+  </div></div>
+  <div class="tblock"><div class="tlabel perf">Past Perfect — ALL persons</div><div class="tgrid">
+    <div class="fi"><span class="fp">ALL</span><span class="fv">had worked</span></div>
+    <div class="fi"><span class="fp">neg.</span><span class="fv">hadn't worked</span></div>
+  </div></div>
+  <div class="tblock"><div class="tlabel perf">Past Perfect Continuous</div><div class="tgrid">
+    <div class="fi"><span class="fp">ALL</span><span class="fv">had been working</span></div>
+  </div></div>
+  <div class="tblock"><div class="tlabel fut">Future Simple — ALL persons</div><div class="tgrid">
+    <div class="fi"><span class="fp">ALL</span><span class="fv">will work</span></div>
+    <div class="fi"><span class="fp">neg.</span><span class="fv">won't work</span></div>
+    <div class="fi"><span class="fp">question</span><span class="fv">Will … work?</span></div>
+  </div></div>
+  <div class="tblock"><div class="tlabel fut">Future Continuous / Perfect</div><div class="tgrid">
+    <div class="fi"><span class="fp">cont.</span><span class="fv">will be working</span></div>
+    <div class="fi"><span class="fp">perfect</span><span class="fv">will have worked</span></div>
+    <div class="fi"><span class="fp">perf.cont.</span><span class="fv">will have been working</span></div>
+  </div></div>
+  <div class="tnote">This is the model for ALL regular verbs. Same pattern: play, open, call, watch, finish, listen, help, visit, clean, start, stop, travel.</div>
+</div></div>
+
+<!-- OTHER REGULAR VERBS TABLE -->
+<div class="card" data-g="regular" data-k="regular verbs common list spelling -ed -ing patterns play love stop">
+<div class="ch" onclick="tog(this)">
+  <div class="vnum">②</div>
+  <div class="vmeta"><div class="vname">Common Regular Verbs — Spelling Patterns</div><div class="vsub">Base form · Past simple · Past participle</div><span class="vbadge reg">regular</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="tw"><table>
+    <tr><th>Base</th><th>Past Simple</th><th>Past Participle</th><th>Pattern</th></tr>
+    <tr><td>play</td><td>played</td><td>played</td><td>vowel+y → add -ed</td></tr>
+    <tr><td>love</td><td>loved</td><td>loved</td><td>ends in -e → add -d</td></tr>
+    <tr><td>stop</td><td>stopped</td><td>stopped</td><td>CVC → double consonant</td></tr>
+    <tr><td>plan</td><td>planned</td><td>planned</td><td>CVC → double consonant</td></tr>
+    <tr><td>study</td><td>studied</td><td>studied</td><td>consonant+y → -ied</td></tr>
+    <tr><td>try</td><td>tried</td><td>tried</td><td>consonant+y → -ied</td></tr>
+    <tr><td>open</td><td>opened</td><td>opened</td><td>2+ syllables → add -ed</td></tr>
+    <tr><td>travel</td><td>travelled (BrE) / traveled (AmE)</td><td>travelled</td><td>-l doubles in BrE</td></tr>
+    <tr><td>prefer</td><td>preferred</td><td>preferred</td><td>stress on final syllable → double</td></tr>
+    <tr><td>listen</td><td>listened</td><td>listened</td><td>standard -ened</td></tr>
+    <tr><td>finish</td><td>finished</td><td>finished</td><td>add -ed after -sh</td></tr>
+    <tr><td>watch</td><td>watched</td><td>watched</td><td>add -ed after -ch</td></tr>
+  </table></div>
+</div></div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════
+  SECTION 3: IRREGULAR VERBS
+════════════════════════════ -->
+<div class="sec" data-g="irregular">
+  <div class="sec-hd">
+    <div class="sec-num">3</div>
+    <div class="sec-info">
+      <div class="sec-title">Irregular Verbs — Complete Reference</div>
+      <div class="sec-sub">200+ verbs · Base · Past simple · Past participle · Meaning</div>
+    </div>
+  </div>
+  <div class="grid">
+
+<!-- ESSENTIAL IRREGULARS: BE, HAVE, DO, GO -->
+<div class="card" data-g="irregular" data-k="be have do go essential irregular auxiliary full conjugation">
+<div class="ch" onclick="tog(this)">
+  <div class="vnum">①</div>
+  <div class="vmeta"><div class="vname">to be — full conjugation</div><div class="vsub">am · is · are · was · were · been — most irregular verb</div><span class="vbadge irreg">irregular</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="tblock"><div class="tlabel pres">Present Simple</div><div class="tgrid">
+    <div class="fi"><span class="fp">I</span><span class="fv">am (I'm)</span></div>
+    <div class="fi"><span class="fp">we</span><span class="fv">are (we're)</span></div>
+    <div class="fi"><span class="fp">you</span><span class="fv">are (you're)</span></div>
+    <div class="fi"><span class="fp">you (pl.)</span><span class="fv">are</span></div>
+    <div class="fi"><span class="fp">he/she/it</span><span class="fv">is (he's)</span></div>
+    <div class="fi"><span class="fp">they</span><span class="fv">are (they're)</span></div>
+    <div class="fi fi-full"><span class="fp">neg.</span><span class="fv">I'm not · he/she isn't · we/you/they aren't</span></div>
+    <div class="fi fi-full"><span class="fp">question</span><span class="fv">Am I? · Is he/she/it? · Are you/we/they?</span></div>
+  </div></div>
+  <div class="tblock"><div class="tlabel past">Past Simple</div><div class="tgrid">
+    <div class="fi"><span class="fp">I/he/she/it</span><span class="fv">was</span></div>
+    <div class="fi"><span class="fp">you/we/they</span><span class="fv">were</span></div>
+    <div class="fi"><span class="fp">neg.</span><span class="fv">wasn't / weren't</span></div>
+    <div class="fi"><span class="fp">question</span><span class="fv">Was I/he? · Were you/they?</span></div>
+  </div></div>
+  <div class="tblock"><div class="tlabel perf">Perfect Forms</div><div class="tgrid">
+    <div class="fi"><span class="fp">present perfect</span><span class="fv">have/has been</span></div>
+    <div class="fi"><span class="fp">past perfect</span><span class="fv">had been</span></div>
+    <div class="fi"><span class="fp">future</span><span class="fv">will be</span></div>
+    <div class="fi"><span class="fp">conditional</span><span class="fv">would be</span></div>
+  </div></div>
+  <div class="tnote">Past participle: been. Present participle: being. Subjunctive: were (If I were you…). Used as auxiliary for continuous tenses and passive voice.</div>
+</div></div>
+
+<div class="card" data-g="irregular" data-k="have has had auxiliary perfect possession irregular">
+<div class="ch" onclick="tog(this)">
+  <div class="vnum">②</div>
+  <div class="vmeta"><div class="vname">to have — full conjugation</div><div class="vsub">have · has · had — auxiliary + main verb</div><span class="vbadge irreg">irregular</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="tblock"><div class="tlabel pres">Present Simple</div><div class="tgrid">
+    <div class="fi"><span class="fp">I/you/we/they</span><span class="fv">have (I've)</span></div>
+    <div class="fi"><span class="fp">he/she/it</span><span class="fv">has (he's)</span></div>
+    <div class="fi"><span class="fp">neg.</span><span class="fv">don't have / doesn't have <em>(or: haven't/hasn't)</em></span></div>
+    <div class="fi"><span class="fp">question</span><span class="fv">Do you have? / Does he have?</span></div>
+  </div></div>
+  <div class="tblock"><div class="tlabel past">Past Simple — ALL persons</div><div class="tgrid">
+    <div class="fi fi-full"><span class="fp">ALL</span><span class="fv">had (I'd)</span></div>
+    <div class="fi fi-full"><span class="fp">neg./question</span><span class="fv">didn't have · Did you have?</span></div>
+  </div></div>
+  <div class="tblock"><div class="tlabel perf">Other Forms</div><div class="tgrid">
+    <div class="fi"><span class="fp">present perfect</span><span class="fv">have/has had</span></div>
+    <div class="fi"><span class="fp">past perfect</span><span class="fv">had had</span></div>
+    <div class="fi"><span class="fp">future</span><span class="fv">will have</span></div>
+    <div class="fi"><span class="fp">-ing form</span><span class="fv">having</span></div>
+  </div></div>
+  <div class="tnote">British English allows "have got" for possession: I've got a car = I have a car. Also used in expressions: have breakfast, have a shower, have fun, have a look.</div>
+</div></div>
+
+<div class="card" data-g="irregular" data-k="do does did done auxiliary irregular questions negatives emphasis">
+<div class="ch" onclick="tog(this)">
+  <div class="vnum">③</div>
+  <div class="vmeta"><div class="vname">to do — full conjugation</div><div class="vsub">do · does · did · done — auxiliary + main verb</div><span class="vbadge irreg">irregular</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="tblock"><div class="tlabel pres">Present Simple</div><div class="tgrid">
+    <div class="fi"><span class="fp">I/you/we/they</span><span class="fv">do</span></div>
+    <div class="fi"><span class="fp">he/she/it</span><span class="fv">does</span></div>
+    <div class="fi"><span class="fp">neg.</span><span class="fv">don't / doesn't do</span></div>
+    <div class="fi"><span class="fp">question</span><span class="fv">Do/Does … do?</span></div>
+  </div></div>
+  <div class="tblock"><div class="tlabel past">Past Simple</div><div class="tgrid">
+    <div class="fi fi-full"><span class="fp">ALL</span><span class="fv">did</span></div>
+    <div class="fi fi-full"><span class="fp">neg./question</span><span class="fv">didn't do · Did … do?</span></div>
+  </div></div>
+  <div class="tblock"><div class="tlabel perf">Perfect / Other Forms</div><div class="tgrid">
+    <div class="fi"><span class="fp">present perfect</span><span class="fv">have/has done</span></div>
+    <div class="fi"><span class="fp">past perfect</span><span class="fv">had done</span></div>
+    <div class="fi"><span class="fp">future</span><span class="fv">will do</span></div>
+    <div class="fi"><span class="fp">-ing form</span><span class="fv">doing</span></div>
+  </div></div>
+  <div class="tnote">As auxiliary: makes questions/negatives in simple tenses. For emphasis: "I DO like it!" Used in expressions: do homework, do the dishes, do well, do your best, do damage.</div>
+</div></div>
+
+<div class="card" data-g="irregular" data-k="go went gone irregular movement essential">
+<div class="ch" onclick="tog(this)">
+  <div class="vnum">④</div>
+  <div class="vmeta"><div class="vname">to go — full conjugation</div><div class="vsub">go · went · gone — highly irregular</div><span class="vbadge irreg">irregular</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="tblock"><div class="tlabel pres">Present Simple</div><div class="tgrid">
+    <div class="fi"><span class="fp">I/you/we/they</span><span class="fv">go</span></div>
+    <div class="fi"><span class="fp">he/she/it</span><span class="fv">goes</span></div>
+  </div></div>
+  <div class="tblock"><div class="tlabel past">Past Simple / Perfect</div><div class="tgrid">
+    <div class="fi"><span class="fp">past simple</span><span class="fv">went (ALL persons)</span></div>
+    <div class="fi"><span class="fp">pres. perfect</span><span class="fv">have/has gone</span></div>
+    <div class="fi"><span class="fp">past perfect</span><span class="fv">had gone</span></div>
+    <div class="fi"><span class="fp">future</span><span class="fv">will go</span></div>
+    <div class="fi"><span class="fp">cont. forms</span><span class="fv">going / was going / have been going</span></div>
+  </div></div>
+  <div class="tnote">Gone vs been: "He has gone to Paris" = he's there now / "He has been to Paris" = he's visited (and returned). "Going to" is also used for future plans.</div>
+</div></div>
+
+<!-- MEGA IRREGULAR VERBS TABLE -->
+<div class="card" data-g="irregular" data-k="irregular verbs complete list table base past participle all forms A-Z">
+<div class="ch" onclick="tog(this)">
+  <div class="vnum">⑤</div>
+  <div class="vmeta"><div class="vname">200+ Irregular Verbs — Complete Table</div><div class="vsub">Base form · Past simple · Past participle · Meaning</div><span class="vbadge irreg">irregular</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="tw"><table>
+    <tr><th>Base</th><th>Past Simple</th><th>Past Participle</th><th>Meaning</th></tr>
+    <tr><td>arise</td><td>arose</td><td>arisen</td><td>come up, occur</td></tr>
+    <tr><td>awake</td><td>awoke</td><td>awoken</td><td>wake up</td></tr>
+    <tr><td>be</td><td>was/were</td><td>been</td><td>exist</td></tr>
+    <tr><td>bear</td><td>bore</td><td>born/borne</td><td>carry; give birth</td></tr>
+    <tr><td>beat</td><td>beat</td><td>beaten</td><td>hit, defeat</td></tr>
+    <tr><td>become</td><td>became</td><td>become</td><td>turn into</td></tr>
+    <tr><td>begin</td><td>began</td><td>begun</td><td>start</td></tr>
+    <tr><td>bend</td><td>bent</td><td>bent</td><td>curve</td></tr>
+    <tr><td>bet</td><td>bet</td><td>bet</td><td>wager</td></tr>
+    <tr><td>bind</td><td>bound</td><td>bound</td><td>tie, fasten</td></tr>
+    <tr><td>bite</td><td>bit</td><td>bitten</td><td>cut with teeth</td></tr>
+    <tr><td>bleed</td><td>bled</td><td>bled</td><td>lose blood</td></tr>
+    <tr><td>blow</td><td>blew</td><td>blown</td><td>send air</td></tr>
+    <tr><td>break</td><td>broke</td><td>broken</td><td>shatter</td></tr>
+    <tr><td>breed</td><td>bred</td><td>bred</td><td>raise animals</td></tr>
+    <tr><td>bring</td><td>brought</td><td>brought</td><td>carry here</td></tr>
+    <tr><td>broadcast</td><td>broadcast</td><td>broadcast</td><td>transmit</td></tr>
+    <tr><td>build</td><td>built</td><td>built</td><td>construct</td></tr>
+    <tr><td>burn</td><td>burnt/burned</td><td>burnt/burned</td><td>be on fire</td></tr>
+    <tr><td>burst</td><td>burst</td><td>burst</td><td>explode</td></tr>
+    <tr><td>buy</td><td>bought</td><td>bought</td><td>purchase</td></tr>
+    <tr><td>catch</td><td>caught</td><td>caught</td><td>grab</td></tr>
+    <tr><td>choose</td><td>chose</td><td>chosen</td><td>select</td></tr>
+    <tr><td>come</td><td>came</td><td>come</td><td>move toward</td></tr>
+    <tr><td>cost</td><td>cost</td><td>cost</td><td>price</td></tr>
+    <tr><td>creep</td><td>crept</td><td>crept</td><td>move slowly</td></tr>
+    <tr><td>cut</td><td>cut</td><td>cut</td><td>slice</td></tr>
+    <tr><td>deal</td><td>dealt</td><td>dealt</td><td>handle, distribute</td></tr>
+    <tr><td>dig</td><td>dug</td><td>dug</td><td>excavate</td></tr>
+    <tr><td>dive</td><td>dived/dove</td><td>dived</td><td>plunge into water</td></tr>
+    <tr><td>do</td><td>did</td><td>done</td><td>perform</td></tr>
+    <tr><td>draw</td><td>drew</td><td>drawn</td><td>sketch; pull</td></tr>
+    <tr><td>dream</td><td>dreamt/dreamed</td><td>dreamt/dreamed</td><td>have dreams</td></tr>
+    <tr><td>drink</td><td>drank</td><td>drunk</td><td>consume liquid</td></tr>
+    <tr><td>drive</td><td>drove</td><td>driven</td><td>operate vehicle</td></tr>
+    <tr><td>eat</td><td>ate</td><td>eaten</td><td>consume food</td></tr>
+    <tr><td>fall</td><td>fell</td><td>fallen</td><td>drop down</td></tr>
+    <tr><td>feed</td><td>fed</td><td>fed</td><td>give food to</td></tr>
+    <tr><td>feel</td><td>felt</td><td>felt</td><td>sense, touch</td></tr>
+    <tr><td>fight</td><td>fought</td><td>fought</td><td>struggle, battle</td></tr>
+    <tr><td>find</td><td>found</td><td>found</td><td>discover</td></tr>
+    <tr><td>fly</td><td>flew</td><td>flown</td><td>travel by air</td></tr>
+    <tr><td>forbid</td><td>forbade</td><td>forbidden</td><td>not allow</td></tr>
+    <tr><td>forecast</td><td>forecast</td><td>forecast</td><td>predict</td></tr>
+    <tr><td>forget</td><td>forgot</td><td>forgotten</td><td>fail to remember</td></tr>
+    <tr><td>forgive</td><td>forgave</td><td>forgiven</td><td>pardon</td></tr>
+    <tr><td>freeze</td><td>froze</td><td>frozen</td><td>turn to ice</td></tr>
+    <tr><td>get</td><td>got</td><td>got/gotten (AmE)</td><td>obtain, become</td></tr>
+    <tr><td>give</td><td>gave</td><td>given</td><td>provide</td></tr>
+    <tr><td>go</td><td>went</td><td>gone</td><td>move away</td></tr>
+    <tr><td>grow</td><td>grew</td><td>grown</td><td>increase, develop</td></tr>
+    <tr><td>hang</td><td>hung/hanged</td><td>hung/hanged</td><td>suspend; execute</td></tr>
+    <tr><td>have</td><td>had</td><td>had</td><td>possess</td></tr>
+    <tr><td>hear</td><td>heard</td><td>heard</td><td>perceive sound</td></tr>
+    <tr><td>hide</td><td>hid</td><td>hidden</td><td>conceal</td></tr>
+    <tr><td>hit</td><td>hit</td><td>hit</td><td>strike</td></tr>
+    <tr><td>hold</td><td>held</td><td>held</td><td>grasp, contain</td></tr>
+    <tr><td>hurt</td><td>hurt</td><td>hurt</td><td>cause pain</td></tr>
+    <tr><td>keep</td><td>kept</td><td>kept</td><td>retain, maintain</td></tr>
+    <tr><td>kneel</td><td>knelt/kneeled</td><td>knelt/kneeled</td><td>be on knees</td></tr>
+    <tr><td>know</td><td>knew</td><td>known</td><td>be aware of</td></tr>
+    <tr><td>lay</td><td>laid</td><td>laid</td><td>put down (transitive)</td></tr>
+    <tr><td>lead</td><td>led</td><td>led</td><td>guide, direct</td></tr>
+    <tr><td>learn</td><td>learnt/learned</td><td>learnt/learned</td><td>acquire knowledge</td></tr>
+    <tr><td>leave</td><td>left</td><td>left</td><td>depart, abandon</td></tr>
+    <tr><td>lend</td><td>lent</td><td>lent</td><td>give temporarily</td></tr>
+    <tr><td>let</td><td>let</td><td>let</td><td>allow, permit</td></tr>
+    <tr><td>lie</td><td>lay</td><td>lain</td><td>recline (intransitive)</td></tr>
+    <tr><td>light</td><td>lit/lighted</td><td>lit/lighted</td><td>ignite</td></tr>
+    <tr><td>lose</td><td>lost</td><td>lost</td><td>fail to find/win</td></tr>
+    <tr><td>make</td><td>made</td><td>made</td><td>create, produce</td></tr>
+    <tr><td>mean</td><td>meant</td><td>meant</td><td>intend, signify</td></tr>
+    <tr><td>meet</td><td>met</td><td>met</td><td>encounter</td></tr>
+    <tr><td>mistake</td><td>mistook</td><td>mistaken</td><td>misidentify</td></tr>
+    <tr><td>overcome</td><td>overcame</td><td>overcome</td><td>defeat, conquer</td></tr>
+    <tr><td>pay</td><td>paid</td><td>paid</td><td>give money</td></tr>
+    <tr><td>put</td><td>put</td><td>put</td><td>place</td></tr>
+    <tr><td>quit</td><td>quit</td><td>quit</td><td>stop, resign</td></tr>
+    <tr><td>read</td><td>read</td><td>read</td><td>read (spelling same, pronunciation changes: /riːd/ → /rɛd/)</td></tr>
+    <tr><td>ride</td><td>rode</td><td>ridden</td><td>travel on</td></tr>
+    <tr><td>ring</td><td>rang</td><td>rung</td><td>make bell sound</td></tr>
+    <tr><td>rise</td><td>rose</td><td>risen</td><td>move up (intransitive)</td></tr>
+    <tr><td>run</td><td>ran</td><td>run</td><td>move fast</td></tr>
+    <tr><td>say</td><td>said</td><td>said</td><td>speak</td></tr>
+    <tr><td>see</td><td>saw</td><td>seen</td><td>perceive visually</td></tr>
+    <tr><td>seek</td><td>sought</td><td>sought</td><td>look for</td></tr>
+    <tr><td>sell</td><td>sold</td><td>sold</td><td>exchange for money</td></tr>
+    <tr><td>send</td><td>sent</td><td>sent</td><td>dispatch</td></tr>
+    <tr><td>set</td><td>set</td><td>set</td><td>place, establish</td></tr>
+    <tr><td>shake</td><td>shook</td><td>shaken</td><td>tremble</td></tr>
+    <tr><td>shed</td><td>shed</td><td>shed</td><td>drop, lose (leaves etc.)</td></tr>
+    <tr><td>shine</td><td>shone/shined</td><td>shone/shined</td><td>emit light</td></tr>
+    <tr><td>shoot</td><td>shot</td><td>shot</td><td>fire a weapon</td></tr>
+    <tr><td>show</td><td>showed</td><td>shown/showed</td><td>display</td></tr>
+    <tr><td>shrink</td><td>shrank</td><td>shrunk</td><td>become smaller</td></tr>
+    <tr><td>shut</td><td>shut</td><td>shut</td><td>close</td></tr>
+    <tr><td>sing</td><td>sang</td><td>sung</td><td>make music</td></tr>
+    <tr><td>sink</td><td>sank</td><td>sunk</td><td>go below surface</td></tr>
+    <tr><td>sit</td><td>sat</td><td>sat</td><td>be seated</td></tr>
+    <tr><td>sleep</td><td>slept</td><td>slept</td><td>rest</td></tr>
+    <tr><td>slide</td><td>slid</td><td>slid</td><td>move smoothly</td></tr>
+    <tr><td>speak</td><td>spoke</td><td>spoken</td><td>talk</td></tr>
+    <tr><td>spend</td><td>spent</td><td>spent</td><td>use time/money</td></tr>
+    <tr><td>spin</td><td>spun</td><td>spun</td><td>rotate</td></tr>
+    <tr><td>spread</td><td>spread</td><td>spread</td><td>extend, distribute</td></tr>
+    <tr><td>spring</td><td>sprang</td><td>sprung</td><td>jump</td></tr>
+    <tr><td>stand</td><td>stood</td><td>stood</td><td>be upright</td></tr>
+    <tr><td>steal</td><td>stole</td><td>stolen</td><td>take without permission</td></tr>
+    <tr><td>stick</td><td>stuck</td><td>stuck</td><td>attach, get jammed</td></tr>
+    <tr><td>sting</td><td>stung</td><td>stung</td><td>cause sharp pain</td></tr>
+    <tr><td>stink</td><td>stank</td><td>stunk</td><td>smell bad</td></tr>
+    <tr><td>strike</td><td>struck</td><td>struck/stricken</td><td>hit</td></tr>
+    <tr><td>string</td><td>strung</td><td>strung</td><td>thread, hang</td></tr>
+    <tr><td>strive</td><td>strove</td><td>striven</td><td>make great effort</td></tr>
+    <tr><td>swear</td><td>swore</td><td>sworn</td><td>use bad language; vow</td></tr>
+    <tr><td>sweep</td><td>swept</td><td>swept</td><td>clean with brush</td></tr>
+    <tr><td>swim</td><td>swam</td><td>swum</td><td>move through water</td></tr>
+    <tr><td>swing</td><td>swung</td><td>swung</td><td>move back and forth</td></tr>
+    <tr><td>take</td><td>took</td><td>taken</td><td>carry away</td></tr>
+    <tr><td>teach</td><td>taught</td><td>taught</td><td>instruct</td></tr>
+    <tr><td>tear</td><td>tore</td><td>torn</td><td>rip</td></tr>
+    <tr><td>tell</td><td>told</td><td>told</td><td>inform</td></tr>
+    <tr><td>think</td><td>thought</td><td>thought</td><td>use mind</td></tr>
+    <tr><td>throw</td><td>threw</td><td>thrown</td><td>project through air</td></tr>
+    <tr><td>understand</td><td>understood</td><td>understood</td><td>comprehend</td></tr>
+    <tr><td>upset</td><td>upset</td><td>upset</td><td>disturb, overturn</td></tr>
+    <tr><td>wake</td><td>woke</td><td>woken</td><td>stop sleeping</td></tr>
+    <tr><td>wear</td><td>wore</td><td>worn</td><td>have on body</td></tr>
+    <tr><td>weep</td><td>wept</td><td>wept</td><td>cry</td></tr>
+    <tr><td>win</td><td>won</td><td>won</td><td>be victorious</td></tr>
+    <tr><td>wind</td><td>wound</td><td>wound</td><td>coil, twist</td></tr>
+    <tr><td>withdraw</td><td>withdrew</td><td>withdrawn</td><td>pull back, remove</td></tr>
+    <tr><td>write</td><td>wrote</td><td>written</td><td>form text</td></tr>
+  </table></div>
+</div></div>
+
+<!-- IRREGULAR VERB PATTERNS -->
+<div class="card" data-g="irregular" data-k="irregular verbs patterns groups AAA ABA ABB ABC same form change">
+<div class="ch" onclick="tog(this)">
+  <div class="vnum">⑥</div>
+  <div class="vmeta"><div class="vname">Irregular Verb Patterns</div><div class="vsub">Grouping irregular verbs to memorize faster</div><span class="vbadge irreg">irregular</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="pblock">
+    <div class="plabel">Pattern A-A-A (all same)</div>
+    <div class="pbox">
+      Base = Past Simple = Past Participle<br>
+      <span class="eg">cut-cut-cut · hit-hit-hit · put-put-put · set-set-set · shut-shut-shut · let-let-let · bet-bet-bet · burst-burst-burst · cost-cost-cost · hurt-hurt-hurt · quit-quit-quit · read-read-read · spread-spread-spread · broadcast-broadcast-broadcast</span>
+    </div>
+  </div>
+  <div class="pblock">
+    <div class="plabel">Pattern A-B-A (past simple changes, participle = base)</div>
+    <div class="pbox">
+      <span class="eg">become-became-become · come-came-come · run-ran-run · overcome-overcame-overcome</span>
+    </div>
+  </div>
+  <div class="pblock">
+    <div class="plabel">Pattern A-B-B (past simple = past participle)</div>
+    <div class="pbox">
+      <span class="eg">bring-brought-brought · buy-bought-bought · catch-caught-caught · dig-dug-dug · feel-felt-felt · fight-fought-fought · find-found-found · hang-hung-hung · hear-heard-heard · hold-held-held · keep-kept-kept · lay-laid-laid · lead-led-led · leave-left-left · lend-lent-lent · lose-lost-lost · make-made-made · mean-meant-meant · meet-met-met · pay-paid-paid · say-said-said · sell-sold-sold · send-sent-sent · sit-sat-sat · sleep-slept-slept · spend-spent-spent · stand-stood-stood · stick-stuck-stuck · sweep-swept-swept · teach-taught-taught · tell-told-told · think-thought-thought · win-won-won · build-built-built</span>
+    </div>
+  </div>
+  <div class="pblock">
+    <div class="plabel">Pattern A-B-C (all three different)</div>
+    <div class="pbox">
+      <span class="eg">be-was/were-been · begin-began-begun · bite-bit-bitten · blow-blew-blown · break-broke-broken · choose-chose-chosen · do-did-done · draw-drew-drawn · drink-drank-drunk · drive-drove-driven · eat-ate-eaten · fall-fell-fallen · fly-flew-flown · forget-forgot-forgotten · give-gave-given · go-went-gone · grow-grew-grown · hide-hid-hidden · know-knew-known · lie-lay-lain · ride-rode-ridden · ring-rang-rung · rise-rose-risen · run-ran-run · see-saw-seen · shake-shook-shaken · show-showed-shown · shrink-shrank-shrunk · sing-sang-sung · sink-sank-sunk · speak-spoke-spoken · spring-sprang-sprung · steal-stole-stolen · swim-swam-swum · take-took-taken · tear-tore-torn · throw-threw-thrown · wake-woke-woken · wear-wore-worn · write-wrote-written</span>
+    </div>
+  </div>
+</div></div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════
+  SECTION 4: MODAL VERBS
+════════════════════════════ -->
+<div class="sec" data-g="modal">
+  <div class="sec-hd">
+    <div class="sec-num">4</div>
+    <div class="sec-info">
+      <div class="sec-title">Modal Verbs — Full Reference</div>
+      <div class="sec-sub">can · could · may · might · must · shall · should · will · would</div>
+    </div>
+  </div>
+  <div class="grid">
+
+<!-- MODAL RULES BOX -->
+<div class="card" data-g="modal" data-k="modal verbs rules no -s no to no do auxiliary structure">
+<div class="ch" onclick="tog(this)">
+  <div class="vnum">✦</div>
+  <div class="vmeta"><div class="vname">Modal Verbs — Grammar Rules</div><div class="vsub">How ALL modals work structurally</div><span class="vbadge modal">modal</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="pblock">
+    <div class="plabel">Structure Rules (apply to ALL modals)</div>
+    <div class="pbox">
+      1. <strong>No -s for he/she/it:</strong> She <span class="bad">cans</span> → She <span class="eg">can</span><br>
+      2. <strong>Followed by base verb (no "to"):</strong> He <span class="bad">must to go</span> → He <span class="eg">must go</span><br>
+      3. <strong>No do/does for questions:</strong> <span class="bad">Do you can swim?</span> → <span class="eg">Can you swim?</span><br>
+      4. <strong>No do/does for negatives:</strong> <span class="bad">He doesn't can</span> → <span class="eg">He can't / He cannot</span><br>
+      5. <strong>No infinitive, no past participle:</strong> modals never change form<br>
+      6. <strong>No continuous form:</strong> <span class="bad">He is musting</span> → ✗ impossible
+    </div>
+  </div>
+  <div class="pblock">
+    <div class="plabel">Modal + have + past participle (perfect modals)</div>
+    <div class="pbox">
+      Used to speculate about the past or express regret:<br>
+      <span class="eg">She must have left.</span> (deduction about past)<br>
+      <span class="eg">He could have called.</span> (past possibility — didn't happen)<br>
+      <span class="eg">They should have studied.</span> (regret/criticism about past)<br>
+      <span class="eg">You might have told me!</span> (mild reproach)<br>
+      <span class="eg">I would have helped.</span> (unrealized past intention)
+    </div>
+  </div>
+</div></div>
+
+<!-- CAN -->
+<div class="card" data-g="modal" data-k="can could ability permission request possibility informal">
+<div class="ch" onclick="tog(this)">
+  <div class="vnum">①</div>
+  <div class="vmeta"><div class="vname">can / cannot / can't</div><div class="vsub">Ability · Informal permission · Possibility · Request</div><span class="vbadge modal">modal</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="tblock"><div class="tlabel pres">All forms — ALL persons same</div><div class="tgrid">
+    <div class="fi"><span class="fp">affirmative</span><span class="fv">can do / can swim / can help</span></div>
+    <div class="fi"><span class="fp">negative</span><span class="fv">cannot / can't do</span></div>
+    <div class="fi"><span class="fp">question</span><span class="fv">Can I/you/he/she/we/they do?</span></div>
+  </div></div>
+  <div class="pblock">
+    <div class="plabel">Uses with examples</div>
+    <div class="pbox">
+      <strong>Ability:</strong> <span class="eg">She can speak five languages.</span><br>
+      <strong>Informal permission:</strong> <span class="eg">Can I borrow your pen?</span><br>
+      <strong>Request:</strong> <span class="eg">Can you help me?</span><br>
+      <strong>Possibility:</strong> <span class="eg">That can't be true!</span><br>
+      <strong>Past ability:</strong> use <em>could</em>: <span class="eg">I could run fast when I was young.</span><br>
+      <strong>Future ability:</strong> use <em>will be able to</em>: <span class="eg">I will be able to attend.</span>
+    </div>
+  </div>
+  <div class="tnote">No past form — use "could" for past ability. No future form — use "will be able to". Perfect: "could have done."</div>
+</div></div>
+
+<!-- COULD -->
+<div class="card" data-g="modal" data-k="could past ability polite request suggestion possibility conditional">
+<div class="ch" onclick="tog(this)">
+  <div class="vnum">②</div>
+  <div class="vmeta"><div class="vname">could / couldn't</div><div class="vsub">Past ability · Polite requests · Possibility · Conditional</div><span class="vbadge modal">modal</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="pblock">
+    <div class="plabel">Uses with examples</div>
+    <div class="pbox">
+      <strong>Past ability:</strong> <span class="eg">I could swim when I was 5.</span><br>
+      <strong>Polite request (more formal than can):</strong> <span class="eg">Could you open the window, please?</span><br>
+      <strong>Possibility (present/future, uncertain):</strong> <span class="eg">It could rain tomorrow.</span><br>
+      <strong>Conditional (hypothetical):</strong> <span class="eg">If I had more time, I could help.</span><br>
+      <strong>Suggestion:</strong> <span class="eg">You could try talking to her.</span><br>
+      <strong>Regret about past (could have):</strong> <span class="eg">I could have called but I forgot.</span>
+    </div>
+  </div>
+</div></div>
+
+<!-- MAY / MIGHT -->
+<div class="card" onclick="" data-g="modal" data-k="may might possibility permission formal less certain perhaps">
+<div class="ch" onclick="tog(this)">
+  <div class="vnum">③</div>
+  <div class="vmeta"><div class="vname">may / might</div><div class="vsub">Possibility · Formal permission · Uncertainty</div><span class="vbadge modal">modal</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="pblock">
+    <div class="plabel">may — uses</div>
+    <div class="pbox">
+      <strong>Formal permission:</strong> <span class="eg">You may leave now.</span> (more formal than "can")<br>
+      <strong>Possibility (fairly likely):</strong> <span class="eg">It may rain this afternoon.</span><br>
+      <strong>Wishes (formal/literary):</strong> <span class="eg">May you have a wonderful life!</span><br>
+      <strong>Perfect (past possibility):</strong> <span class="eg">She may have left already.</span>
+    </div>
+  </div>
+  <div class="pblock">
+    <div class="plabel">might — uses</div>
+    <div class="pbox">
+      <strong>Weaker possibility (less certain than may):</strong> <span class="eg">I might come to the party. (I'm not sure)</span><br>
+      <strong>Conditional (more tentative):</strong> <span class="eg">It might be a good idea.</span><br>
+      <strong>Mild suggestion:</strong> <span class="eg">You might want to reconsider.</span><br>
+      <strong>Perfect:</strong> <span class="eg">He might have forgotten.</span> (past possibility)<br><br>
+      <em>may = ~50% certain · might = ~30% certain · could = possible but less probable</em>
+    </div>
+  </div>
+</div></div>
+
+<!-- MUST -->
+<div class="card" data-g="modal" data-k="must mustn't obligation necessity prohibition deduction logical certainty">
+<div class="ch" onclick="tog(this)">
+  <div class="vnum">④</div>
+  <div class="vmeta"><div class="vname">must / must not (mustn't)</div><div class="vsub">Strong obligation · Logical deduction · Prohibition</div><span class="vbadge modal">modal</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="pblock">
+    <div class="plabel">must — positive uses</div>
+    <div class="pbox">
+      <strong>Strong internal obligation:</strong> <span class="eg">I must finish this tonight.</span><br>
+      <strong>Strong recommendation:</strong> <span class="eg">You must try this restaurant!</span><br>
+      <strong>Logical deduction (certainty):</strong> <span class="eg">She must be tired — she worked all day.</span><br>
+      <strong>Perfect deduction:</strong> <span class="eg">He must have left early.</span>
+    </div>
+  </div>
+  <div class="pblock">
+    <div class="plabel">must not (mustn't) — prohibition</div>
+    <div class="pbox">
+      <strong>Prohibition (it is forbidden):</strong> <span class="eg">You mustn't smoke in here.</span><br>
+      <strong>Negative deduction:</strong> <span class="eg">That can't / couldn't be right.</span> (NOT "mustn't be")<br><br>
+      ⚠️ <strong>must not ≠ don't have to</strong><br>
+      <em>You mustn't go</em> = it's forbidden<br>
+      <em>You don't have to go</em> = it's not necessary (but you can if you want)
+    </div>
+  </div>
+  <div class="tnote">No past form — use "had to" for past obligation. No future form — use "will have to". Present perfect: "must have done."</div>
+</div></div>
+
+<!-- SHALL / SHOULD / OUGHT TO -->
+<div class="card" data-g="modal" data-k="shall should ought to advice suggestion obligation expectation mild formal British">
+<div class="ch" onclick="tog(this)">
+  <div class="vnum">⑤</div>
+  <div class="vmeta"><div class="vname">shall / should / ought to</div><div class="vsub">Advice · Mild obligation · Expectation · Offers (British)</div><span class="vbadge modal">modal</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="pblock">
+    <div class="plabel">shall</div>
+    <div class="pbox">
+      Primarily British English. Used for:<br>
+      <strong>Offers:</strong> <span class="eg">Shall I open the window?</span><br>
+      <strong>Suggestions:</strong> <span class="eg">Shall we go out for dinner?</span><br>
+      <strong>Future (formal/first person):</strong> <span class="eg">We shall overcome.</span>
+    </div>
+  </div>
+  <div class="pblock">
+    <div class="plabel">should</div>
+    <div class="pbox">
+      <strong>Advice/recommendation:</strong> <span class="eg">You should see a doctor.</span><br>
+      <strong>Mild obligation:</strong> <span class="eg">You should be on time.</span><br>
+      <strong>Expectation (things that ought to happen):</strong> <span class="eg">The train should arrive at 9.</span><br>
+      <strong>Conditional (formal):</strong> <span class="eg">Should you need help, call me.</span><br>
+      <strong>Regret (should have):</strong> <span class="eg">I should have studied harder.</span>
+    </div>
+  </div>
+  <div class="pblock">
+    <div class="plabel">ought to</div>
+    <div class="pbox">
+      Similar meaning to "should" but slightly stronger moral obligation:<br>
+      <span class="eg">You ought to apologise.</span><br>
+      <span class="eg">He ought to be there by now.</span><br>
+      Negative: <em>ought not to / oughtn't to</em> (quite formal — "shouldn't" is more common)
+    </div>
+  </div>
+</div></div>
+
+<!-- WILL / WOULD -->
+<div class="card" data-g="modal" data-k="will would future conditional promise polite request habit past">
+<div class="ch" onclick="tog(this)">
+  <div class="vnum">⑥</div>
+  <div class="vmeta"><div class="vname">will / would</div><div class="vsub">Future · Conditional · Polite requests · Past habits</div><span class="vbadge modal">modal</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="pblock">
+    <div class="plabel">will — uses</div>
+    <div class="pbox">
+      <strong>Spontaneous decision:</strong> <span class="eg">I'll have the pasta, please.</span><br>
+      <strong>Promise:</strong> <span class="eg">I'll call you tonight.</span><br>
+      <strong>Prediction (no evidence):</strong> <span class="eg">I think it will rain.</span><br>
+      <strong>Offer:</strong> <span class="eg">I'll carry that for you.</span><br>
+      <strong>Stubborn refusal (won't):</strong> <span class="eg">He won't listen!</span>
+    </div>
+  </div>
+  <div class="pblock">
+    <div class="plabel">would — uses</div>
+    <div class="pbox">
+      <strong>Conditional (2nd/3rd):</strong> <span class="eg">I would help if I could.</span><br>
+      <strong>Polite request (more formal than will):</strong> <span class="eg">Would you pass the salt?</span><br>
+      <strong>Polite offer/invitation:</strong> <span class="eg">Would you like some tea?</span><br>
+      <strong>Past habits (repeated past actions):</strong> <span class="eg">When I was young, we would go to the beach every summer.</span><br>
+      <strong>Reported speech future:</strong> <span class="eg">She said she would call.</span><br>
+      <strong>Preference (would rather / would prefer):</strong> <span class="eg">I'd rather stay home.</span>
+    </div>
+  </div>
+</div></div>
+
+<!-- SEMI-MODALS -->
+<div class="card" data-g="modal" data-k="semi modals have to need to used to dare be able to be going to">
+<div class="ch" onclick="tog(this)">
+  <div class="vnum">⑦</div>
+  <div class="vmeta"><div class="vname">Semi-Modals</div><div class="vsub">have to · need to · used to · be able to · be going to</div><span class="vbadge modal">modal</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="pblock">
+    <div class="plabel">have to — external obligation</div>
+    <div class="pbox">
+      Conjugates like a regular verb (DO/DOES/DID):<br>
+      <span class="eg">I have to go. She has to work. They had to leave.</span><br>
+      <span class="eg">Do you have to wear a uniform?</span><br>
+      <span class="eg">I will have to study harder.</span> (future obligation — unlike "must")
+    </div>
+  </div>
+  <div class="pblock">
+    <div class="plabel">need to — necessity</div>
+    <div class="pbox">
+      <span class="eg">You need to see a doctor.</span> (regular verb construction)<br>
+      <span class="eg">She doesn't need to come.</span> (not necessary)<br>
+      Also modal: <span class="eg">Need I say more?</span> (formal/literary)
+    </div>
+  </div>
+  <div class="pblock">
+    <div class="plabel">used to — repeated past actions/states</div>
+    <div class="pbox">
+      Always refers to past — something no longer true:<br>
+      <span class="eg">I used to smoke.</span> (I don't now)<br>
+      <span class="eg">She used to live in Paris.</span><br>
+      Neg: <span class="eg">I didn't use to like it.</span><br>
+      Question: <span class="eg">Did you use to go there?</span><br><br>
+      ≠ <em>I'm used to + -ing</em> (accustomed to): <span class="eg">I'm used to waking up early.</span><br>
+      ≠ <em>I got used to + -ing</em> (became accustomed): <span class="eg">I got used to the noise.</span>
+    </div>
+  </div>
+  <div class="pblock">
+    <div class="plabel">be able to — ability (all tenses)</div>
+    <div class="pbox">
+      Substitutes for "can" in tenses where "can" has no form:<br>
+      <span class="eg">I will be able to help.</span> (future)<br>
+      <span class="eg">She was able to escape.</span> (past — specific achievement)<br>
+      <span class="eg">I've never been able to swim.</span> (perfect)
+    </div>
+  </div>
+</div></div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════
+  SECTION 5: AUXILIARY VERBS
+════════════════════════════ -->
+<div class="sec" data-g="auxiliary">
+  <div class="sec-hd">
+    <div class="sec-num">5</div>
+    <div class="sec-info">
+      <div class="sec-title">Auxiliary Verbs in Depth</div>
+      <div class="sec-sub">be · have · do — as auxiliaries and main verbs</div>
+    </div>
+  </div>
+  <div class="grid">
+
+<!-- DO AS AUXILIARY -->
+<div class="card" data-g="auxiliary" data-k="do does did auxiliary questions negatives emphasis tag questions">
+<div class="ch" onclick="tog(this)">
+  <div class="vnum">①</div>
+  <div class="vmeta"><div class="vname">DO as Auxiliary</div><div class="vsub">Questions · Negatives · Emphasis · Tag questions</div><span class="vbadge aux">auxiliary</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="pblock">
+    <div class="plabel">Forming Questions (Present &amp; Past Simple)</div>
+    <div class="pbox">
+      Present: <code>Do/Does + subject + base verb?</code><br>
+      <span class="eg">Do you like coffee? Does she work here?</span><br><br>
+      Past: <code>Did + subject + base verb?</code><br>
+      <span class="eg">Did you see that? Did he call?</span>
+    </div>
+  </div>
+  <div class="pblock">
+    <div class="plabel">Forming Negatives</div>
+    <div class="pbox">
+      Present: <code>don't / doesn't + base verb</code><br>
+      <span class="eg">I don't know. She doesn't care.</span><br><br>
+      Past: <code>didn't + base verb</code><br>
+      <span class="eg">I didn't see. They didn't come.</span>
+    </div>
+  </div>
+  <div class="pblock">
+    <div class="plabel">Emphatic DO</div>
+    <div class="pbox">
+      Adds emphasis — stressed in speech:<br>
+      <span class="eg">I DO like it! (I really like it)</span><br>
+      <span class="eg">She DID tell you! (contradicting someone)</span><br>
+      <span class="eg">Do come in! (emphatic invitation)</span>
+    </div>
+  </div>
+  <div class="pblock">
+    <div class="plabel">Tag Questions</div>
+    <div class="pbox">
+      Positive statement → negative tag: <span class="eg">You like it, don't you?</span><br>
+      Negative statement → positive tag: <span class="eg">You don't like it, do you?</span><br>
+      With other auxiliaries: <span class="eg">She's coming, isn't she? / He can swim, can't he? / They've finished, haven't they?</span>
+    </div>
+  </div>
+</div></div>
+
+<!-- BE AS AUXILIARY -->
+<div class="card" data-g="auxiliary" data-k="be auxiliary continuous passive progressive am is are was were">
+<div class="ch" onclick="tog(this)">
+  <div class="vnum">②</div>
+  <div class="vmeta"><div class="vname">BE as Auxiliary</div><div class="vsub">Continuous tenses · Passive voice</div><span class="vbadge aux">auxiliary</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="pblock">
+    <div class="plabel">BE for Continuous Tenses</div>
+    <div class="pbox">
+      <code>be + verb-ing</code><br>
+      <span class="eg">I am working. (present continuous)</span><br>
+      <span class="eg">She was running. (past continuous)</span><br>
+      <span class="eg">They will be waiting. (future continuous)</span><br>
+      <span class="eg">He has been trying. (present perfect continuous)</span>
+    </div>
+  </div>
+  <div class="pblock">
+    <div class="plabel">BE for Passive Voice</div>
+    <div class="pbox">
+      <code>be (in any tense) + past participle</code><br>
+      <span class="eg">The letter is written. (present simple passive)</span><br>
+      <span class="eg">The letter was written. (past simple passive)</span><br>
+      <span class="eg">The letter has been written. (present perfect passive)</span><br>
+      <span class="eg">The letter will be written. (future passive)</span><br>
+      <span class="eg">The letter should be written. (modal passive)</span>
+    </div>
+  </div>
+</div></div>
+
+<!-- HAVE AS AUXILIARY -->
+<div class="card" data-g="auxiliary" data-k="have has had auxiliary perfect tenses present past future">
+<div class="ch" onclick="tog(this)">
+  <div class="vnum">③</div>
+  <div class="vmeta"><div class="vname">HAVE as Auxiliary</div><div class="vsub">All perfect tenses</div><span class="vbadge aux">auxiliary</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="pblock">
+    <div class="plabel">HAVE for Perfect Tenses</div>
+    <div class="pbox">
+      <code>have/has + past participle</code> → present perfect<br>
+      <span class="eg">I have finished. She has gone.</span><br><br>
+      <code>had + past participle</code> → past perfect<br>
+      <span class="eg">I had finished before she arrived.</span><br><br>
+      <code>will have + past participle</code> → future perfect<br>
+      <span class="eg">I will have finished by 5pm.</span><br><br>
+      <code>have/has been + -ing</code> → present perfect continuous<br>
+      <span class="eg">I've been waiting for an hour.</span><br><br>
+      <code>had been + -ing</code> → past perfect continuous<br>
+      <span class="eg">She had been working all night.</span>
+    </div>
+  </div>
+</div></div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════
+  SECTION 6: VERB PATTERNS & FORMS
+════════════════════════════ -->
+<div class="sec" data-g="patterns">
+  <div class="sec-hd">
+    <div class="sec-num">6</div>
+    <div class="sec-info">
+      <div class="sec-title">Verb Forms &amp; Patterns</div>
+      <div class="sec-sub">Infinitive · Gerund · Participles · Passive · Causative · Imperative</div>
+    </div>
+  </div>
+  <div class="grid">
+
+<!-- VERB FORMS OVERVIEW -->
+<div class="card" data-g="patterns" data-k="verb forms base infinitive gerund present past participle overview">
+<div class="ch" onclick="tog(this)">
+  <div class="vnum">①</div>
+  <div class="vmeta"><div class="vname">The 5 Verb Forms</div><div class="vsub">Base · Infinitive · -s form · -ing · Past participle</div></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="tw"><table>
+    <tr><th>Form</th><th>Name</th><th>Example (work)</th><th>Used for</th></tr>
+    <tr><td>V1</td><td>Base form</td><td>work</td><td>Infinitive, imperatives, present simple (I/you/we/they), after modals</td></tr>
+    <tr><td>V2</td><td>-s form (3rd person)</td><td>works</td><td>Present simple he/she/it</td></tr>
+    <tr><td>V3</td><td>Past simple</td><td>worked</td><td>All persons in past simple</td></tr>
+    <tr><td>V4</td><td>Present participle (-ing)</td><td>working</td><td>Continuous tenses, gerunds, adjectives</td></tr>
+    <tr><td>V5</td><td>Past participle</td><td>worked</td><td>Perfect tenses, passive voice, adjectives</td></tr>
+  </table></div>
+</div></div>
+
+<!-- INFINITIVE FORMS -->
+<div class="card" data-g="patterns" data-k="infinitive bare to infinitive forms usage after modals adjectives">
+<div class="ch" onclick="tog(this)">
+  <div class="vnum">②</div>
+  <div class="vmeta"><div class="vname">Infinitive Forms</div><div class="vsub">To-infinitive vs bare infinitive</div></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="pblock">
+    <div class="plabel">To-infinitive — use after</div>
+    <div class="pbox">
+      <strong>Many verbs:</strong> want, need, hope, decide, plan, agree, refuse, manage, fail, afford, offer, expect, seem, appear, tend, happen<br>
+      <span class="eg">I want to go. She decided to stay. He seems to know.</span><br><br>
+      <strong>Adjectives:</strong> <span class="eg">It's good to see you. I'm happy to help.</span><br>
+      <strong>Purpose:</strong> <span class="eg">I came here to study.</span><br>
+      <strong>After nouns:</strong> <span class="eg">I have no time to waste.</span>
+    </div>
+  </div>
+  <div class="pblock">
+    <div class="plabel">Bare infinitive (no "to") — use after</div>
+    <div class="pbox">
+      <strong>Modal verbs:</strong> <span class="eg">You must go. She can swim.</span><br>
+      <strong>let / make / have (causative):</strong> <span class="eg">Let him speak. Make her wait. Have them sign it.</span><br>
+      <strong>Perception verbs (see/hear/feel + object):</strong> <span class="eg">I saw him leave. I heard her sing.</span><br>
+      <strong>help (both possible):</strong> <span class="eg">Help me (to) find it.</span><br>
+      <strong>had better / would rather:</strong> <span class="eg">You'd better go. I'd rather stay.</span>
+    </div>
+  </div>
+</div></div>
+
+<!-- GERUND USES -->
+<div class="card" data-g="patterns" data-k="gerund -ing form subject object preposition verb patterns">
+<div class="ch" onclick="tog(this)">
+  <div class="vnum">③</div>
+  <div class="vmeta"><div class="vname">Gerund (-ing as noun)</div><div class="vsub">As subject, object, after prepositions, after certain verbs</div></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="pblock">
+    <div class="plabel">Gerund as subject</div>
+    <div class="pbox">
+      <span class="eg">Swimming is good exercise.</span><br>
+      <span class="eg">Learning English takes time.</span><br>
+      <span class="eg">Smoking is bad for your health.</span>
+    </div>
+  </div>
+  <div class="pblock">
+    <div class="plabel">Gerund after prepositions (ALWAYS -ing after prepositions)</div>
+    <div class="pbox">
+      <span class="eg">I'm interested in learning more.</span><br>
+      <span class="eg">She's good at cooking.</span><br>
+      <span class="eg">He's afraid of flying.</span><br>
+      <span class="eg">I'm looking forward to seeing you.</span><br>
+      <span class="eg">Before leaving, check everything.</span><br>
+      <span class="eg">After finishing work, she went home.</span>
+    </div>
+  </div>
+  <div class="pblock">
+    <div class="plabel">Verbs followed by gerund</div>
+    <div class="pbox">
+      enjoy, avoid, finish, mind, suggest, consider, keep, deny, miss, admit, practise, risk, fancy, involve, imagine, recommend, regret (past), stop (quit), remember (past), try (experiment), like/love/hate (BrE)<br><br>
+      <span class="eg">I enjoy reading. She avoided answering. He kept talking.</span>
+    </div>
+  </div>
+</div></div>
+
+<!-- CAUSATIVE HAVE / GET / MAKE / LET -->
+<div class="card" data-g="patterns" data-k="causative have get make let do something for you passive arrangement">
+<div class="ch" onclick="tog(this)">
+  <div class="vnum">④</div>
+  <div class="vmeta"><div class="vname">Causative Structures</div><div class="vsub">have/get something done · make/let someone do</div></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="pblock">
+    <div class="plabel">have/get + object + past participle</div>
+    <div class="pbox">
+      Someone else does something for you (arranged/caused):<br>
+      <span class="eg">I had my car repaired.</span> (= someone repaired my car)<br>
+      <span class="eg">She got her hair cut.</span><br>
+      <span class="eg">I'll have the report sent to you.</span><br>
+      <span class="eg">We got the house painted last summer.</span><br><br>
+      Also used for negative events: <span class="eg">I had my wallet stolen.</span>
+    </div>
+  </div>
+  <div class="pblock">
+    <div class="plabel">make/have + object + base verb</div>
+    <div class="pbox">
+      Force or arrange someone to do something:<br>
+      <span class="eg">The teacher made us rewrite the essay.</span> (forced)<br>
+      <span class="eg">She had her assistant prepare the documents.</span> (arranged)<br>
+      Passive form: <span class="eg">We were made to wait.</span> (add "to" in passive)
+    </div>
+  </div>
+  <div class="pblock">
+    <div class="plabel">let + object + base verb</div>
+    <div class="pbox">
+      Allow someone to do something:<br>
+      <span class="eg">Let me help you.</span><br>
+      <span class="eg">They let us leave early.</span><br>
+      <span class="eg">My parents let me stay out late.</span>
+    </div>
+  </div>
+  <div class="pblock">
+    <div class="plabel">get + object + to-infinitive</div>
+    <div class="pbox">
+      Persuade/convince someone:<br>
+      <span class="eg">I got him to agree.</span><br>
+      <span class="eg">She got her boss to approve the budget.</span>
+    </div>
+  </div>
+</div></div>
+
+<!-- IMPERATIVE -->
+<div class="card" data-g="patterns" data-k="imperative commands instructions requests positive negative don't">
+<div class="ch" onclick="tog(this)">
+  <div class="vnum">⑤</div>
+  <div class="vmeta"><div class="vname">Imperative</div><div class="vsub">Commands · Instructions · Requests · Warnings</div></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="pblock">
+    <div class="plabel">Formation</div>
+    <div class="pbox">
+      Positive: <strong>base verb</strong> (no subject)<br>
+      <span class="eg">Sit down. Open your book. Be quiet. Listen!</span><br><br>
+      Negative: <strong>Don't + base verb</strong><br>
+      <span class="eg">Don't worry. Don't be late. Don't touch that!</span><br><br>
+      Inclusive (we): <strong>Let's + base verb</strong><br>
+      <span class="eg">Let's go! Let's have a break. Let's not argue.</span><br><br>
+      Emphatic (you specifically): <strong>You + base verb</strong><br>
+      <span class="eg">You stay here! You be quiet!</span><br><br>
+      Polite: add "please" before or after:<br>
+      <span class="eg">Please sit down. / Sit down, please.</span>
+    </div>
+  </div>
+</div></div>
+
+<!-- CONDITIONAL VERB FORMS -->
+<div class="card" data-g="patterns" data-k="conditional verb forms would could might should zero first second third mixed">
+<div class="ch" onclick="tog(this)">
+  <div class="vnum">⑥</div>
+  <div class="vmeta"><div class="vname">Conditional Verb Forms</div><div class="vsub">All 5 conditionals — verb tenses used</div></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="tw"><table>
+    <tr><th>Type</th><th>If-clause</th><th>Main clause</th><th>Example</th></tr>
+    <tr><td>Zero</td><td>present simple</td><td>present simple</td><td>If you heat water to 100°C, it boils.</td></tr>
+    <tr><td>First</td><td>present simple</td><td>will + base</td><td>If it rains, I'll stay home.</td></tr>
+    <tr><td>Second</td><td>past simple</td><td>would + base</td><td>If I had money, I would travel.</td></tr>
+    <tr><td>Third</td><td>past perfect</td><td>would have + PP</td><td>If I had studied, I would have passed.</td></tr>
+    <tr><td>Mixed</td><td>past perfect</td><td>would + base</td><td>If I had taken that job, I'd be rich now.</td></tr>
+  </table></div>
+  <div class="tip">Can also use could/might instead of would for less certainty: <em>If I had more time, I could help.</em> / <em>It might rain if the clouds gather.</em></div>
+</div></div>
+
+<!-- STATIVE VERBS -->
+<div class="card" data-g="patterns" data-k="stative verbs no continuous know believe want love hate own seem remember">
+<div class="ch" onclick="tog(this)">
+  <div class="vnum">⑦</div>
+  <div class="vmeta"><div class="vname">Stative Verbs</div><div class="vsub">Verbs that rarely use continuous forms</div></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="pblock">
+    <div class="plabel">Categories of stative verbs</div>
+    <div class="pbox">
+      <strong>Mental states:</strong> know, believe, understand, think (opinion), remember, forget, recognise, mean, realise, suppose, imagine<br><br>
+      <strong>Emotions:</strong> love, like, hate, prefer, want, wish, need, fear, envy, care<br><br>
+      <strong>Senses:</strong> see, hear, smell, taste, feel (when involuntary)<br><br>
+      <strong>Possession:</strong> have (possession), own, belong, possess, contain<br><br>
+      <strong>Other:</strong> seem, appear, look (seem), depend, consist, include, involve, matter, owe, cost, weigh, measure
+    </div>
+  </div>
+  <div class="pblock">
+    <div class="plabel">Verbs with BOTH stative and dynamic uses</div>
+    <div class="pbox">
+      <code>think</code>: <span class="eg">I think it's great.</span> (opinion) vs <span class="eg">I'm thinking about it.</span> (active process)<br>
+      <code>have</code>: <span class="eg">I have a car.</span> (possession) vs <span class="eg">I'm having lunch.</span> (activity)<br>
+      <code>see</code>: <span class="eg">I see the problem.</span> (understand) vs <span class="eg">I'm seeing a doctor.</span> (appointment)<br>
+      <code>smell</code>: <span class="eg">It smells good.</span> (stative) vs <span class="eg">He's smelling the flowers.</span> (action)<br>
+      <code>taste</code>: <span class="eg">It tastes sweet.</span> (stative) vs <span class="eg">She's tasting the soup.</span> (action)
+    </div>
+  </div>
+</div></div>
+
+<!-- PHRASAL VERBS -->
+<div class="card" data-g="patterns" data-k="phrasal verbs common list up down off on out in away back separable inseparable">
+<div class="ch" onclick="tog(this)">
+  <div class="vnum">⑧</div>
+  <div class="vmeta"><div class="vname">Essential Phrasal Verbs</div><div class="vsub">150+ most common — separable &amp; inseparable</div></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="pblock">
+    <div class="plabel">Separable vs Inseparable</div>
+    <div class="pbox">
+      <strong>Separable:</strong> object can go between verb and particle:<br>
+      <span class="eg">Turn off the TV. / Turn the TV off.</span><br>
+      (If object is pronoun, MUST separate: <em>Turn it off.</em> ✓ / <em>Turn off it.</em> ✗)<br><br>
+      <strong>Inseparable:</strong> object always comes after the particle:<br>
+      <span class="eg">Look after the children.</span> (not: ✗ look the children after)
+    </div>
+  </div>
+  <div class="tw"><table>
+    <tr><th>Phrasal Verb</th><th>Meaning</th><th>Example</th></tr>
+    <tr><td>break down</td><td>stop working / have emotional collapse</td><td>My car broke down. She broke down in tears.</td></tr>
+    <tr><td>break up</td><td>end a relationship</td><td>They broke up last month.</td></tr>
+    <tr><td>bring up</td><td>raise a child / mention a topic</td><td>She was brought up in Paris.</td></tr>
+    <tr><td>call off</td><td>cancel</td><td>They called off the meeting.</td></tr>
+    <tr><td>carry on</td><td>continue</td><td>Carry on with your work.</td></tr>
+    <tr><td>catch up</td><td>reach same level as others</td><td>I need to catch up on my emails.</td></tr>
+    <tr><td>come across</td><td>find by chance / make an impression</td><td>I came across an old photo.</td></tr>
+    <tr><td>come up with</td><td>think of an idea</td><td>She came up with a great plan.</td></tr>
+    <tr><td>cut down on</td><td>reduce</td><td>I'm cutting down on sugar.</td></tr>
+    <tr><td>cut off</td><td>disconnect / isolate</td><td>They cut off our electricity.</td></tr>
+    <tr><td>deal with</td><td>handle a situation</td><td>I can deal with that later.</td></tr>
+    <tr><td>drop off</td><td>deliver / fall asleep</td><td>I dropped off the kids at school.</td></tr>
+    <tr><td>end up</td><td>finally be in a situation</td><td>We ended up staying all night.</td></tr>
+    <tr><td>fall out</td><td>quarrel and stop being friends</td><td>They fell out over money.</td></tr>
+    <tr><td>figure out</td><td>understand / solve</td><td>I can't figure out this problem.</td></tr>
+    <tr><td>get along / on</td><td>have a good relationship</td><td>Do you get along with your boss?</td></tr>
+    <tr><td>get away with</td><td>escape punishment</td><td>He got away with cheating.</td></tr>
+    <tr><td>get over</td><td>recover from</td><td>I can't get over this cold.</td></tr>
+    <tr><td>get rid of</td><td>remove, dispose of</td><td>I need to get rid of this old sofa.</td></tr>
+    <tr><td>give in</td><td>surrender</td><td>Don't give in to pressure.</td></tr>
+    <tr><td>give up</td><td>stop trying</td><td>Never give up on your dreams.</td></tr>
+    <tr><td>go through</td><td>experience difficulty</td><td>She's going through a tough time.</td></tr>
+    <tr><td>grow up</td><td>become an adult</td><td>Where did you grow up?</td></tr>
+    <tr><td>hang on</td><td>wait</td><td>Hang on a moment.</td></tr>
+    <tr><td>hold on</td><td>wait / grip tightly</td><td>Hold on, I'll check.</td></tr>
+    <tr><td>keep on</td><td>continue</td><td>Keep on trying.</td></tr>
+    <tr><td>keep up with</td><td>maintain the same pace</td><td>I can't keep up with the news.</td></tr>
+    <tr><td>let down</td><td>disappoint</td><td>Don't let me down.</td></tr>
+    <tr><td>look after</td><td>care for (inseparable)</td><td>Who looks after the children?</td></tr>
+    <tr><td>look forward to</td><td>anticipate with pleasure</td><td>I'm looking forward to seeing you.</td></tr>
+    <tr><td>look into</td><td>investigate</td><td>We'll look into the problem.</td></tr>
+    <tr><td>look up</td><td>search for information</td><td>Look up the word in a dictionary.</td></tr>
+    <tr><td>make up</td><td>invent / reconcile / apply makeup</td><td>She made up a story. They made up.</td></tr>
+    <tr><td>move on</td><td>go forward, leave behind</td><td>It's time to move on.</td></tr>
+    <tr><td>pick up</td><td>collect / learn informally / improve</td><td>Can you pick me up at 8?</td></tr>
+    <tr><td>point out</td><td>draw attention to</td><td>She pointed out the mistake.</td></tr>
+    <tr><td>put off</td><td>postpone / discourage</td><td>Don't put off difficult tasks.</td></tr>
+    <tr><td>put up with</td><td>tolerate</td><td>I can't put up with this noise.</td></tr>
+    <tr><td>run out of</td><td>have no more of something</td><td>We've run out of milk.</td></tr>
+    <tr><td>set up</td><td>establish, create</td><td>They set up a new company.</td></tr>
+    <tr><td>show off</td><td>behave to impress</td><td>Stop showing off!</td></tr>
+    <tr><td>take off</td><td>remove / leave the ground / succeed</td><td>The plane took off. Take off your shoes.</td></tr>
+    <tr><td>take on</td><td>accept work / hire</td><td>The company took on 50 new staff.</td></tr>
+    <tr><td>take over</td><td>get control of</td><td>They took over the company.</td></tr>
+    <tr><td>take up</td><td>start a hobby / occupy space</td><td>I've taken up yoga.</td></tr>
+    <tr><td>turn down</td><td>refuse / reduce volume</td><td>She turned down the offer.</td></tr>
+    <tr><td>turn out</td><td>happen / result</td><td>It turned out to be a great day.</td></tr>
+    <tr><td>turn up</td><td>arrive unexpectedly / increase volume</td><td>He turned up at midnight.</td></tr>
+    <tr><td>work out</td><td>exercise / calculate / succeed</td><td>It all worked out in the end.</td></tr>
+  </table></div>
+</div></div>
+
+  </div>
+</div>
+
+</div><!-- wrap -->
+
+<script>
+let cG='all';
+function tog(h){h.parentElement.classList.toggle('open')}
+function setG(g,btn){
+  cG=g;
+  document.querySelectorAll('#gtabs .tb').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  run();
+}
+function run(){
+  const q=document.getElementById('q').value.toLowerCase().trim();
+  const cards=document.querySelectorAll('.card');
+  const secs=document.querySelectorAll('.sec');
+  let vis=0;
+  cards.forEach(c=>{
+    const cg=c.dataset.g||'';
+    const kw=(c.dataset.k||'').toLowerCase();
+    const nm=c.querySelector('.vname')?c.querySelector('.vname').textContent.toLowerCase():'';
+    const gOk=cG==='all'||cg===cG;
+    const qOk=!q||kw.includes(q)||nm.includes(q);
+    if(gOk&&qOk){c.classList.remove('hide');vis++;}
+    else{c.classList.add('hide');}
+  });
+  secs.forEach(s=>{
+    const sg=s.dataset.g||'';
+    const hasVis=[...s.querySelectorAll('.card')].some(c=>!c.classList.contains('hide'));
+    s.style.display=hasVis?'':'none';
+  });
+  document.getElementById('empty').classList.toggle('show',vis===0);
+}
+</script>
+</body>
+</html>

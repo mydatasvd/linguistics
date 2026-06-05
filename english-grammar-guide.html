@@ -1,0 +1,1589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complete English Grammar Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=DM+Mono:wght@400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f5f0;--s1:#ffffff;--s2:#f0ede6;--s3:#e8e4db;
+  --br:#ddd9d0;--tx:#1a1814;--t2:#5a5650;--t3:#9a9690;
+  --ink:#1a1814;--red:#c0392b;--navy:#1a3a5c;--gold:#b8860b;
+  --teal:#1a6b5a;--sage:#4a7c59;--rust:#8b3a2a;--slate:#3d5a73;
+  --wh:#ffffff;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Lato',sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;line-height:1.6}
+
+/* HERO */
+.hero{background:var(--navy);padding:60px 24px 50px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 40px,rgba(255,255,255,.02) 40px,rgba(255,255,255,.02) 80px);pointer-events:none}
+.hero::after{content:'A · B · C';position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);font-family:'Playfair Display',serif;font-size:8rem;font-weight:700;color:rgba(255,255,255,.04);letter-spacing:20px;white-space:nowrap}
+.hero-tag{display:inline-block;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:4px 16px;font-size:.75rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:20px;font-family:'DM Mono',monospace}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,6vw,4rem);font-weight:700;color:#fff;line-height:1.1;margin-bottom:12px}
+.hero h1 em{font-style:italic;color:#a8d4c2}
+.hero p{color:rgba(255,255,255,.65);font-size:1rem;font-weight:300;max-width:520px;margin:0 auto 24px}
+.hero-stats{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;position:relative;z-index:1}
+.stat{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:8px 18px;font-size:.82rem;color:rgba(255,255,255,.75)}
+.stat strong{color:#fff}
+
+/* CONTROLS */
+.controls{background:var(--s1);border-bottom:2px solid var(--br);padding:14px 16px;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.ci{max-width:1140px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+.sr{position:relative}
+.sr input{width:100%;background:var(--bg);border:1.5px solid var(--br);border-radius:8px;padding:9px 14px 9px 40px;font-family:'Lato',sans-serif;font-size:.92rem;color:var(--tx);outline:none;transition:border-color .2s}
+.sr input:focus{border-color:var(--navy)}
+.sr input::placeholder{color:var(--t3)}
+.si{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--t3)}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tb{padding:5px 14px;border-radius:20px;border:1.5px solid var(--br);background:transparent;font-family:'Lato',sans-serif;font-size:.76rem;font-weight:700;cursor:pointer;color:var(--t2);transition:all .17s;white-space:nowrap;letter-spacing:.3px}
+.tb:hover{border-color:var(--navy);color:var(--navy)}
+.tb.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.tb.on.c2{background:var(--teal);border-color:var(--teal)}
+.tb.on.c3{background:var(--gold);border-color:var(--gold);color:#fff}
+.tb.on.c4{background:var(--rust);border-color:var(--rust)}
+.tb.on.c5{background:var(--sage);border-color:var(--sage)}
+.tb.on.c6{background:var(--slate);border-color:var(--slate)}
+.tb.on.c7{background:#6b4c8a;border-color:#6b4c8a}
+.tb.on.c8{background:#8b6914;border-color:#8b6914}
+.lv-tabs{display:flex;gap:5px;flex-wrap:wrap}
+.lt{padding:4px 12px;border-radius:6px;border:1px solid var(--br);background:transparent;font-family:'DM Mono',monospace;font-size:.7rem;cursor:pointer;color:var(--t3);transition:all .15s;white-space:nowrap}
+.lt:hover{color:var(--tx);border-color:var(--t2)}
+.lt.on{background:var(--s3);border-color:var(--t2);color:var(--tx)}
+
+/* LAYOUT */
+.wrap{max-width:1140px;margin:0 auto;padding:28px 16px 64px}
+.sec{margin-bottom:48px}
+.sec-hd{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid var(--br)}
+.sec-num{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:var(--br);line-height:1;flex-shrink:0}
+.sec-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:600;color:var(--tx)}
+.sec-sub{font-size:.72rem;color:var(--t3);font-family:'DM Mono',monospace;margin-left:auto;text-align:right}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+@media(max-width:680px){.grid{grid-template-columns:1fr}}
+
+/* TOPIC CARD */
+.card{background:var(--s1);border:1.5px solid var(--br);border-radius:12px;overflow:hidden;transition:transform .13s,box-shadow .13s}
+.card:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(0,0,0,.08)}
+.card.hide{display:none}
+.ch{display:flex;align-items:flex-start;gap:10px;padding:14px 16px;background:var(--s1);border-bottom:1.5px solid var(--br);cursor:pointer;transition:background .13s}
+.ch:hover{background:var(--s2)}
+.card.open .ch{background:var(--s2)}
+.tnum{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--br);line-height:1.2;flex-shrink:0;min-width:32px}
+.tmeta{flex:1}
+.tname{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;color:var(--tx);line-height:1.3}
+.ten{font-size:.75rem;color:var(--t2);margin-top:2px}
+.lbadge{font-family:'DM Mono',monospace;font-size:.6rem;padding:2px 7px;border-radius:4px;border:1px solid;white-space:nowrap;margin-top:4px;display:inline-block}
+.lbadge.B{background:#e8f4ed;color:#1a6b3a;border-color:#a8d4b8}
+.lbadge.I{background:#e8eef8;color:#1a3a8b;border-color:#a8bcdc}
+.lbadge.A{background:#f8e8e8;color:#8b1a1a;border-color:#dcb0b0}
+.tog{color:var(--t3);font-size:.85rem;transition:transform .22s;flex-shrink:0;margin-top:4px}
+.card.open .tog{transform:rotate(180deg)}
+.cb{display:none;padding:0}
+.card.open .cb{display:block}
+
+/* SECTIONS INSIDE CARD */
+.block{padding:14px 16px;border-bottom:1px solid var(--br)}
+.block:last-child{border-bottom:none}
+.block-label{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:1px;text-transform:uppercase;font-weight:500;margin-bottom:8px;padding:4px 10px;border-radius:4px;display:inline-block}
+.bl-what{color:var(--navy);background:#e8eef8}
+.bl-rule{color:var(--teal);background:#e4f0ec}
+.bl-ex{color:var(--rust);background:#f4ece8}
+.bl-tip{color:var(--gold);background:#f8f2e0}
+.bl-err{color:var(--red);background:#fce8e8}
+
+.desc{font-size:.88rem;color:var(--t2);line-height:1.65;margin-top:6px}
+.rule-box{background:var(--s2);border-left:3px solid var(--teal);border-radius:0 6px 6px 0;padding:10px 14px;margin-top:8px;font-size:.87rem;line-height:1.6;color:var(--tx)}
+.rule-box strong{color:var(--teal)}
+.rule-box code{font-family:'DM Mono',monospace;font-size:.82rem;background:rgba(26,107,90,.1);padding:1px 5px;border-radius:3px;color:var(--teal)}
+
+.ex-list{margin-top:8px;display:flex;flex-direction:column;gap:6px}
+.ex-item{font-size:.86rem;line-height:1.55}
+.ex-item .correct{color:var(--teal);font-weight:700}
+.ex-item .wrong{color:var(--red);text-decoration:line-through;opacity:.7}
+.ex-item .label{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--t3);display:block;margin-bottom:1px}
+.ex-pair{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.ex-col{background:var(--s2);border-radius:6px;padding:8px 10px}
+.ex-col-hd{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.8px;text-transform:uppercase;margin-bottom:6px}
+.ex-col-hd.ok{color:var(--teal)}.ex-col-hd.no{color:var(--red)}
+.ex-col p{font-size:.84rem;line-height:1.6;color:var(--tx)}
+.ex-col p.ok{color:var(--teal);font-weight:600}
+.ex-col p.no{color:var(--red);font-weight:600}
+
+.tip-box{background:#fffaed;border:1px solid #e8d890;border-radius:6px;padding:10px 14px;margin-top:8px;font-size:.85rem;line-height:1.6;color:#5a4a10}
+.tip-box::before{content:'💡 ';font-style:normal}
+
+.err-box{background:#fdf2f2;border:1px solid #e8b0b0;border-radius:6px;padding:10px 14px;margin-top:8px}
+.err-row{display:flex;gap:8px;align-items:flex-start;margin-bottom:6px;font-size:.84rem;line-height:1.5}
+.err-row:last-child{margin-bottom:0}
+.err-x{color:var(--red);font-weight:700;flex-shrink:0}
+.err-c{color:var(--teal);font-weight:700;flex-shrink:0}
+.err-txt{color:var(--tx)}
+
+.table-wrap{overflow-x:auto;margin-top:8px}
+table{width:100%;border-collapse:collapse;font-size:.83rem}
+th{background:var(--navy);color:#fff;padding:7px 10px;text-align:left;font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.5px;font-weight:500}
+td{padding:6px 10px;border-bottom:1px solid var(--br);color:var(--tx);line-height:1.5}
+tr:nth-child(even) td{background:var(--s2)}
+td code{font-family:'DM Mono',monospace;font-size:.8rem;background:var(--s3);padding:1px 5px;border-radius:3px}
+td .ok{color:var(--teal);font-weight:600}
+td .no{color:var(--red)}
+
+/* EMPTY */
+.empty{text-align:center;padding:60px 20px;color:var(--t3);display:none}
+.empty.show{display:block}
+.empty h3{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--t2);margin-bottom:8px}
+
+/* LEVEL INDICATOR on section */
+.sec[data-hidden="true"]{display:none}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-tag">Complete Reference</div>
+  <h1>English <em>Grammar</em> Guide</h1>
+  <p>All levels · All rules · From basic foundations to advanced nuances · With examples and common mistakes</p>
+  <div class="hero-stats">
+    <div class="stat"><strong>8</strong> categories</div>
+    <div class="stat"><strong>55+</strong> topics</div>
+    <div class="stat"><strong>3</strong> levels: B · I · A</div>
+    <div class="stat"><strong>200+</strong> examples</div>
+  </div>
+</div>
+
+<div class="controls">
+  <div class="ci">
+    <div class="sr">
+      <span class="si">🔍</span>
+      <input type="text" id="q" placeholder="Search topics… e.g. articles, conditionals, passive, apostrophe" oninput="doFilter()">
+    </div>
+    <div class="tabs" id="gtabs">
+      <button class="tb on" onclick="setG('all',this)">All Topics</button>
+      <button class="tb c2" onclick="setG('tense',this)">Tenses</button>
+      <button class="tb c3" onclick="setG('noun',this)">Nouns &amp; Articles</button>
+      <button class="tb c4" onclick="setG('verb',this)">Verbs &amp; Modals</button>
+      <button class="tb c5" onclick="setG('sentence',this)">Sentence Structure</button>
+      <button class="tb c6" onclick="setG('punct',this)">Punctuation</button>
+      <button class="tb c7" onclick="setG('style',this)">Style &amp; Word Choice</button>
+      <button class="tb c8" onclick="setG('advanced',this)">Advanced</button>
+    </div>
+    <div class="lv-tabs" id="lvtabs">
+      <button class="lt on" onclick="setL('all',this)">All Levels</button>
+      <button class="lt" onclick="setL('B',this)">🟢 Beginner</button>
+      <button class="lt" onclick="setL('I',this)">🔵 Intermediate</button>
+      <button class="lt" onclick="setL('A',this)">🔴 Advanced</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+<div id="empty" class="empty"><h3>No topics found</h3><p>Try a different search term.</p></div>
+
+<!-- ═══════════════════════════════════════
+     1. NOUNS & ARTICLES
+════════════════════════════════════════ -->
+<div class="sec" data-g="noun">
+  <div class="sec-hd">
+    <div class="sec-num">1</div>
+    <div><div class="sec-title">Nouns &amp; Articles</div></div>
+    <div class="sec-sub">a · an · the · countable · uncountable</div>
+  </div>
+  <div class="grid">
+
+<!-- A / AN -->
+<div class="card" data-g="noun" data-l="B" data-k="a an articles indefinite vowel consonant beginner">
+<div class="ch" onclick="tog(this)">
+  <div class="tnum">1</div>
+  <div class="tmeta"><div class="tname">A vs An — Indefinite Articles</div><div class="ten">When to use "a" or "an"</div><span class="lbadge B">Beginner</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="block"><span class="block-label bl-what">What it is</span>
+    <p class="desc">Indefinite articles introduce a non-specific noun. The choice between <strong>a</strong> and <strong>an</strong> depends entirely on <em>sound</em>, not spelling.</p>
+  </div>
+  <div class="block"><span class="block-label bl-rule">Rule</span>
+    <div class="rule-box">Use <strong>an</strong> before a <strong>vowel sound</strong> (a, e, i, o, u sounds).<br>Use <strong>a</strong> before a <strong>consonant sound</strong>.<br><br>Key: it's about the <strong>pronunciation</strong> of the next word, not its first letter.</div>
+  </div>
+  <div class="block"><span class="block-label bl-ex">Examples</span>
+    <div class="ex-list">
+      <div class="ex-item"><span class="label">vowel sound →</span> <span class="correct">an apple, an hour, an honest man, an MBA</span></div>
+      <div class="ex-item"><span class="label">consonant sound →</span> <span class="correct">a university, a European, a one-way street, a useful tool</span></div>
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-err">Common Mistakes</span>
+    <div class="err-box">
+      <div class="err-row"><span class="err-x">✗</span><span class="err-txt"><span class="wrong">a hour</span> → <span class="correct">an hour</span> (h is silent — sounds like "our")</span></div>
+      <div class="err-row"><span class="err-x">✗</span><span class="err-txt"><span class="wrong">an university</span> → <span class="correct">a university</span> (sounds like "you-niversity")</span></div>
+      <div class="err-row"><span class="err-x">✗</span><span class="err-txt"><span class="wrong">an European</span> → <span class="correct">a European</span> (sounds like "yoo-ropean")</span></div>
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-tip">Tip</span>
+    <div class="tip-box">When in doubt, say the phrase out loud. If your mouth opens naturally for the next sound, use "an".</div>
+  </div>
+</div></div>
+
+<!-- THE -->
+<div class="card" data-g="noun" data-l="I" data-k="the definite article specific unique known intermediate">
+<div class="ch" onclick="tog(this)">
+  <div class="tnum">2</div>
+  <div class="tmeta"><div class="tname">The — Definite Article</div><div class="ten">When to use and when NOT to use "the"</div><span class="lbadge I">Intermediate</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="block"><span class="block-label bl-what">What it is</span>
+    <p class="desc">"The" refers to a <strong>specific</strong> noun that both speaker and listener know about. This is one of the most common errors made by non-native speakers.</p>
+  </div>
+  <div class="block"><span class="block-label bl-rule">When to USE "the"</span>
+    <div class="rule-box">
+      1. Specific thing both parties know: <code>Close the door.</code><br>
+      2. Unique things: <code>the sun, the moon, the president</code><br>
+      3. Second mention of something: <code>I saw a dog. The dog was big.</code><br>
+      4. Superlatives: <code>the best, the fastest</code><br>
+      5. Rivers, oceans, mountain ranges: <code>the Thames, the Alps</code>
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-rule">When NOT to use "the"</span>
+    <div class="rule-box">
+      1. General statements: <code>Dogs are friendly.</code> (not "The dogs")<br>
+      2. Most countries, cities: <code>France, London</code> (but: <code>the USA, the UK</code>)<br>
+      3. Languages: <code>She speaks French.</code><br>
+      4. Meals, sports: <code>I had breakfast. He plays football.</code><br>
+      5. Academic subjects: <code>She studies History.</code>
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-err">Common Mistakes</span>
+    <div class="err-box">
+      <div class="err-row"><span class="err-x">✗</span><span class="err-txt"><span class="wrong">The life is beautiful.</span> → <span class="correct">Life is beautiful.</span> (general)</span></div>
+      <div class="err-row"><span class="err-x">✗</span><span class="err-txt"><span class="wrong">I love the nature.</span> → <span class="correct">I love nature.</span> (general concept)</span></div>
+      <div class="err-row"><span class="err-x">✗</span><span class="err-txt"><span class="wrong">She went to the school.</span> → <span class="correct">She went to school.</span> (as a function)</span></div>
+    </div>
+  </div>
+</div></div>
+
+<!-- COUNTABLE / UNCOUNTABLE -->
+<div class="card" data-g="noun" data-l="I" data-k="countable uncountable nouns much many some any intermediate">
+<div class="ch" onclick="tog(this)">
+  <div class="tnum">3</div>
+  <div class="tmeta"><div class="tname">Countable vs Uncountable Nouns</div><div class="ten">much / many / some / any / a few / a little</div><span class="lbadge I">Intermediate</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="block"><span class="block-label bl-what">What it is</span>
+    <p class="desc">Countable nouns can be counted (one book, two books). Uncountable nouns cannot (water, advice, information). This determines which quantifiers you use.</p>
+  </div>
+  <div class="block"><span class="block-label bl-rule">Quantifier Rules</span>
+    <div class="table-wrap"><table>
+      <tr><th>Quantifier</th><th>Countable</th><th>Uncountable</th></tr>
+      <tr><td>many / a few / few</td><td class="ok">✓ many books</td><td class="no">✗</td></tr>
+      <tr><td>much / a little / little</td><td class="no">✗</td><td class="ok">✓ much water</td></tr>
+      <tr><td>some / any / a lot of / plenty of</td><td class="ok">✓ both</td><td class="ok">✓ both</td></tr>
+      <tr><td>a / an</td><td class="ok">✓ a book</td><td class="no">✗ (a water ✗)</td></tr>
+      <tr><td>a piece of / a bit of</td><td class="no">✗</td><td class="ok">✓ a piece of advice</td></tr>
+    </table></div>
+  </div>
+  <div class="block"><span class="block-label bl-err">Common Mistakes</span>
+    <div class="err-box">
+      <div class="err-row"><span class="err-x">✗</span><span class="err-txt"><span class="wrong">I have many informations.</span> → <span class="correct">I have a lot of information.</span></span></div>
+      <div class="err-row"><span class="err-x">✗</span><span class="err-txt"><span class="wrong">Can you give me an advice?</span> → <span class="correct">Can you give me some advice?</span></span></div>
+      <div class="err-row"><span class="err-x">✗</span><span class="err-txt"><span class="wrong">How much books do you have?</span> → <span class="correct">How many books do you have?</span></span></div>
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-tip">Tip</span>
+    <div class="tip-box">Common uncountables to memorize: advice, information, news, furniture, luggage, equipment, knowledge, research, traffic, weather, money (but "coins" is countable).</div>
+  </div>
+</div></div>
+
+<!-- PLURALS -->
+<div class="card" data-g="noun" data-l="B" data-k="plurals nouns irregular spelling -s -es -ies beginner">
+<div class="ch" onclick="tog(this)">
+  <div class="tnum">4</div>
+  <div class="tmeta"><div class="tname">Plural Nouns</div><div class="ten">Regular and irregular plurals</div><span class="lbadge B">Beginner</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="block"><span class="block-label bl-rule">Rules</span>
+    <div class="table-wrap"><table>
+      <tr><th>Ending</th><th>Plural Rule</th><th>Example</th></tr>
+      <tr><td>Most nouns</td><td>add -s</td><td><code>cat → cats</code></td></tr>
+      <tr><td>-s, -ss, -sh, -ch, -x, -z</td><td>add -es</td><td><code>bus → buses, watch → watches</code></td></tr>
+      <tr><td>consonant + -y</td><td>-y → -ies</td><td><code>baby → babies, city → cities</code></td></tr>
+      <tr><td>vowel + -y</td><td>add -s</td><td><code>day → days, key → keys</code></td></tr>
+      <tr><td>-f / -fe</td><td>-f → -ves</td><td><code>leaf → leaves, wife → wives</code></td></tr>
+      <tr><td>-o</td><td>varies</td><td><code>hero → heroes / photo → photos</code></td></tr>
+    </table></div>
+  </div>
+  <div class="block"><span class="block-label bl-ex">Irregular Plurals</span>
+    <div class="table-wrap"><table>
+      <tr><th>Singular</th><th>Plural</th><th>Singular</th><th>Plural</th></tr>
+      <tr><td>man</td><td>men</td><td>child</td><td>children</td></tr>
+      <tr><td>woman</td><td>women</td><td>tooth</td><td>teeth</td></tr>
+      <tr><td>person</td><td>people</td><td>foot</td><td>feet</td></tr>
+      <tr><td>mouse</td><td>mice</td><td>sheep</td><td>sheep</td></tr>
+      <tr><td>ox</td><td>oxen</td><td>deer</td><td>deer</td></tr>
+    </table></div>
+  </div>
+</div></div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     2. TENSES
+════════════════════════════════════════ -->
+<div class="sec" data-g="tense">
+  <div class="sec-hd">
+    <div class="sec-num">2</div>
+    <div><div class="sec-title">Verb Tenses</div></div>
+    <div class="sec-sub">present · past · future · perfect · continuous</div>
+  </div>
+  <div class="grid">
+
+<!-- SIMPLE PRESENT -->
+<div class="card" data-g="tense" data-l="B" data-k="simple present tense habits facts routines do does beginner">
+<div class="ch" onclick="tog(this)">
+  <div class="tnum">5</div>
+  <div class="tmeta"><div class="tname">Simple Present</div><div class="ten">Habits, facts, routines, general truths</div><span class="lbadge B">Beginner</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="block"><span class="block-label bl-rule">Form &amp; Usage</span>
+    <div class="rule-box">
+      <strong>Form:</strong> base verb (+ -s/-es for he/she/it)<br>
+      <strong>Uses:</strong><br>
+      1. Habits/routines: <code>She walks to work every day.</code><br>
+      2. General truths/facts: <code>The Earth orbits the Sun.</code><br>
+      3. Permanent situations: <code>He lives in Paris.</code><br>
+      4. Timetables (future): <code>The train leaves at 9am.</code>
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-ex">Examples</span>
+    <div class="ex-list">
+      <div class="ex-item"><span class="correct">I drink coffee every morning.</span></div>
+      <div class="ex-item"><span class="correct">She doesn't eat meat.</span></div>
+      <div class="ex-item"><span class="correct">Do they live nearby?</span></div>
+      <div class="ex-item"><span class="correct">Water boils at 100°C.</span></div>
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-err">Common Mistakes</span>
+    <div class="err-box">
+      <div class="err-row"><span class="err-x">✗</span><span class="err-txt"><span class="wrong">She work hard.</span> → <span class="correct">She works hard.</span> (add -s for he/she/it)</span></div>
+      <div class="err-row"><span class="err-x">✗</span><span class="err-txt"><span class="wrong">He don't know.</span> → <span class="correct">He doesn't know.</span></span></div>
+    </div>
+  </div>
+</div></div>
+
+<!-- PRESENT CONTINUOUS -->
+<div class="card" data-g="tense" data-l="B" data-k="present continuous progressive ing happening now temporary beginner">
+<div class="ch" onclick="tog(this)">
+  <div class="tnum">6</div>
+  <div class="tmeta"><div class="tname">Present Continuous</div><div class="ten">Actions happening now or temporarily</div><span class="lbadge B">Beginner</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="block"><span class="block-label bl-rule">Form &amp; Usage</span>
+    <div class="rule-box">
+      <strong>Form:</strong> am/is/are + verb-ing<br>
+      <strong>Uses:</strong><br>
+      1. Right now: <code>I'm writing an email.</code><br>
+      2. Temporary situations: <code>She's staying with friends.</code><br>
+      3. Changing trends: <code>Prices are rising.</code><br>
+      4. Planned future: <code>We're meeting tomorrow.</code>
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-rule">Stative Verbs — DO NOT use with -ing</span>
+    <div class="rule-box">Some verbs describe states, not actions, and almost never use continuous form:<br>
+      <strong>know, believe, want, need, love, hate, like, understand, remember, seem, belong, contain, mean, prefer, own</strong><br><br>
+      <span class="wrong">I am knowing the answer.</span> → <span class="correct">I know the answer.</span>
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-err">Common Mistakes</span>
+    <div class="err-box">
+      <div class="err-row"><span class="err-x">✗</span><span class="err-txt"><span class="wrong">I am understanding you.</span> → <span class="correct">I understand you.</span></span></div>
+      <div class="err-row"><span class="err-x">✗</span><span class="err-txt"><span class="wrong">She is seeming tired.</span> → <span class="correct">She seems tired.</span></span></div>
+    </div>
+  </div>
+</div></div>
+
+<!-- SIMPLE PAST vs PRESENT PERFECT -->
+<div class="card" data-g="tense" data-l="I" data-k="past simple present perfect have has did gone intermediate">
+<div class="ch" onclick="tog(this)">
+  <div class="tnum">7</div>
+  <div class="tmeta"><div class="tname">Simple Past vs Present Perfect</div><div class="ten">The most confusing tense distinction in English</div><span class="lbadge I">Intermediate</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="block"><span class="block-label bl-what">The Key Difference</span>
+    <p class="desc"><strong>Simple Past</strong> = a completed action at a specific time in the past.<br><strong>Present Perfect</strong> = a past action with a connection to the present (result, experience, or unfinished time).</p>
+  </div>
+  <div class="block"><span class="block-label bl-rule">Simple Past — use when</span>
+    <div class="rule-box">
+      Time is specified or implied as finished:<br>
+      <code>I visited Paris in 2019.</code><br>
+      <code>She left an hour ago.</code><br>
+      <code>Did you see the news yesterday?</code>
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-rule">Present Perfect — use when</span>
+    <div class="rule-box">
+      Time is unspecified or the period isn't over:<br>
+      <code>I have visited Paris.</code> (life experience)<br>
+      <code>She has just left.</code> (result: she's not here)<br>
+      <code>Have you seen the news today?</code> (today isn't finished)<br>
+      Key words: <strong>just, already, yet, ever, never, recently, so far, this week/month/year</strong>
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-err">Common Mistakes</span>
+    <div class="err-box">
+      <div class="err-row"><span class="err-x">✗</span><span class="err-txt"><span class="wrong">I have seen him yesterday.</span> → <span class="correct">I saw him yesterday.</span> (specific past time)</span></div>
+      <div class="err-row"><span class="err-x">✗</span><span class="err-txt"><span class="wrong">Did you ever try sushi?</span> → <span class="correct">Have you ever tried sushi?</span> (life experience)</span></div>
+      <div class="err-row"><span class="err-x">✗</span><span class="err-txt"><span class="wrong">I lost my keys. Did you see them?</span> → <span class="correct">Have you seen them?</span> (still relevant now)</span></div>
+    </div>
+  </div>
+</div></div>
+
+<!-- PAST CONTINUOUS -->
+<div class="card" data-g="tense" data-l="I" data-k="past continuous progressive was were ing when while intermediate">
+<div class="ch" onclick="tog(this)">
+  <div class="tnum">8</div>
+  <div class="tmeta"><div class="tname">Past Continuous</div><div class="ten">Actions in progress at a past moment</div><span class="lbadge I">Intermediate</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="block"><span class="block-label bl-rule">Form &amp; Usage</span>
+    <div class="rule-box">
+      <strong>Form:</strong> was/were + verb-ing<br>
+      1. In progress at a specific past time: <code>At 8pm I was cooking dinner.</code><br>
+      2. Interrupted by another action: <code>I was sleeping when the phone rang.</code><br>
+      3. Parallel actions: <code>While she was reading, he was cooking.</code><br>
+      4. Setting background scene: <code>It was raining and the streets were empty.</code>
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-ex">Past Continuous vs Simple Past</span>
+    <div class="ex-list">
+      <div class="ex-item"><span class="correct">I was walking home when I met her.</span> <em>(was walking = longer action; met = interruption)</em></div>
+      <div class="ex-item"><span class="correct">I walked home and met her.</span> <em>(two sequential completed actions)</em></div>
+    </div>
+  </div>
+</div></div>
+
+<!-- PAST PERFECT -->
+<div class="card" data-g="tense" data-l="I" data-k="past perfect had done before after pluperfect sequence intermediate">
+<div class="ch" onclick="tog(this)">
+  <div class="tnum">9</div>
+  <div class="tmeta"><div class="tname">Past Perfect</div><div class="ten">The "further past" — before another past event</div><span class="lbadge I">Intermediate</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="block"><span class="block-label bl-rule">Form &amp; Usage</span>
+    <div class="rule-box">
+      <strong>Form:</strong> had + past participle<br>
+      Use when you need to show that one past event happened <strong>before</strong> another past event.<br><br>
+      <code>When I arrived, the film had already started.</code><br>
+      <code>She hadn't eaten anything, so she was hungry.</code><br>
+      <code>He recognised her because he had seen her before.</code>
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-tip">Tip</span>
+    <div class="tip-box">Think of it as "the past of the past." If you're already speaking in past tense and need to go back even further — use past perfect.</div>
+  </div>
+  <div class="block"><span class="block-label bl-err">Common Mistakes</span>
+    <div class="err-box">
+      <div class="err-row"><span class="err-x">✗</span><span class="err-txt"><span class="wrong">When I arrived, the film started already.</span> → <span class="correct">the film had already started.</span></span></div>
+    </div>
+  </div>
+</div></div>
+
+<!-- FUTURE FORMS -->
+<div class="card" data-g="tense" data-l="I" data-k="future will going to shall present continuous plans predictions intermediate">
+<div class="ch" onclick="tog(this)">
+  <div class="tnum">10</div>
+  <div class="tmeta"><div class="tname">Future Forms</div><div class="ten">will vs going to vs present continuous</div><span class="lbadge I">Intermediate</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="block"><span class="block-label bl-rule">Will — use for</span>
+    <div class="rule-box">
+      1. Spontaneous decisions (decided now): <code>I'll have the soup, please.</code><br>
+      2. Predictions (no evidence): <code>I think it will rain tomorrow.</code><br>
+      3. Promises/offers/requests: <code>I'll help you. Will you hold this?</code><br>
+      4. Facts about the future: <code>She'll be 30 next year.</code>
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-rule">Going to — use for</span>
+    <div class="rule-box">
+      1. Plans already decided: <code>I'm going to visit my parents next week.</code><br>
+      2. Predictions with evidence: <code>Look at those clouds — it's going to rain.</code>
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-rule">Present Continuous — use for</span>
+    <div class="rule-box">Fixed arrangements with time/place: <code>I'm meeting John at 3pm tomorrow.</code><br>(There's a firm plan/appointment)
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-err">Common Mistakes</span>
+    <div class="err-box">
+      <div class="err-row"><span class="err-x">✗</span><span class="err-txt"><span class="wrong">I will go to the dentist tomorrow.</span> (if already booked) → <span class="correct">I'm going to / I'm going to see the dentist.</span></span></div>
+      <div class="err-row"><span class="err-x">✗</span><span class="err-txt"><span class="wrong">Look! It will rain!</span> (visible evidence) → <span class="correct">It's going to rain!</span></span></div>
+    </div>
+  </div>
+</div></div>
+
+<!-- PERFECT CONTINUOUS -->
+<div class="card" data-g="tense" data-l="A" data-k="present perfect continuous have been ing duration result advanced">
+<div class="ch" onclick="tog(this)">
+  <div class="tnum">11</div>
+  <div class="tmeta"><div class="tname">Perfect Continuous Tenses</div><div class="ten">have/had been doing — duration + result</div><span class="lbadge A">Advanced</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="block"><span class="block-label bl-rule">Present Perfect Continuous</span>
+    <div class="rule-box">
+      <strong>Form:</strong> have/has been + verb-ing<br>
+      Emphasises <strong>duration</strong> or the <strong>activity itself</strong> (ongoing or recently stopped):<br>
+      <code>I've been working here for 10 years.</code> (still working)<br>
+      <code>You look tired. Have you been running?</code> (evidence of recent activity)
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-rule">Present Perfect vs Present Perfect Continuous</span>
+    <div class="rule-box">
+      <code>I've read three chapters.</code> → focus on result/completion<br>
+      <code>I've been reading all afternoon.</code> → focus on duration/activity<br><br>
+      <code>She has written the report.</code> → it's done ✓<br>
+      <code>She has been writing the report.</code> → she's been busy (may not be done)
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-rule">Past Perfect Continuous</span>
+    <div class="rule-box">
+      <strong>Form:</strong> had been + verb-ing<br>
+      Duration up to a past point:<br>
+      <code>She had been waiting for two hours when he arrived.</code><br>
+      <code>His eyes were red because he had been crying.</code>
+    </div>
+  </div>
+</div></div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     3. VERBS & MODALS
+════════════════════════════════════════ -->
+<div class="sec" data-g="verb">
+  <div class="sec-hd">
+    <div class="sec-num">3</div>
+    <div><div class="sec-title">Verbs &amp; Modal Verbs</div></div>
+    <div class="sec-sub">can · could · should · would · must · may · might</div>
+  </div>
+  <div class="grid">
+
+<!-- MODALS OVERVIEW -->
+<div class="card" data-g="verb" data-l="I" data-k="modal verbs can could may might must should would shall intermediate">
+<div class="ch" onclick="tog(this)">
+  <div class="tnum">12</div>
+  <div class="tmeta"><div class="tname">Modal Verbs — Overview</div><div class="ten">Ability, permission, obligation, probability</div><span class="lbadge I">Intermediate</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="block"><span class="block-label bl-rule">Key Modals &amp; Their Meanings</span>
+    <div class="table-wrap"><table>
+      <tr><th>Modal</th><th>Main Uses</th><th>Example</th></tr>
+      <tr><td><code>can</code></td><td>ability, informal permission</td><td>I can swim. Can I go?</td></tr>
+      <tr><td><code>could</code></td><td>past ability, polite request, possibility</td><td>Could you help me?</td></tr>
+      <tr><td><code>may</code></td><td>formal permission, possibility</td><td>You may leave. It may rain.</td></tr>
+      <tr><td><code>might</code></td><td>weaker possibility</td><td>I might go. (less sure)</td></tr>
+      <tr><td><code>must</code></td><td>strong obligation, logical deduction</td><td>You must stop. He must be tired.</td></tr>
+      <tr><td><code>have to</code></td><td>external obligation (rule/law)</td><td>I have to wear a uniform.</td></tr>
+      <tr><td><code>should</code></td><td>advice, mild obligation</td><td>You should see a doctor.</td></tr>
+      <tr><td><code>would</code></td><td>conditional, polite requests, past habits</td><td>I would help. Would you like tea?</td></tr>
+      <tr><td><code>shall</code></td><td>offers, suggestions (British)</td><td>Shall we go?</td></tr>
+    </table></div>
+  </div>
+  <div class="block"><span class="block-label bl-err">Common Mistakes</span>
+    <div class="err-box">
+      <div class="err-row"><span class="err-x">✗</span><span class="err-txt"><span class="wrong">You must to go.</span> → <span class="correct">You must go.</span> (no "to" after modals)</span></div>
+      <div class="err-row"><span class="err-x">✗</span><span class="err-txt"><span class="wrong">She cans swim.</span> → <span class="correct">She can swim.</span> (modals don't change for he/she/it)</span></div>
+    </div>
+  </div>
+</div></div>
+
+<!-- MUST vs HAVE TO vs SHOULD -->
+<div class="card" data-g="verb" data-l="I" data-k="must have to should obligation necessity advice intermediate">
+<div class="ch" onclick="tog(this)">
+  <div class="tnum">13</div>
+  <div class="tmeta"><div class="tname">Must vs Have To vs Should</div><div class="ten">Degrees of obligation</div><span class="lbadge I">Intermediate</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="block"><span class="block-label bl-rule">The Differences</span>
+    <div class="rule-box">
+      <strong>must</strong> = internal obligation (I decide it's necessary) OR strong deduction<br>
+      <code>I must finish this today.</code> (I feel it's essential)<br>
+      <code>She must be home — the lights are on.</code> (deduction)<br><br>
+      <strong>have to</strong> = external obligation (rules, laws, other people)<br>
+      <code>I have to wear a seatbelt.</code> (it's the law)<br>
+      <code>Do you have to work weekends?</code><br><br>
+      <strong>should</strong> = advice, recommendation, mild obligation<br>
+      <code>You should drink more water.</code><br>
+      <code>The train should arrive soon.</code> (expectation)
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-rule">Negatives change meaning dramatically</span>
+    <div class="rule-box">
+      <code>must not</code> = it is forbidden: <em>You must not smoke here.</em><br>
+      <code>don't have to</code> = it is NOT necessary: <em>You don't have to come.</em><br>
+      <code>shouldn't</code> = it is not advisable: <em>You shouldn't eat so fast.</em>
+    </div>
+  </div>
+</div></div>
+
+<!-- PASSIVE VOICE -->
+<div class="card" data-g="verb" data-l="I" data-k="passive voice active be been by agent intermediate">
+<div class="ch" onclick="tog(this)">
+  <div class="tnum">14</div>
+  <div class="tmeta"><div class="tname">Passive Voice</div><div class="ten">Active vs passive — when and how to use it</div><span class="lbadge I">Intermediate</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="block"><span class="block-label bl-what">What it is</span>
+    <p class="desc">In the passive, the object of the action becomes the subject. Use passive when the agent is unknown, unimportant, or when you want to emphasize the action or result over who did it.</p>
+  </div>
+  <div class="block"><span class="block-label bl-rule">Form</span>
+    <div class="rule-box">
+      <strong>Subject + be (conjugated) + past participle (+ by agent)</strong><br><br>
+      Active: <code>The chef cooked the meal.</code><br>
+      Passive: <code>The meal was cooked (by the chef).</code>
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-ex">Passive Across Tenses</span>
+    <div class="table-wrap"><table>
+      <tr><th>Tense</th><th>Active</th><th>Passive</th></tr>
+      <tr><td>Present simple</td><td>They make cars here.</td><td>Cars are made here.</td></tr>
+      <tr><td>Past simple</td><td>He broke the window.</td><td>The window was broken.</td></tr>
+      <tr><td>Present perfect</td><td>They have arrested him.</td><td>He has been arrested.</td></tr>
+      <tr><td>Future</td><td>They will build a bridge.</td><td>A bridge will be built.</td></tr>
+      <tr><td>Modal</td><td>You must sign this.</td><td>This must be signed.</td></tr>
+    </table></div>
+  </div>
+  <div class="block"><span class="block-label bl-tip">Tip</span>
+    <div class="tip-box">Use passive in formal/academic writing when the agent is irrelevant: "The experiment was conducted over three months." Avoid overusing it in everyday speech — it can sound unnatural.</div>
+  </div>
+</div></div>
+
+<!-- CONDITIONALS -->
+<div class="card" data-g="verb" data-l="I" data-k="conditionals if zero first second third mixed intermediate">
+<div class="ch" onclick="tog(this)">
+  <div class="tnum">15</div>
+  <div class="tmeta"><div class="tname">Conditionals (0, 1, 2, 3 &amp; Mixed)</div><div class="ten">If clauses — real, unreal, past hypothetical</div><span class="lbadge I">Intermediate</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="block"><span class="block-label bl-rule">The Five Conditionals</span>
+    <div class="table-wrap"><table>
+      <tr><th>Type</th><th>Meaning</th><th>Form</th><th>Example</th></tr>
+      <tr><td>Zero</td><td>General truth/always true</td><td>If + present, present</td><td>If you heat ice, it melts.</td></tr>
+      <tr><td>First</td><td>Real/likely future</td><td>If + present, will</td><td>If it rains, I'll stay home.</td></tr>
+      <tr><td>Second</td><td>Unreal/unlikely present or future</td><td>If + past, would</td><td>If I had more money, I would travel.</td></tr>
+      <tr><td>Third</td><td>Unreal past (regret/criticism)</td><td>If + past perfect, would have</td><td>If I had studied, I would have passed.</td></tr>
+      <tr><td>Mixed</td><td>Past condition → present result</td><td>If + past perfect, would</td><td>If I had taken that job, I would be rich now.</td></tr>
+    </table></div>
+  </div>
+  <div class="block"><span class="block-label bl-err">Common Mistakes</span>
+    <div class="err-box">
+      <div class="err-row"><span class="err-x">✗</span><span class="err-txt"><span class="wrong">If I will go, I will tell you.</span> → <span class="correct">If I go, I will tell you.</span> (no will in if-clause)</span></div>
+      <div class="err-row"><span class="err-x">✗</span><span class="err-txt"><span class="wrong">If I would have known...</span> → <span class="correct">If I had known...</span></span></div>
+      <div class="err-row"><span class="err-x">✗</span><span class="err-txt"><span class="wrong">I wish I would be taller.</span> → <span class="correct">I wish I were taller.</span></span></div>
+    </div>
+  </div>
+</div></div>
+
+<!-- REPORTED SPEECH -->
+<div class="card" data-g="verb" data-l="I" data-k="reported speech indirect told said that backshift intermediate">
+<div class="ch" onclick="tog(this)">
+  <div class="tnum">16</div>
+  <div class="tmeta"><div class="tname">Reported Speech</div><div class="ten">Direct to indirect — tense shifts, pronouns, time words</div><span class="lbadge I">Intermediate</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="block"><span class="block-label bl-rule">Tense Backshift</span>
+    <div class="table-wrap"><table>
+      <tr><th>Direct</th><th>Reported (backshift)</th></tr>
+      <tr><td>"I work here." (present simple)</td><td>She said she worked there.</td></tr>
+      <tr><td>"I am working." (present cont.)</td><td>She said she was working.</td></tr>
+      <tr><td>"I worked." (past simple)</td><td>She said she had worked.</td></tr>
+      <tr><td>"I have worked." (present perf.)</td><td>She said she had worked.</td></tr>
+      <tr><td>"I will go." (future)</td><td>She said she would go.</td></tr>
+      <tr><td>"I can do it." (can)</td><td>She said she could do it.</td></tr>
+    </table></div>
+  </div>
+  <div class="block"><span class="block-label bl-rule">Time/Place Word Changes</span>
+    <div class="table-wrap"><table>
+      <tr><th>Direct</th><th>Reported</th></tr>
+      <tr><td>now</td><td>then</td></tr>
+      <tr><td>today</td><td>that day</td></tr>
+      <tr><td>tomorrow</td><td>the next/following day</td></tr>
+      <tr><td>yesterday</td><td>the day before / the previous day</td></tr>
+      <tr><td>here</td><td>there</td></tr>
+      <tr><td>this</td><td>that</td></tr>
+    </table></div>
+  </div>
+  <div class="block"><span class="block-label bl-tip">Tip</span>
+    <div class="tip-box">No backshift needed if the information is still true: "She said the Earth is round." (still true — no tense change needed).</div>
+  </div>
+</div></div>
+
+<!-- GERUNDS & INFINITIVES -->
+<div class="card" data-g="verb" data-l="I" data-k="gerunds infinitives -ing to verb patterns enjoy want stop intermediate">
+<div class="ch" onclick="tog(this)">
+  <div class="tnum">17</div>
+  <div class="tmeta"><div class="tname">Gerunds &amp; Infinitives</div><div class="ten">enjoy doing vs want to do — verb patterns</div><span class="lbadge I">Intermediate</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="block"><span class="block-label bl-rule">Verbs followed by GERUND (-ing)</span>
+    <div class="rule-box">
+      <strong>enjoy, avoid, finish, mind, suggest, consider, keep, deny, miss, admit, practise, risk, fancy, involve</strong><br><br>
+      <code>I enjoy swimming.</code><br>
+      <code>She avoided answering the question.</code>
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-rule">Verbs followed by INFINITIVE (to + verb)</span>
+    <div class="rule-box">
+      <strong>want, need, decide, hope, plan, expect, agree, refuse, manage, fail, afford, offer, promise, tend</strong><br><br>
+      <code>I want to leave.</code><br>
+      <code>She decided to stay.</code>
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-rule">Verbs where meaning CHANGES</span>
+    <div class="rule-box">
+      <code>stop + -ing</code> = quit: <em>He stopped smoking.</em><br>
+      <code>stop + to</code> = pause to do: <em>He stopped to smoke.</em><br><br>
+      <code>remember + -ing</code> = recall past: <em>I remember locking the door.</em><br>
+      <code>remember + to</code> = don't forget: <em>Remember to lock the door.</em><br><br>
+      <code>try + -ing</code> = experiment: <em>Try adding lemon.</em><br>
+      <code>try + to</code> = attempt: <em>Try to be on time.</em>
+    </div>
+  </div>
+</div></div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     4. SENTENCE STRUCTURE
+════════════════════════════════════════ -->
+<div class="sec" data-g="sentence">
+  <div class="sec-hd">
+    <div class="sec-num">4</div>
+    <div><div class="sec-title">Sentence Structure</div></div>
+    <div class="sec-sub">clauses · phrases · subject-verb · relative · conjunctions</div>
+  </div>
+  <div class="grid">
+
+<!-- SUBJECT-VERB AGREEMENT -->
+<div class="card" data-g="sentence" data-l="B" data-k="subject verb agreement singular plural number does do beginner">
+<div class="ch" onclick="tog(this)">
+  <div class="tnum">18</div>
+  <div class="tmeta"><div class="tname">Subject-Verb Agreement</div><div class="ten">The verb must match the subject</div><span class="lbadge B">Beginner</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="block"><span class="block-label bl-rule">Core Rules</span>
+    <div class="rule-box">
+      1. Singular subject → singular verb: <code>She runs every day.</code><br>
+      2. Plural subject → plural verb: <code>They run every day.</code><br>
+      3. Compound with "and" → plural: <code>Tom and Lisa are here.</code><br>
+      4. "or / nor" → agree with nearest noun: <code>Neither the students nor the teacher was there.</code>
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-rule">Tricky Cases</span>
+    <div class="rule-box">
+      <strong>Collective nouns</strong> (team, family, government) — singular in American English, can be singular or plural in British:<br>
+      <code>The team is ready.</code> (AmE) / <code>The team are ready.</code> (BrE)<br><br>
+      <strong>Everyone, someone, nobody</strong> → singular:<br>
+      <code>Everyone has a ticket.</code><br><br>
+      <strong>None of</strong> → usually singular but plural is becoming accepted:<br>
+      <code>None of the water is left.</code> / <code>None of the students were absent.</code>
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-err">Common Mistakes</span>
+    <div class="err-box">
+      <div class="err-row"><span class="err-x">✗</span><span class="err-txt"><span class="wrong">The news are bad.</span> → <span class="correct">The news is bad.</span> (news is singular)</span></div>
+      <div class="err-row"><span class="err-x">✗</span><span class="err-txt"><span class="wrong">The number of students are increasing.</span> → <span class="correct">The number … is increasing.</span></span></div>
+      <div class="err-row"><span class="err-x">✗</span><span class="err-txt"><span class="wrong">Each of the boys have a pen.</span> → <span class="correct">Each of the boys has a pen.</span></span></div>
+    </div>
+  </div>
+</div></div>
+
+<!-- RELATIVE CLAUSES -->
+<div class="card" data-g="sentence" data-l="I" data-k="relative clauses who which that where whose defining non-defining intermediate">
+<div class="ch" onclick="tog(this)">
+  <div class="tnum">19</div>
+  <div class="tmeta"><div class="tname">Relative Clauses</div><div class="ten">who / which / that / where / whose — defining vs non-defining</div><span class="lbadge I">Intermediate</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="block"><span class="block-label bl-rule">Which pronoun to use</span>
+    <div class="table-wrap"><table>
+      <tr><th>Pronoun</th><th>Refers to</th><th>Example</th></tr>
+      <tr><td><code>who</code></td><td>people</td><td>The man who called is waiting.</td></tr>
+      <tr><td><code>which</code></td><td>things / animals</td><td>The book which you lent me was great.</td></tr>
+      <tr><td><code>that</code></td><td>people or things (defining only)</td><td>The car that I bought is blue.</td></tr>
+      <tr><td><code>where</code></td><td>places</td><td>The town where I grew up was small.</td></tr>
+      <tr><td><code>whose</code></td><td>possession</td><td>The woman whose bag was stolen called police.</td></tr>
+    </table></div>
+  </div>
+  <div class="block"><span class="block-label bl-rule">Defining vs Non-Defining</span>
+    <div class="rule-box">
+      <strong>Defining</strong> (no commas) — essential info, identifies the noun:<br>
+      <code>The student who passed the exam got a prize.</code><br><br>
+      <strong>Non-defining</strong> (commas required) — extra info, noun already identified:<br>
+      <code>My sister, who lives in London, is a doctor.</code><br><br>
+      ⚠️ <strong>"that" cannot be used in non-defining clauses:</strong><br>
+      <span class="wrong">My sister, that lives in London…</span> → <span class="correct">My sister, who lives in London…</span>
+    </div>
+  </div>
+</div></div>
+
+<!-- CONJUNCTIONS -->
+<div class="card" data-g="sentence" data-l="B" data-k="conjunctions coordinating subordinating and but although because so since when while beginner">
+<div class="ch" onclick="tog(this)">
+  <div class="tnum">20</div>
+  <div class="tmeta"><div class="tname">Conjunctions</div><div class="ten">Connecting ideas — coordinating &amp; subordinating</div><span class="lbadge B">Beginner</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="block"><span class="block-label bl-rule">Coordinating (FANBOYS)</span>
+    <div class="rule-box">
+      <strong>F</strong>or · <strong>A</strong>nd · <strong>N</strong>or · <strong>B</strong>ut · <strong>O</strong>r · <strong>Y</strong>et · <strong>S</strong>o<br>
+      Join two independent clauses (equal weight):<br>
+      <code>I was tired, but I finished the work.</code><br>
+      <code>She studied hard, so she passed.</code>
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-rule">Subordinating Conjunctions</span>
+    <div class="rule-box">
+      Introduce a dependent clause. Key examples:<br>
+      <strong>because, since, as</strong> (reason): <code>I left because I was tired.</code><br>
+      <strong>although, even though, though, while</strong> (contrast): <code>Although it was raining, we went out.</code><br>
+      <strong>if, unless, provided that</strong> (condition): <code>Unless you hurry, you'll be late.</code><br>
+      <strong>when, while, before, after, until, as soon as</strong> (time)
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-err">Common Mistakes</span>
+    <div class="err-box">
+      <div class="err-row"><span class="err-x">✗</span><span class="err-txt"><span class="wrong">Although he was tired, but he kept working.</span> → <span class="correct">Although he was tired, he kept working.</span> (don't use both although + but)</span></div>
+      <div class="err-row"><span class="err-x">✗</span><span class="err-txt"><span class="wrong">Because of he was late.</span> → <span class="correct">Because he was late.</span> / <span class="correct">Because of his lateness.</span></span></div>
+    </div>
+  </div>
+</div></div>
+
+<!-- PREPOSITIONS -->
+<div class="card" data-g="sentence" data-l="I" data-k="prepositions in on at for since during among between intermediate">
+<div class="ch" onclick="tog(this)">
+  <div class="tnum">21</div>
+  <div class="tmeta"><div class="tname">Prepositions</div><div class="ten">in / on / at / for / since / by — time and place</div><span class="lbadge I">Intermediate</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="block"><span class="block-label bl-rule">Prepositions of Time</span>
+    <div class="table-wrap"><table>
+      <tr><th>Preposition</th><th>Use</th><th>Examples</th></tr>
+      <tr><td><code>at</code></td><td>specific time, holidays</td><td>at 9am, at Christmas, at the weekend (BrE)</td></tr>
+      <tr><td><code>on</code></td><td>days, dates, specific days</td><td>on Monday, on 5th June, on my birthday</td></tr>
+      <tr><td><code>in</code></td><td>months, years, seasons, parts of day</td><td>in March, in 2020, in summer, in the morning</td></tr>
+      <tr><td><code>for</code></td><td>duration</td><td>for three hours, for a week</td></tr>
+      <tr><td><code>since</code></td><td>point in time (with perfect)</td><td>since Monday, since 2018</td></tr>
+      <tr><td><code>by</code></td><td>deadline (not later than)</td><td>by Friday, by 5pm</td></tr>
+      <tr><td><code>until/till</code></td><td>up to a point in time</td><td>until midnight, till morning</td></tr>
+    </table></div>
+  </div>
+  <div class="block"><span class="block-label bl-rule">Prepositions of Place</span>
+    <div class="rule-box">
+      <code>at</code> = a point: <em>at the corner, at the top</em><br>
+      <code>in</code> = enclosed space: <em>in the room, in London, in a box</em><br>
+      <code>on</code> = surface: <em>on the table, on the wall, on the bus</em><br>
+      <code>between</code> = two things: <em>between the chairs</em><br>
+      <code>among</code> = three or more: <em>among the crowd</em>
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-err">Common Mistakes</span>
+    <div class="err-box">
+      <div class="err-row"><span class="err-x">✗</span><span class="err-txt"><span class="wrong">I've been here since three hours.</span> → <span class="correct">for three hours</span> (duration)</span></div>
+      <div class="err-row"><span class="err-x">✗</span><span class="err-txt"><span class="wrong">She arrived at Monday.</span> → <span class="correct">She arrived on Monday.</span></span></div>
+      <div class="err-row"><span class="err-x">✗</span><span class="err-txt"><span class="wrong">I will finish until Friday.</span> → <span class="correct">I will finish by Friday.</span></span></div>
+    </div>
+  </div>
+</div></div>
+
+<!-- INVERSION -->
+<div class="card" data-g="sentence" data-l="A" data-k="inversion never rarely not only had scarcely advanced formal">
+<div class="ch" onclick="tog(this)">
+  <div class="tnum">22</div>
+  <div class="tmeta"><div class="tname">Inversion</div><div class="ten">Inverted word order for emphasis — formal &amp; literary</div><span class="lbadge A">Advanced</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="block"><span class="block-label bl-what">What it is</span>
+    <p class="desc">Inversion reverses the normal subject-verb order for dramatic emphasis, usually in formal or literary English. Common after negative adverbials.</p>
+  </div>
+  <div class="block"><span class="block-label bl-rule">After Negative Adverbials</span>
+    <div class="rule-box">
+      <code>Never have I seen such chaos.</code> (= I have never seen…)<br>
+      <code>Rarely does she make mistakes.</code><br>
+      <code>Not only did he lie, but he also stole.</code><br>
+      <code>Scarcely had I sat down when the phone rang.</code><br>
+      <code>No sooner had he left than it started raining.</code><br>
+      <code>Hardly had she arrived when the trouble began.</code>
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-rule">Other Inversion Contexts</span>
+    <div class="rule-box">
+      <strong>Conditionals without "if"</strong>:<br>
+      <code>Were I you, I wouldn't go.</code> (= If I were you)<br>
+      <code>Had I known, I would have helped.</code> (= If I had known)<br>
+      <code>Should you need help, call me.</code> (= If you should need)
+    </div>
+  </div>
+</div></div>
+
+<!-- CLEFT SENTENCES -->
+<div class="card" data-g="sentence" data-l="A" data-k="cleft sentences it is what that emphasis advanced focus">
+<div class="ch" onclick="tog(this)">
+  <div class="tnum">23</div>
+  <div class="tmeta"><div class="tname">Cleft Sentences</div><div class="ten">It is… that / What… is — emphasis through splitting</div><span class="lbadge A">Advanced</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="block"><span class="block-label bl-what">What it is</span>
+    <p class="desc">A cleft sentence splits one clause into two to put extra focus on one element. Very useful in writing and formal speech.</p>
+  </div>
+  <div class="block"><span class="block-label bl-rule">It-Clefts</span>
+    <div class="rule-box">
+      Structure: <code>It is/was + [focus] + that/who…</code><br><br>
+      Normal: <em>John broke the window.</em><br>
+      Cleft (focus on John): <code>It was John who broke the window.</code><br>
+      Cleft (focus on window): <code>It was the window that John broke.</code><br>
+      Cleft (focus on time): <code>It was yesterday that he called.</code>
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-rule">Wh-Clefts (Pseudo-Clefts)</span>
+    <div class="rule-box">
+      Structure: <code>What + [clause] + is/was + [focus]</code><br><br>
+      <code>What I need is a holiday.</code><br>
+      <code>What surprised me was his reaction.</code><br>
+      <code>What she wants is to be left alone.</code>
+    </div>
+  </div>
+</div></div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     5. PUNCTUATION
+════════════════════════════════════════ -->
+<div class="sec" data-g="punct">
+  <div class="sec-hd">
+    <div class="sec-num">5</div>
+    <div><div class="sec-title">Punctuation</div></div>
+    <div class="sec-sub">comma · apostrophe · semicolon · colon · dash · hyphen</div>
+  </div>
+  <div class="grid">
+
+<!-- APOSTROPHE -->
+<div class="card" data-g="punct" data-l="B" data-k="apostrophe possession contraction its it's your you're beginner">
+<div class="ch" onclick="tog(this)">
+  <div class="tnum">24</div>
+  <div class="tmeta"><div class="tname">Apostrophes</div><div class="ten">Possession and contractions — the most misused mark</div><span class="lbadge B">Beginner</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="block"><span class="block-label bl-rule">Possession</span>
+    <div class="rule-box">
+      Singular noun → <code>'s</code>: <em>the dog's bone, James's car</em><br>
+      Plural noun ending in -s → <code>s'</code>: <em>the dogs' bone, the teachers' room</em><br>
+      Irregular plural → <code>'s</code>: <em>the children's toys, the women's team</em>
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-rule">Contractions</span>
+    <div class="rule-box">
+      <code>it's</code> = it is / it has: <em>It's raining. It's been a long day.</em><br>
+      <code>its</code> = possessive: <em>The cat licked its paw.</em><br>
+      <code>you're</code> = you are | <code>your</code> = possessive<br>
+      <code>they're</code> = they are | <code>their</code> = possessive | <code>there</code> = place<br>
+      <code>who's</code> = who is/has | <code>whose</code> = possessive
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-err">Common Mistakes</span>
+    <div class="err-box">
+      <div class="err-row"><span class="err-x">✗</span><span class="err-txt"><span class="wrong">The dog hurt it's leg.</span> → <span class="correct">its leg</span> (possessive, no apostrophe)</span></div>
+      <div class="err-row"><span class="err-x">✗</span><span class="err-txt"><span class="wrong">I love pizza's and pasta's.</span> → <span class="correct">pizzas and pastas</span> (no apostrophe for plurals!)</span></div>
+      <div class="err-row"><span class="err-x">✗</span><span class="err-txt"><span class="wrong">Your welcome.</span> → <span class="correct">You're welcome.</span></span></div>
+    </div>
+  </div>
+</div></div>
+
+<!-- COMMAS -->
+<div class="card" data-g="punct" data-l="I" data-k="comma list clause serial Oxford intermediate punctuation">
+<div class="ch" onclick="tog(this)">
+  <div class="tnum">25</div>
+  <div class="tmeta"><div class="tname">Commas</div><div class="ten">When to use — and when NOT to use — a comma</div><span class="lbadge I">Intermediate</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="block"><span class="block-label bl-rule">When to USE a comma</span>
+    <div class="rule-box">
+      1. <strong>Lists:</strong> <code>I bought milk, eggs, bread, and butter.</code><br>
+      2. <strong>Before coordinating conjunctions</strong> (joining two independent clauses): <code>I was tired, but I stayed.</code><br>
+      3. <strong>After introductory phrases:</strong> <code>However, I disagree. In 2020, everything changed.</code><br>
+      4. <strong>Non-defining relative clauses:</strong> <code>My brother, who lives abroad, called me.</code><br>
+      5. <strong>Direct address:</strong> <code>Come in, John. Let's eat, Grandma.</code>
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-err">Comma Splice — a serious error</span>
+    <div class="err-box">
+      <div class="err-row"><span class="err-x">✗</span><span class="err-txt"><span class="wrong">I came home, I made dinner, I went to bed.</span><br>→ <span class="correct">I came home, made dinner, and went to bed.</span><br>→ or: <span class="correct">I came home; I made dinner; I went to bed.</span></span></div>
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-tip">Oxford Comma</span>
+    <div class="tip-box">The Oxford comma is the final comma before "and" in a list. <em>I love my parents, Lady Gaga, and Bono</em> (with Oxford comma — three separate things). Without it: <em>I love my parents, Lady Gaga and Bono</em> — ambiguous!</div>
+  </div>
+</div></div>
+
+<!-- SEMICOLONS & COLONS -->
+<div class="card" data-g="punct" data-l="A" data-k="semicolon colon dash hyphen advanced punctuation lists">
+<div class="ch" onclick="tog(this)">
+  <div class="tnum">26</div>
+  <div class="tmeta"><div class="tname">Semicolons, Colons &amp; Dashes</div><div class="ten">The most underused — and misused — marks</div><span class="lbadge A">Advanced</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="block"><span class="block-label bl-rule">Semicolon ( ; )</span>
+    <div class="rule-box">
+      Joins two <strong>closely related independent clauses</strong> without a conjunction:<br>
+      <code>I love coffee; I can't function without it.</code><br>
+      <code>She studied hard; her results showed it.</code><br><br>
+      Also used in complex lists:<br>
+      <code>Attendees came from Paris, France; Rome, Italy; and Madrid, Spain.</code>
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-rule">Colon ( : )</span>
+    <div class="rule-box">
+      Introduces what follows — a list, explanation, or quotation:<br>
+      <code>I need three things: time, money, and patience.</code><br>
+      <code>The problem was clear: nobody had planned ahead.</code><br><br>
+      ⚠️ What comes before the colon must be a complete sentence.
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-rule">Em Dash ( — ) vs Hyphen ( - )</span>
+    <div class="rule-box">
+      <strong>Em dash</strong> — used for interruption, emphasis, or parenthetical info:<br>
+      <code>The answer — surprisingly — was yes.</code><br>
+      <code>She had one goal — to win.</code><br><br>
+      <strong>Hyphen</strong> - used to join compound modifiers before a noun:<br>
+      <code>a well-known author, a five-year-old child, an up-to-date report</code><br>
+      But: <em>The author is well known.</em> (no hyphen after the noun)
+    </div>
+  </div>
+</div></div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     6. STYLE & WORD CHOICE
+════════════════════════════════════════ -->
+<div class="sec" data-g="style">
+  <div class="sec-hd">
+    <div class="sec-num">6</div>
+    <div><div class="sec-title">Style &amp; Word Choice</div></div>
+    <div class="sec-sub">commonly confused · affect/effect · fewer/less · register</div>
+  </div>
+  <div class="grid">
+
+<!-- COMMONLY CONFUSED WORDS -->
+<div class="card" data-g="style" data-l="I" data-k="commonly confused words affect effect fewer less lie lay bring take intermediate">
+<div class="ch" onclick="tog(this)">
+  <div class="tnum">27</div>
+  <div class="tmeta"><div class="tname">Commonly Confused Words</div><div class="ten">affect/effect · fewer/less · lie/lay · bring/take</div><span class="lbadge I">Intermediate</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="block"><span class="block-label bl-rule">affect vs effect</span>
+    <div class="rule-box">
+      <code>affect</code> = verb (to have an impact on): <em>Stress affects your health.</em><br>
+      <code>effect</code> = noun (the result): <em>The effect of stress on health is serious.</em><br>
+      Memory trick: <strong>RAVEN</strong> — Remember Affect Verb Effect Noun
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-rule">fewer vs less</span>
+    <div class="rule-box">
+      <code>fewer</code> = countable nouns: <em>fewer people, fewer cars, fewer mistakes</em><br>
+      <code>less</code> = uncountable nouns: <em>less water, less time, less money</em><br><br>
+      Supermarket sign: "10 items or <span class="wrong">less</span>" → should be <span class="correct">fewer</span>!
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-rule">lie vs lay</span>
+    <div class="rule-box">
+      <code>lie</code> (intransitive) = to recline; no object needed<br>
+      Present: <em>I lie down.</em> Past: <em>I lay down.</em> Past participle: <em>lain</em><br><br>
+      <code>lay</code> (transitive) = to put/place; needs an object<br>
+      Present: <em>I lay the book on the table.</em> Past: <em>I laid it down.</em> PP: <em>laid</em>
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-rule">bring vs take</span>
+    <div class="rule-box">
+      <code>bring</code> = movement toward speaker/listener: <em>Bring me a coffee. I'll bring wine to the party.</em><br>
+      <code>take</code> = movement away from speaker/listener: <em>Take this letter to the post office.</em>
+    </div>
+  </div>
+</div></div>
+
+<!-- MORE CONFUSED WORDS -->
+<div class="card" data-g="style" data-l="I" data-k="confused words who whom that which among between further farther intermediate">
+<div class="ch" onclick="tog(this)">
+  <div class="tnum">28</div>
+  <div class="tmeta"><div class="tname">More Confusing Pairs</div><div class="ten">who/whom · that/which · among/between · good/well</div><span class="lbadge I">Intermediate</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="block"><span class="block-label bl-rule">who vs whom</span>
+    <div class="rule-box">
+      <code>who</code> = subject (doing the action)<br>
+      <code>whom</code> = object (receiving the action)<br>
+      Trick: if you can answer with "him/her" → use <strong>whom</strong>. If "he/she" → <strong>who</strong>.<br><br>
+      <em>Who called?</em> → He called. ✓<br>
+      <em>Whom did you call?</em> → I called him. ✓
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-rule">good vs well</span>
+    <div class="rule-box">
+      <code>good</code> = adjective (describes a noun): <em>She's a good writer.</em><br>
+      <code>well</code> = adverb (describes a verb): <em>She writes well.</em><br><br>
+      ⚠️ <em>I'm good</em> (AmE, informal, describes how I am) vs <em>I'm well</em> (refers to health)
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-rule">between vs among</span>
+    <div class="rule-box">
+      <code>between</code> = two things (or distinct individual items): <em>between you and me; between the three candidates</em><br>
+      <code>among</code> = three or more things seen as a group: <em>among the crowd, among friends</em>
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-rule">further vs farther</span>
+    <div class="rule-box">
+      <code>farther</code> = physical distance: <em>London is farther than Oxford.</em><br>
+      <code>further</code> = figurative/metaphorical distance, or "additional": <em>further research, further notice</em><br>
+      (In British English, "further" is often used for both.)
+    </div>
+  </div>
+</div></div>
+
+<!-- REGISTER / FORMALITY -->
+<div class="card" data-g="style" data-l="I" data-k="register formal informal academic writing style colloquial intermediate">
+<div class="ch" onclick="tog(this)">
+  <div class="tnum">29</div>
+  <div class="tmeta"><div class="tname">Register &amp; Formality</div><div class="ten">Matching language to context</div><span class="lbadge I">Intermediate</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="block"><span class="block-label bl-what">What it is</span>
+    <p class="desc">Register is the level of formality in language. Using the wrong register is one of the most common and impactful errors in written English.</p>
+  </div>
+  <div class="block"><span class="block-label bl-rule">Informal → Formal transformations</span>
+    <div class="table-wrap"><table>
+      <tr><th>Informal</th><th>Formal</th></tr>
+      <tr><td>get</td><td>obtain / receive / become</td></tr>
+      <tr><td>show</td><td>demonstrate / illustrate</td></tr>
+      <tr><td>find out</td><td>discover / ascertain</td></tr>
+      <tr><td>look into</td><td>investigate / examine</td></tr>
+      <tr><td>a lot of</td><td>a significant number of / considerable</td></tr>
+      <tr><td>because</td><td>due to / owing to / as a result of</td></tr>
+      <tr><td>but</td><td>however / nevertheless / nonetheless</td></tr>
+      <tr><td>also</td><td>furthermore / moreover / in addition</td></tr>
+      <tr><td>I think</td><td>It is argued that / evidence suggests</td></tr>
+    </table></div>
+  </div>
+  <div class="block"><span class="block-label bl-tip">Tip</span>
+    <div class="tip-box">In academic writing: avoid contractions (don't → do not), avoid first person where possible, avoid vague words (nice, good, big), and avoid rhetorical questions.</div>
+  </div>
+</div></div>
+
+<!-- ACTIVE VS PASSIVE STYLE -->
+<div class="card" data-g="style" data-l="I" data-k="active passive writing style direct concise intermediate clarity">
+<div class="ch" onclick="tog(this)">
+  <div class="tnum">30</div>
+  <div class="tmeta"><div class="tname">Writing with Clarity</div><div class="ten">Concision, active voice, and cutting deadwood</div><span class="lbadge I">Intermediate</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="block"><span class="block-label bl-rule">Cut Redundant Phrases</span>
+    <div class="table-wrap"><table>
+      <tr><th>Wordy</th><th>Concise</th></tr>
+      <tr><td>at this point in time</td><td>now</td></tr>
+      <tr><td>due to the fact that</td><td>because</td></tr>
+      <tr><td>in the event that</td><td>if</td></tr>
+      <tr><td>in spite of the fact that</td><td>although / despite</td></tr>
+      <tr><td>with the exception of</td><td>except</td></tr>
+      <tr><td>a large number of</td><td>many</td></tr>
+      <tr><td>on a daily basis</td><td>daily</td></tr>
+      <tr><td>the reason why is because</td><td>because</td></tr>
+    </table></div>
+  </div>
+  <div class="block"><span class="block-label bl-tip">Prefer Active Voice</span>
+    <div class="tip-box">Passive: "The decision was made by the committee." → Active: "The committee made the decision." Active is usually clearer and more direct. Use passive when the agent truly doesn't matter or is unknown.</div>
+  </div>
+</div></div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     7. ADVANCED GRAMMAR
+════════════════════════════════════════ -->
+<div class="sec" data-g="advanced">
+  <div class="sec-hd">
+    <div class="sec-num">7</div>
+    <div><div class="sec-title">Advanced Grammar</div></div>
+    <div class="sec-sub">subjunctive · participle clauses · ellipsis · nominalization</div>
+  </div>
+  <div class="grid">
+
+<!-- SUBJUNCTIVE -->
+<div class="card" data-g="advanced" data-l="A" data-k="subjunctive mood were if I were suggest recommend advanced formal">
+<div class="ch" onclick="tog(this)">
+  <div class="tnum">31</div>
+  <div class="tmeta"><div class="tname">The Subjunctive Mood</div><div class="ten">Hypothetical, wishes, demands, recommendations</div><span class="lbadge A">Advanced</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="block"><span class="block-label bl-what">What it is</span>
+    <p class="desc">The subjunctive expresses hypothetical situations, wishes, demands, and recommendations. It's more common in formal/written English and American English than in casual British speech.</p>
+  </div>
+  <div class="block"><span class="block-label bl-rule">Present Subjunctive (base form)</span>
+    <div class="rule-box">
+      Used after verbs of suggestion, recommendation, demand, necessity:<br>
+      <strong>suggest, recommend, demand, insist, propose, request, require</strong><br><br>
+      <code>I suggest that he come early.</code> (not "comes")<br>
+      <code>The doctor recommended that she take rest.</code><br>
+      <code>It is essential that every student be present.</code><br>
+      <code>They demanded that he resign.</code>
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-rule">Past Subjunctive (were)</span>
+    <div class="rule-box">
+      Used for hypothetical/unreal conditions and wishes. Use <strong>were</strong> for all persons (not "was"):<br><br>
+      <code>If I were you, I wouldn't say that.</code><br>
+      <code>I wish I were taller.</code><br>
+      <code>If she were here, she would know what to do.</code><br>
+      <code>Suppose he were to find out…</code>
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-tip">Tip</span>
+    <div class="tip-box">"If I was" is increasingly used in informal speech, but "If I were" remains preferred in formal writing and exams.</div>
+  </div>
+</div></div>
+
+<!-- PARTICIPLE CLAUSES -->
+<div class="card" data-g="advanced" data-l="A" data-k="participle clauses -ing -ed having been advanced reduction formal">
+<div class="ch" onclick="tog(this)">
+  <div class="tnum">32</div>
+  <div class="tmeta"><div class="tname">Participle Clauses</div><div class="ten">Compressed clauses using -ing, -ed, or having done</div><span class="lbadge A">Advanced</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="block"><span class="block-label bl-what">What it is</span>
+    <p class="desc">Participle clauses replace full clauses, making writing more concise and formal. The subject of the participle clause must be the same as the main clause subject.</p>
+  </div>
+  <div class="block"><span class="block-label bl-rule">Present Participle (-ing)</span>
+    <div class="rule-box">
+      Simultaneous or immediately preceding action:<br>
+      Full: <em>Because she felt ill, she left early.</em><br>
+      Reduced: <code>Feeling ill, she left early.</code><br><br>
+      <code>Walking down the street, I noticed a poster.</code><br>
+      <code>Not knowing what to do, he asked for help.</code>
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-rule">Past Participle (-ed)</span>
+    <div class="rule-box">
+      Usually passive meaning:<br>
+      Full: <em>The report, which was written last year, is still relevant.</em><br>
+      Reduced: <code>Written last year, the report is still relevant.</code><br><br>
+      <code>Shocked by the news, she sat down.</code><br>
+      <code>Exhausted after the race, he collapsed.</code>
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-rule">Perfect Participle (having done)</span>
+    <div class="rule-box">
+      Action completed before the main clause:<br>
+      <code>Having finished her work, she went home.</code><br>
+      <code>Having been told the news, he couldn't sleep.</code>
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-err">Dangling Participles — a serious error</span>
+    <div class="err-box">
+      <div class="err-row"><span class="err-x">✗</span><span class="err-txt"><span class="wrong">Walking home, the rain started.</span> (the rain wasn't walking!)<br>→ <span class="correct">Walking home, I got caught in the rain.</span></span></div>
+    </div>
+  </div>
+</div></div>
+
+<!-- ELLIPSIS & SUBSTITUTION -->
+<div class="card" data-g="advanced" data-l="A" data-k="ellipsis substitution do so one ones advanced cohesion omission">
+<div class="ch" onclick="tog(this)">
+  <div class="tnum">33</div>
+  <div class="tmeta"><div class="tname">Ellipsis &amp; Substitution</div><div class="ten">Avoiding repetition elegantly</div><span class="lbadge A">Advanced</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="block"><span class="block-label bl-rule">Ellipsis (omitting words)</span>
+    <div class="rule-box">
+      Leaving out words that can be understood from context:<br><br>
+      <code>A: Can you come tomorrow? B: I think [I can come tomorrow] so.</code> → <code>I think so.</code><br>
+      <code>She can play piano and [she can play] guitar.</code><br>
+      <code>I'd like to come but [I] can't [come].</code>
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-rule">Substitution with "do so" / "one"</span>
+    <div class="rule-box">
+      <code>do so</code> replaces a verb phrase:<br>
+      <em>He promised to call, and he did so that evening.</em><br><br>
+      <code>one / ones</code> replaces a noun:<br>
+      <em>I need a pen. Do you have one?</em><br>
+      <em>I prefer the red shoes to the black ones.</em>
+    </div>
+  </div>
+</div></div>
+
+<!-- NOMINALIZATION -->
+<div class="card" data-g="advanced" data-l="A" data-k="nominalization noun form academic writing abstract decision investigation advanced">
+<div class="ch" onclick="tog(this)">
+  <div class="tnum">34</div>
+  <div class="tmeta"><div class="tname">Nominalization</div><div class="ten">Turning verbs/adjectives into nouns for formal writing</div><span class="lbadge A">Advanced</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="block"><span class="block-label bl-what">What it is</span>
+    <p class="desc">Nominalization converts verbs or adjectives into noun phrases. Common in academic, legal, and formal writing. Used strategically, it adds precision; overused, it creates dense, unreadable prose.</p>
+  </div>
+  <div class="block"><span class="block-label bl-rule">Examples</span>
+    <div class="table-wrap"><table>
+      <tr><th>Verb/Adjective</th><th>Nominalized Form</th></tr>
+      <tr><td>decide → </td><td>decision / the decision to…</td></tr>
+      <tr><td>investigate → </td><td>investigation</td></tr>
+      <tr><td>fail → </td><td>failure</td></tr>
+      <tr><td>agree → </td><td>agreement</td></tr>
+      <tr><td>significant → </td><td>significance</td></tr>
+      <tr><td>improve → </td><td>improvement</td></tr>
+      <tr><td>develop → </td><td>development</td></tr>
+    </table></div>
+  </div>
+  <div class="block"><span class="block-label bl-ex">In practice</span>
+    <div class="ex-list">
+      <div class="ex-item"><em>Simple:</em> <span class="correct">We decided to invest in the project.</span></div>
+      <div class="ex-item"><em>Nominalized:</em> <span class="correct">The decision to invest in the project was unanimous.</span></div>
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-tip">Tip</span>
+    <div class="tip-box">Nominalization allows the action to become the topic. Use it when you want to discuss an event or concept as a thing itself, not just describe what happened.</div>
+  </div>
+</div></div>
+
+<!-- DISCOURSE MARKERS -->
+<div class="card" data-g="advanced" data-l="A" data-k="discourse markers linking words cohesion however moreover furthermore nevertheless advanced writing">
+<div class="ch" onclick="tog(this)">
+  <div class="tnum">35</div>
+  <div class="tmeta"><div class="tname">Discourse Markers &amp; Linking</div><div class="ten">Cohesion tools for advanced writing</div><span class="lbadge A">Advanced</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="block"><span class="block-label bl-rule">Categories of Linking Words</span>
+    <div class="table-wrap"><table>
+      <tr><th>Function</th><th>Words/Phrases</th></tr>
+      <tr><td>Addition</td><td>furthermore, moreover, in addition, besides, what is more</td></tr>
+      <tr><td>Contrast</td><td>however, nevertheless, nonetheless, on the other hand, in contrast, that said, yet</td></tr>
+      <tr><td>Concession</td><td>although, even though, despite, in spite of, granted that, admittedly</td></tr>
+      <tr><td>Result</td><td>therefore, consequently, as a result, thus, hence, so</td></tr>
+      <tr><td>Example</td><td>for instance, for example, such as, namely, to illustrate</td></tr>
+      <tr><td>Sequence</td><td>firstly, subsequently, finally, prior to, following this</td></tr>
+      <tr><td>Summary</td><td>in conclusion, to sum up, in brief, overall, on balance</td></tr>
+    </table></div>
+  </div>
+  <div class="block"><span class="block-label bl-err">Common Mistakes</span>
+    <div class="err-box">
+      <div class="err-row"><span class="err-x">✗</span><span class="err-txt"><span class="wrong">However, I like coffee but I prefer tea.</span> → "However" already signals contrast; don't add "but"</span></div>
+      <div class="err-row"><span class="err-x">✗</span><span class="err-txt"><span class="wrong">First, …Second,… At last,…</span> → <span class="correct">Firstly,…Secondly,…Finally,…</span> ("At last" means after a long wait)</span></div>
+    </div>
+  </div>
+</div></div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     8. QUICK REFERENCE — COMMON MISTAKES
+════════════════════════════════════════ -->
+<div class="sec" data-g="advanced">
+  <div class="sec-hd">
+    <div class="sec-num">8</div>
+    <div><div class="sec-title">Top 20 Common English Mistakes</div></div>
+    <div class="sec-sub">Quick-reference error list</div>
+  </div>
+  <div class="grid">
+
+<div class="card" data-g="advanced" data-l="I" data-k="common mistakes errors top list intermediate">
+<div class="ch" onclick="tog(this)">
+  <div class="tnum">36</div>
+  <div class="tmeta"><div class="tname">Top 20 Grammar Mistakes</div><div class="ten">The most frequent errors — and how to fix them</div><span class="lbadge I">Intermediate</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="block">
+    <div class="err-box">
+      <div class="err-row"><span class="err-x">1</span><span class="err-txt"><span class="wrong">I have went</span> → <span class="correct">I have gone</span> (irregular past participle)</span></div>
+      <div class="err-row"><span class="err-x">2</span><span class="err-txt"><span class="wrong">She don't know</span> → <span class="correct">She doesn't know</span></span></div>
+      <div class="err-row"><span class="err-x">3</span><span class="err-txt"><span class="wrong">I am agree</span> → <span class="correct">I agree</span> (agree is a verb, not adjective)</span></div>
+      <div class="err-row"><span class="err-x">4</span><span class="err-txt"><span class="wrong">I have 25 years</span> → <span class="correct">I am 25</span> (age uses "to be")</span></div>
+      <div class="err-row"><span class="err-x">5</span><span class="err-txt"><span class="wrong">Make me a favour</span> → <span class="correct">Do me a favour</span></span></div>
+      <div class="err-row"><span class="err-x">6</span><span class="err-txt"><span class="wrong">I look forward to hear from you</span> → <span class="correct">to hearing</span> (gerund after preposition)</span></div>
+      <div class="err-row"><span class="err-x">7</span><span class="err-txt"><span class="wrong">Despite of the rain</span> → <span class="correct">Despite the rain</span> (no "of" after despite)</span></div>
+      <div class="err-row"><span class="err-x">8</span><span class="err-txt"><span class="wrong">He is more taller</span> → <span class="correct">He is taller</span> (no double comparative)</span></div>
+      <div class="err-row"><span class="err-x">9</span><span class="err-txt"><span class="wrong">The most fastest</span> → <span class="correct">The fastest</span> (no double superlative)</span></div>
+      <div class="err-row"><span class="err-x">10</span><span class="err-txt"><span class="wrong">I was boring at the lecture</span> → <span class="correct">I was bored</span> (boring = the lecture; bored = my feeling)</span></div>
+      <div class="err-row"><span class="err-x">11</span><span class="err-txt"><span class="wrong">The informations are…</span> → <span class="correct">The information is…</span> (uncountable)</span></div>
+      <div class="err-row"><span class="err-x">12</span><span class="err-txt"><span class="wrong">I am here since 3 years</span> → <span class="correct">I have been here for 3 years</span></span></div>
+      <div class="err-row"><span class="err-x">13</span><span class="err-txt"><span class="wrong">Discuss about the topic</span> → <span class="correct">Discuss the topic</span> (no preposition after discuss)</span></div>
+      <div class="err-row"><span class="err-x">14</span><span class="err-txt"><span class="wrong">I am used to wake up early</span> → <span class="correct">used to waking up</span> (gerund after "used to")</span></div>
+      <div class="err-row"><span class="err-x">15</span><span class="err-txt"><span class="wrong">Yesterday I have seen him</span> → <span class="correct">I saw him yesterday</span> (specific past time → simple past)</span></div>
+      <div class="err-row"><span class="err-x">16</span><span class="err-txt"><span class="wrong">He suggested me to go</span> → <span class="correct">He suggested that I go / He suggested going</span></span></div>
+      <div class="err-row"><span class="err-x">17</span><span class="err-txt"><span class="wrong">I enjoyed a lot the party</span> → <span class="correct">I enjoyed the party a lot</span> (adverb position)</span></div>
+      <div class="err-row"><span class="err-x">18</span><span class="err-txt"><span class="wrong">He is a 40 years old man</span> → <span class="correct">a 40-year-old man</span> (hyphen + no plural before noun)</span></div>
+      <div class="err-row"><span class="err-x">19</span><span class="err-txt"><span class="wrong">I prefer tea than coffee</span> → <span class="correct">prefer tea to coffee</span></span></div>
+      <div class="err-row"><span class="err-x">20</span><span class="err-txt"><span class="wrong">It depends of the weather</span> → <span class="correct">depends on the weather</span></span></div>
+    </div>
+  </div>
+</div></div>
+
+<!-- -ING VS -ED ADJECTIVES -->
+<div class="card" data-g="advanced" data-l="I" data-k="ing ed adjectives boring bored confusing confused interesting interested intermediate">
+<div class="ch" onclick="tog(this)">
+  <div class="tnum">37</div>
+  <div class="tmeta"><div class="tname">-ing vs -ed Adjectives</div><div class="ten">boring/bored · confusing/confused · interesting/interested</div><span class="lbadge I">Intermediate</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="block"><span class="block-label bl-rule">The Rule</span>
+    <div class="rule-box">
+      <strong>-ing adjectives</strong> describe the <strong>cause</strong> or <strong>characteristic</strong>:<br>
+      The film is <code>boring</code>. (the film causes boredom)<br>
+      The instructions are <code>confusing</code>.<br><br>
+      <strong>-ed adjectives</strong> describe the <strong>effect</strong> on a person (how they feel):<br>
+      I am <code>bored</code>. (I feel boredom)<br>
+      I am <code>confused</code> by the instructions.
+    </div>
+  </div>
+  <div class="block"><span class="block-label bl-ex">Full Pairs</span>
+    <div class="table-wrap"><table>
+      <tr><th>-ing (cause)</th><th>-ed (feeling)</th></tr>
+      <tr><td>boring</td><td>bored</td></tr>
+      <tr><td>exciting</td><td>excited</td></tr>
+      <tr><td>interesting</td><td>interested</td></tr>
+      <tr><td>tiring</td><td>tired</td></tr>
+      <tr><td>surprising</td><td>surprised</td></tr>
+      <tr><td>disappointing</td><td>disappointed</td></tr>
+      <tr><td>frightening</td><td>frightened</td></tr>
+      <tr><td>overwhelming</td><td>overwhelmed</td></tr>
+    </table></div>
+  </div>
+</div></div>
+
+<!-- COMPARATIVES & SUPERLATIVES -->
+<div class="card" data-g="advanced" data-l="B" data-k="comparatives superlatives more most -er -est than adjectives beginner">
+<div class="ch" onclick="tog(this)">
+  <div class="tnum">38</div>
+  <div class="tmeta"><div class="tname">Comparatives &amp; Superlatives</div><div class="ten">bigger / more important / the best</div><span class="lbadge B">Beginner</span></div>
+  <span class="tog">▾</span>
+</div>
+<div class="cb">
+  <div class="block"><span class="block-label bl-rule">Formation Rules</span>
+    <div class="table-wrap"><table>
+      <tr><th>Adjective type</th><th>Comparative</th><th>Superlative</th></tr>
+      <tr><td>1 syllable</td><td>add -er: taller</td><td>add -est: tallest</td></tr>
+      <tr><td>1 syllable ending in -e</td><td>add -r: wider</td><td>add -st: widest</td></tr>
+      <tr><td>CVC (1 syllable)</td><td>double + -er: bigger</td><td>double + -est: biggest</td></tr>
+      <tr><td>2 syllables ending in -y</td><td>-y → ier: happier</td><td>-y → iest: happiest</td></tr>
+      <tr><td>2+ syllables</td><td>more beautiful</td><td>most beautiful</td></tr>
+    </table></div>
+  </div>
+  <div class="block"><span class="block-label bl-rule">Irregulars</span>
+    <div class="table-wrap"><table>
+      <tr><th>Adjective</th><th>Comparative</th><th>Superlative</th></tr>
+      <tr><td>good</td><td>better</td><td>best</td></tr>
+      <tr><td>bad</td><td>worse</td><td>worst</td></tr>
+      <tr><td>far</td><td>further/farther</td><td>furthest/farthest</td></tr>
+      <tr><td>little</td><td>less</td><td>least</td></tr>
+      <tr><td>much/many</td><td>more</td><td>most</td></tr>
+    </table></div>
+  </div>
+  <div class="block"><span class="block-label bl-err">Common Mistakes</span>
+    <div class="err-box">
+      <div class="err-row"><span class="err-x">✗</span><span class="err-txt"><span class="wrong">more better, more faster</span> → <span class="correct">better, faster</span> (never double comparative)</span></div>
+      <div class="err-row"><span class="err-x">✗</span><span class="err-txt"><span class="wrong">the most tallest</span> → <span class="correct">the tallest</span></span></div>
+      <div class="err-row"><span class="err-x">✗</span><span class="err-txt"><span class="wrong">She is more tall than me.</span> → <span class="correct">She is taller than me.</span></span></div>
+    </div>
+  </div>
+</div></div>
+
+  </div>
+</div>
+
+</div><!-- end wrap -->
+
+<script>
+let cG='all', cL='all';
+
+function tog(h){h.parentElement.classList.toggle('open')}
+
+function setG(g,btn){
+  cG=g;
+  document.querySelectorAll('#gtabs .tb').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  run();
+}
+
+function setL(l,btn){
+  cL=l;
+  document.querySelectorAll('#lvtabs .lt').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  run();
+}
+
+function doFilter(){run();}
+
+function run(){
+  const q=document.getElementById('q').value.toLowerCase();
+  const cards=document.querySelectorAll('.card');
+  const secs=document.querySelectorAll('.sec');
+  let vis=0;
+
+  cards.forEach(c=>{
+    const cg=c.dataset.g||'';
+    const cl=c.dataset.l||'';
+    const kw=(c.dataset.k||'').toLowerCase();
+    const nm=c.querySelector('.tname').textContent.toLowerCase();
+    const gOk=cG==='all'||cg===cG;
+    const lOk=cL==='all'||cl===cL;
+    const qOk=!q||kw.includes(q)||nm.includes(q);
+    if(gOk&&lOk&&qOk){c.classList.remove('hide');vis++;}
+    else{c.classList.add('hide');}
+  });
+
+  secs.forEach(s=>{
+    const sg=s.dataset.g||'';
+    const anyVis=[...s.querySelectorAll('.card')].some(c=>!c.classList.contains('hide'));
+    s.style.display=anyVis?'':'none';
+  });
+
+  document.getElementById('empty').classList.toggle('show',vis===0);
+}
+</script>
+</body>
+</html>
