@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French Grammar & Conjugation Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #2a9d8f;
+    --teal-dark: #1f7268;
+    --teal-light: #e8f7f5;
+    --red: #c1432a;
+    --red-light: #fdf0ed;
+    --cream: #faf8f4;
+    --dark: #1a1a2e;
+    --mid: #4a4a6a;
+    --light: #f0eee9;
+    --white: #ffffff;
+    --border: #ddd9d0;
+    --shadow: 0 4px 24px rgba(0,0,0,0.08);
+    --shadow-lg: 0 12px 48px rgba(0,0,0,0.14);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--dark); min-height: 100vh; }
+
+  .hero {
+    background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 60%, #48b5a8 100%);
+    padding: 48px 24px 40px; text-align: center; position: relative; overflow: hidden;
+  }
+  .hero::before { content:''; position:absolute; top:-60px; right:-60px; width:220px; height:220px; border-radius:50%; background:rgba(255,255,255,0.06); }
+  .hero::after  { content:''; position:absolute; bottom:-40px; left:-40px; width:160px; height:160px; border-radius:50%; background:rgba(255,255,255,0.04); }
+  .hero-flag { font-size:2rem; margin-bottom:12px; }
+  .hero h1 { font-family:'Playfair Display',serif; font-size:clamp(1.8rem,5vw,2.8rem); color:white; font-weight:700; line-height:1.2; margin-bottom:8px; }
+  .hero p  { color:rgba(255,255,255,0.85); font-size:1rem; font-weight:300; letter-spacing:0.3px; }
+  .hero-subtitle { display:inline-block; background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.25); border-radius:20px; padding:4px 16px; font-size:0.8rem; color:rgba(255,255,255,0.9); margin-top:12px; letter-spacing:0.5px; }
+
+  .search-bar { background:white; padding:20px 16px; border-bottom:1px solid var(--border); position:sticky; top:0; z-index:100; box-shadow:0 2px 12px rgba(0,0,0,0.07); }
+  .search-inner { max-width:700px; margin:0 auto; position:relative; }
+  .search-inner input { width:100%; padding:10px 16px 10px 42px; border:1.5px solid var(--border); border-radius:10px; font-family:'DM Sans',sans-serif; font-size:0.95rem; background:var(--cream); color:var(--dark); outline:none; transition:border-color 0.2s; }
+  .search-inner input:focus { border-color:var(--teal); background:white; }
+  .search-icon { position:absolute; left:14px; top:50%; transform:translateY(-50%); color:var(--mid); font-size:1rem; }
+  .tabs { display:flex; gap:8px; max-width:700px; margin:12px auto 0; flex-wrap:wrap; }
+  .tab-btn { padding:6px 16px; border-radius:20px; border:1.5px solid var(--border); background:white; font-family:'DM Sans',sans-serif; font-size:0.82rem; font-weight:500; cursor:pointer; color:var(--mid); transition:all 0.2s; }
+  .tab-btn.active { background:var(--teal); border-color:var(--teal); color:white; }
+  .tab-btn:hover:not(.active) { border-color:var(--teal); color:var(--teal); }
+
+  .container { max-width:760px; margin:0 auto; padding:24px 16px 48px; }
+
+  .section-title { font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:700; color:var(--teal-dark); margin:32px 0 16px; padding-bottom:8px; border-bottom:2px solid var(--teal-light); display:flex; align-items:center; gap:10px; }
+  .section-title.conj { color:var(--red); border-color:var(--red-light); }
+
+  .topic-card { background:white; border-radius:14px; margin-bottom:14px; border:1px solid var(--border); overflow:hidden; box-shadow:var(--shadow); transition:transform 0.15s, box-shadow 0.15s; }
+  .topic-card:hover { transform:translateY(-1px); box-shadow:var(--shadow-lg); }
+  .topic-card.hidden { display:none; }
+
+  .card-header { display:flex; align-items:center; gap:14px; padding:16px 20px; cursor:pointer; user-select:none; background:white; transition:background 0.15s; }
+  .card-header:hover { background:var(--cream); }
+
+  .topic-num { width:34px; height:34px; border-radius:8px; background:var(--teal-light); color:var(--teal-dark); font-weight:700; font-size:0.85rem; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-family:'DM Mono',monospace; }
+  .conj .topic-num { background:var(--red-light); color:var(--red); }
+
+  .card-title { flex:1; font-weight:600; font-size:0.97rem; color:var(--dark); line-height:1.3; }
+  .card-title .fr { font-style:italic; color:var(--mid); font-size:0.82rem; font-weight:400; display:block; margin-top:2px; }
+
+  .toggle-icon { color:var(--mid); font-size:1.1rem; transition:transform 0.25s; flex-shrink:0; }
+  .topic-card.open .toggle-icon { transform:rotate(180deg); }
+
+  .card-body { display:none; padding:0 20px 20px; animation:fadeIn 0.2s ease; }
+  .topic-card.open .card-body { display:block; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(-4px)} to{opacity:1;transform:translateY(0)} }
+
+  /* ── DESCRIPTION BLOCK ── */
+  .desc-block {
+    border-radius: 10px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    border: 1px solid #e0dbd4;
+  }
+  .desc-fr {
+    background: #1f7268;
+    padding: 11px 15px;
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: #ffffff;
+  }
+  .desc-fr-label {
+    font-size: 0.67rem;
+    font-weight: 700;
+    letter-spacing: 0.9px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 5px;
+    display: block;
+  }
+  .conj .desc-fr { background: #9e3520; }
+  .desc-en {
+    background: #2e2e42;
+    padding: 10px 15px;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #d4d0e8;
+    font-style: italic;
+  }
+  .desc-en-label {
+    font-size: 0.67rem;
+    font-weight: 700;
+    letter-spacing: 0.9px;
+    text-transform: uppercase;
+    color: rgba(212,208,232,0.55);
+    margin-bottom: 4px;
+    display: block;
+    font-style: normal;
+  }
+
+  /* ── RULE BLOCK ── */
+  .rule-block { border-radius:8px; margin-bottom:14px; overflow:hidden; border:1px solid rgba(42,157,143,0.2); }
+  .conj .rule-block { border-color:rgba(193,67,42,0.2); }
+  .rule-fr { background:var(--teal-light); border-left:3px solid var(--teal); padding:10px 14px; font-size:0.9rem; line-height:1.6; color:var(--dark); }
+  .conj .rule-fr { background:var(--red-light); border-color:var(--red); }
+  .rule-fr-label { font-size:0.68rem; font-weight:700; letter-spacing:0.8px; text-transform:uppercase; color:var(--teal-dark); margin-bottom:4px; display:block; }
+  .conj .rule-fr-label { color:var(--red); }
+  .rule-en { background:#f7f5f0; border-left:3px solid #b0a898; padding:9px 14px; font-size:0.85rem; line-height:1.6; color:var(--mid); font-style:italic; }
+  .rule-en-label { font-size:0.68rem; font-weight:700; letter-spacing:0.8px; text-transform:uppercase; color:#7a7468; margin-bottom:3px; display:block; font-style:normal; }
+
+  /* ── EXAMPLES ── */
+  .examples-list { display:flex; flex-direction:column; gap:10px; margin-bottom:14px; }
+  .ex-pair { border-radius:9px; overflow:hidden; border:1px solid var(--border); }
+  .ex-fr { background:var(--light); padding:8px 13px; font-size:0.9rem; line-height:1.45; color:var(--dark); border-bottom:1px dashed var(--border); }
+  .ex-fr .lang-tag { font-size:0.65rem; font-weight:700; letter-spacing:0.6px; text-transform:uppercase; color:var(--teal-dark); margin-right:6px; }
+  .conj .ex-fr .lang-tag { color:var(--red); }
+  .ex-en { background:white; padding:7px 13px; font-size:0.85rem; line-height:1.45; color:var(--mid); font-style:italic; }
+  .ex-en .lang-tag { font-size:0.65rem; font-weight:700; letter-spacing:0.6px; text-transform:uppercase; color:#7a7468; margin-right:6px; font-style:normal; }
+  .highlight { font-weight:700; color:var(--teal-dark); }
+  .conj .highlight { color:var(--red); }
+
+  .tip-block { background:#fffbea; border:1px dashed #d4a017; border-radius:8px; padding:10px 14px; font-size:0.85rem; color:#7a5c00; line-height:1.5; margin-top:4px; }
+  .tip-block::before { content:'💡 '; }
+
+  .conj-table { width:100%; border-collapse:collapse; font-size:0.88rem; margin:10px 0 14px; border-radius:8px; overflow:hidden; }
+  .conj-table th { background:var(--teal); color:white; padding:8px 12px; text-align:left; font-weight:600; font-size:0.8rem; }
+  .conj .conj-table th { background:var(--red); }
+  .conj-table td { padding:7px 12px; border-bottom:1px solid var(--border); }
+  .conj-table tr:last-child td { border-bottom:none; }
+  .conj-table tr:nth-child(even) td { background:var(--cream); }
+  .conj-table .pron { color:var(--mid); font-style:italic; }
+  .conj-table .verb { font-weight:600; color:var(--dark); }
+
+  .no-results { text-align:center; padding:40px 20px; color:var(--mid); display:none; }
+  .no-results.show { display:block; }
+  .progress-badge { display:inline-block; background:var(--teal-light); color:var(--teal-dark); border-radius:6px; padding:2px 8px; font-size:0.75rem; font-weight:600; margin-left:8px; vertical-align:middle; }
+  .conj .progress-badge { background:var(--red-light); color:var(--red); }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-flag">🇫🇷</div>
+  <h1>French Grammar & Conjugation</h1>
+  <p>All 43 topics — description · rule · examples, French first with English below</p>
+  <span class="hero-subtitle">43 Topics · Grammaire + Conjugaison</span>
+</div>
+
+<div class="search-bar">
+  <div class="search-inner">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="searchInput" placeholder="Search… e.g. 'articles', 'passé composé', 'pronoms'" oninput="filterTopics()">
+  </div>
+  <div class="tabs">
+    <button class="tab-btn active" onclick="filterTab('all',this)">All Topics</button>
+    <button class="tab-btn" onclick="filterTab('grammaire',this)">Grammaire (1–28)</button>
+    <button class="tab-btn" onclick="filterTab('conjugaison',this)">Conjugaison (29–43)</button>
+  </div>
+</div>
+
+<div class="container">
+<div id="noResults" class="no-results">No topics match your search.</div>
+
+<!-- ══════════════════════ GRAMMAIRE ══════════════════════ -->
+<div class="section-title" id="sec-grammaire" data-section="grammaire">📖 Grammaire <span class="progress-badge">28 topics</span></div>
+
+<!-- ─── 1 ─── -->
+<div class="topic-card" data-section="grammaire" data-keywords="nouns masculine feminine genre noms masculin féminin">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="topic-num">1</div>
+    <div class="card-title">Les noms : masculin et féminin<span class="fr">Nouns: Masculine & Feminine</span></div>
+    <div class="toggle-icon">▾</div>
+  </div>
+  <div class="card-body">
+    <div class="desc-block">
+      <div class="desc-fr"><span class="desc-fr-label">🇫🇷 À propos</span>En français, chaque nom appartient à une catégorie : masculin ou féminin. Ce n'est pas toujours logique — même des objets inanimés ont un genre. Ce genre est fondamental car il détermine la forme de l'article, de l'adjectif et du pronom qui accompagnent le nom. C'est l'une des premières choses à apprendre en français.</div>
+      <div class="desc-en"><span class="desc-en-label">🇬🇧 About</span>In French, every single noun belongs to a category: masculine or feminine. This isn't always logical — even inanimate objects have a gender. This gender is fundamental because it determines the form of the article, adjective, and pronoun that accompany the noun. It's one of the first things to learn in French.</div>
+    </div>
+    <div class="rule-block">
+      <div class="rule-fr"><span class="rule-fr-label">🇫🇷 Règle</span>Articles masculins : le / un. Articles féminins : la / une. Devant une voyelle ou un h muet : l'. Beaucoup de noms ont une forme masculine et féminine différente.</div>
+      <div class="rule-en"><span class="rule-en-label">🇬🇧 Rule</span>Masculine articles: le / un. Feminine articles: la / une. Before a vowel or silent h: l'. Many nouns have different masculine and feminine forms.</div>
+    </div>
+    <div class="examples-list">
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span><span class="highlight">le</span> chat (m) — <span class="highlight">la</span> chatte (f)</div><div class="ex-en"><span class="lang-tag">EN</span>the cat (male) — the cat (female)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span><span class="highlight">un</span> étudiant — <span class="highlight">une</span> étudiante</div><div class="ex-en"><span class="lang-tag">EN</span>a male student — a female student</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span><span class="highlight">un</span> acteur — <span class="highlight">une</span> actrice</div><div class="ex-en"><span class="lang-tag">EN</span>an actor — an actress</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span><span class="highlight">le</span> soleil (m) / <span class="highlight">la</span> lune (f) — objects have gender too!</div><div class="ex-en"><span class="lang-tag">EN</span>the sun (masculine) / the moon (feminine) — even objects have gender</div></div>
+    </div>
+    <div class="tip-block">Terminaisons féminines courantes / Common feminine endings: -tion, -sion, -té, -ette, -euse. Masculines: -ment, -age, -eau, -isme. Apprenez toujours l'article avec le nom ! / Always learn the article with the noun!</div>
+  </div>
+</div>
+
+<!-- ─── 2 ─── -->
+<div class="topic-card" data-section="grammaire" data-keywords="nouns singular plural noms singulier pluriel">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="topic-num">2</div>
+    <div class="card-title">Les noms : singulier et pluriel<span class="fr">Nouns: Singular & Plural</span></div>
+    <div class="toggle-icon">▾</div>
+  </div>
+  <div class="card-body">
+    <div class="desc-block">
+      <div class="desc-fr"><span class="desc-fr-label">🇫🇷 À propos</span>Comme en anglais, les noms français changent de forme pour indiquer le pluriel. Cependant, les règles ne sont pas toujours identiques. Certains groupes de noms ont des terminaisons plurielles spéciales qu'il faut mémoriser. À l'oral, la différence se perçoit souvent dans l'article, pas dans le nom lui-même.</div>
+      <div class="desc-en"><span class="desc-en-label">🇬🇧 About</span>Like English, French nouns change form to show plural. However, the rules aren't always identical. Certain groups of nouns have special plural endings that need to be memorized. In spoken French, the difference is often heard in the article, not the noun itself.</div>
+    </div>
+    <div class="rule-block">
+      <div class="rule-fr"><span class="rule-fr-label">🇫🇷 Règle</span>Règle générale : + s. Noms en -s/-x/-z : pas de changement. Noms en -eau/-au : + x. Noms en -al : → -aux. Noms en -ail : souvent → -aux.</div>
+      <div class="rule-en"><span class="rule-en-label">🇬🇧 Rule</span>General rule: add -s. Nouns ending in -s/-x/-z: no change. Nouns ending in -eau/-au: add -x. Nouns in -al: → -aux. Nouns in -ail: often → -aux.</div>
+    </div>
+    <div class="examples-list">
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>un livre → des livre<span class="highlight">s</span></div><div class="ex-en"><span class="lang-tag">EN</span>a book → books</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>un gâteau → des gâteau<span class="highlight">x</span></div><div class="ex-en"><span class="lang-tag">EN</span>a cake → cakes</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>un animal → des anim<span class="highlight">aux</span></div><div class="ex-en"><span class="lang-tag">EN</span>an animal → animals</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>une voix → des voix (aucun changement)</div><div class="ex-en"><span class="lang-tag">EN</span>a voice → voices (no change in French, ends in -x already)</div></div>
+    </div>
+    <div class="tip-block">Le -s du pluriel est généralement muet à l'oral. / The plural -s is usually silent. On entend la différence dans l'article : "le livre" vs "les livres" (les = "lay").</div>
+  </div>
+</div>
+
+<!-- ─── 3 ─── -->
+<div class="topic-card" data-section="grammaire" data-keywords="definite indefinite articles articles définis indéfinis le la les un une des">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="topic-num">3</div>
+    <div class="card-title">Les articles définis et indéfinis<span class="fr">Definite & Indefinite Articles</span></div>
+    <div class="toggle-icon">▾</div>
+  </div>
+  <div class="card-body">
+    <div class="desc-block">
+      <div class="desc-fr"><span class="desc-fr-label">🇫🇷 À propos</span>Les articles sont les petits mots qui précèdent les noms. Il existe deux types principaux : les articles définis (le, la, les — pour quelque chose de spécifique ou de connu) et les articles indéfinis (un, une, des — pour quelque chose de non spécifié). En français, les articles s'accordent en genre et en nombre avec le nom.</div>
+      <div class="desc-en"><span class="desc-en-label">🇬🇧 About</span>Articles are the small words that come before nouns. There are two main types: definite articles (le, la, les — for something specific or already known) and indefinite articles (un, une, des — for something unspecified). In French, articles agree in gender and number with the noun.</div>
+    </div>
+    <div class="rule-block">
+      <div class="rule-fr"><span class="rule-fr-label">🇫🇷 Règle</span>Définis (the) : le (m.sg), la (f.sg), l' (devant voyelle/h muet), les (pl). Indéfinis (a/an/some) : un (m.sg), une (f.sg), des (pl).</div>
+      <div class="rule-en"><span class="rule-en-label">🇬🇧 Rule</span>Definite (the): le (m.sg), la (f.sg), l' (before vowel/silent h), les (pl). Indefinite (a/an/some): un (m.sg), une (f.sg), des (pl).</div>
+    </div>
+    <div class="examples-list">
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span><span class="highlight">Le</span> chien est mignon.</div><div class="ex-en"><span class="lang-tag">EN</span>The dog is cute. (specific, known dog)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span><span class="highlight">L'</span>homme parle vite.</div><div class="ex-en"><span class="lang-tag">EN</span>The man speaks fast. (l' before vowel)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Je veux <span class="highlight">un</span> café.</div><div class="ex-en"><span class="lang-tag">EN</span>I want a coffee. (any coffee, unspecified)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Il y a <span class="highlight">des</span> fleurs dans le jardin.</div><div class="ex-en"><span class="lang-tag">EN</span>There are (some) flowers in the garden.</div></div>
+    </div>
+    <div class="tip-block">Contrairement à l'anglais, le français utilise les articles définis avec les concepts généraux. / Unlike English, French uses definite articles with general concepts: "J'aime le chocolat" = "I like chocolate" (not "the chocolate").</div>
+  </div>
+</div>
+
+<!-- ─── 4 ─── -->
+<div class="topic-card" data-section="grammaire" data-keywords="partitive articles articles partitifs du de la de l">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="topic-num">4</div>
+    <div class="card-title">Les articles partitifs<span class="fr">Partitive Articles</span></div>
+    <div class="toggle-icon">▾</div>
+  </div>
+  <div class="card-body">
+    <div class="desc-block">
+      <div class="desc-fr"><span class="desc-fr-label">🇫🇷 À propos</span>Les articles partitifs n'existent pas vraiment en anglais sous la même forme. On les utilise pour parler d'une quantité non précisée d'une chose qu'on ne peut pas compter — comme de la nourriture, des liquides, ou même des qualités abstraites comme le courage. En anglais, on dit juste « some » ou rien du tout. En français, cet article est obligatoire.</div>
+      <div class="desc-en"><span class="desc-en-label">🇬🇧 About</span>Partitive articles don't really exist in English in the same way. They're used to talk about an unspecified amount of something uncountable — like food, liquids, or even abstract qualities like courage. In English we say "some" or nothing at all. In French, this article is required.</div>
+    </div>
+    <div class="rule-block">
+      <div class="rule-fr"><span class="rule-fr-label">🇫🇷 Règle</span>du = de + le (m), de la (f), de l' (devant voyelle). Après une négation, tous deviennent « de/d' ».</div>
+      <div class="rule-en"><span class="rule-en-label">🇬🇧 Rule</span>du = de + le (m), de la (f), de l' (before vowel). After negation, all become "de/d'".</div>
+    </div>
+    <div class="examples-list">
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Je mange <span class="highlight">du</span> pain.</div><div class="ex-en"><span class="lang-tag">EN</span>I eat (some) bread. — uncountable food</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Je bois <span class="highlight">de la</span> limonade.</div><div class="ex-en"><span class="lang-tag">EN</span>I drink (some) lemonade. — liquid</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Il a <span class="highlight">de l'</span>argent.</div><div class="ex-en"><span class="lang-tag">EN</span>He has (some) money. — before vowel</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Elle a <span class="highlight">du</span> courage.</div><div class="ex-en"><span class="lang-tag">EN</span>She has (some) courage. — abstract quality</div></div>
+    </div>
+    <div class="tip-block">Après négation → de : Je mange du pain → Je ne mange pas <b>de</b> pain. / After negation → de: I eat bread → I don't eat bread.</div>
+  </div>
+</div>
+
+<!-- ─── 5 ─── -->
+<div class="topic-card" data-section="grammaire" data-keywords="articles negation négation pas de">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="topic-num">5</div>
+    <div class="card-title">Les articles et la négation<span class="fr">Articles & Negation</span></div>
+    <div class="toggle-icon">▾</div>
+  </div>
+  <div class="card-body">
+    <div class="desc-block">
+      <div class="desc-fr"><span class="desc-fr-label">🇫🇷 À propos</span>Quand on nie une phrase en français, les articles changent. Ce phénomène n'existe pas en anglais. C'est une règle très importante car elle s'applique à presque tous les articles indéfinis et partitifs. Si on l'oublie, la phrase reste compréhensible mais sonne incorrecte aux oreilles francophones.</div>
+      <div class="desc-en"><span class="desc-en-label">🇬🇧 About</span>When you negate a sentence in French, the articles change. This phenomenon doesn't exist in English. It's a very important rule because it applies to almost all indefinite and partitive articles. If you forget it, the sentence is still understandable but sounds incorrect to French speakers.</div>
+    </div>
+    <div class="rule-block">
+      <div class="rule-fr"><span class="rule-fr-label">🇫🇷 Règle</span>Après ne…pas : un/une/des/du/de la/de l' → tous deviennent « de/d' ». EXCEPTION : les articles définis (le/la/les) ne changent jamais.</div>
+      <div class="rule-en"><span class="rule-en-label">🇬🇧 Rule</span>After ne…pas: un/une/des/du/de la/de l' → all become "de/d'". EXCEPTION: definite articles (le/la/les) never change.</div>
+    </div>
+    <div class="examples-list">
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>J'ai <u>un</u> chat → Je n'ai pas <span class="highlight">de</span> chat.</div><div class="ex-en"><span class="lang-tag">EN</span>I have a cat → I don't have a cat.</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Je mange <u>des</u> pâtes → Je ne mange pas <span class="highlight">de</span> pâtes.</div><div class="ex-en"><span class="lang-tag">EN</span>I eat pasta → I don't eat pasta.</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>J'aime <u>le</u> café → Je n'aime pas <span class="highlight">le</span> café. ✓ (défini — pas de changement)</div><div class="ex-en"><span class="lang-tag">EN</span>I like coffee → I don't like coffee. (definite article stays unchanged)</div></div>
+    </div>
+    <div class="tip-block">Les articles définis survivent à la négation car ils désignent un concept général ou spécifique. / Definite articles survive negation because they refer to something specific or a general concept.</div>
+  </div>
+</div>
+
+<!-- ─── 6 ─── -->
+<div class="topic-card" data-section="grammaire" data-keywords="demonstrative adjectives adjectifs démonstratifs ce cet cette ces this that these those">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="topic-num">6</div>
+    <div class="card-title">Les adjectifs démonstratifs<span class="fr">Demonstrative Adjectives</span></div>
+    <div class="toggle-icon">▾</div>
+  </div>
+  <div class="card-body">
+    <div class="desc-block">
+      <div class="desc-fr"><span class="desc-fr-label">🇫🇷 À propos</span>Les adjectifs démonstratifs permettent de désigner ou pointer quelque chose de précis — comme quand on dit « ce livre » en pointant du doigt, ou « ces enfants » pour parler d'enfants spécifiques qu'on voit. Ils remplacent l'article et s'accordent avec le nom. Ils équivalent à « this », « that », « these », « those » en anglais.</div>
+      <div class="desc-en"><span class="desc-en-label">🇬🇧 About</span>Demonstrative adjectives are used to point to or indicate something specific — like saying "this book" while pointing, or "these children" for specific children you can see. They replace the article and agree with the noun. They're equivalent to "this", "that", "these", "those" in English.</div>
+    </div>
+    <div class="rule-block">
+      <div class="rule-fr"><span class="rule-fr-label">🇫🇷 Règle</span>ce (m. devant consonne), cet (m. devant voyelle/h), cette (f.), ces (pluriel). Ajouter -ci (ici) ou -là (là-bas) pour distinguer « this » de « that ».</div>
+      <div class="rule-en"><span class="rule-en-label">🇬🇧 Rule</span>ce (m. before consonant), cet (m. before vowel/h), cette (f.), ces (plural). Add -ci (here/this) or -là (there/that) to distinguish "this" from "that".</div>
+    </div>
+    <div class="examples-list">
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span><span class="highlight">Ce</span> livre est intéressant.</div><div class="ex-en"><span class="lang-tag">EN</span>This/That book is interesting.</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span><span class="highlight">Cet</span> homme est gentil. (devant voyelle)</div><div class="ex-en"><span class="lang-tag">EN</span>This/That man is kind. (cet used before vowel sound)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span><span class="highlight">Cette</span> robe est belle.</div><div class="ex-en"><span class="lang-tag">EN</span>This/That dress is beautiful.</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>ce livre<span class="highlight">-ci</span> (this one) / ce livre<span class="highlight">-là</span> (that one)</div><div class="ex-en"><span class="lang-tag">EN</span>this book (near) / that book (farther away)</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 7 ─── -->
+<div class="topic-card" data-section="grammaire" data-keywords="possessive adjectives adjectifs possessifs mon ma mes son sa ses my your his her our their">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="topic-num">7</div>
+    <div class="card-title">Les adjectifs possessifs<span class="fr">Possessive Adjectives</span></div>
+    <div class="toggle-icon">▾</div>
+  </div>
+  <div class="card-body">
+    <div class="desc-block">
+      <div class="desc-fr"><span class="desc-fr-label">🇫🇷 À propos</span>Les adjectifs possessifs indiquent à qui appartient quelque chose — mon, ton, son, notre, votre, leur. La grande différence avec l'anglais : en français, l'adjectif possessif s'accorde avec le genre du NOM possédé, pas avec le possesseur. Donc « son livre » peut vouloir dire « his book » ou « her book » selon le contexte.</div>
+      <div class="desc-en"><span class="desc-en-label">🇬🇧 About</span>Possessive adjectives show who something belongs to — mon, ton, son, notre, votre, leur. The big difference from English: in French, the possessive adjective agrees with the gender of the NOUN owned, not the owner. So "son livre" can mean "his book" or "her book" depending on context.</div>
+    </div>
+    <div class="rule-block">
+      <div class="rule-fr"><span class="rule-fr-label">🇫🇷 Règle</span>mon/ma/mes (my) · ton/ta/tes (your sg) · son/sa/ses (his/her) · notre/nos (our) · votre/vos (your pl) · leur/leurs (their). Devant voyelle féminine : mon/ton/son au lieu de ma/ta/sa.</div>
+      <div class="rule-en"><span class="rule-en-label">🇬🇧 Rule</span>mon/ma/mes (my) · ton/ta/tes (your sg) · son/sa/ses (his/her) · notre/nos (our) · votre/vos (your pl) · leur/leurs (their). Before feminine vowel: mon/ton/son instead of ma/ta/sa.</div>
+    </div>
+    <div class="examples-list">
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span><span class="highlight">mon</span> père / <span class="highlight">ma</span> mère / <span class="highlight">mes</span> parents</div><div class="ex-en"><span class="lang-tag">EN</span>my father / my mother / my parents</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span><span class="highlight">son</span> livre = his book OR her book (le livre est masculin)</div><div class="ex-en"><span class="lang-tag">EN</span>his/her book — son agrees with "livre" (m), not the owner</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span><span class="highlight">sa</span> voiture = his car OR her car (la voiture est féminine)</div><div class="ex-en"><span class="lang-tag">EN</span>his/her car — sa agrees with "voiture" (f), not the owner</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span><span class="highlight">mon</span> amie (pas « ma amie » — devant voyelle)</div><div class="ex-en"><span class="lang-tag">EN</span>my (female) friend — mon used before vowel even for feminine noun</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 8 ─── -->
+<div class="topic-card" data-section="grammaire" data-keywords="indefinite quantity quantité indéterminée quelques plusieurs beaucoup peu trop">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="topic-num">8</div>
+    <div class="card-title">La quantité indéterminée<span class="fr">Indefinite Quantity</span></div>
+    <div class="toggle-icon">▾</div>
+  </div>
+  <div class="card-body">
+    <div class="desc-block">
+      <div class="desc-fr"><span class="desc-fr-label">🇫🇷 À propos</span>Parfois on veut exprimer une quantité vague sans préciser le nombre exact : « beaucoup de », « peu de », « quelques », « plusieurs »... Ces expressions de quantité indéfinie sont très courantes dans la langue quotidienne. Elles fonctionnent avec des noms comptables ET non comptables. La règle clé : elles sont toutes suivies de « de » (jamais du/de la/des).</div>
+      <div class="desc-en"><span class="desc-en-label">🇬🇧 About</span>Sometimes you want to express a vague quantity without specifying an exact number: "a lot of", "a few", "several"... These indefinite quantity expressions are very common in everyday language. They work with both countable AND uncountable nouns. The key rule: they are all followed by "de" (never du/de la/des).</div>
+    </div>
+    <div class="rule-block">
+      <div class="rule-fr"><span class="rule-fr-label">🇫🇷 Règle</span>beaucoup de (a lot), peu de (few/little), quelques (a few), plusieurs (several), assez de (enough), trop de (too much/many), un peu de (a little). Toujours + de, jamais du/de la.</div>
+      <div class="rule-en"><span class="rule-en-label">🇬🇧 Rule</span>beaucoup de (a lot), peu de (few/little), quelques (a few), plusieurs (several), assez de (enough), trop de (too much/many), un peu de (a little). Always + de, never du/de la.</div>
+    </div>
+    <div class="examples-list">
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>J'ai <span class="highlight">beaucoup de</span> travail.</div><div class="ex-en"><span class="lang-tag">EN</span>I have a lot of work.</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Il a <span class="highlight">peu d'</span>amis.</div><div class="ex-en"><span class="lang-tag">EN</span>He has few friends.</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>J'ai <span class="highlight">quelques</span> questions. / <span class="highlight">Plusieurs</span> personnes attendent.</div><div class="ex-en"><span class="lang-tag">EN</span>I have a few questions. / Several people are waiting.</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Elle boit <span class="highlight">trop de</span> café.</div><div class="ex-en"><span class="lang-tag">EN</span>She drinks too much coffee.</div></div>
+    </div>
+    <div class="tip-block">Après toutes les expressions de quantité → de (jamais du/de la/des) / After ALL quantity expressions → "de": beaucoup <b>de</b> pain ✓, beaucoup <b>du</b> pain ✗</div>
+  </div>
+</div>
+
+<!-- ─── 9 ─── -->
+<div class="topic-card" data-section="grammaire" data-keywords="adjective agreement accord adjectifs qualificatifs masculine feminine plural">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="topic-num">9</div>
+    <div class="card-title">L'accord des adjectifs qualificatifs<span class="fr">Adjective Agreement</span></div>
+    <div class="toggle-icon">▾</div>
+  </div>
+  <div class="card-body">
+    <div class="desc-block">
+      <div class="desc-fr"><span class="desc-fr-label">🇫🇷 À propos</span>En anglais, les adjectifs ne changent jamais de forme. En français, c'est complètement différent : chaque adjectif doit s'adapter au genre (masculin/féminin) et au nombre (singulier/pluriel) du nom qu'il décrit. C'est une des règles les plus importantes — et les plus fréquentes — de la grammaire française. Elle s'applique aussi à l'écrit que dans certains cas à l'oral.</div>
+      <div class="desc-en"><span class="desc-en-label">🇬🇧 About</span>In English, adjectives never change form. In French it's completely different: every adjective must adapt to the gender (masculine/feminine) and number (singular/plural) of the noun it describes. This is one of the most important — and most frequent — rules in French grammar. It applies both in writing and in some cases in speaking.</div>
+    </div>
+    <div class="rule-block">
+      <div class="rule-fr"><span class="rule-fr-label">🇫🇷 Règle</span>Féminin : généralement + e. Pluriel : généralement + s. Certains ont des formes irrégulières : beau/belle, bon/bonne, nouveau/nouvelle, vieux/vieille, long/longue.</div>
+      <div class="rule-en"><span class="rule-en-label">🇬🇧 Rule</span>Feminine: usually add -e. Plural: usually add -s. Some are irregular: beau/belle, bon/bonne, nouveau/nouvelle, vieux/vieille, long/longue.</div>
+    </div>
+    <div class="examples-list">
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>un garçon <span class="highlight">grand</span> / une fille <span class="highlight">grande</span></div><div class="ex-en"><span class="lang-tag">EN</span>a tall boy / a tall girl (adjective changes for feminine)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>un livre <span class="highlight">intéressant</span> / une histoire <span class="highlight">intéressante</span></div><div class="ex-en"><span class="lang-tag">EN</span>an interesting book / an interesting story</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>des livres <span class="highlight">intéressants</span> / des histoires <span class="highlight">intéressantes</span></div><div class="ex-en"><span class="lang-tag">EN</span>interesting books / interesting stories (plural agreement)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>un <span class="highlight">beau</span> garçon / une <span class="highlight">belle</span> fille (irrégulier)</div><div class="ex-en"><span class="lang-tag">EN</span>a beautiful boy / a beautiful girl (irregular form)</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 10 ─── -->
+<div class="topic-card" data-section="grammaire" data-keywords="adjective placement place adjectif before after noun BAGS">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="topic-num">10</div>
+    <div class="card-title">La place de l'adjectif<span class="fr">Placement of Adjectives</span></div>
+    <div class="toggle-icon">▾</div>
+  </div>
+  <div class="card-body">
+    <div class="desc-block">
+      <div class="desc-fr"><span class="desc-fr-label">🇫🇷 À propos</span>En anglais, les adjectifs se placent toujours AVANT le nom. En français c'est l'inverse : la majorité des adjectifs se placent APRÈS le nom. Cependant, un petit groupe d'adjectifs très courants se place toujours avant. On retient facilement ces adjectifs grâce au sigle BAGS (Beauty, Age, Goodness, Size). Certains adjectifs changent même de sens selon leur position !</div>
+      <div class="desc-en"><span class="desc-en-label">🇬🇧 About</span>In English, adjectives always go BEFORE the noun. In French it's the opposite: most adjectives go AFTER the noun. However, a small group of very common adjectives always goes before. These are easy to remember with the acronym BAGS (Beauty, Age, Goodness, Size). Some adjectives even change meaning depending on their position!</div>
+    </div>
+    <div class="rule-block">
+      <div class="rule-fr"><span class="rule-fr-label">🇫🇷 Règle</span>Après le nom : couleurs, nationalités, religion, formes, caractère. Avant le nom (BAGS) : beau, vieux, bon, nouveau, grand, petit, jeune, long, gros, mauvais, joli.</div>
+      <div class="rule-en"><span class="rule-en-label">🇬🇧 Rule</span>After the noun: colors, nationalities, religion, shapes, character. Before the noun (BAGS): beau, vieux, bon, nouveau, grand, petit, jeune, long, gros, mauvais, joli.</div>
+    </div>
+    <div class="examples-list">
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>un <span class="highlight">beau</span> garçon (avant — beauté)</div><div class="ex-en"><span class="lang-tag">EN</span>a beautiful boy (before — beauty = BAGS)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>une voiture <span class="highlight">rouge</span> (après — couleur)</div><div class="ex-en"><span class="lang-tag">EN</span>a red car (after — colors always go after)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>un homme <span class="highlight">intelligent</span> (après — caractère)</div><div class="ex-en"><span class="lang-tag">EN</span>an intelligent man (after — character adjectives go after)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>un homme <span class="highlight">pauvre</span> (poor financially) ≠ un <span class="highlight">pauvre</span> homme (pitiful)</div><div class="ex-en"><span class="lang-tag">EN</span>Some adjectives change meaning by position — pauvre = poor (after) vs pitiful (before)</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 11 ─── -->
+<div class="topic-card" data-section="grammaire" data-keywords="stressed pronouns pronoms toniques moi toi lui elle nous vous eux elles">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="topic-num">11</div>
+    <div class="card-title">Les pronoms toniques<span class="fr">Stressed Pronouns</span></div>
+    <div class="toggle-icon">▾</div>
+  </div>
+  <div class="card-body">
+    <div class="desc-block">
+      <div class="desc-fr"><span class="desc-fr-label">🇫🇷 À propos</span>Les pronoms toniques sont une forme spéciale de pronoms personnels utilisée dans des contextes où le pronom sujet normal (je, tu, il...) ne peut pas être utilisé. On les utilise après une préposition, pour mettre l'emphase sur une personne, pour comparer, après « c'est », ou comme réponse courte sans verbe. Ce sont : moi, toi, lui, elle, nous, vous, eux, elles.</div>
+      <div class="desc-en"><span class="desc-en-label">🇬🇧 About</span>Stressed (tonic) pronouns are a special form of personal pronoun used in contexts where the regular subject pronoun (je, tu, il...) can't be used. They're used after prepositions, for emphasis, in comparisons, after "c'est", or as a short answer without a verb. They are: moi, toi, lui, elle, nous, vous, eux, elles.</div>
+    </div>
+    <div class="rule-block">
+      <div class="rule-fr"><span class="rule-fr-label">🇫🇷 Règle</span>moi (me/I), toi (you), lui (him), elle (her), nous (us), vous (you), eux (them m.), elles (them f.). Utilisés : après préposition, pour l'emphase, dans les comparaisons, après c'est, en réponse courte.</div>
+      <div class="rule-en"><span class="rule-en-label">🇬🇧 Rule</span>moi (me/I), toi (you), lui (him), elle (her), nous (us), vous (you), eux (them m.), elles (them f.). Used: after prepositions, for emphasis, in comparisons, after c'est, as short answers.</div>
+    </div>
+    <div class="examples-list">
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Il vient avec <span class="highlight">moi</span>. (après préposition)</div><div class="ex-en"><span class="lang-tag">EN</span>He comes with me. (after preposition — can't use "je" here)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span><span class="highlight">Moi</span>, j'adore le sport ! (emphase)</div><div class="ex-en"><span class="lang-tag">EN</span>Me, I love sport! (emphasis — stresses the subject)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Elle est plus grande que <span class="highlight">lui</span>. (comparaison)</div><div class="ex-en"><span class="lang-tag">EN</span>She is taller than him. (comparison)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>C'est <span class="highlight">moi</span> ! / — Qui veut du gâteau ? — <span class="highlight">Moi !</span></div><div class="ex-en"><span class="lang-tag">EN</span>It's me! / — Who wants cake? — Me! (short answer)</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 12 ─── -->
+<div class="topic-card" data-section="grammaire" data-keywords="relative pronouns pronoms relatifs qui que où who which that where">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="topic-num">12</div>
+    <div class="card-title">Les pronoms relatifs : qui, que, où<span class="fr">Relative Pronouns: qui, que, où</span></div>
+    <div class="toggle-icon">▾</div>
+  </div>
+  <div class="card-body">
+    <div class="desc-block">
+      <div class="desc-fr"><span class="desc-fr-label">🇫🇷 À propos</span>Les pronoms relatifs servent à relier deux phrases en une seule, en évitant les répétitions. Ils remplacent un nom déjà mentionné (appelé antécédent). Par exemple, au lieu de dire « J'ai un ami. Mon ami habite à Paris. », on dit « J'ai un ami qui habite à Paris. » Les trois pronoms les plus courants sont qui (sujet), que (objet) et où (lieu/temps).</div>
+      <div class="desc-en"><span class="desc-en-label">🇬🇧 About</span>Relative pronouns are used to join two sentences into one, avoiding repetition. They replace a noun already mentioned (called the antecedent). For example, instead of "I have a friend. My friend lives in Paris." we say "I have a friend who lives in Paris." The three most common are qui (subject), que (object), and où (place/time).</div>
+    </div>
+    <div class="rule-block">
+      <div class="rule-fr"><span class="rule-fr-label">🇫🇷 Règle</span>qui = sujet (suivi d'un verbe). que/qu' = objet (suivi d'un sujet + verbe). où = lieu ou moment dans le temps.</div>
+      <div class="rule-en"><span class="rule-en-label">🇬🇧 Rule</span>qui = subject (followed by a verb). que/qu' = object (followed by subject + verb). où = place or point in time.</div>
+    </div>
+    <div class="examples-list">
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>L'homme <span class="highlight">qui</span> parle est mon père. (qui = sujet)</div><div class="ex-en"><span class="lang-tag">EN</span>The man who is speaking is my father. (qui is the subject)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Le livre <span class="highlight">que</span> je lis est long. (que = objet)</div><div class="ex-en"><span class="lang-tag">EN</span>The book that I'm reading is long. (que is the object)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>La ville <span class="highlight">où</span> je vis est belle. (où = lieu)</div><div class="ex-en"><span class="lang-tag">EN</span>The city where I live is beautiful.</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Le jour <span class="highlight">où</span> il est né... (où = moment)</div><div class="ex-en"><span class="lang-tag">EN</span>The day when he was born... (où can also mean "when" for time)</div></div>
+    </div>
+    <div class="tip-block">Astuce : après qui, il y a toujours un verbe. Après que, il y a toujours un sujet + verbe. / Tip: after qui, there's always a verb. After que, there's always a subject + verb.</div>
+  </div>
+</div>
+
+<!-- ─── 13 ─── -->
+<div class="topic-card" data-section="grammaire" data-keywords="demonstrative pronouns pronoms démonstratifs celui celle ceux celles this one that one">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="topic-num">13</div>
+    <div class="card-title">Les pronoms démonstratifs : celui, celle, ceux, celles<span class="fr">Demonstrative Pronouns</span></div>
+    <div class="toggle-icon">▾</div>
+  </div>
+  <div class="card-body">
+    <div class="desc-block">
+      <div class="desc-fr"><span class="desc-fr-label">🇫🇷 À propos</span>Alors que les adjectifs démonstratifs (ce, cette, ces) accompagnent un nom, les pronoms démonstratifs le REMPLACENT. On les utilise pour éviter de répéter un nom déjà mentionné. En anglais, on dirait « this one », « that one », « the one that... ». Comme tous les pronoms français, ils s'accordent avec le genre et le nombre du nom qu'ils remplacent.</div>
+      <div class="desc-en"><span class="desc-en-label">🇬🇧 About</span>While demonstrative adjectives (ce, cette, ces) accompany a noun, demonstrative pronouns REPLACE it. They're used to avoid repeating a noun already mentioned. In English we'd say "this one", "that one", "the one that...". Like all French pronouns, they agree with the gender and number of the noun they replace.</div>
+    </div>
+    <div class="rule-block">
+      <div class="rule-fr"><span class="rule-fr-label">🇫🇷 Règle</span>celui (m.sg) / celle (f.sg) / ceux (m.pl) / celles (f.pl). Toujours suivis de : -ci/-là, de (possession), ou d'une proposition relative (qui/que/où).</div>
+      <div class="rule-en"><span class="rule-en-label">🇬🇧 Rule</span>celui (m.sg) / celle (f.sg) / ceux (m.pl) / celles (f.pl). Always followed by: -ci/-là, de (possession), or a relative clause (qui/que/où).</div>
+    </div>
+    <div class="examples-list">
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Quel manteau veux-tu ? <span class="highlight">Celui-ci</span>.</div><div class="ex-en"><span class="lang-tag">EN</span>Which coat do you want? This one.</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Ma robe et <span class="highlight">celle</span> de ma sœur.</div><div class="ex-en"><span class="lang-tag">EN</span>My dress and my sister's (one). (celle de = the one of)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span><span class="highlight">Ceux</span> qui travaillent réussissent.</div><div class="ex-en"><span class="lang-tag">EN</span>Those who work succeed. (ceux qui = those who)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Ces photos et <span class="highlight">celles</span>-là.</div><div class="ex-en"><span class="lang-tag">EN</span>These photos and those ones.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 14 ─── -->
+<div class="topic-card" data-section="grammaire" data-keywords="direct object pronouns pronoms COD le la les me te se nous vous">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="topic-num">14</div>
+    <div class="card-title">Les pronoms COD (objet direct)<span class="fr">Direct Object Pronouns (COD)</span></div>
+    <div class="toggle-icon">▾</div>
+  </div>
+  <div class="card-body">
+    <div class="desc-block">
+      <div class="desc-fr"><span class="desc-fr-label">🇫🇷 À propos</span>Les pronoms COD (Compléments d'Objet Direct) remplacent un nom qui est l'objet direct du verbe — c'est-à-dire la chose ou la personne directement affectée par l'action, sans préposition entre le verbe et l'objet. On les utilise pour éviter les répétitions. Leur particularité en français : ils se placent AVANT le verbe, contrairement à l'anglais où ils se placent après.</div>
+      <div class="desc-en"><span class="desc-en-label">🇬🇧 About</span>Direct object pronouns (COD) replace a noun that is the direct object of the verb — the thing or person directly affected by the action, with no preposition between the verb and object. They're used to avoid repetition. Their key feature in French: they go BEFORE the verb, unlike English where they go after.</div>
+    </div>
+    <div class="rule-block">
+      <div class="rule-fr"><span class="rule-fr-label">🇫🇷 Règle</span>me/m' (me), te/t' (you), le/l' (him/it m.), la/l' (her/it f.), nous (us), vous (you pl), les (them). Se placent AVANT le verbe.</div>
+      <div class="rule-en"><span class="rule-en-label">🇬🇧 Rule</span>me/m' (me), te/t' (you), le/l' (him/it m.), la/l' (her/it f.), nous (us), vous (you pl), les (them). Go BEFORE the verb.</div>
+    </div>
+    <div class="examples-list">
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Je vois Paul → Je <span class="highlight">le</span> vois.</div><div class="ex-en"><span class="lang-tag">EN</span>I see Paul → I see him. (le replaces Paul)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Tu aimes Marie ? Oui, je <span class="highlight">l'</span>aime.</div><div class="ex-en"><span class="lang-tag">EN</span>Do you love Marie? Yes, I love her. (l' before vowel)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Il mange les pommes → Il <span class="highlight">les</span> mange.</div><div class="ex-en"><span class="lang-tag">EN</span>He eats the apples → He eats them.</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Elle <span class="highlight">me</span> comprend. / Il <span class="highlight">nous</span> regarde.</div><div class="ex-en"><span class="lang-tag">EN</span>She understands me. / He is looking at us.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 15 ─── -->
+<div class="topic-card" data-section="grammaire" data-keywords="indirect object pronouns pronoms COI lui leur me te nous vous">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="topic-num">15</div>
+    <div class="card-title">Les pronoms COI (objet indirect)<span class="fr">Indirect Object Pronouns (COI)</span></div>
+    <div class="toggle-icon">▾</div>
+  </div>
+  <div class="card-body">
+    <div class="desc-block">
+      <div class="desc-fr"><span class="desc-fr-label">🇫🇷 À propos</span>Les pronoms COI (Compléments d'Objet Indirect) remplacent un nom précédé de la préposition « à ». Ils sont utilisés avec des verbes comme parler à, téléphoner à, écrire à, donner à, répondre à. La différence clé avec les COD : « lui » remplace une personne (à lui OU à elle), et « leur » remplace plusieurs personnes. Comme les COD, ils se placent avant le verbe.</div>
+      <div class="desc-en"><span class="desc-en-label">🇬🇧 About</span>Indirect object pronouns (COI) replace a noun preceded by the preposition "à". They're used with verbs like parler à, téléphoner à, écrire à, donner à, répondre à. The key difference from COD: "lui" replaces one person (to him OR to her), and "leur" replaces multiple people. Like COD, they go before the verb.</div>
+    </div>
+    <div class="rule-block">
+      <div class="rule-fr"><span class="rule-fr-label">🇫🇷 Règle</span>me/m' (à moi), te/t' (à toi), lui (à lui/elle), nous (à nous), vous (à vous), leur (à eux/elles). Se placent AVANT le verbe.</div>
+      <div class="rule-en"><span class="rule-en-label">🇬🇧 Rule</span>me/m' (to me), te/t' (to you), lui (to him/her), nous (to us), vous (to you), leur (to them). Go BEFORE the verb.</div>
+    </div>
+    <div class="examples-list">
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Je parle à Paul → Je <span class="highlight">lui</span> parle.</div><div class="ex-en"><span class="lang-tag">EN</span>I talk to Paul → I talk to him.</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Il répond aux filles → Il <span class="highlight">leur</span> répond.</div><div class="ex-en"><span class="lang-tag">EN</span>He answers the girls → He answers them.</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Elle <span class="highlight">me</span> téléphone. / Tu <span class="highlight">nous</span> écris ?</div><div class="ex-en"><span class="lang-tag">EN</span>She calls me. / Are you writing to us?</div></div>
+    </div>
+    <div class="tip-block">Différence clé COD vs COI : COD → le/la/les (it/him/her/them). COI → lui/leur (to him/to her/to them). / Key diff: lui = to him OR to her. les = them (COD). leur = to them (COI).</div>
+  </div>
+</div>
+
+<!-- ─── 16 ─── -->
+<div class="topic-card" data-section="grammaire" data-keywords="verbs pronouns y en verbes pronoms">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="topic-num">16</div>
+    <div class="card-title">Les verbes et les pronoms : y et en<span class="fr">Verbs & Pronouns: y and en</span></div>
+    <div class="toggle-icon">▾</div>
+  </div>
+  <div class="card-body">
+    <div class="desc-block">
+      <div class="desc-fr"><span class="desc-fr-label">🇫🇷 À propos</span>« y » et « en » sont deux pronoms adverbiaux très fréquents en français. Ils n'ont pas vraiment d'équivalent direct en anglais. « y » remplace un lieu ou un complément avec « à ». « en » remplace un complément avec « de » ou une quantité. Ces deux pronoms se placent avant le verbe et permettent d'éviter les répétitions maladroites dans la phrase.</div>
+      <div class="desc-en"><span class="desc-en-label">🇬🇧 About</span>"y" and "en" are two very common adverbial pronouns in French. They don't have direct equivalents in English. "y" replaces a place or a complement with "à". "en" replaces a complement with "de" or a quantity. Both go before the verb and help avoid awkward repetitions in a sentence.</div>
+    </div>
+    <div class="rule-block">
+      <div class="rule-fr"><span class="rule-fr-label">🇫🇷 Règle</span>y = remplace (à/dans/en + lieu ou chose). en = remplace (de + nom) ou une expression de quantité. Les deux se placent avant le verbe.</div>
+      <div class="rule-en"><span class="rule-en-label">🇬🇧 Rule</span>y = replaces (à/dans/en + place or thing). en = replaces (de + noun) or a quantity expression. Both go before the verb.</div>
+    </div>
+    <div class="examples-list">
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Tu vas à Paris ? Oui, j'<span class="highlight">y</span> vais. (y = à Paris)</div><div class="ex-en"><span class="lang-tag">EN</span>Are you going to Paris? Yes, I'm going there. (y replaces place)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Il pense à son travail → Il <span class="highlight">y</span> pense. (y = à son travail)</div><div class="ex-en"><span class="lang-tag">EN</span>He thinks about his work → He thinks about it.</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Tu veux du café ? Oui, j'<span class="highlight">en</span> veux. (en = du café)</div><div class="ex-en"><span class="lang-tag">EN</span>Do you want coffee? Yes, I want some. (en replaces partitive)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Il parle de son voyage → Il <span class="highlight">en</span> parle. (en = de son voyage)</div><div class="ex-en"><span class="lang-tag">EN</span>He talks about his trip → He talks about it.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 17 ─── -->
+<div class="topic-card" data-section="grammaire" data-keywords="pronoun placement order place pronom complément">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="topic-num">17</div>
+    <div class="card-title">La place du pronom complément<span class="fr">Placement & Order of Object Pronouns</span></div>
+    <div class="toggle-icon">▾</div>
+  </div>
+  <div class="card-body">
+    <div class="desc-block">
+      <div class="desc-fr"><span class="desc-fr-label">🇫🇷 À propos</span>Quand plusieurs pronoms compléments apparaissent dans la même phrase, ils doivent suivre un ordre précis et obligatoire. À l'impératif affirmatif (les ordres positifs), l'ordre change : les pronoms se placent après le verbe avec des tirets. Cette règle s'applique à tous les types de pronoms vus précédemment (COD, COI, y, en).</div>
+      <div class="desc-en"><span class="desc-en-label">🇬🇧 About</span>When several object pronouns appear in the same sentence, they must follow a specific fixed order. In the affirmative imperative (positive commands), the order changes: pronouns go after the verb with hyphens. This rule applies to all the pronoun types seen previously (COD, COI, y, en).</div>
+    </div>
+    <div class="rule-block">
+      <div class="rule-fr"><span class="rule-fr-label">🇫🇷 Ordre</span>Phrases normales : me/te/se/nous/vous → le/la/les → lui/leur → y → en. Impératif affirmatif : verbe + COD + COI (ex : Donne-le-moi!).</div>
+      <div class="rule-en"><span class="rule-en-label">🇬🇧 Order</span>Normal sentences: me/te/se/nous/vous → le/la/les → lui/leur → y → en. Affirmative imperative: verb + COD + COI (e.g. Give it to me! = Donne-le-moi!).</div>
+    </div>
+    <div class="examples-list">
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Il <span class="highlight">me le</span> donne. (me avant le)</div><div class="ex-en"><span class="lang-tag">EN</span>He gives it to me. (me comes before le)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Elle <span class="highlight">le lui</span> dit. (le avant lui)</div><div class="ex-en"><span class="lang-tag">EN</span>She tells it to him. (le comes before lui)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Donne-<span class="highlight">le-moi</span> ! (impératif affirmatif)</div><div class="ex-en"><span class="lang-tag">EN</span>Give it to me! (after verb in positive command)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Ne <span class="highlight">me le</span> donne pas ! (impératif négatif = ordre normal)</div><div class="ex-en"><span class="lang-tag">EN</span>Don't give it to me! (negative command = normal order before verb)</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 18 ─── -->
+<div class="topic-card" data-section="grammaire" data-keywords="prepositions place lieu à en dans sur sous devant derrière entre">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="topic-num">18</div>
+    <div class="card-title">Les prépositions de lieu<span class="fr">Prepositions of Place</span></div>
+    <div class="toggle-icon">▾</div>
+  </div>
+  <div class="card-body">
+    <div class="desc-block">
+      <div class="desc-fr"><span class="desc-fr-label">🇫🇷 À propos</span>Les prépositions de lieu indiquent où se trouve quelque chose ou quelqu'un dans l'espace. Elles sont essentielles pour décrire une pièce, donner des directions, ou situer des objets et des personnes. Certaines correspondent directement à l'anglais, d'autres sont un peu différentes. Notez que certaines forment une locution avec « de » (à côté de, en face de, près de).</div>
+      <div class="desc-en"><span class="desc-en-label">🇬🇧 About</span>Prepositions of place indicate where something or someone is in space. They're essential for describing a room, giving directions, or locating objects and people. Some map directly to English, others are slightly different. Note that some form a phrase with "de" (à côté de, en face de, près de).</div>
+    </div>
+    <div class="rule-block">
+      <div class="rule-fr"><span class="rule-fr-label">🇫🇷 Prépositions clés</span>dans (in/inside), sur (on), sous (under), devant (in front of), derrière (behind), entre (between), à côté de (next to), en face de (opposite), près de (near), loin de (far from), au-dessus de (above), au-dessous de (below).</div>
+      <div class="rule-en"><span class="rule-en-label">🇬🇧 Key prepositions</span>dans (in/inside), sur (on), sous (under), devant (in front of), derrière (behind), entre (between), à côté de (next to), en face de (opposite), près de (near), loin de (far from), au-dessus de (above), au-dessous de (below).</div>
+    </div>
+    <div class="examples-list">
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Le chat est <span class="highlight">sur</span> la table.</div><div class="ex-en"><span class="lang-tag">EN</span>The cat is on the table.</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Les clés sont <span class="highlight">dans</span> mon sac.</div><div class="ex-en"><span class="lang-tag">EN</span>The keys are in my bag.</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>La boulangerie est <span class="highlight">en face de</span> la mairie.</div><div class="ex-en"><span class="lang-tag">EN</span>The bakery is opposite the town hall.</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>J'habite <span class="highlight">près du</span> parc, <span class="highlight">loin de</span> la gare.</div><div class="ex-en"><span class="lang-tag">EN</span>I live near the park, far from the station.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 19 ─── -->
+<div class="topic-card" data-section="grammaire" data-keywords="verbs prepositions verbes prépositions à de">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="topic-num">19</div>
+    <div class="card-title">Les verbes et les prépositions<span class="fr">Verbs & Prepositions</span></div>
+    <div class="toggle-icon">▾</div>
+  </div>
+  <div class="card-body">
+    <div class="desc-block">
+      <div class="desc-fr"><span class="desc-fr-label">🇫🇷 À propos</span>Quand deux verbes se suivent en français, le premier est conjugué et le second est à l'infinitif. Mais contrairement à l'anglais (où on dit juste « want to », « decide to »), en français il faut parfois mettre une préposition entre les deux verbes — soit « à », soit « de », soit rien du tout. Malheureusement, il n'y a pas de règle absolue : il faut mémoriser quelle préposition chaque verbe exige.</div>
+      <div class="desc-en"><span class="desc-en-label">🇬🇧 About</span>When two verbs follow each other in French, the first is conjugated and the second is an infinitive. But unlike English (where we just say "want to", "decide to"), in French you sometimes need a preposition between the two verbs — either "à", "de", or nothing at all. Unfortunately there's no absolute rule: you need to memorize which preposition each verb requires.</div>
+    </div>
+    <div class="rule-block">
+      <div class="rule-fr"><span class="rule-fr-label">🇫🇷 Règle</span>Verbe + à + inf. : apprendre à, commencer à, aider à, réussir à, hésiter à. Verbe + de + inf. : décider de, arrêter de, finir de, essayer de, oublier de. Verbe + rien + inf. : vouloir, pouvoir, devoir, aimer, aller, venir.</div>
+      <div class="rule-en"><span class="rule-en-label">🇬🇧 Rule</span>Verb + à + inf.: apprendre à, commencer à, aider à, réussir à. Verb + de + inf.: décider de, arrêter de, finir de, essayer de, oublier de. Verb + nothing + inf.: vouloir, pouvoir, devoir, aimer, aller, venir.</div>
+    </div>
+    <div class="examples-list">
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>J'apprends <span class="highlight">à</span> conduire.</div><div class="ex-en"><span class="lang-tag">EN</span>I'm learning to drive.</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Elle décide <span class="highlight">de</span> partir. / J'arrête <span class="highlight">de</span> fumer.</div><div class="ex-en"><span class="lang-tag">EN</span>She decides to leave. / I stop smoking.</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Je veux partir. / Il peut venir. (pas de préposition)</div><div class="ex-en"><span class="lang-tag">EN</span>I want to leave. / He can come. (no preposition needed)</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 20 ─── -->
+<div class="topic-card" data-section="grammaire" data-keywords="adverbs meaning place sens place adverbes">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="topic-num">20</div>
+    <div class="card-title">Le sens et la place des adverbes<span class="fr">Meaning & Placement of Adverbs</span></div>
+    <div class="toggle-icon">▾</div>
+  </div>
+  <div class="card-body">
+    <div class="desc-block">
+      <div class="desc-fr"><span class="desc-fr-label">🇫🇷 À propos</span>Les adverbes modifient un verbe, un adjectif ou un autre adverbe. En français, beaucoup d'adverbes se forment à partir de l'adjectif au féminin + -ment (comme le suffixe -ly en anglais). La position de l'adverbe varie selon le temps verbal : aux temps simples, il se place après le verbe conjugué ; aux temps composés, certains adverbes courts se glissent entre l'auxiliaire et le participe passé.</div>
+      <div class="desc-en"><span class="desc-en-label">🇬🇧 About</span>Adverbs modify a verb, adjective, or another adverb. In French, many adverbs are formed from the feminine adjective + -ment (like the -ly suffix in English). The position of the adverb varies by tense: in simple tenses it goes after the conjugated verb; in compound tenses, short common adverbs slip between the auxiliary and the past participle.</div>
+    </div>
+    <div class="rule-block">
+      <div class="rule-fr"><span class="rule-fr-label">🇫🇷 Règle</span>Formation : adjectif féminin + -ment. Ex. : lente → lentement. Exceptions : vrai → vraiment, gentil → gentiment. Place : après le verbe (temps simples) ou entre auxiliaire et participe (temps composés).</div>
+      <div class="rule-en"><span class="rule-en-label">🇬🇧 Rule</span>Formation: feminine adjective + -ment. E.g.: lente → lentement (slowly). Exceptions: vrai → vraiment (really), gentil → gentiment (kindly). Placement: after verb (simple tenses) or between auxiliary and participle (compound tenses).</div>
+    </div>
+    <div class="examples-list">
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>lent → lente → <span class="highlight">lentement</span> (slowly)</div><div class="ex-en"><span class="lang-tag">EN</span>slow → (feminine: lente) → slowly</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Il parle <span class="highlight">rapidement</span>. (après le verbe)</div><div class="ex-en"><span class="lang-tag">EN</span>He speaks rapidly. (after verb in simple tense)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Elle a <span class="highlight">bien</span> travaillé. (entre auxiliaire et participe)</div><div class="ex-en"><span class="lang-tag">EN</span>She worked well. (between auxiliary "a" and participle "travaillé")</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span><span class="highlight">Heureusement</span>, il est arrivé à temps.</div><div class="ex-en"><span class="lang-tag">EN</span>Fortunately, he arrived on time. (at start for sentence-level adverbs)</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 21 ─── -->
+<div class="topic-card" data-section="grammaire" data-keywords="comparatives comparatifs plus moins aussi que more less as">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="topic-num">21</div>
+    <div class="card-title">Les comparatifs<span class="fr">Comparatives</span></div>
+    <div class="toggle-icon">▾</div>
+  </div>
+  <div class="card-body">
+    <div class="desc-block">
+      <div class="desc-fr"><span class="desc-fr-label">🇫🇷 À propos</span>Les comparatifs permettent de comparer deux choses ou personnes. En français, on peut comparer des adjectifs, des adverbes et des noms. On distingue trois types : supériorité (plus... que), infériorité (moins... que) et égalité (aussi... que). Certains adjectifs et adverbes ont des formes comparatives irrégulières qu'il faut mémoriser, comme bon → meilleur et bien → mieux.</div>
+      <div class="desc-en"><span class="desc-en-label">🇬🇧 About</span>Comparatives are used to compare two things or people. In French, you can compare adjectives, adverbs, and nouns. There are three types: superiority (plus…que = more than), inferiority (moins…que = less than), and equality (aussi…que = as…as). Some adjectives and adverbs have irregular comparative forms you need to memorize, like bon → meilleur and bien → mieux.</div>
+    </div>
+    <div class="rule-block">
+      <div class="rule-fr"><span class="rule-fr-label">🇫🇷 Règle</span>plus + adj/adv + que (more than) · moins + adj/adv + que (less than) · aussi + adj/adv + que (as…as). Irréguliers : bon → meilleur(e), mauvais → pire, bien → mieux.</div>
+      <div class="rule-en"><span class="rule-en-label">🇬🇧 Rule</span>plus + adj/adv + que (more than) · moins + adj/adv + que (less than) · aussi + adj/adv + que (as…as). Irregulars: bon → meilleur(e) (better), mauvais → pire (worse), bien → mieux (better).</div>
+    </div>
+    <div class="examples-list">
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Elle est <span class="highlight">plus grande que</span> lui.</div><div class="ex-en"><span class="lang-tag">EN</span>She is taller than him.</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Ce film est <span class="highlight">moins intéressant que</span> l'autre.</div><div class="ex-en"><span class="lang-tag">EN</span>This film is less interesting than the other one.</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Il court <span class="highlight">aussi vite que</span> moi.</div><div class="ex-en"><span class="lang-tag">EN</span>He runs as fast as me.</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>C'est le <span class="highlight">meilleur</span> restaurant ! / Tu parles <span class="highlight">mieux que</span> moi.</div><div class="ex-en"><span class="lang-tag">EN</span>It's the best restaurant! / You speak better than me. (irregular forms)</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 22 ─── -->
+<div class="topic-card" data-section="grammaire" data-keywords="negation négation ne pas ne jamais ne rien ne plus personne">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="topic-num">22</div>
+    <div class="card-title">La négation<span class="fr">Negation</span></div>
+    <div class="toggle-icon">▾</div>
+  </div>
+  <div class="card-body">
+    <div class="desc-block">
+      <div class="desc-fr"><span class="desc-fr-label">🇫🇷 À propos</span>La négation en français est unique : elle utilise deux mots qui encadrent le verbe — ne...pas. En anglais on utilise un seul mot (don't/doesn't). Il existe plusieurs formes de négation selon ce qu'on veut nier : ne...jamais (never), ne...rien (nothing), ne...personne (nobody), ne...plus (no longer), ne...que (only). À l'oral familier, le « ne » est souvent supprimé.</div>
+      <div class="desc-en"><span class="desc-en-label">🇬🇧 About</span>French negation is unique: it uses two words that surround the verb — ne...pas. In English we use one word (don't/doesn't). There are several forms of negation depending on what you want to negate: ne...jamais (never), ne...rien (nothing), ne...personne (nobody), ne...plus (no longer), ne...que (only). In informal speech, the "ne" is often dropped.</div>
+    </div>
+    <div class="rule-block">
+      <div class="rule-fr"><span class="rule-fr-label">🇫🇷 Règle</span>ne + verbe + pas/jamais/rien/plus/que. « personne » et « rien » peuvent aussi être sujets : Personne ne vient. Rien n'est parfait. Aux temps composés, ne...pas encadre l'auxiliaire : je n'ai pas mangé.</div>
+      <div class="rule-en"><span class="rule-en-label">🇬🇧 Rule</span>ne + verb + pas/jamais/rien/plus/que. "personne" and "rien" can also be subjects: Nobody is coming. Nothing is perfect. In compound tenses, ne...pas surrounds the auxiliary: I haven't eaten.</div>
+    </div>
+    <div class="examples-list">
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Je <span class="highlight">ne</span> parle <span class="highlight">pas</span> anglais.</div><div class="ex-en"><span class="lang-tag">EN</span>I don't speak English.</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Il <span class="highlight">ne</span> mange <span class="highlight">jamais</span> de viande.</div><div class="ex-en"><span class="lang-tag">EN</span>He never eats meat.</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Je <span class="highlight">ne</span> sais <span class="highlight">rien</span>. / Il <span class="highlight">n'</span>y a <span class="highlight">personne</span>.</div><div class="ex-en"><span class="lang-tag">EN</span>I know nothing. / There's nobody there.</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Elle <span class="highlight">ne</span> travaille <span class="highlight">plus</span> ici. / Je <span class="highlight">ne</span> fais <span class="highlight">que</span> dormir.</div><div class="ex-en"><span class="lang-tag">EN</span>She no longer works here. / I do nothing but sleep (only).</div></div>
+    </div>
+    <div class="tip-block">À l'oral, le « ne » est souvent supprimé : « Je sais pas » / At the oral level: "Je sais pas." But always write both ne...pas in formal writing!</div>
+  </div>
+</div>
+
+<!-- ─── 23 ─── -->
+<div class="topic-card" data-section="grammaire" data-keywords="interrogation question est-ce que quoi qui questions">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="topic-num">23</div>
+    <div class="card-title">L'interrogation : est-ce que, quoi, qui<span class="fr">Questions: est-ce que, quoi, qui</span></div>
+    <div class="toggle-icon">▾</div>
+  </div>
+  <div class="card-body">
+    <div class="desc-block">
+      <div class="desc-fr"><span class="desc-fr-label">🇫🇷 À propos</span>En français, il existe trois façons de poser une question fermée (réponse oui/non). Le choix dépend du registre : familier, courant ou soutenu. C'est une grande différence avec l'anglais qui utilise toujours l'inversion (Do you...?). Connaître les trois formes est important pour comprendre les francophones dans toutes les situations.</div>
+      <div class="desc-en"><span class="desc-en-label">🇬🇧 About</span>In French, there are three ways to ask a yes/no question. The choice depends on the register: informal, everyday, or formal. This is a big difference from English which always uses inversion (Do you...?). Knowing all three forms is important for understanding French speakers in all situations.</div>
+    </div>
+    <div class="rule-block">
+      <div class="rule-fr"><span class="rule-fr-label">🇫🇷 Règle</span>1. Intonation montante (familier) : Tu parles français?↗ 2. Est-ce que + ordre normal (courant) : Est-ce que tu parles français? 3. Inversion sujet-verbe (soutenu) : Parles-tu français?</div>
+      <div class="rule-en"><span class="rule-en-label">🇬🇧 Rule</span>1. Rising intonation (informal): Tu parles français?↗ 2. Est-ce que + normal order (everyday): Est-ce que tu parles français? 3. Subject-verb inversion (formal): Parles-tu français?</div>
+    </div>
+    <div class="examples-list">
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Tu parles français ?↗ (familier — intonation montante)</div><div class="ex-en"><span class="lang-tag">EN</span>You speak French? (informal — just raise your voice)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span><span class="highlight">Est-ce que</span> tu parles français ? (courant)</div><div class="ex-en"><span class="lang-tag">EN</span>Do you speak French? (everyday French)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Parles-tu français ? (soutenu)</div><div class="ex-en"><span class="lang-tag">EN</span>Do you speak French? (formal / written)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Tu fais <span class="highlight">quoi</span> ? / <span class="highlight">Qui</span> a appelé ?</div><div class="ex-en"><span class="lang-tag">EN</span>What are you doing? / Who called?</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 24 ─── -->
+<div class="topic-card" data-section="grammaire" data-keywords="question words qui que quoi où quand comment pourquoi combien">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="topic-num">24</div>
+    <div class="card-title">L'interrogation : qui, que, quoi, où, quand, comment, pourquoi, combien<span class="fr">Question Words</span></div>
+    <div class="toggle-icon">▾</div>
+  </div>
+  <div class="card-body">
+    <div class="desc-block">
+      <div class="desc-fr"><span class="desc-fr-label">🇫🇷 À propos</span>Ce sont les mots interrogatifs qui introduisent les questions ouvertes — celles qui demandent une information précise (qui, quoi, où, quand, comment, pourquoi, combien). Ces mots correspondent aux « 5W+H » de l'anglais (who, what, where, when, why, how). En français, ils peuvent se combiner avec « est-ce que » pour former des questions courantes, ou avec une inversion pour le style formel.</div>
+      <div class="desc-en"><span class="desc-en-label">🇬🇧 About</span>These are the question words that introduce open questions — ones that ask for specific information (who, what, where, when, why, how, how much). They correspond to the "5W+H" in English. In French, they can combine with "est-ce que" for everyday questions, or with inversion for formal style.</div>
+    </div>
+    <div class="rule-block">
+      <div class="rule-fr"><span class="rule-fr-label">🇫🇷 Mots clés</span>qui (who), que/quoi (what), où (where), quand (when), comment (how), pourquoi (why), combien (how much/many). Que → qu' devant voyelle. Quoi s'utilise seul ou après préposition.</div>
+      <div class="rule-en"><span class="rule-en-label">🇬🇧 Key words</span>qui (who), que/quoi (what), où (where), quand (when), comment (how), pourquoi (why), combien (how much/many). Que → qu' before vowel. Quoi used alone or after a preposition.</div>
+    </div>
+    <div class="examples-list">
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span><span class="highlight">Où</span> est-ce que tu habites ?</div><div class="ex-en"><span class="lang-tag">EN</span>Where do you live?</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span><span class="highlight">Pourquoi</span> tu pleures ? / <span class="highlight">Comment</span> tu t'appelles ?</div><div class="ex-en"><span class="lang-tag">EN</span>Why are you crying? / What is your name? (lit. How do you call yourself?)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span><span class="highlight">Quand</span> est-ce qu'il arrive ?</div><div class="ex-en"><span class="lang-tag">EN</span>When does he arrive?</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span><span class="highlight">Combien</span> ça coûte ? / Tu fais <span class="highlight">quoi</span> là ?</div><div class="ex-en"><span class="lang-tag">EN</span>How much does it cost? / What are you doing there?</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 25 ─── -->
+<div class="topic-card" data-section="grammaire" data-keywords="interrogative adjectives pronouns quel quelle lequel laquelle which">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="topic-num">25</div>
+    <div class="card-title">Adjectifs et pronoms interrogatifs : quel, lequel<span class="fr">Interrogative Adjectives & Pronouns</span></div>
+    <div class="toggle-icon">▾</div>
+  </div>
+  <div class="card-body">
+    <div class="desc-block">
+      <div class="desc-fr"><span class="desc-fr-label">🇫🇷 À propos</span>Quel et lequel servent tous deux à poser des questions sur un choix — « which » ou « what » en anglais. La différence est que quel est un ADJECTIF (il accompagne un nom) tandis que lequel est un PRONOM (il remplace un nom déjà mentionné). Les deux s'accordent en genre et en nombre avec le nom auquel ils se réfèrent.</div>
+      <div class="desc-en"><span class="desc-en-label">🇬🇧 About</span>Quel and lequel both ask about a choice — "which" or "what" in English. The difference is that quel is an ADJECTIVE (it accompanies a noun) while lequel is a PRONOUN (it replaces a noun already mentioned). Both agree in gender and number with the noun they refer to.</div>
+    </div>
+    <div class="rule-block">
+      <div class="rule-fr"><span class="rule-fr-label">🇫🇷 Règle</span>quel/quelle/quels/quelles + nom (which/what noun). lequel/laquelle/lesquels/lesquelles = pronoms (which one/ones — remplacent le nom).</div>
+      <div class="rule-en"><span class="rule-en-label">🇬🇧 Rule</span>quel/quelle/quels/quelles + noun (which/what noun). lequel/laquelle/lesquels/lesquelles = pronouns (which one/ones — replace the noun).</div>
+    </div>
+    <div class="examples-list">
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span><span class="highlight">Quel</span> film veux-tu voir ? (quel + nom)</div><div class="ex-en"><span class="lang-tag">EN</span>Which film do you want to see? (quel accompanies "film")</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span><span class="highlight">Quelle</span> heure est-il ? (féminin — heure est f.)</div><div class="ex-en"><span class="lang-tag">EN</span>What time is it? (quelle agrees with "heure" feminine)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Il y a deux robes. <span class="highlight">Laquelle</span> préfères-tu ? (pronom)</div><div class="ex-en"><span class="lang-tag">EN</span>There are two dresses. Which one do you prefer? (lequel replaces noun)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>De <span class="highlight">laquelle</span> parles-tu ? (après préposition)</div><div class="ex-en"><span class="lang-tag">EN</span>Which one are you talking about? (lequel after preposition)</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 26 ─── -->
+<div class="topic-card" data-section="grammaire" data-keywords="indirect speech reported discours indirect que si">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="topic-num">26</div>
+    <div class="card-title">Le discours indirect<span class="fr">Indirect Speech (Reported Speech)</span></div>
+    <div class="toggle-icon">▾</div>
+  </div>
+  <div class="card-body">
+    <div class="desc-block">
+      <div class="desc-fr"><span class="desc-fr-label">🇫🇷 À propos</span>Le discours indirect (ou rapporté) permet de rapporter ce que quelqu'un a dit, pensé ou demandé, sans répéter ses paroles exactes entre guillemets. Par exemple, au lieu de dire : « Il a dit : "Je suis fatigué" » (discours direct), on dit : « Il a dit qu'il était fatigué » (discours indirect). On utilise des conjonctions de liaison (que, si, ce que) et les temps verbaux peuvent changer.</div>
+      <div class="desc-en"><span class="desc-en-label">🇬🇧 About</span>Indirect (reported) speech lets you report what someone said, thought, or asked, without repeating their exact words in quotes. For example, instead of saying: "He said: 'I'm tired'" (direct), you say: "He said that he was tired" (indirect). You use linking conjunctions (que, si, ce que) and verb tenses may shift.</div>
+    </div>
+    <div class="rule-block">
+      <div class="rule-fr"><span class="rule-fr-label">🇫🇷 Règle</span>Affirmation → que : Il dit qu'il est fatigué. Question oui/non → si : Il demande si tu viens. Question ouverte → ce que/ce qui : Elle demande ce que tu fais.</div>
+      <div class="rule-en"><span class="rule-en-label">🇬🇧 Rule</span>Statement → que (that): He says that he is tired. Yes/No question → si (if/whether): He asks if you're coming. Open question → ce que/ce qui (what): She asks what you're doing.</div>
+    </div>
+    <div class="examples-list">
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Direct : « Je suis fatigué. » → Indirect : Il dit <span class="highlight">qu'</span>il est fatigué.</div><div class="ex-en"><span class="lang-tag">EN</span>Direct: "I'm tired." → Indirect: He says that he is tired.</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Direct : « Tu viens ? » → Il demande <span class="highlight">si</span> tu viens.</div><div class="ex-en"><span class="lang-tag">EN</span>Direct: "Are you coming?" → He asks if/whether you're coming.</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Direct : « Que fais-tu ? » → Elle demande <span class="highlight">ce que</span> tu fais.</div><div class="ex-en"><span class="lang-tag">EN</span>Direct: "What are you doing?" → She asks what you're doing.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 27 ─── -->
+<div class="topic-card" data-section="grammaire" data-keywords="logical connectors articulateurs cause consequence but opposition parce que donc car mais">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="topic-num">27</div>
+    <div class="card-title">Les articulateurs logiques<span class="fr">Logical Connectors</span></div>
+    <div class="toggle-icon">▾</div>
+  </div>
+  <div class="card-body">
+    <div class="desc-block">
+      <div class="desc-fr"><span class="desc-fr-label">🇫🇷 À propos</span>Les articulateurs logiques sont les « colle-phrases » du français : ce sont les mots et expressions qui relient les idées entre elles et structurent le discours. Ils expriment des relations logiques comme la cause (pourquoi quelque chose arrive), la conséquence (ce qui en résulte), l'opposition (une idée contraire) et le but (dans quel objectif). Ils sont indispensables pour construire des phrases et des textes cohérents.</div>
+      <div class="desc-en"><span class="desc-en-label">🇬🇧 About</span>Logical connectors are the "sentence glue" of French: words and expressions that link ideas together and structure discourse. They express logical relationships such as cause (why something happens), consequence (what results from it), opposition (a contrasting idea), and purpose (what something aims at). They're essential for building coherent sentences and texts.</div>
+    </div>
+    <div class="rule-block">
+      <div class="rule-fr"><span class="rule-fr-label">🇫🇷 Types</span>Cause : parce que, car, comme, puisque. Conséquence : donc, alors, c'est pourquoi, du coup. Opposition/concession : mais, cependant, pourtant, bien que (+subjonctif), même si. But : pour, afin de, pour que (+subjonctif).</div>
+      <div class="rule-en"><span class="rule-en-label">🇬🇧 Types</span>Cause: parce que (because), car (for/since), comme (as), puisque (since). Consequence: donc (so), alors (so), c'est pourquoi (that's why). Opposition: mais (but), cependant, pourtant, bien que (+subj). Purpose: pour (to), afin de (in order to).</div>
+    </div>
+    <div class="examples-list">
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Je suis fatigué <span class="highlight">parce que</span> j'ai peu dormi. (cause)</div><div class="ex-en"><span class="lang-tag">EN</span>I'm tired because I slept little. (cause)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Il pleut, <span class="highlight">donc</span> je prends un parapluie. (conséquence)</div><div class="ex-en"><span class="lang-tag">EN</span>It's raining, so I'm taking an umbrella. (consequence)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>J'aime le sport <span class="highlight">mais</span> je n'ai pas le temps. (opposition)</div><div class="ex-en"><span class="lang-tag">EN</span>I like sport but I have no time. (opposition)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span><span class="highlight">Bien que</span> ce soit difficile, il continue. (concession + subjonctif)</div><div class="ex-en"><span class="lang-tag">EN</span>Even though it's hard, he continues. (concession — needs subjunctive!)</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 28 ─── -->
+<div class="topic-card" data-section="grammaire" data-keywords="condition si clauses if then conditionnel">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="topic-num">28</div>
+    <div class="card-title">La condition<span class="fr">Conditional Sentences (Si clauses)</span></div>
+    <div class="toggle-icon">▾</div>
+  </div>
+  <div class="card-body">
+    <div class="desc-block">
+      <div class="desc-fr"><span class="desc-fr-label">🇫🇷 À propos</span>Les phrases conditionnelles avec « si » expriment des hypothèses : quelque chose qui se produira ou se produirait selon une condition. En français, il y a trois niveaux d'hypothèse, chacun utilisant une combinaison de temps précise. La règle la plus importante à retenir : on ne peut JAMAIS utiliser le conditionnel dans la proposition avec « si ».</div>
+      <div class="desc-en"><span class="desc-en-label">🇬🇧 About</span>Conditional sentences with "si" express hypotheses: something that will or would happen depending on a condition. In French, there are three levels of hypothesis, each using a specific combination of tenses. The most important rule to remember: you can NEVER use the conditional in the "si" clause.</div>
+    </div>
+    <div class="rule-block">
+      <div class="rule-fr"><span class="rule-fr-label">🇫🇷 Règle</span>Si + présent → futur (condition réelle/possible). Si + imparfait → conditionnel présent (hypothèse irréelle présente). Si + plus-que-parfait → conditionnel passé (hypothèse irréelle passée). JAMAIS si + conditionnel !</div>
+      <div class="rule-en"><span class="rule-en-label">🇬🇧 Rule</span>Si + present → future (real/likely condition). Si + imperfect → present conditional (unreal present hypothesis). Si + pluperfect → past conditional (unreal past hypothesis). NEVER si + conditional!</div>
+    </div>
+    <div class="examples-list">
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span><span class="highlight">Si</span> tu travailles, tu réussiras. (réel — probable)</div><div class="ex-en"><span class="lang-tag">EN</span>If you work, you will succeed. (real — it could happen)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span><span class="highlight">Si</span> j'avais de l'argent, je voyagerais. (hypothèse — peu probable)</div><div class="ex-en"><span class="lang-tag">EN</span>If I had money, I would travel. (hypothetical — unlikely)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span><span class="highlight">Si</span> j'avais étudié, j'aurais réussi. (irréel du passé — ne s'est pas passé)</div><div class="ex-en"><span class="lang-tag">EN</span>If I had studied, I would have succeeded. (unreal past — didn't happen)</div></div>
+    </div>
+    <div class="tip-block">JAMAIS « si + conditionnel » — faute très grave ! / NEVER "si + conditional" — a serious mistake! Si j'aurais ✗ → Si j'avais ✓</div>
+  </div>
+</div>
+
+<!-- ══════════════════════ CONJUGAISON ══════════════════════ -->
+<div class="section-title conj" id="sec-conjugaison" data-section="conjugaison">✏️ Conjugaison <span class="progress-badge">15 topics</span></div>
+
+<!-- ─── 29 ─── -->
+<div class="topic-card conj" data-section="conjugaison" data-keywords="présent être avoir faire aller present tense irregular verbs">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="topic-num">29</div>
+    <div class="card-title">Le présent : être, avoir, faire et aller<span class="fr">Present: être, avoir, faire, aller</span></div>
+    <div class="toggle-icon">▾</div>
+  </div>
+  <div class="card-body">
+    <div class="desc-block">
+      <div class="desc-fr"><span class="desc-fr-label">🇫🇷 À propos</span>Ces quatre verbes sont les plus utilisés de toute la langue française. Ce sont des verbes entièrement irréguliers — il n'y a aucune règle pour les deviner, il faut les mémoriser. Leur importance est immense : être et avoir servent d'auxiliaires pour former les temps composés (passé composé), faire entre dans des dizaines d'expressions courantes, et aller sert aussi à former le futur proche.</div>
+      <div class="desc-en"><span class="desc-en-label">🇬🇧 About</span>These four verbs are the most used in the entire French language. They are completely irregular — there's no rule to guess them, they must be memorized. Their importance is immense: être and avoir serve as auxiliaries to form compound tenses (passé composé), faire appears in dozens of common expressions, and aller is also used to form the near future.</div>
+    </div>
+    <div class="rule-block">
+      <div class="rule-fr"><span class="rule-fr-label">🇫🇷 Conjugaison au présent</span>Formes complètement irrégulières à mémoriser absolument.</div>
+      <div class="rule-en"><span class="rule-en-label">🇬🇧 Present tense</span>Completely irregular forms — must be memorized completely.</div>
+    </div>
+    <table class="conj-table">
+      <tr><th>Pronom</th><th>être (to be)</th><th>avoir (to have)</th><th>faire (to do/make)</th><th>aller (to go)</th></tr>
+      <tr><td class="pron">je/j'</td><td class="verb">suis</td><td class="verb">ai</td><td class="verb">fais</td><td class="verb">vais</td></tr>
+      <tr><td class="pron">tu</td><td class="verb">es</td><td class="verb">as</td><td class="verb">fais</td><td class="verb">vas</td></tr>
+      <tr><td class="pron">il/elle</td><td class="verb">est</td><td class="verb">a</td><td class="verb">fait</td><td class="verb">va</td></tr>
+      <tr><td class="pron">nous</td><td class="verb">sommes</td><td class="verb">avons</td><td class="verb">faisons</td><td class="verb">allons</td></tr>
+      <tr><td class="pron">vous</td><td class="verb">êtes</td><td class="verb">avez</td><td class="verb">faites</td><td class="verb">allez</td></tr>
+      <tr><td class="pron">ils/elles</td><td class="verb">sont</td><td class="verb">ont</td><td class="verb">font</td><td class="verb">vont</td></tr>
+    </table>
+    <div class="examples-list">
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Je <span class="highlight">suis</span> étudiant. / Elle <span class="highlight">a</span> faim. / Nous <span class="highlight">faisons</span> du sport.</div><div class="ex-en"><span class="lang-tag">EN</span>I am a student. / She is hungry. / We are doing sport.</div></div>
+    </div>
+    <div class="tip-block">Aller → futur proche / Aller → near future: Je vais manger = I'm going to eat. Avoir → expressions : j'ai faim (I'm hungry), j'ai soif (I'm thirsty), j'ai chaud (I'm hot).</div>
+  </div>
+</div>
+
+<!-- ─── 30 ─── -->
+<div class="topic-card conj" data-section="conjugaison" data-keywords="present verbs er regular parler manger aimer">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="topic-num">30</div>
+    <div class="card-title">Le présent : les verbes en -er<span class="fr">Present: -er Verbs</span></div>
+    <div class="toggle-icon">▾</div>
+  </div>
+  <div class="card-body">
+    <div class="desc-block">
+      <div class="desc-fr"><span class="desc-fr-label">🇫🇷 À propos</span>Les verbes en -er forment le groupe le plus important du français — environ 90% de tous les verbes ! Ils sont réguliers, ce qui signifie qu'ils suivent tous le même modèle de conjugaison. Une fois la règle apprise, elle s'applique à des milliers de verbes. Bonne nouvelle à l'oral : les formes je, tu, il/elle, ils/elles sonnent exactement pareil — la différence n'est visible qu'à l'écrit.</div>
+      <div class="desc-en"><span class="desc-en-label">🇬🇧 About</span>The -er verbs form the most important group in French — about 90% of all verbs! They are regular, meaning they all follow the same conjugation pattern. Once you learn the rule, it applies to thousands of verbs. Good news for speaking: the je, tu, il/elle, ils/elles forms all sound exactly the same — the difference is only visible in writing.</div>
+    </div>
+    <div class="rule-block">
+      <div class="rule-fr"><span class="rule-fr-label">🇫🇷 Règle</span>Enlever -er du radical + ajouter : -e, -es, -e, -ons, -ez, -ent. Les terminaisons -e, -es, -ent sont muettes. Verbes en -ger : + e devant -ons (mangeons).</div>
+      <div class="rule-en"><span class="rule-en-label">🇬🇧 Rule</span>Drop -er from stem + add: -e, -es, -e, -ons, -ez, -ent. The endings -e, -es, -ent are silent. Verbs in -ger: add e before -ons (mangeons) to keep soft g sound.</div>
+    </div>
+    <table class="conj-table">
+      <tr><th>Pronom</th><th>parler (to speak)</th><th>manger (to eat)</th><th>aimer (to love/like)</th></tr>
+      <tr><td class="pron">je</td><td class="verb">parle</td><td class="verb">mange</td><td class="verb">aime</td></tr>
+      <tr><td class="pron">tu</td><td class="verb">parles</td><td class="verb">manges</td><td class="verb">aimes</td></tr>
+      <tr><td class="pron">il/elle</td><td class="verb">parle</td><td class="verb">mange</td><td class="verb">aime</td></tr>
+      <tr><td class="pron">nous</td><td class="verb">parlons</td><td class="verb">mangeons</td><td class="verb">aimons</td></tr>
+      <tr><td class="pron">vous</td><td class="verb">parlez</td><td class="verb">mangez</td><td class="verb">aimez</td></tr>
+      <tr><td class="pron">ils/elles</td><td class="verb">parlent</td><td class="verb">mangent</td><td class="verb">aiment</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ─── 31 ─── -->
+<div class="topic-card conj" data-section="conjugaison" data-keywords="present pouvoir vouloir devoir savoir can want must know modal verbs">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="topic-num">31</div>
+    <div class="card-title">Le présent : pouvoir, vouloir, devoir et savoir<span class="fr">Present: pouvoir, vouloir, devoir, savoir</span></div>
+    <div class="toggle-icon">▾</div>
+  </div>
+  <div class="card-body">
+    <div class="desc-block">
+      <div class="desc-fr"><span class="desc-fr-label">🇫🇷 À propos</span>Ces quatre verbes sont appelés « verbes modaux » car ils modifient le sens d'un autre verbe à l'infinitif. Ils correspondent aux modaux anglais « can », « want », « must/have to » et « know how to ». Ils sont tous irréguliers et très fréquents dans la langue quotidienne. Ils sont toujours suivis d'un verbe à l'infinitif sans préposition.</div>
+      <div class="desc-en"><span class="desc-en-label">🇬🇧 About</span>These four verbs are called "modal verbs" because they modify the meaning of another verb in the infinitive. They correspond to the English modals "can", "want", "must/have to", and "know how to". They are all irregular and very frequent in everyday language. They are always followed by an infinitive with no preposition.</div>
+    </div>
+    <div class="rule-block">
+      <div class="rule-fr"><span class="rule-fr-label">🇫🇷 Sens</span>pouvoir = can/être capable de · vouloir = want · devoir = must/avoir à · savoir = savoir comment faire. Tous irréguliers, toujours suivis d'un infinitif sans préposition.</div>
+      <div class="rule-en"><span class="rule-en-label">🇬🇧 Meaning</span>pouvoir = can/to be able · vouloir = to want · devoir = must/to have to · savoir = to know how to. All irregular, always followed by infinitive with no preposition.</div>
+    </div>
+    <table class="conj-table">
+      <tr><th>Pronom</th><th>pouvoir (can)</th><th>vouloir (want)</th><th>devoir (must)</th><th>savoir (know)</th></tr>
+      <tr><td class="pron">je</td><td class="verb">peux</td><td class="verb">veux</td><td class="verb">dois</td><td class="verb">sais</td></tr>
+      <tr><td class="pron">tu</td><td class="verb">peux</td><td class="verb">veux</td><td class="verb">dois</td><td class="verb">sais</td></tr>
+      <tr><td class="pron">il/elle</td><td class="verb">peut</td><td class="verb">veut</td><td class="verb">doit</td><td class="verb">sait</td></tr>
+      <tr><td class="pron">nous</td><td class="verb">pouvons</td><td class="verb">voulons</td><td class="verb">devons</td><td class="verb">savons</td></tr>
+      <tr><td class="pron">vous</td><td class="verb">pouvez</td><td class="verb">voulez</td><td class="verb">devez</td><td class="verb">savez</td></tr>
+      <tr><td class="pron">ils/elles</td><td class="verb">peuvent</td><td class="verb">veulent</td><td class="verb">doivent</td><td class="verb">savent</td></tr>
+    </table>
+    <div class="tip-block">Savoir vs connaître : savoir = connaître des faits / savoir faire (Je sais nager). Connaître = connaître des personnes/lieux (Je connais Paris). / Savoir = to know facts/how to do. Connaître = to know people/places.</div>
+  </div>
+</div>
+
+<!-- ─── 32 ─── -->
+<div class="topic-card conj" data-section="conjugaison" data-keywords="present ir verbs finir choisir partir sortir">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="topic-num">32</div>
+    <div class="card-title">Le présent : les verbes en -ir<span class="fr">Present: -ir Verbs</span></div>
+    <div class="toggle-icon">▾</div>
+  </div>
+  <div class="card-body">
+    <div class="desc-block">
+      <div class="desc-fr"><span class="desc-fr-label">🇫🇷 À propos</span>Les verbes en -ir forment le deuxième groupe en français. Attention : il existe en réalité deux sous-groupes très différents ! Les verbes du type « finir » (réguliers) insèrent -iss- au pluriel, ce qui les rend reconnaissables. Les verbes du type « partir » (semi-irréguliers) se conjuguent différemment et perdent leur consonne finale au singulier. Il faut savoir distinguer les deux sous-groupes.</div>
+      <div class="desc-en"><span class="desc-en-label">🇬🇧 About</span>The -ir verbs form the second group in French. Be careful: there are actually two very different subgroups! Verbs like "finir" (regular) insert -iss- in the plural, making them recognizable. Verbs like "partir" (semi-irregular) conjugate differently and drop their final consonant in the singular. You need to know how to distinguish the two subgroups.</div>
+    </div>
+    <div class="rule-block">
+      <div class="rule-fr"><span class="rule-fr-label">🇫🇷 Règle</span>Type finir (régulier) : radical + -is, -is, -it, -issons, -issez, -issent. Type partir (semi-irrég.) : supprimer la consonne + -ir → -s, -s, -t, -ons, -ez, -ent.</div>
+      <div class="rule-en"><span class="rule-en-label">🇬🇧 Rule</span>Finir type (regular): stem + -is, -is, -it, -issons, -issez, -issent. Partir type (semi-irregular): drop consonant + -ir → -s, -s, -t, -ons, -ez, -ent.</div>
+    </div>
+    <table class="conj-table">
+      <tr><th>Pronom</th><th>finir (to finish)</th><th>choisir (to choose)</th><th>partir (to leave)</th></tr>
+      <tr><td class="pron">je</td><td class="verb">finis</td><td class="verb">choisis</td><td class="verb">pars</td></tr>
+      <tr><td class="pron">tu</td><td class="verb">finis</td><td class="verb">choisis</td><td class="verb">pars</td></tr>
+      <tr><td class="pron">il/elle</td><td class="verb">finit</td><td class="verb">choisit</td><td class="verb">part</td></tr>
+      <tr><td class="pron">nous</td><td class="verb">finissons</td><td class="verb">choisissons</td><td class="verb">partons</td></tr>
+      <tr><td class="pron">vous</td><td class="verb">finissez</td><td class="verb">choisissez</td><td class="verb">partez</td></tr>
+      <tr><td class="pron">ils/elles</td><td class="verb">finissent</td><td class="verb">choisissent</td><td class="verb">partent</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ─── 33 ─── -->
+<div class="topic-card conj" data-section="conjugaison" data-keywords="present re verbs attendre vendre prendre regular">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="topic-num">33</div>
+    <div class="card-title">Le présent : les verbes en -re<span class="fr">Present: -re Verbs</span></div>
+    <div class="toggle-icon">▾</div>
+  </div>
+  <div class="card-body">
+    <div class="desc-block">
+      <div class="desc-fr"><span class="desc-fr-label">🇫🇷 À propos</span>Les verbes en -re forment le troisième groupe. Les verbes réguliers en -re comme attendre ou vendre suivent un modèle simple, avec une particularité : la troisième personne du singulier (il/elle) ne prend aucune terminaison — le radical seul suffit. Parmi les irréguliers en -re, prendre est très important car ses composés (comprendre, apprendre, surprendre) suivent le même modèle.</div>
+      <div class="desc-en"><span class="desc-en-label">🇬🇧 About</span>The -re verbs form the third group. Regular -re verbs like attendre or vendre follow a simple pattern, with one peculiarity: the third person singular (il/elle) takes no ending at all — just the stem. Among the irregular -re verbs, prendre is very important because its compound verbs (comprendre, apprendre, surprendre) follow the same pattern.</div>
+    </div>
+    <div class="rule-block">
+      <div class="rule-fr"><span class="rule-fr-label">🇫🇷 Règle</span>Enlever -re + ajouter : -s, -s, (rien), -ons, -ez, -ent. Important : il/elle attend (pas de -t final). Prendre est irrégulier : nous prenons, ils prennent.</div>
+      <div class="rule-en"><span class="rule-en-label">🇬🇧 Rule</span>Drop -re + add: -s, -s, (nothing), -ons, -ez, -ent. Important: il/elle attend (no final -t added). Prendre is irregular: nous prenons, ils prennent.</div>
+    </div>
+    <table class="conj-table">
+      <tr><th>Pronom</th><th>attendre (to wait)</th><th>vendre (to sell)</th><th>prendre (to take — irr.)</th></tr>
+      <tr><td class="pron">je</td><td class="verb">attends</td><td class="verb">vends</td><td class="verb">prends</td></tr>
+      <tr><td class="pron">tu</td><td class="verb">attends</td><td class="verb">vends</td><td class="verb">prends</td></tr>
+      <tr><td class="pron">il/elle</td><td class="verb">attend</td><td class="verb">vend</td><td class="verb">prend</td></tr>
+      <tr><td class="pron">nous</td><td class="verb">attendons</td><td class="verb">vendons</td><td class="verb">prenons</td></tr>
+      <tr><td class="pron">vous</td><td class="verb">attendez</td><td class="verb">vendez</td><td class="verb">prenez</td></tr>
+      <tr><td class="pron">ils/elles</td><td class="verb">attendent</td><td class="verb">vendent</td><td class="verb">prennent</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ─── 34 ─── -->
+<div class="topic-card conj" data-section="conjugaison" data-keywords="present oir oire verbs recevoir voir croire boire">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="topic-num">34</div>
+    <div class="card-title">Le présent : les verbes en -oir et -oire<span class="fr">Present: -oir and -oire Verbs</span></div>
+    <div class="toggle-icon">▾</div>
+  </div>
+  <div class="card-body">
+    <div class="desc-block">
+      <div class="desc-fr"><span class="desc-fr-label">🇫🇷 À propos</span>Les verbes en -oir et -oire sont en grande majorité irréguliers et font partie des plus difficiles à maîtriser. Pourtant, ils sont très courants dans la vie quotidienne. Ces verbes ont souvent deux radicaux différents : un pour le singulier (je, tu, il) et un autre pour le pluriel (nous, vous, ils). Il faut les mémoriser un par un.</div>
+      <div class="desc-en"><span class="desc-en-label">🇬🇧 About</span>The -oir and -oire verbs are mostly irregular and among the most challenging to master. Yet they're very common in everyday life. These verbs often have two different stems: one for the singular (je, tu, il) and another for the plural (nous, vous, ils). They need to be memorized one by one.</div>
+    </div>
+    <div class="rule-block">
+      <div class="rule-fr"><span class="rule-fr-label">🇫🇷 Règle</span>Pas de règle unique — tous irréguliers. Verbes clés : voir (to see), boire (to drink), recevoir (to receive), croire (to believe), devoir (to have to — déjà vu au n°31).</div>
+      <div class="rule-en"><span class="rule-en-label">🇬🇧 Rule</span>No single rule — all irregular. Key verbs: voir (to see), boire (to drink), recevoir (to receive), croire (to believe), devoir (to have to — already seen in #31).</div>
+    </div>
+    <table class="conj-table">
+      <tr><th>Pronom</th><th>voir (to see)</th><th>boire (to drink)</th><th>recevoir (to receive)</th></tr>
+      <tr><td class="pron">je</td><td class="verb">vois</td><td class="verb">bois</td><td class="verb">reçois</td></tr>
+      <tr><td class="pron">tu</td><td class="verb">vois</td><td class="verb">bois</td><td class="verb">reçois</td></tr>
+      <tr><td class="pron">il/elle</td><td class="verb">voit</td><td class="verb">boit</td><td class="verb">reçoit</td></tr>
+      <tr><td class="pron">nous</td><td class="verb">voyons</td><td class="verb">buvons</td><td class="verb">recevons</td></tr>
+      <tr><td class="pron">vous</td><td class="verb">voyez</td><td class="verb">buvez</td><td class="verb">recevez</td></tr>
+      <tr><td class="pron">ils/elles</td><td class="verb">voient</td><td class="verb">boivent</td><td class="verb">reçoivent</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ─── 35 ─── -->
+<div class="topic-card conj" data-section="conjugaison" data-keywords="near future recent past futur proche passé récent aller venir de">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="topic-num">35</div>
+    <div class="card-title">Le futur proche et le passé récent<span class="fr">Near Future & Recent Past</span></div>
+    <div class="toggle-icon">▾</div>
+  </div>
+  <div class="card-body">
+    <div class="desc-block">
+      <div class="desc-fr"><span class="desc-fr-label">🇫🇷 À propos</span>Ces deux constructions permettent d'exprimer des événements très proches dans le temps sans avoir à utiliser des temps composés complexes. Le futur proche (aller + infinitif) exprime quelque chose qui va se passer très bientôt — équivalent de « going to » en anglais. Le passé récent (venir de + infinitif) exprime quelque chose qui vient juste de se passer — équivalent de « just did » en anglais. Ces deux formes sont très utilisées dans la conversation quotidienne.</div>
+      <div class="desc-en"><span class="desc-en-label">🇬🇧 About</span>These two constructions allow you to express events very close in time without using complex compound tenses. The near future (aller + infinitive) expresses something about to happen — equivalent to "going to" in English. The recent past (venir de + infinitive) expresses something that just happened — equivalent to "just did" in English. Both are heavily used in everyday conversation.</div>
+    </div>
+    <div class="rule-block">
+      <div class="rule-fr"><span class="rule-fr-label">🇫🇷 Règle</span>Futur proche : aller (conjugué au présent) + infinitif. Passé récent : venir de (conjugué au présent) + infinitif.</div>
+      <div class="rule-en"><span class="rule-en-label">🇬🇧 Rule</span>Near future: aller (present tense) + infinitive = going to do. Recent past: venir de (present tense) + infinitive = just did.</div>
+    </div>
+    <div class="examples-list">
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Je <span class="highlight">vais manger</span>. (futur proche)</div><div class="ex-en"><span class="lang-tag">EN</span>I'm going to eat. (near future)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Je <span class="highlight">viens de manger</span>. (passé récent)</div><div class="ex-en"><span class="lang-tag">EN</span>I just ate. (recent past)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Il <span class="highlight">va partir</span> demain. / Elle <span class="highlight">vient d'arriver</span>.</div><div class="ex-en"><span class="lang-tag">EN</span>He's going to leave tomorrow. / She just arrived.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 36 ─── -->
+<div class="topic-card conj" data-section="conjugaison" data-keywords="simple future futur simple will endings ai as a ons ez ont">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="topic-num">36</div>
+    <div class="card-title">Le futur simple<span class="fr">Simple Future</span></div>
+    <div class="toggle-icon">▾</div>
+  </div>
+  <div class="card-body">
+    <div class="desc-block">
+      <div class="desc-fr"><span class="desc-fr-label">🇫🇷 À propos</span>Le futur simple exprime ce qui se passera dans le futur — équivalent de « will » en anglais. Contrairement au futur proche (aller + inf.), il est souvent utilisé pour des événements plus lointains ou plus formels. Sa formation est assez régulière : on garde l'infinitif et on ajoute des terminaisons spécifiques. Les verbes irréguliers ont un radical différent mais les mêmes terminaisons.</div>
+      <div class="desc-en"><span class="desc-en-label">🇬🇧 About</span>The simple future expresses what will happen in the future — equivalent to "will" in English. Unlike the near future (aller + inf.), it's often used for more distant or more formal events. Its formation is fairly regular: keep the infinitive and add specific endings. Irregular verbs have a different stem but the same endings.</div>
+    </div>
+    <div class="rule-block">
+      <div class="rule-fr"><span class="rule-fr-label">🇫🇷 Règle</span>Infinitif (pour les -re : enlever le -e final) + terminaisons : -ai, -as, -a, -ons, -ez, -ont. Radicaux irréguliers : être→ser-, avoir→aur-, faire→fer-, aller→ir-, vouloir→voudr-.</div>
+      <div class="rule-en"><span class="rule-en-label">🇬🇧 Rule</span>Infinitive (for -re verbs: drop final -e) + endings: -ai, -as, -a, -ons, -ez, -ont. Irregular stems: être→ser-, avoir→aur-, faire→fer-, aller→ir-, vouloir→voudr-.</div>
+    </div>
+    <table class="conj-table">
+      <tr><th>Pronom</th><th>parler</th><th>finir</th><th>être</th><th>avoir</th></tr>
+      <tr><td class="pron">je</td><td class="verb">parlerai</td><td class="verb">finirai</td><td class="verb">serai</td><td class="verb">aurai</td></tr>
+      <tr><td class="pron">tu</td><td class="verb">parleras</td><td class="verb">finiras</td><td class="verb">seras</td><td class="verb">auras</td></tr>
+      <tr><td class="pron">il/elle</td><td class="verb">parlera</td><td class="verb">finira</td><td class="verb">sera</td><td class="verb">aura</td></tr>
+      <tr><td class="pron">nous</td><td class="verb">parlerons</td><td class="verb">finirons</td><td class="verb">serons</td><td class="verb">aurons</td></tr>
+      <tr><td class="pron">vous</td><td class="verb">parlerez</td><td class="verb">finirez</td><td class="verb">serez</td><td class="verb">aurez</td></tr>
+      <tr><td class="pron">ils/elles</td><td class="verb">parleront</td><td class="verb">finiront</td><td class="verb">seront</td><td class="verb">auront</td></tr>
+    </table>
+    <div class="tip-block">Après « quand » et « dès que », le français utilise le futur là où l'anglais utilise le présent ! / After "quand" and "dès que", French uses future while English uses present: Quand tu arriveras, appelle-moi. (When you arrive, call me.)</div>
+  </div>
+</div>
+
+<!-- ─── 37 ─── -->
+<div class="topic-card conj" data-section="conjugaison" data-keywords="passé composé avoir past tense compound participe passé">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="topic-num">37</div>
+    <div class="card-title">Le passé composé avec avoir<span class="fr">Passé Composé with avoir</span></div>
+    <div class="toggle-icon">▾</div>
+  </div>
+  <div class="card-body">
+    <div class="desc-block">
+      <div class="desc-fr"><span class="desc-fr-label">🇫🇷 À propos</span>Le passé composé est le temps du passé le plus utilisé dans la langue parlée et écrite. Il exprime des actions terminées et ponctuelles dans le passé — équivalent du prétérit simple (« I ate ») ou du parfait (« I have eaten ») en anglais. La majorité des verbes forme le passé composé avec l'auxiliaire « avoir » + participe passé. Certains participes passés sont réguliers, d'autres sont irréguliers et doivent être mémorisés.</div>
+      <div class="desc-en"><span class="desc-en-label">🇬🇧 About</span>The passé composé is the most used past tense in spoken and written French. It expresses completed, specific past actions — equivalent to the simple past ("I ate") or present perfect ("I have eaten") in English. Most verbs form the passé composé with auxiliary "avoir" + past participle. Some past participles are regular, others are irregular and must be memorized.</div>
+    </div>
+    <div class="rule-block">
+      <div class="rule-fr"><span class="rule-fr-label">🇫🇷 Règle</span>avoir (présent) + participe passé. Formation du participe : -er → -é (mangé) · -ir → -i (fini) · -re → -u (vendu). Irréguliers : faire→fait, voir→vu, prendre→pris, être→été, avoir→eu.</div>
+      <div class="rule-en"><span class="rule-en-label">🇬🇧 Rule</span>avoir (present) + past participle. Participle formation: -er → -é (mangé) · -ir → -i (fini) · -re → -u (vendu). Irregular: faire→fait, voir→vu, prendre→pris, être→été, avoir→eu.</div>
+    </div>
+    <div class="examples-list">
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>J'<span class="highlight">ai mangé</span> une pizza. (hier soir)</div><div class="ex-en"><span class="lang-tag">EN</span>I ate a pizza. (last night) — completed action</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Il <span class="highlight">a pris</span> le bus. (irrégulier : prendre → pris)</div><div class="ex-en"><span class="lang-tag">EN</span>He took the bus. (irregular past participle)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Nous <span class="highlight">avons vu</span> un film. / Ils <span class="highlight">ont fait</span> du sport.</div><div class="ex-en"><span class="lang-tag">EN</span>We watched a film. / They did sport.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 38 ─── -->
+<div class="topic-card conj" data-section="conjugaison" data-keywords="passé composé être past tense movement DR MRS VANDERTRAMP reflexive">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="topic-num">38</div>
+    <div class="card-title">Le passé composé avec être<span class="fr">Passé Composé with être</span></div>
+    <div class="toggle-icon">▾</div>
+  </div>
+  <div class="card-body">
+    <div class="desc-block">
+      <div class="desc-fr"><span class="desc-fr-label">🇫🇷 À propos</span>Un petit groupe de verbes (environ 17) utilise « être » comme auxiliaire au lieu de « avoir ». Ce sont principalement des verbes de mouvement et de changement d'état (aller, venir, partir, arriver, naître, mourir...), plus TOUS les verbes pronominaux réfléchis. L'aspect crucial est que le participe passé s'accorde en genre et en nombre avec le sujet — règle qui n'existe pas avec « avoir ».</div>
+      <div class="desc-en"><span class="desc-en-label">🇬🇧 About</span>A small group of verbs (about 17) uses "être" as auxiliary instead of "avoir". These are mainly movement and state-change verbs (aller, venir, partir, arriver, naître, mourir...), plus ALL reflexive verbs. The crucial aspect is that the past participle agrees in gender and number with the subject — a rule that doesn't apply with "avoir".</div>
+    </div>
+    <div class="rule-block">
+      <div class="rule-fr"><span class="rule-fr-label">🇫🇷 Règle</span>être (présent) + participe passé (accord avec le sujet). + e pour féminin, + s pour pluriel, + es pour féminin pluriel. Tous les verbes pronominaux (se lever, se laver...) utilisent aussi être.</div>
+      <div class="rule-en"><span class="rule-en-label">🇬🇧 Rule</span>être (present) + past participle (agrees with subject). + e for feminine, + s for plural, + es for feminine plural. ALL reflexive verbs (se lever, se laver...) also use être.</div>
+    </div>
+    <div class="examples-list">
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Il est <span class="highlight">allé</span> au cinéma. / Elle est <span class="highlight">allée</span>. (+ e pour féminin)</div><div class="ex-en"><span class="lang-tag">EN</span>He went to the cinema. / She went. (add -e for feminine subject)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Elles sont <span class="highlight">arrivées</span> tard. (féminin pluriel → + es)</div><div class="ex-en"><span class="lang-tag">EN</span>They (girls) arrived late. (feminine plural → add -es)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Il s'est <span class="highlight">levé</span>. / Elle s'est <span class="highlight">levée</span>. (verbe pronominal)</div><div class="ex-en"><span class="lang-tag">EN</span>He got up. / She got up. (reflexive verb — always uses être)</div></div>
+    </div>
+    <div class="tip-block">Mémo DR. MRS. VANDERTRAMP / Mnemonic: Devenir, Revenir, Mourir, Retourner, Sortir, Venir, Aller, Naître, Descendre, Entrer, Rentrer, Tomber, Rester, Arriver, Monter, Partir.</div>
+  </div>
+</div>
+
+<!-- ─── 39 ─── -->
+<div class="topic-card conj" data-section="conjugaison" data-keywords="imparfait imperfect tense ongoing past description habitual">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="topic-num">39</div>
+    <div class="card-title">L'imparfait<span class="fr">The Imperfect Tense</span></div>
+    <div class="toggle-icon">▾</div>
+  </div>
+  <div class="card-body">
+    <div class="desc-block">
+      <div class="desc-fr"><span class="desc-fr-label">🇫🇷 À propos</span>L'imparfait est l'autre grand temps du passé en français. Il s'utilise pour décrire des situations, des états, des habitudes ou des actions en cours dans le passé — pas des événements ponctuels et terminés (c'est le rôle du passé composé). En anglais, il correspond souvent à « was/were doing », « used to », ou simplement à l'imparfait dans les descriptions. Sa formation est très régulière — seul être fait exception.</div>
+      <div class="desc-en"><span class="desc-en-label">🇬🇧 About</span>The imperfect is the other major past tense in French. It's used to describe situations, states, habits, or ongoing actions in the past — not completed specific events (that's the passé composé's job). In English, it often corresponds to "was/were doing", "used to", or simply the past tense in descriptions. Its formation is very regular — only être is an exception.</div>
+    </div>
+    <div class="rule-block">
+      <div class="rule-fr"><span class="rule-fr-label">🇫🇷 Règle</span>Radical de la forme « nous » (présent) - ons + terminaisons : -ais, -ais, -ait, -ions, -iez, -aient. Être est le seul irrégulier : radical ét-.</div>
+      <div class="rule-en"><span class="rule-en-label">🇬🇧 Rule</span>Take the "nous" present form, drop -ons, add: -ais, -ais, -ait, -ions, -iez, -aient. Être is the only irregular: stem ét-.</div>
+    </div>
+    <table class="conj-table">
+      <tr><th>Pronom</th><th>parler</th><th>finir</th><th>être (irregular)</th></tr>
+      <tr><td class="pron">je</td><td class="verb">parlais</td><td class="verb">finissais</td><td class="verb">étais</td></tr>
+      <tr><td class="pron">tu</td><td class="verb">parlais</td><td class="verb">finissais</td><td class="verb">étais</td></tr>
+      <tr><td class="pron">il/elle</td><td class="verb">parlait</td><td class="verb">finissait</td><td class="verb">était</td></tr>
+      <tr><td class="pron">nous</td><td class="verb">parlions</td><td class="verb">finissions</td><td class="verb">étions</td></tr>
+      <tr><td class="pron">vous</td><td class="verb">parliez</td><td class="verb">finissiez</td><td class="verb">étiez</td></tr>
+      <tr><td class="pron">ils/elles</td><td class="verb">parlaient</td><td class="verb">finissaient</td><td class="verb">étaient</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ─── 40 ─── -->
+<div class="topic-card conj" data-section="conjugaison" data-keywords="imparfait passé composé difference contrast when to use which past tense">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="topic-num">40</div>
+    <div class="card-title">L'imparfait et le passé composé<span class="fr">Imperfect vs Passé Composé</span></div>
+    <div class="toggle-icon">▾</div>
+  </div>
+  <div class="card-body">
+    <div class="desc-block">
+      <div class="desc-fr"><span class="desc-fr-label">🇫🇷 À propos</span>C'est l'un des points les plus difficiles pour les apprenants de français. Les deux temps parlent du passé, mais de manière très différente. Une bonne image : imaginez une scène de film. L'imparfait est comme le décor en arrière-plan (le contexte, la description, ce qui se passait). Le passé composé est comme l'action principale au premier plan (l'événement qui se produit). Les deux s'utilisent souvent ENSEMBLE dans la même phrase.</div>
+      <div class="desc-en"><span class="desc-en-label">🇬🇧 About</span>This is one of the hardest points for French learners. Both tenses talk about the past, but in very different ways. A good image: imagine a film scene. The imperfect is like the background scenery (context, description, what was going on). The passé composé is like the main action in the foreground (the event that happens). Both are often used TOGETHER in the same sentence.</div>
+    </div>
+    <div class="rule-block">
+      <div class="rule-fr"><span class="rule-fr-label">🇫🇷 Règle</span>PC = action terminée, ponctuelle, séquence d'événements. Imparfait = description, état, habitude, action en cours interrompue. Signaux PC : soudain, un jour, hier, une fois. Signaux imparfait : toujours, souvent, chaque jour, d'habitude.</div>
+      <div class="rule-en"><span class="rule-en-label">🇬🇧 Rule</span>PC = completed, one-time action, sequence of events. Imparfait = description, state, habit, ongoing action that gets interrupted. PC signals: soudain, hier, une fois. Imparfait signals: toujours, souvent, chaque jour, d'habitude.</div>
+    </div>
+    <div class="examples-list">
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Il <span class="highlight">lisait</span> (arrière-plan) quand le téléphone <span class="highlight">a sonné</span> (événement).</div><div class="ex-en"><span class="lang-tag">EN</span>He was reading (background) when the phone rang (event that interrupts).</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Quand j'<span class="highlight">étais</span> jeune, je <span class="highlight">jouais</span> au foot tous les jours. (habitude)</div><div class="ex-en"><span class="lang-tag">EN</span>When I was young, I used to play football every day. (both imparfait = habit)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Hier, j'<span class="highlight">ai vu</span> un film. C'<span class="highlight">était</span> super !</div><div class="ex-en"><span class="lang-tag">EN</span>Yesterday, I saw a film (PC = event). It was great! (imparfait = description/state)</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 41 ─── -->
+<div class="topic-card conj" data-section="conjugaison" data-keywords="imperative impératif commands orders do dont tu nous vous">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="topic-num">41</div>
+    <div class="card-title">L'impératif<span class="fr">The Imperative</span></div>
+    <div class="toggle-icon">▾</div>
+  </div>
+  <div class="card-body">
+    <div class="desc-block">
+      <div class="desc-fr"><span class="desc-fr-label">🇫🇷 À propos</span>L'impératif est le mode utilisé pour donner des ordres, des instructions, des conseils ou des suggestions. Il est très simple car il n'utilise que trois formes : tu (singulier informel), nous (pour suggérer quelque chose au groupe, = « let's »), et vous (pluriel ou formel). Il n'y a pas de pronom sujet exprimé — c'est une de ses caractéristiques. Les verbes en -er perdent le -s final à la forme tu.</div>
+      <div class="desc-en"><span class="desc-en-label">🇬🇧 About</span>The imperative is the mood used for orders, instructions, advice, or suggestions. It's very simple because it only uses three forms: tu (informal singular), nous (to suggest something to the group = "let's"), and vous (plural or formal). There is no subject pronoun expressed — that's one of its characteristics. The -er verbs drop the final -s in the tu form.</div>
+    </div>
+    <div class="rule-block">
+      <div class="rule-fr"><span class="rule-fr-label">🇫🇷 Règle</span>Prendre la forme tu/nous/vous du présent, enlever le pronom. Verbes -er (tu) : enlever aussi le -s final. Être irrég. : sois/soyons/soyez. Avoir irrég. : aie/ayons/ayez.</div>
+      <div class="rule-en"><span class="rule-en-label">🇬🇧 Rule</span>Take the tu/nous/vous present form, remove the pronoun. -er verbs (tu): also drop the final -s. Être irregular: sois/soyons/soyez. Avoir irregular: aie/ayons/ayez.</div>
+    </div>
+    <div class="examples-list">
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span><span class="highlight">Parle</span> plus fort ! (tu — verbe -er, pas de -s)</div><div class="ex-en"><span class="lang-tag">EN</span>Speak louder! (-er verb drops the -s in tu form)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span><span class="highlight">Finissez</span> vos devoirs ! (vous)</div><div class="ex-en"><span class="lang-tag">EN</span>Finish your homework! (vous form)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span><span class="highlight">Allons</span> au cinéma ! (nous = « let's »)</div><div class="ex-en"><span class="lang-tag">EN</span>Let's go to the cinema! (nous form = "let's")</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Ne <span class="highlight">parle</span> pas fort ! / <span class="highlight">Sois</span> prudent !</div><div class="ex-en"><span class="lang-tag">EN</span>Don't speak loudly! / Be careful! (être is irregular: sois)</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 42 ─── -->
+<div class="topic-card conj" data-section="conjugaison" data-keywords="conditional présent present would should rais rait rions riez raient">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="topic-num">42</div>
+    <div class="card-title">Le conditionnel présent<span class="fr">Present Conditional</span></div>
+    <div class="toggle-icon">▾</div>
+  </div>
+  <div class="card-body">
+    <div class="desc-block">
+      <div class="desc-fr"><span class="desc-fr-label">🇫🇷 À propos</span>Le conditionnel présent est le temps de « ce qui se passerait si... ». Il a plusieurs usages clés : exprimer une hypothèse ou un souhait (Je voudrais...), formuler une demande polie (Pourriez-vous...?), donner un conseil (Tu devrais...), et exprimer le résultat d'une condition avec « si ». Sa formation combine le radical du futur simple avec les terminaisons de l'imparfait.</div>
+      <div class="desc-en"><span class="desc-en-label">🇬🇧 About</span>The present conditional is the tense of "what would happen if...". It has several key uses: expressing a hypothesis or wish (I would like...), making a polite request (Could you...?), giving advice (You should...), and expressing the result of a "si" condition. Its formation combines the simple future stem with the imperfect endings.</div>
+    </div>
+    <div class="rule-block">
+      <div class="rule-fr"><span class="rule-fr-label">🇫🇷 Règle</span>Radical du futur + terminaisons de l'imparfait : -rais, -rais, -rait, -rions, -riez, -raient. Mêmes radicaux irréguliers qu'au futur (ser-, aur-, fer-, ir-, voudr-).</div>
+      <div class="rule-en"><span class="rule-en-label">🇬🇧 Rule</span>Future stem + imperfect endings: -rais, -rais, -rait, -rions, -riez, -raient. Same irregular stems as future (ser-, aur-, fer-, ir-, voudr-).</div>
+    </div>
+    <table class="conj-table">
+      <tr><th>Pronom</th><th>parler</th><th>être</th><th>avoir</th><th>aller</th></tr>
+      <tr><td class="pron">je</td><td class="verb">parlerais</td><td class="verb">serais</td><td class="verb">aurais</td><td class="verb">irais</td></tr>
+      <tr><td class="pron">tu</td><td class="verb">parlerais</td><td class="verb">serais</td><td class="verb">aurais</td><td class="verb">irais</td></tr>
+      <tr><td class="pron">il/elle</td><td class="verb">parlerait</td><td class="verb">serait</td><td class="verb">aurait</td><td class="verb">irait</td></tr>
+      <tr><td class="pron">nous</td><td class="verb">parlerions</td><td class="verb">serions</td><td class="verb">aurions</td><td class="verb">irions</td></tr>
+      <tr><td class="pron">vous</td><td class="verb">parleriez</td><td class="verb">seriez</td><td class="verb">auriez</td><td class="verb">iriez</td></tr>
+      <tr><td class="pron">ils/elles</td><td class="verb">parleraient</td><td class="verb">seraient</td><td class="verb">auraient</td><td class="verb">iraient</td></tr>
+    </table>
+    <div class="tip-block">« Je voudrais » = forme polie de « Je veux ». / "Je voudrais" is the polite version of "Je veux". Always use voudrais in shops and restaurants — much more polite!</div>
+  </div>
+</div>
+
+<!-- ─── 43 ─── -->
+<div class="topic-card conj" data-section="conjugaison" data-keywords="subjonctif présent present subjunctive que bien que vouloir que il faut que">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="topic-num">43</div>
+    <div class="card-title">Le subjonctif présent<span class="fr">Present Subjunctive</span></div>
+    <div class="toggle-icon">▾</div>
+  </div>
+  <div class="card-body">
+    <div class="desc-block">
+      <div class="desc-fr"><span class="desc-fr-label">🇫🇷 À propos</span>Le subjonctif est un mode (pas un temps) qui exprime la subjectivité — ce qui est souhaité, craint, douteux, nécessaire ou possible, plutôt que ce qui est réel ou certain. Il est toujours introduit par « que » et apparaît dans la proposition subordonnée. En anglais, l'équivalent existe mais est rarement utilisé (« I suggest that he be here »). En français, le subjonctif est très courant et incontournable dans la langue soutenue.</div>
+      <div class="desc-en"><span class="desc-en-label">🇬🇧 About</span>The subjunctive is a mood (not a tense) that expresses subjectivity — what is wished, feared, doubtful, necessary, or possible, rather than what is real or certain. It is always introduced by "que" and appears in the subordinate clause. In English, the equivalent exists but is rarely used ("I suggest that he be here"). In French, the subjunctive is very common and unavoidable in formal language.</div>
+    </div>
+    <div class="rule-block">
+      <div class="rule-fr"><span class="rule-fr-label">🇫🇷 Règle</span>Formation : radical de ils/elles (présent) + terminaisons : -e, -es, -e, -ions, -iez, -ent. Déclencheurs : vouloir que, il faut que, bien que, avant que, pour que, douter que, être content que...</div>
+      <div class="rule-en"><span class="rule-en-label">🇬🇧 Rule</span>Formation: stem of ils/elles (present) + endings: -e, -es, -e, -ions, -iez, -ent. Triggers: vouloir que, il faut que, bien que, avant que, pour que, douter que, être content que...</div>
+    </div>
+    <table class="conj-table">
+      <tr><th>Pronom</th><th>parler</th><th>finir</th><th>être (irr.)</th><th>avoir (irr.)</th></tr>
+      <tr><td class="pron">que je</td><td class="verb">parle</td><td class="verb">finisse</td><td class="verb">sois</td><td class="verb">aie</td></tr>
+      <tr><td class="pron">que tu</td><td class="verb">parles</td><td class="verb">finisses</td><td class="verb">sois</td><td class="verb">aies</td></tr>
+      <tr><td class="pron">qu'il/elle</td><td class="verb">parle</td><td class="verb">finisse</td><td class="verb">soit</td><td class="verb">ait</td></tr>
+      <tr><td class="pron">que nous</td><td class="verb">parlions</td><td class="verb">finissions</td><td class="verb">soyons</td><td class="verb">ayons</td></tr>
+      <tr><td class="pron">que vous</td><td class="verb">parliez</td><td class="verb">finissiez</td><td class="verb">soyez</td><td class="verb">ayez</td></tr>
+      <tr><td class="pron">qu'ils</td><td class="verb">parlent</td><td class="verb">finissent</td><td class="verb">soient</td><td class="verb">aient</td></tr>
+    </table>
+    <div class="examples-list">
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Il faut que tu <span class="highlight">sois</span> là. (nécessité)</div><div class="ex-en"><span class="lang-tag">EN</span>You must be there. (il faut que always triggers subjunctive)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Je veux qu'il <span class="highlight">vienne</span>. (désir)</div><div class="ex-en"><span class="lang-tag">EN</span>I want him to come. (vouloir que triggers subjunctive)</div></div>
+      <div class="ex-pair"><div class="ex-fr"><span class="lang-tag">FR</span>Bien qu'elle <span class="highlight">soit</span> fatiguée, elle travaille. (concession)</div><div class="ex-en"><span class="lang-tag">EN</span>Even though she's tired, she works. (bien que always triggers subjunctive)</div></div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end container -->
+
+<script>
+let activeTab = 'all';
+function toggleCard(header) {
+  header.parentElement.classList.toggle('open');
+}
+function filterTopics() {
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  let visible = 0;
+  document.querySelectorAll('.topic-card').forEach(card => {
+    const kw = (card.dataset.keywords||'').toLowerCase();
+    const ti = card.querySelector('.card-title').textContent.toLowerCase();
+    const matchTab = activeTab==='all' || card.dataset.section===activeTab;
+    const matchSearch = !q || kw.includes(q) || ti.includes(q);
+    card.classList.toggle('hidden', !(matchTab && matchSearch));
+    if (matchTab && matchSearch) visible++;
+  });
+  document.querySelectorAll('.section-title').forEach(s => {
+    s.style.display = (activeTab==='all' || s.dataset.section===activeTab) ? '' : 'none';
+  });
+  document.getElementById('noResults').classList.toggle('show', visible===0);
+}
+function filterTab(tab, btn) {
+  activeTab = tab;
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  filterTopics();
+}
+document.querySelector('.topic-card .card-header').click();
+</script>
+</body>
+</html>

@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French Conjugation Tables</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0e0e12;--s1:#16161c;--s2:#1e1e26;--s3:#26262f;
+  --br:#2e2e3a;--tx:#e4e2f0;--t2:#9896b0;--t3:#5e5c74;
+  --red:#e03535;--gold:#d4a843;--teal:#2ec4b6;--purple:#8b6cd8;--green:#2a9d5c;
+  --wh:#ffffff;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-height:100vh}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#0e0e12 0%,#1a0808 50%,#0e0e12 100%);padding:56px 20px 44px;text-align:center;position:relative;overflow:hidden;border-bottom:1px solid var(--br)}
+.hero::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:500px;height:260px;background:radial-gradient(ellipse,rgba(224,53,53,.13) 0%,transparent 70%);pointer-events:none}
+.hero-flag{font-size:2.2rem;margin-bottom:14px}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5.5vw,3.4rem);font-weight:700;color:var(--wh);line-height:1.1;margin-bottom:8px}
+.hero h1 em{color:var(--red);font-style:italic}
+.hero p{color:var(--t2);font-size:.95rem;font-weight:300;margin-bottom:20px}
+.stats{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.stat{background:rgba(255,255,255,.04);border:1px solid var(--br);border-radius:8px;padding:6px 14px;font-size:.8rem;color:var(--t2)}
+.stat strong{color:var(--red)}
+
+/* CONTROLS */
+.controls{background:var(--s1);border-bottom:1px solid var(--br);padding:14px 16px;position:sticky;top:0;z-index:100}
+.ci{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+.sr{position:relative}
+.sr input{width:100%;background:var(--s2);border:1.5px solid var(--br);border-radius:9px;padding:9px 14px 9px 40px;font-family:'Outfit',sans-serif;font-size:.92rem;color:var(--tx);outline:none;transition:border-color .2s}
+.sr input::placeholder{color:var(--t3)}
+.sr input:focus{border-color:var(--red)}
+.si{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--t3)}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tb,.tt{padding:5px 13px;border-radius:18px;border:1.5px solid var(--br);background:transparent;font-family:'Outfit',sans-serif;font-size:.76rem;font-weight:500;cursor:pointer;color:var(--t2);transition:all .18s;white-space:nowrap}
+.tb:hover,.tt:hover{border-color:var(--red);color:var(--red)}
+.tb.on{background:var(--red);border-color:var(--red);color:#fff}
+.tb.on.tl{background:var(--teal);border-color:var(--teal)}
+.tb.on.gd{background:var(--gold);border-color:var(--gold);color:#1a1000}
+.tb.on.pp{background:var(--purple);border-color:var(--purple)}
+.tb.on.gn{background:var(--green);border-color:var(--green)}
+.tt.on{background:var(--s3);border-color:var(--t2);color:var(--tx)}
+.tt-row{display:flex;gap:5px;flex-wrap:wrap}
+.tt{border-radius:6px;font-family:'DM Mono',monospace;font-size:.7rem;padding:4px 10px}
+
+/* LAYOUT */
+.wrap{max-width:1100px;margin:0 auto;padding:22px 14px 56px}
+.sec{margin-bottom:44px}
+.sec-hd{display:flex;align-items:center;gap:10px;margin-bottom:18px;padding-bottom:9px;border-bottom:1px solid var(--br)}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--red);flex-shrink:0}
+.dot.tl{background:var(--teal)}.dot.gd{background:var(--gold)}.dot.pp{background:var(--purple)}.dot.gn{background:var(--green)}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;color:var(--tx)}
+.sec-sub{font-size:.72rem;color:var(--t3);font-family:'DM Mono',monospace;margin-left:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px}
+@media(max-width:600px){.grid{grid-template-columns:1fr}}
+
+/* CARD */
+.card{background:var(--s1);border:1px solid var(--br);border-radius:13px;overflow:hidden;transition:transform .14s,box-shadow .14s}
+.card:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.45)}
+.card.hide{display:none}
+.ch{display:flex;align-items:center;gap:11px;padding:13px 16px;background:var(--s2);border-bottom:1px solid var(--br);cursor:pointer;transition:background .14s}
+.ch:hover{background:var(--s3)}
+.vname{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:700;color:var(--wh);flex:1}
+.ven{font-size:.76rem;color:var(--t3);font-style:italic;display:block;margin-top:1px}
+.badge{font-family:'DM Mono',monospace;font-size:.62rem;padding:2px 7px;border-radius:4px;background:rgba(224,53,53,.12);color:var(--red);border:1px solid rgba(224,53,53,.28);white-space:nowrap}
+.badge.ir{background:rgba(212,168,67,.1);color:var(--gold);border-color:rgba(212,168,67,.28)}
+.badge.rf{background:rgba(139,108,216,.1);color:var(--purple);border-color:rgba(139,108,216,.28)}
+.badge.im{background:rgba(46,196,182,.1);color:var(--teal);border-color:rgba(46,196,182,.28)}
+.badge.rg{background:rgba(46,196,182,.1);color:var(--teal);border-color:rgba(46,196,182,.28)}
+.tog{color:var(--t3);font-size:.85rem;transition:transform .22s;flex-shrink:0}
+.card.open .tog{transform:rotate(180deg)}
+.cb{display:none}
+.card.open .cb{display:block}
+
+/* TENSE BLOCK */
+.ts{border-bottom:1px solid var(--br)}
+.ts:last-child{border-bottom:none}
+.ts.th{display:none}
+.tl{padding:7px 16px;font-size:.65rem;font-family:'DM Mono',monospace;letter-spacing:.9px;text-transform:uppercase;font-weight:500;border-bottom:1px solid var(--br)}
+.tl.pr{color:var(--red);background:rgba(224,53,53,.05)}
+.tl.pc{color:var(--gold);background:rgba(212,168,67,.05)}
+.tl.im{color:#7eb8f7;background:rgba(126,184,247,.05)}
+.tl.fu{color:var(--teal);background:rgba(46,196,182,.05)}
+.tl.ip{color:#f4a261;background:rgba(244,162,97,.05)}
+.tl.co{color:var(--purple);background:rgba(139,108,216,.05)}
+.tl.su{color:var(--green);background:rgba(42,157,92,.05)}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:0;padding:9px 16px 11px}
+.fi{display:flex;gap:5px;padding:2px 0;font-size:.84rem;line-height:1.45;color:var(--t2)}
+.fp{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--t3);flex-shrink:0;padding-top:2px;min-width:30px}
+.fv{color:var(--tx);font-weight:500}
+.fi-full{grid-column:1/-1}
+.fip{display:flex;flex-direction:column;gap:3px;padding:9px 16px 11px}
+.note{padding:8px 16px 9px;font-size:.75rem;color:var(--t3);font-style:italic;background:rgba(255,255,255,.02);border-top:1px dashed var(--br)}
+.note::before{content:'📌 ';font-style:normal}
+.noform{font-size:.73rem;color:var(--t3);font-style:italic;padding:8px 0}
+
+/* EMPTY */
+.empty{text-align:center;padding:50px 20px;color:var(--t3);display:none}
+.empty.show{display:block}
+.empty h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--t2);margin-bottom:6px}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-flag">🇫🇷</div>
+  <h1>French <em>Conjugation</em> Tables</h1>
+  <p>All verbs from the book + important extras · 7 tenses each</p>
+  <div class="stats">
+    <div class="stat">From book: <strong>22 verbs</strong></div>
+    <div class="stat">Added extras: <strong>+8 verbs</strong></div>
+    <div class="stat">Tenses: <strong>7 each</strong></div>
+    <div class="stat">Total: <strong>30 verbs</strong></div>
+  </div>
+</div>
+
+<div class="controls">
+  <div class="ci">
+    <div class="sr">
+      <span class="si">🔍</span>
+      <input type="text" id="q" placeholder="Search verb… e.g. avoir, go, irregular, reflexive" oninput="filter()">
+    </div>
+    <div class="tabs" id="gtabs">
+      <button class="tb on" onclick="setG('all',this)">All</button>
+      <button class="tb" onclick="setG('ess',this)">Essentials</button>
+      <button class="tb tl" onclick="setG('er',this)">-er Verbs</button>
+      <button class="tb gd" onclick="setG('ir',this)">-ir / -re Verbs</button>
+      <button class="tb pp" onclick="setG('irr',this)">Irregular</button>
+      <button class="tb gn" onclick="setG('mod',this)">Modals</button>
+    </div>
+    <div class="tt-row" id="ttabs">
+      <button class="tt on" onclick="setT('all',this)">All Tenses</button>
+      <button class="tt" onclick="setT('pr',this)">Présent</button>
+      <button class="tt" onclick="setT('pc',this)">Passé composé</button>
+      <button class="tt" onclick="setT('im',this)">Imparfait</button>
+      <button class="tt" onclick="setT('fu',this)">Futur</button>
+      <button class="tt" onclick="setT('ip',this)">Impératif</button>
+      <button class="tt" onclick="setT('co',this)">Conditionnel</button>
+      <button class="tt" onclick="setT('su',this)">Subjonctif</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+<div id="empty" class="empty"><h3>No verbs found</h3><p>Try a different search.</p></div>
+
+<!-- ═══ ESSENTIALS ═══ -->
+<div class="sec" data-g="ess">
+  <div class="sec-hd"><div class="dot"></div><div class="sec-title">Verbes essentiels — Essentials</div><div class="sec-sub">être · avoir · faire · aller</div></div>
+  <div class="grid">
+
+<!-- ÊTRE -->
+<div class="card open" data-g="ess" data-k="être be is am are essential irregular auxiliary">
+<div class="ch" onclick="tog(this)"><div><span class="vname">Être</span><span class="ven">to be</span></div><span class="badge ir">irrégulier</span><span class="tog">▾</span></div>
+<div class="cb">
+  <div class="ts" data-t="pr"><div class="tl pr">Présent — Present</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">suis</span></div><div class="fi"><span class="fp">nous</span><span class="fv">sommes</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">es</span></div><div class="fi"><span class="fp">vous</span><span class="fv">êtes</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">est</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">sont</span></div>
+  </div></div>
+  <div class="ts" data-t="pc"><div class="tl pc">Passé composé — Past</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">ai été</span></div><div class="fi"><span class="fp">nous</span><span class="fv">avons été</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">as été</span></div><div class="fi"><span class="fp">vous</span><span class="fv">avez été</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">a été</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">ont été</span></div>
+  </div></div>
+  <div class="ts" data-t="im"><div class="tl im">Imparfait — Imperfect</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">étais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">étions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">étais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">étiez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">était</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">étaient</span></div>
+  </div></div>
+  <div class="ts" data-t="fu"><div class="tl fu">Futur simple — Future</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">serai</span></div><div class="fi"><span class="fp">nous</span><span class="fv">serons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">seras</span></div><div class="fi"><span class="fp">vous</span><span class="fv">serez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">sera</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">seront</span></div>
+  </div></div>
+  <div class="ts" data-t="ip"><div class="tl ip">Impératif — Imperative</div><div class="fip">
+    <div class="fi"><span class="fp">tu</span><span class="fv">sois</span></div>
+    <div class="fi"><span class="fp">nous</span><span class="fv">soyons</span></div>
+    <div class="fi"><span class="fp">vous</span><span class="fv">soyez</span></div>
+  </div></div>
+  <div class="ts" data-t="co"><div class="tl co">Conditionnel présent — Conditional</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">serais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">serions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">serais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">seriez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">serait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">seraient</span></div>
+  </div></div>
+  <div class="ts" data-t="su"><div class="tl su">Subjonctif présent — Subjunctive</div><div class="fg">
+    <div class="fi"><span class="fp">que je</span><span class="fv">sois</span></div><div class="fi"><span class="fp">que nous</span><span class="fv">soyons</span></div>
+    <div class="fi"><span class="fp">que tu</span><span class="fv">sois</span></div><div class="fi"><span class="fp">que vous</span><span class="fv">soyez</span></div>
+    <div class="fi"><span class="fp">qu'il/elle</span><span class="fv">soit</span></div><div class="fi"><span class="fp">qu'ils</span><span class="fv">soient</span></div>
+  </div></div>
+  <div class="note">Auxiliary for movement verbs + all reflexives in passé composé. Participe passé: été.</div>
+</div></div>
+
+<!-- AVOIR -->
+<div class="card open" data-g="ess" data-k="avoir have has essential irregular auxiliary">
+<div class="ch" onclick="tog(this)"><div><span class="vname">Avoir</span><span class="ven">to have</span></div><span class="badge ir">irrégulier</span><span class="tog">▾</span></div>
+<div class="cb">
+  <div class="ts" data-t="pr"><div class="tl pr">Présent</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">ai</span></div><div class="fi"><span class="fp">nous</span><span class="fv">avons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">as</span></div><div class="fi"><span class="fp">vous</span><span class="fv">avez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">a</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">ont</span></div>
+  </div></div>
+  <div class="ts" data-t="pc"><div class="tl pc">Passé composé</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">ai eu</span></div><div class="fi"><span class="fp">nous</span><span class="fv">avons eu</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">as eu</span></div><div class="fi"><span class="fp">vous</span><span class="fv">avez eu</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">a eu</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">ont eu</span></div>
+  </div></div>
+  <div class="ts" data-t="im"><div class="tl im">Imparfait</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">avais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">avions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">avais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">aviez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">avait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">avaient</span></div>
+  </div></div>
+  <div class="ts" data-t="fu"><div class="tl fu">Futur simple</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">aurai</span></div><div class="fi"><span class="fp">nous</span><span class="fv">aurons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">auras</span></div><div class="fi"><span class="fp">vous</span><span class="fv">aurez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">aura</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">auront</span></div>
+  </div></div>
+  <div class="ts" data-t="ip"><div class="tl ip">Impératif</div><div class="fip">
+    <div class="fi"><span class="fp">tu</span><span class="fv">aie</span></div>
+    <div class="fi"><span class="fp">nous</span><span class="fv">ayons</span></div>
+    <div class="fi"><span class="fp">vous</span><span class="fv">ayez</span></div>
+  </div></div>
+  <div class="ts" data-t="co"><div class="tl co">Conditionnel présent</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">aurais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">aurions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">aurais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">auriez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">aurait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">auraient</span></div>
+  </div></div>
+  <div class="ts" data-t="su"><div class="tl su">Subjonctif présent</div><div class="fg">
+    <div class="fi"><span class="fp">que j'</span><span class="fv">aie</span></div><div class="fi"><span class="fp">que nous</span><span class="fv">ayons</span></div>
+    <div class="fi"><span class="fp">que tu</span><span class="fv">aies</span></div><div class="fi"><span class="fp">que vous</span><span class="fv">ayez</span></div>
+    <div class="fi"><span class="fp">qu'il/elle</span><span class="fv">ait</span></div><div class="fi"><span class="fp">qu'ils</span><span class="fv">aient</span></div>
+  </div></div>
+  <div class="note">Main auxiliary for passé composé. Expressions: avoir faim/soif/peur/chaud/froid. Participe passé: eu.</div>
+</div></div>
+
+<!-- FAIRE -->
+<div class="card open" data-g="ess" data-k="faire do make essential irregular">
+<div class="ch" onclick="tog(this)"><div><span class="vname">Faire</span><span class="ven">to do / to make</span></div><span class="badge ir">irrégulier</span><span class="tog">▾</span></div>
+<div class="cb">
+  <div class="ts" data-t="pr"><div class="tl pr">Présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">fais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">faisons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">fais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">faites</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">fait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">font</span></div>
+  </div></div>
+  <div class="ts" data-t="pc"><div class="tl pc">Passé composé</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">ai fait</span></div><div class="fi"><span class="fp">nous</span><span class="fv">avons fait</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">as fait</span></div><div class="fi"><span class="fp">vous</span><span class="fv">avez fait</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">a fait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">ont fait</span></div>
+  </div></div>
+  <div class="ts" data-t="im"><div class="tl im">Imparfait</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">faisais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">faisions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">faisais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">faisiez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">faisait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">faisaient</span></div>
+  </div></div>
+  <div class="ts" data-t="fu"><div class="tl fu">Futur simple</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">ferai</span></div><div class="fi"><span class="fp">nous</span><span class="fv">ferons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">feras</span></div><div class="fi"><span class="fp">vous</span><span class="fv">ferez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">fera</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">feront</span></div>
+  </div></div>
+  <div class="ts" data-t="ip"><div class="tl ip">Impératif</div><div class="fip">
+    <div class="fi"><span class="fp">tu</span><span class="fv">fais</span></div>
+    <div class="fi"><span class="fp">nous</span><span class="fv">faisons</span></div>
+    <div class="fi"><span class="fp">vous</span><span class="fv">faites</span></div>
+  </div></div>
+  <div class="ts" data-t="co"><div class="tl co">Conditionnel présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">ferais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">ferions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">ferais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">feriez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">ferait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">feraient</span></div>
+  </div></div>
+  <div class="ts" data-t="su"><div class="tl su">Subjonctif présent</div><div class="fg">
+    <div class="fi"><span class="fp">que je</span><span class="fv">fasse</span></div><div class="fi"><span class="fp">que nous</span><span class="fv">fassions</span></div>
+    <div class="fi"><span class="fp">que tu</span><span class="fv">fasses</span></div><div class="fi"><span class="fp">que vous</span><span class="fv">fassiez</span></div>
+    <div class="fi"><span class="fp">qu'il/elle</span><span class="fv">fasse</span></div><div class="fi"><span class="fp">qu'ils</span><span class="fv">fassent</span></div>
+  </div></div>
+  <div class="note">Participe passé: fait. Expressions: faire du sport, faire la cuisine, il fait beau/chaud/froid (weather).</div>
+</div></div>
+
+<!-- ALLER -->
+<div class="card open" data-g="ess" data-k="aller go essential irregular near future être">
+<div class="ch" onclick="tog(this)"><div><span class="vname">Aller</span><span class="ven">to go</span></div><span class="badge ir">irrégulier</span><span class="tog">▾</span></div>
+<div class="cb">
+  <div class="ts" data-t="pr"><div class="tl pr">Présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">vais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">allons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">vas</span></div><div class="fi"><span class="fp">vous</span><span class="fv">allez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">va</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">vont</span></div>
+  </div></div>
+  <div class="ts" data-t="pc"><div class="tl pc">Passé composé</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">suis allé(e)</span></div><div class="fi"><span class="fp">nous</span><span class="fv">sommes allé(e)s</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">es allé(e)</span></div><div class="fi"><span class="fp">vous</span><span class="fv">êtes allé(e)s</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">est allé(e)</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">sont allé(e)s</span></div>
+  </div></div>
+  <div class="ts" data-t="im"><div class="tl im">Imparfait</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">allais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">allions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">allais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">alliez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">allait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">allaient</span></div>
+  </div></div>
+  <div class="ts" data-t="fu"><div class="tl fu">Futur simple</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">irai</span></div><div class="fi"><span class="fp">nous</span><span class="fv">irons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">iras</span></div><div class="fi"><span class="fp">vous</span><span class="fv">irez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">ira</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">iront</span></div>
+  </div></div>
+  <div class="ts" data-t="ip"><div class="tl ip">Impératif</div><div class="fip">
+    <div class="fi"><span class="fp">tu</span><span class="fv">va</span></div>
+    <div class="fi"><span class="fp">nous</span><span class="fv">allons</span></div>
+    <div class="fi"><span class="fp">vous</span><span class="fv">allez</span></div>
+  </div></div>
+  <div class="ts" data-t="co"><div class="tl co">Conditionnel présent</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">irais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">irions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">irais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">iriez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">irait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">iraient</span></div>
+  </div></div>
+  <div class="ts" data-t="su"><div class="tl su">Subjonctif présent</div><div class="fg">
+    <div class="fi"><span class="fp">que j'</span><span class="fv">aille</span></div><div class="fi"><span class="fp">que nous</span><span class="fv">allions</span></div>
+    <div class="fi"><span class="fp">que tu</span><span class="fv">ailles</span></div><div class="fi"><span class="fp">que vous</span><span class="fv">alliez</span></div>
+    <div class="fi"><span class="fp">qu'il/elle</span><span class="fv">aille</span></div><div class="fi"><span class="fp">qu'ils</span><span class="fv">aillent</span></div>
+  </div></div>
+  <div class="note">Uses ÊTRE in passé composé. Near future: aller + inf → Je vais manger. Va-s-y! (keeps -s before y for pronunciation).</div>
+</div></div>
+
+  </div><!-- end grid -->
+</div><!-- end sec -->
+
+<!-- ═══ -ER VERBS ═══ -->
+<div class="sec" data-g="er">
+  <div class="sec-hd"><div class="dot tl"></div><div class="sec-title">Verbes en -er — Regular &amp; Spelling-change</div><div class="sec-sub">parler · acheter · appeler · manger</div></div>
+  <div class="grid">
+
+<!-- PARLER -->
+<div class="card" data-g="er" data-k="parler speak talk regular er model">
+<div class="ch" onclick="tog(this)"><div><span class="vname">Parler</span><span class="ven">to speak / to talk</span></div><span class="badge rg">régulier -er</span><span class="tog">▾</span></div>
+<div class="cb">
+  <div class="ts" data-t="pr"><div class="tl pr">Présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">parle</span></div><div class="fi"><span class="fp">nous</span><span class="fv">parlons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">parles</span></div><div class="fi"><span class="fp">vous</span><span class="fv">parlez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">parle</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">parlent</span></div>
+  </div></div>
+  <div class="ts" data-t="pc"><div class="tl pc">Passé composé</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">ai parlé</span></div><div class="fi"><span class="fp">nous</span><span class="fv">avons parlé</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">as parlé</span></div><div class="fi"><span class="fp">vous</span><span class="fv">avez parlé</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">a parlé</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">ont parlé</span></div>
+  </div></div>
+  <div class="ts" data-t="im"><div class="tl im">Imparfait</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">parlais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">parlions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">parlais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">parliez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">parlait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">parlaient</span></div>
+  </div></div>
+  <div class="ts" data-t="fu"><div class="tl fu">Futur simple</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">parlerai</span></div><div class="fi"><span class="fp">nous</span><span class="fv">parlerons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">parleras</span></div><div class="fi"><span class="fp">vous</span><span class="fv">parlerez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">parlera</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">parleront</span></div>
+  </div></div>
+  <div class="ts" data-t="ip"><div class="tl ip">Impératif</div><div class="fip">
+    <div class="fi"><span class="fp">tu</span><span class="fv">parle</span></div>
+    <div class="fi"><span class="fp">nous</span><span class="fv">parlons</span></div>
+    <div class="fi"><span class="fp">vous</span><span class="fv">parlez</span></div>
+  </div></div>
+  <div class="ts" data-t="co"><div class="tl co">Conditionnel présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">parlerais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">parlerions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">parlerais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">parleriez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">parlerait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">parleraient</span></div>
+  </div></div>
+  <div class="ts" data-t="su"><div class="tl su">Subjonctif présent</div><div class="fg">
+    <div class="fi"><span class="fp">que je</span><span class="fv">parle</span></div><div class="fi"><span class="fp">que nous</span><span class="fv">parlions</span></div>
+    <div class="fi"><span class="fp">que tu</span><span class="fv">parles</span></div><div class="fi"><span class="fp">que vous</span><span class="fv">parliez</span></div>
+    <div class="fi"><span class="fp">qu'il/elle</span><span class="fv">parle</span></div><div class="fi"><span class="fp">qu'ils</span><span class="fv">parlent</span></div>
+  </div></div>
+  <div class="note">Model for ALL regular -er verbs: aimer, travailler, regarder, écouter, manger (with -ge- spelling change), etc.</div>
+</div></div>
+
+<!-- ACHETER -->
+<div class="card" data-g="er" data-k="acheter buy purchase er spelling accent grave">
+<div class="ch" onclick="tog(this)"><div><span class="vname">Acheter</span><span class="ven">to buy</span></div><span class="badge rg">-er accent</span><span class="tog">▾</span></div>
+<div class="cb">
+  <div class="ts" data-t="pr"><div class="tl pr">Présent</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">achète</span></div><div class="fi"><span class="fp">nous</span><span class="fv">achetons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">achètes</span></div><div class="fi"><span class="fp">vous</span><span class="fv">achetez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">achète</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">achètent</span></div>
+  </div></div>
+  <div class="ts" data-t="pc"><div class="tl pc">Passé composé</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">ai acheté</span></div><div class="fi"><span class="fp">nous</span><span class="fv">avons acheté</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">as acheté</span></div><div class="fi"><span class="fp">vous</span><span class="fv">avez acheté</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">a acheté</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">ont acheté</span></div>
+  </div></div>
+  <div class="ts" data-t="im"><div class="tl im">Imparfait</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">achetais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">achetions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">achetais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">achetiez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">achetait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">achetaient</span></div>
+  </div></div>
+  <div class="ts" data-t="fu"><div class="tl fu">Futur simple</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">achèterai</span></div><div class="fi"><span class="fp">nous</span><span class="fv">achèterons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">achèteras</span></div><div class="fi"><span class="fp">vous</span><span class="fv">achèterez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">achètera</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">achèteront</span></div>
+  </div></div>
+  <div class="ts" data-t="ip"><div class="tl ip">Impératif</div><div class="fip">
+    <div class="fi"><span class="fp">tu</span><span class="fv">achète</span></div>
+    <div class="fi"><span class="fp">nous</span><span class="fv">achetons</span></div>
+    <div class="fi"><span class="fp">vous</span><span class="fv">achetez</span></div>
+  </div></div>
+  <div class="ts" data-t="co"><div class="tl co">Conditionnel présent</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">achèterais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">achèterions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">achèterais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">achèteriez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">achèterait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">achèteraient</span></div>
+  </div></div>
+  <div class="ts" data-t="su"><div class="tl su">Subjonctif présent</div><div class="fg">
+    <div class="fi"><span class="fp">que j'</span><span class="fv">achète</span></div><div class="fi"><span class="fp">que nous</span><span class="fv">achetions</span></div>
+    <div class="fi"><span class="fp">que tu</span><span class="fv">achètes</span></div><div class="fi"><span class="fp">que vous</span><span class="fv">achetiez</span></div>
+    <div class="fi"><span class="fp">qu'il/elle</span><span class="fv">achète</span></div><div class="fi"><span class="fp">qu'ils</span><span class="fv">achètent</span></div>
+  </div></div>
+  <div class="note">Spelling change: e → è before silent endings (singular + ils). Same: lever, peser, mener, promener.</div>
+</div></div>
+
+<!-- APPELER -->
+<div class="card" data-g="er" data-k="appeler call phone er double consonant spelling">
+<div class="ch" onclick="tog(this)"><div><span class="vname">Appeler</span><span class="ven">to call</span></div><span class="badge rg">-er double-l</span><span class="tog">▾</span></div>
+<div class="cb">
+  <div class="ts" data-t="pr"><div class="tl pr">Présent</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">appelle</span></div><div class="fi"><span class="fp">nous</span><span class="fv">appelons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">appelles</span></div><div class="fi"><span class="fp">vous</span><span class="fv">appelez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">appelle</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">appellent</span></div>
+  </div></div>
+  <div class="ts" data-t="pc"><div class="tl pc">Passé composé</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">ai appelé</span></div><div class="fi"><span class="fp">nous</span><span class="fv">avons appelé</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">as appelé</span></div><div class="fi"><span class="fp">vous</span><span class="fv">avez appelé</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">a appelé</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">ont appelé</span></div>
+  </div></div>
+  <div class="ts" data-t="im"><div class="tl im">Imparfait</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">appelais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">appelions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">appelais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">appeliez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">appelait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">appelaient</span></div>
+  </div></div>
+  <div class="ts" data-t="fu"><div class="tl fu">Futur simple</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">appellerai</span></div><div class="fi"><span class="fp">nous</span><span class="fv">appellerons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">appelleras</span></div><div class="fi"><span class="fp">vous</span><span class="fv">appellerez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">appellera</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">appelleront</span></div>
+  </div></div>
+  <div class="ts" data-t="ip"><div class="tl ip">Impératif</div><div class="fip">
+    <div class="fi"><span class="fp">tu</span><span class="fv">appelle</span></div>
+    <div class="fi"><span class="fp">nous</span><span class="fv">appelons</span></div>
+    <div class="fi"><span class="fp">vous</span><span class="fv">appelez</span></div>
+  </div></div>
+  <div class="ts" data-t="co"><div class="tl co">Conditionnel présent</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">appellerais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">appellerions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">appellerais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">appelleriez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">appellerait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">appelleraient</span></div>
+  </div></div>
+  <div class="ts" data-t="su"><div class="tl su">Subjonctif présent</div><div class="fg">
+    <div class="fi"><span class="fp">que j'</span><span class="fv">appelle</span></div><div class="fi"><span class="fp">que nous</span><span class="fv">appelions</span></div>
+    <div class="fi"><span class="fp">que tu</span><span class="fv">appelles</span></div><div class="fi"><span class="fp">que vous</span><span class="fv">appeliez</span></div>
+    <div class="fi"><span class="fp">qu'il/elle</span><span class="fv">appelle</span></div><div class="fi"><span class="fp">qu'ils</span><span class="fv">appellent</span></div>
+  </div></div>
+  <div class="note">Doubles the -l before silent endings. Same: jeter (jette), épeler. Note: nous appelons (single l, no accent).</div>
+</div></div>
+
+<!-- MANGER ⭐ extra -->
+<div class="card" data-g="er" data-k="manger eat er ger spelling extra">
+<div class="ch" onclick="tog(this)"><div><span class="vname">Manger</span><span class="ven">to eat ⭐ extra</span></div><span class="badge rg">-ger verb</span><span class="tog">▾</span></div>
+<div class="cb">
+  <div class="ts" data-t="pr"><div class="tl pr">Présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">mange</span></div><div class="fi"><span class="fp">nous</span><span class="fv">mangeons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">manges</span></div><div class="fi"><span class="fp">vous</span><span class="fv">mangez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">mange</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">mangent</span></div>
+  </div></div>
+  <div class="ts" data-t="pc"><div class="tl pc">Passé composé</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">ai mangé</span></div><div class="fi"><span class="fp">nous</span><span class="fv">avons mangé</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">as mangé</span></div><div class="fi"><span class="fp">vous</span><span class="fv">avez mangé</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">a mangé</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">ont mangé</span></div>
+  </div></div>
+  <div class="ts" data-t="im"><div class="tl im">Imparfait</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">mangeais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">mangions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">mangeais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">mangiez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">mangeait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">mangeaient</span></div>
+  </div></div>
+  <div class="ts" data-t="fu"><div class="tl fu">Futur simple</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">mangerai</span></div><div class="fi"><span class="fp">nous</span><span class="fv">mangerons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">mangeras</span></div><div class="fi"><span class="fp">vous</span><span class="fv">mangerez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">mangera</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">mangeront</span></div>
+  </div></div>
+  <div class="ts" data-t="ip"><div class="tl ip">Impératif</div><div class="fip">
+    <div class="fi"><span class="fp">tu</span><span class="fv">mange</span></div>
+    <div class="fi"><span class="fp">nous</span><span class="fv">mangeons</span></div>
+    <div class="fi"><span class="fp">vous</span><span class="fv">mangez</span></div>
+  </div></div>
+  <div class="ts" data-t="co"><div class="tl co">Conditionnel présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">mangerais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">mangerions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">mangerais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">mangeriez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">mangerait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">mangeraient</span></div>
+  </div></div>
+  <div class="ts" data-t="su"><div class="tl su">Subjonctif présent</div><div class="fg">
+    <div class="fi"><span class="fp">que je</span><span class="fv">mange</span></div><div class="fi"><span class="fp">que nous</span><span class="fv">mangions</span></div>
+    <div class="fi"><span class="fp">que tu</span><span class="fv">manges</span></div><div class="fi"><span class="fp">que vous</span><span class="fv">mangiez</span></div>
+    <div class="fi"><span class="fp">qu'il/elle</span><span class="fv">mange</span></div><div class="fi"><span class="fp">qu'ils</span><span class="fv">mangent</span></div>
+  </div></div>
+  <div class="note">-ger verbs add 'e' before -ons (mangeons) to keep soft g sound. Same: voyager, nager, partager, bouger, diriger.</div>
+</div></div>
+
+  </div>
+</div>
+
+<!-- ═══ -IR / -RE VERBS ═══ -->
+<div class="sec" data-g="ir">
+  <div class="sec-hd"><div class="dot gd"></div><div class="sec-title">Verbes en -ir et -re</div><div class="sec-sub">finir · partir · vendre · prendre</div></div>
+  <div class="grid">
+
+<!-- FINIR -->
+<div class="card" data-g="ir" data-k="finir finish end regular ir iss">
+<div class="ch" onclick="tog(this)"><div><span class="vname">Finir</span><span class="ven">to finish</span></div><span class="badge rg">régulier -ir</span><span class="tog">▾</span></div>
+<div class="cb">
+  <div class="ts" data-t="pr"><div class="tl pr">Présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">finis</span></div><div class="fi"><span class="fp">nous</span><span class="fv">finissons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">finis</span></div><div class="fi"><span class="fp">vous</span><span class="fv">finissez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">finit</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">finissent</span></div>
+  </div></div>
+  <div class="ts" data-t="pc"><div class="tl pc">Passé composé</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">ai fini</span></div><div class="fi"><span class="fp">nous</span><span class="fv">avons fini</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">as fini</span></div><div class="fi"><span class="fp">vous</span><span class="fv">avez fini</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">a fini</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">ont fini</span></div>
+  </div></div>
+  <div class="ts" data-t="im"><div class="tl im">Imparfait</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">finissais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">finissions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">finissais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">finissiez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">finissait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">finissaient</span></div>
+  </div></div>
+  <div class="ts" data-t="fu"><div class="tl fu">Futur simple</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">finirai</span></div><div class="fi"><span class="fp">nous</span><span class="fv">finirons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">finiras</span></div><div class="fi"><span class="fp">vous</span><span class="fv">finirez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">finira</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">finiront</span></div>
+  </div></div>
+  <div class="ts" data-t="ip"><div class="tl ip">Impératif</div><div class="fip">
+    <div class="fi"><span class="fp">tu</span><span class="fv">finis</span></div>
+    <div class="fi"><span class="fp">nous</span><span class="fv">finissons</span></div>
+    <div class="fi"><span class="fp">vous</span><span class="fv">finissez</span></div>
+  </div></div>
+  <div class="ts" data-t="co"><div class="tl co">Conditionnel présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">finirais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">finirions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">finirais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">finiriez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">finirait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">finiraient</span></div>
+  </div></div>
+  <div class="ts" data-t="su"><div class="tl su">Subjonctif présent</div><div class="fg">
+    <div class="fi"><span class="fp">que je</span><span class="fv">finisse</span></div><div class="fi"><span class="fp">que nous</span><span class="fv">finissions</span></div>
+    <div class="fi"><span class="fp">que tu</span><span class="fv">finisses</span></div><div class="fi"><span class="fp">que vous</span><span class="fv">finissiez</span></div>
+    <div class="fi"><span class="fp">qu'il/elle</span><span class="fv">finisse</span></div><div class="fi"><span class="fp">qu'ils</span><span class="fv">finissent</span></div>
+  </div></div>
+  <div class="note">Model for regular -ir verbs (with -iss-). Same: choisir, réussir, obéir, rougir, grossir, réfléchir.</div>
+</div></div>
+
+<!-- PARTIR -->
+<div class="card" data-g="ir" data-k="partir leave go ir irregular être sortir dormir">
+<div class="ch" onclick="tog(this)"><div><span class="vname">Partir</span><span class="ven">to leave / to go away</span></div><span class="badge ir">-ir irrég.</span><span class="tog">▾</span></div>
+<div class="cb">
+  <div class="ts" data-t="pr"><div class="tl pr">Présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">pars</span></div><div class="fi"><span class="fp">nous</span><span class="fv">partons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">pars</span></div><div class="fi"><span class="fp">vous</span><span class="fv">partez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">part</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">partent</span></div>
+  </div></div>
+  <div class="ts" data-t="pc"><div class="tl pc">Passé composé</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">suis parti(e)</span></div><div class="fi"><span class="fp">nous</span><span class="fv">sommes parti(e)s</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">es parti(e)</span></div><div class="fi"><span class="fp">vous</span><span class="fv">êtes parti(e)s</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">est parti(e)</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">sont parti(e)s</span></div>
+  </div></div>
+  <div class="ts" data-t="im"><div class="tl im">Imparfait</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">partais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">partions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">partais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">partiez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">partait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">partaient</span></div>
+  </div></div>
+  <div class="ts" data-t="fu"><div class="tl fu">Futur simple</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">partirai</span></div><div class="fi"><span class="fp">nous</span><span class="fv">partirons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">partiras</span></div><div class="fi"><span class="fp">vous</span><span class="fv">partirez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">partira</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">partiront</span></div>
+  </div></div>
+  <div class="ts" data-t="ip"><div class="tl ip">Impératif</div><div class="fip">
+    <div class="fi"><span class="fp">tu</span><span class="fv">pars</span></div>
+    <div class="fi"><span class="fp">nous</span><span class="fv">partons</span></div>
+    <div class="fi"><span class="fp">vous</span><span class="fv">partez</span></div>
+  </div></div>
+  <div class="ts" data-t="co"><div class="tl co">Conditionnel présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">partirais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">partirions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">partirais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">partiriez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">partirait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">partiraient</span></div>
+  </div></div>
+  <div class="ts" data-t="su"><div class="tl su">Subjonctif présent</div><div class="fg">
+    <div class="fi"><span class="fp">que je</span><span class="fv">parte</span></div><div class="fi"><span class="fp">que nous</span><span class="fv">partions</span></div>
+    <div class="fi"><span class="fp">que tu</span><span class="fv">partes</span></div><div class="fi"><span class="fp">que vous</span><span class="fv">partiez</span></div>
+    <div class="fi"><span class="fp">qu'il/elle</span><span class="fv">parte</span></div><div class="fi"><span class="fp">qu'ils</span><span class="fv">partent</span></div>
+  </div></div>
+  <div class="note">Uses ÊTRE in passé composé. Same pattern: sortir (to go out), dormir (to sleep), sentir, mentir, servir.</div>
+</div></div>
+
+<!-- VENDRE -->
+<div class="card" data-g="ir" data-k="vendre sell regular re attendre répondre perdre">
+<div class="ch" onclick="tog(this)"><div><span class="vname">Vendre</span><span class="ven">to sell</span></div><span class="badge rg">régulier -re</span><span class="tog">▾</span></div>
+<div class="cb">
+  <div class="ts" data-t="pr"><div class="tl pr">Présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">vends</span></div><div class="fi"><span class="fp">nous</span><span class="fv">vendons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">vends</span></div><div class="fi"><span class="fp">vous</span><span class="fv">vendez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">vend</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">vendent</span></div>
+  </div></div>
+  <div class="ts" data-t="pc"><div class="tl pc">Passé composé</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">ai vendu</span></div><div class="fi"><span class="fp">nous</span><span class="fv">avons vendu</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">as vendu</span></div><div class="fi"><span class="fp">vous</span><span class="fv">avez vendu</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">a vendu</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">ont vendu</span></div>
+  </div></div>
+  <div class="ts" data-t="im"><div class="tl im">Imparfait</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">vendais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">vendions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">vendais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">vendiez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">vendait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">vendaient</span></div>
+  </div></div>
+  <div class="ts" data-t="fu"><div class="tl fu">Futur simple</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">vendrai</span></div><div class="fi"><span class="fp">nous</span><span class="fv">vendrons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">vendras</span></div><div class="fi"><span class="fp">vous</span><span class="fv">vendrez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">vendra</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">vendront</span></div>
+  </div></div>
+  <div class="ts" data-t="ip"><div class="tl ip">Impératif</div><div class="fip">
+    <div class="fi"><span class="fp">tu</span><span class="fv">vends</span></div>
+    <div class="fi"><span class="fp">nous</span><span class="fv">vendons</span></div>
+    <div class="fi"><span class="fp">vous</span><span class="fv">vendez</span></div>
+  </div></div>
+  <div class="ts" data-t="co"><div class="tl co">Conditionnel présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">vendrais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">vendrions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">vendrais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">vendriez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">vendrait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">vendraient</span></div>
+  </div></div>
+  <div class="ts" data-t="su"><div class="tl su">Subjonctif présent</div><div class="fg">
+    <div class="fi"><span class="fp">que je</span><span class="fv">vende</span></div><div class="fi"><span class="fp">que nous</span><span class="fv">vendions</span></div>
+    <div class="fi"><span class="fp">que tu</span><span class="fv">vendes</span></div><div class="fi"><span class="fp">que vous</span><span class="fv">vendiez</span></div>
+    <div class="fi"><span class="fp">qu'il/elle</span><span class="fv">vende</span></div><div class="fi"><span class="fp">qu'ils</span><span class="fv">vendent</span></div>
+  </div></div>
+  <div class="note">Model for regular -re verbs. il/elle vend (no extra -t). Same: attendre, répondre, perdre, descendre, entendre, rendre.</div>
+</div></div>
+
+<!-- PRENDRE -->
+<div class="card" data-g="ir" data-k="prendre take irregular re comprendre apprendre">
+<div class="ch" onclick="tog(this)"><div><span class="vname">Prendre</span><span class="ven">to take</span></div><span class="badge ir">irrégulier</span><span class="tog">▾</span></div>
+<div class="cb">
+  <div class="ts" data-t="pr"><div class="tl pr">Présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">prends</span></div><div class="fi"><span class="fp">nous</span><span class="fv">prenons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">prends</span></div><div class="fi"><span class="fp">vous</span><span class="fv">prenez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">prend</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">prennent</span></div>
+  </div></div>
+  <div class="ts" data-t="pc"><div class="tl pc">Passé composé</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">ai pris</span></div><div class="fi"><span class="fp">nous</span><span class="fv">avons pris</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">as pris</span></div><div class="fi"><span class="fp">vous</span><span class="fv">avez pris</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">a pris</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">ont pris</span></div>
+  </div></div>
+  <div class="ts" data-t="im"><div class="tl im">Imparfait</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">prenais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">prenions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">prenais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">preniez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">prenait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">prenaient</span></div>
+  </div></div>
+  <div class="ts" data-t="fu"><div class="tl fu">Futur simple</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">prendrai</span></div><div class="fi"><span class="fp">nous</span><span class="fv">prendrons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">prendras</span></div><div class="fi"><span class="fp">vous</span><span class="fv">prendrez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">prendra</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">prendront</span></div>
+  </div></div>
+  <div class="ts" data-t="ip"><div class="tl ip">Impératif</div><div class="fip">
+    <div class="fi"><span class="fp">tu</span><span class="fv">prends</span></div>
+    <div class="fi"><span class="fp">nous</span><span class="fv">prenons</span></div>
+    <div class="fi"><span class="fp">vous</span><span class="fv">prenez</span></div>
+  </div></div>
+  <div class="ts" data-t="co"><div class="tl co">Conditionnel présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">prendrais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">prendrions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">prendrais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">prendriez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">prendrait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">prendraient</span></div>
+  </div></div>
+  <div class="ts" data-t="su"><div class="tl su">Subjonctif présent</div><div class="fg">
+    <div class="fi"><span class="fp">que je</span><span class="fv">prenne</span></div><div class="fi"><span class="fp">que nous</span><span class="fv">prenions</span></div>
+    <div class="fi"><span class="fp">que tu</span><span class="fv">prennes</span></div><div class="fi"><span class="fp">que vous</span><span class="fv">preniez</span></div>
+    <div class="fi"><span class="fp">qu'il/elle</span><span class="fv">prenne</span></div><div class="fi"><span class="fp">qu'ils</span><span class="fv">prennent</span></div>
+  </div></div>
+  <div class="note">Participe passé: pris. Same: comprendre (to understand), apprendre (to learn), surprendre, reprendre.</div>
+</div></div>
+
+  </div>
+</div>
+
+<!-- ═══ IRREGULAR ═══ -->
+<div class="sec" data-g="irr">
+  <div class="sec-hd"><div class="dot pp"></div><div class="sec-title">Verbes irréguliers — Key Irregular Verbs</div><div class="sec-sub">venir · dire · écrire · ouvrir · voir · boire · croire · lire · mettre · connaître · vivre + extras</div></div>
+  <div class="grid">
+
+<!-- VENIR -->
+<div class="card" data-g="irr" data-k="venir come irregular être devenir revenir tenir">
+<div class="ch" onclick="tog(this)"><div><span class="vname">Venir</span><span class="ven">to come</span></div><span class="badge ir">irrégulier</span><span class="tog">▾</span></div>
+<div class="cb">
+  <div class="ts" data-t="pr"><div class="tl pr">Présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">viens</span></div><div class="fi"><span class="fp">nous</span><span class="fv">venons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">viens</span></div><div class="fi"><span class="fp">vous</span><span class="fv">venez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">vient</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">viennent</span></div>
+  </div></div>
+  <div class="ts" data-t="pc"><div class="tl pc">Passé composé</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">suis venu(e)</span></div><div class="fi"><span class="fp">nous</span><span class="fv">sommes venu(e)s</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">es venu(e)</span></div><div class="fi"><span class="fp">vous</span><span class="fv">êtes venu(e)s</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">est venu(e)</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">sont venu(e)s</span></div>
+  </div></div>
+  <div class="ts" data-t="im"><div class="tl im">Imparfait</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">venais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">venions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">venais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">veniez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">venait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">venaient</span></div>
+  </div></div>
+  <div class="ts" data-t="fu"><div class="tl fu">Futur simple</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">viendrai</span></div><div class="fi"><span class="fp">nous</span><span class="fv">viendrons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">viendras</span></div><div class="fi"><span class="fp">vous</span><span class="fv">viendrez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">viendra</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">viendront</span></div>
+  </div></div>
+  <div class="ts" data-t="ip"><div class="tl ip">Impératif</div><div class="fip">
+    <div class="fi"><span class="fp">tu</span><span class="fv">viens</span></div>
+    <div class="fi"><span class="fp">nous</span><span class="fv">venons</span></div>
+    <div class="fi"><span class="fp">vous</span><span class="fv">venez</span></div>
+  </div></div>
+  <div class="ts" data-t="co"><div class="tl co">Conditionnel présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">viendrais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">viendrions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">viendrais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">viendriez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">viendrait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">viendraient</span></div>
+  </div></div>
+  <div class="ts" data-t="su"><div class="tl su">Subjonctif présent</div><div class="fg">
+    <div class="fi"><span class="fp">que je</span><span class="fv">vienne</span></div><div class="fi"><span class="fp">que nous</span><span class="fv">venions</span></div>
+    <div class="fi"><span class="fp">que tu</span><span class="fv">viennes</span></div><div class="fi"><span class="fp">que vous</span><span class="fv">veniez</span></div>
+    <div class="fi"><span class="fp">qu'il/elle</span><span class="fv">vienne</span></div><div class="fi"><span class="fp">qu'ils</span><span class="fv">viennent</span></div>
+  </div></div>
+  <div class="note">Uses ÊTRE in passé composé. Venir de + inf = recent past (je viens de manger = I just ate). Same: devenir, revenir, tenir, obtenir.</div>
+</div></div>
+
+<!-- DIRE -->
+<div class="card" data-g="irr" data-k="dire say tell irregular">
+<div class="ch" onclick="tog(this)"><div><span class="vname">Dire</span><span class="ven">to say / to tell</span></div><span class="badge ir">irrégulier</span><span class="tog">▾</span></div>
+<div class="cb">
+  <div class="ts" data-t="pr"><div class="tl pr">Présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">dis</span></div><div class="fi"><span class="fp">nous</span><span class="fv">disons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">dis</span></div><div class="fi"><span class="fp">vous</span><span class="fv">dites</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">dit</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">disent</span></div>
+  </div></div>
+  <div class="ts" data-t="pc"><div class="tl pc">Passé composé</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">ai dit</span></div><div class="fi"><span class="fp">nous</span><span class="fv">avons dit</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">as dit</span></div><div class="fi"><span class="fp">vous</span><span class="fv">avez dit</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">a dit</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">ont dit</span></div>
+  </div></div>
+  <div class="ts" data-t="im"><div class="tl im">Imparfait</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">disais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">disions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">disais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">disiez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">disait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">disaient</span></div>
+  </div></div>
+  <div class="ts" data-t="fu"><div class="tl fu">Futur simple</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">dirai</span></div><div class="fi"><span class="fp">nous</span><span class="fv">dirons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">diras</span></div><div class="fi"><span class="fp">vous</span><span class="fv">direz</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">dira</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">diront</span></div>
+  </div></div>
+  <div class="ts" data-t="ip"><div class="tl ip">Impératif</div><div class="fip">
+    <div class="fi"><span class="fp">tu</span><span class="fv">dis</span></div>
+    <div class="fi"><span class="fp">nous</span><span class="fv">disons</span></div>
+    <div class="fi"><span class="fp">vous</span><span class="fv">dites</span></div>
+  </div></div>
+  <div class="ts" data-t="co"><div class="tl co">Conditionnel présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">dirais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">dirions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">dirais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">diriez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">dirait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">diraient</span></div>
+  </div></div>
+  <div class="ts" data-t="su"><div class="tl su">Subjonctif présent</div><div class="fg">
+    <div class="fi"><span class="fp">que je</span><span class="fv">dise</span></div><div class="fi"><span class="fp">que nous</span><span class="fv">disions</span></div>
+    <div class="fi"><span class="fp">que tu</span><span class="fv">dises</span></div><div class="fi"><span class="fp">que vous</span><span class="fv">disiez</span></div>
+    <div class="fi"><span class="fp">qu'il/elle</span><span class="fv">dise</span></div><div class="fi"><span class="fp">qu'ils</span><span class="fv">disent</span></div>
+  </div></div>
+  <div class="note">⚠️ vous dites (NOT disez — exception!). Participe passé: dit. Same: interdire, contredire.</div>
+</div></div>
+
+<!-- ÉCRIRE -->
+<div class="card" data-g="irr" data-k="écrire write irregular décrire inscrire">
+<div class="ch" onclick="tog(this)"><div><span class="vname">Écrire</span><span class="ven">to write</span></div><span class="badge ir">irrégulier</span><span class="tog">▾</span></div>
+<div class="cb">
+  <div class="ts" data-t="pr"><div class="tl pr">Présent</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">écris</span></div><div class="fi"><span class="fp">nous</span><span class="fv">écrivons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">écris</span></div><div class="fi"><span class="fp">vous</span><span class="fv">écrivez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">écrit</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">écrivent</span></div>
+  </div></div>
+  <div class="ts" data-t="pc"><div class="tl pc">Passé composé</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">ai écrit</span></div><div class="fi"><span class="fp">nous</span><span class="fv">avons écrit</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">as écrit</span></div><div class="fi"><span class="fp">vous</span><span class="fv">avez écrit</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">a écrit</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">ont écrit</span></div>
+  </div></div>
+  <div class="ts" data-t="im"><div class="tl im">Imparfait</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">écrivais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">écrivions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">écrivais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">écriviez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">écrivait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">écrivaient</span></div>
+  </div></div>
+  <div class="ts" data-t="fu"><div class="tl fu">Futur simple</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">écrirai</span></div><div class="fi"><span class="fp">nous</span><span class="fv">écrirons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">écriras</span></div><div class="fi"><span class="fp">vous</span><span class="fv">écrirez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">écrira</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">écriront</span></div>
+  </div></div>
+  <div class="ts" data-t="ip"><div class="tl ip">Impératif</div><div class="fip">
+    <div class="fi"><span class="fp">tu</span><span class="fv">écris</span></div>
+    <div class="fi"><span class="fp">nous</span><span class="fv">écrivons</span></div>
+    <div class="fi"><span class="fp">vous</span><span class="fv">écrivez</span></div>
+  </div></div>
+  <div class="ts" data-t="co"><div class="tl co">Conditionnel présent</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">écrirais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">écririons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">écrirais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">écririez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">écrirait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">écriraient</span></div>
+  </div></div>
+  <div class="ts" data-t="su"><div class="tl su">Subjonctif présent</div><div class="fg">
+    <div class="fi"><span class="fp">que j'</span><span class="fv">écrive</span></div><div class="fi"><span class="fp">que nous</span><span class="fv">écrivions</span></div>
+    <div class="fi"><span class="fp">que tu</span><span class="fv">écrives</span></div><div class="fi"><span class="fp">que vous</span><span class="fv">écriviez</span></div>
+    <div class="fi"><span class="fp">qu'il/elle</span><span class="fv">écrive</span></div><div class="fi"><span class="fp">qu'ils</span><span class="fv">écrivent</span></div>
+  </div></div>
+  <div class="note">Participe passé: écrit. Same: décrire (to describe), s'inscrire (to register), prescrire.</div>
+</div></div>
+
+<!-- OUVRIR -->
+<div class="card" data-g="irr" data-k="ouvrir open irregular couvrir découvrir offrir souffrir">
+<div class="ch" onclick="tog(this)"><div><span class="vname">Ouvrir</span><span class="ven">to open</span></div><span class="badge ir">irrégulier</span><span class="tog">▾</span></div>
+<div class="cb">
+  <div class="ts" data-t="pr"><div class="tl pr">Présent</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">ouvre</span></div><div class="fi"><span class="fp">nous</span><span class="fv">ouvrons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">ouvres</span></div><div class="fi"><span class="fp">vous</span><span class="fv">ouvrez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">ouvre</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">ouvrent</span></div>
+  </div></div>
+  <div class="ts" data-t="pc"><div class="tl pc">Passé composé</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">ai ouvert</span></div><div class="fi"><span class="fp">nous</span><span class="fv">avons ouvert</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">as ouvert</span></div><div class="fi"><span class="fp">vous</span><span class="fv">avez ouvert</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">a ouvert</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">ont ouvert</span></div>
+  </div></div>
+  <div class="ts" data-t="im"><div class="tl im">Imparfait</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">ouvrais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">ouvrions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">ouvrais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">ouvriez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">ouvrait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">ouvraient</span></div>
+  </div></div>
+  <div class="ts" data-t="fu"><div class="tl fu">Futur simple</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">ouvrirai</span></div><div class="fi"><span class="fp">nous</span><span class="fv">ouvrirons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">ouvriras</span></div><div class="fi"><span class="fp">vous</span><span class="fv">ouvrirez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">ouvrira</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">ouvriront</span></div>
+  </div></div>
+  <div class="ts" data-t="ip"><div class="tl ip">Impératif</div><div class="fip">
+    <div class="fi"><span class="fp">tu</span><span class="fv">ouvre</span></div>
+    <div class="fi"><span class="fp">nous</span><span class="fv">ouvrons</span></div>
+    <div class="fi"><span class="fp">vous</span><span class="fv">ouvrez</span></div>
+  </div></div>
+  <div class="ts" data-t="co"><div class="tl co">Conditionnel présent</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">ouvrirais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">ouvririons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">ouvrirais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">ouvririez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">ouvrirait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">ouvriraient</span></div>
+  </div></div>
+  <div class="ts" data-t="su"><div class="tl su">Subjonctif présent</div><div class="fg">
+    <div class="fi"><span class="fp">que j'</span><span class="fv">ouvre</span></div><div class="fi"><span class="fp">que nous</span><span class="fv">ouvrions</span></div>
+    <div class="fi"><span class="fp">que tu</span><span class="fv">ouvres</span></div><div class="fi"><span class="fp">que vous</span><span class="fv">ouvriez</span></div>
+    <div class="fi"><span class="fp">qu'il/elle</span><span class="fv">ouvre</span></div><div class="fi"><span class="fp">qu'ils</span><span class="fv">ouvrent</span></div>
+  </div></div>
+  <div class="note">Despite -ir ending, conjugates like an -er verb in present. Participe passé: ouvert. Same: couvrir, découvrir, offrir, souffrir.</div>
+</div></div>
+
+<!-- VOIR -->
+<div class="card" data-g="irr" data-k="voir see watch irregular prévoir">
+<div class="ch" onclick="tog(this)"><div><span class="vname">Voir</span><span class="ven">to see</span></div><span class="badge ir">irrégulier</span><span class="tog">▾</span></div>
+<div class="cb">
+  <div class="ts" data-t="pr"><div class="tl pr">Présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">vois</span></div><div class="fi"><span class="fp">nous</span><span class="fv">voyons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">vois</span></div><div class="fi"><span class="fp">vous</span><span class="fv">voyez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">voit</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">voient</span></div>
+  </div></div>
+  <div class="ts" data-t="pc"><div class="tl pc">Passé composé</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">ai vu</span></div><div class="fi"><span class="fp">nous</span><span class="fv">avons vu</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">as vu</span></div><div class="fi"><span class="fp">vous</span><span class="fv">avez vu</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">a vu</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">ont vu</span></div>
+  </div></div>
+  <div class="ts" data-t="im"><div class="tl im">Imparfait</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">voyais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">voyions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">voyais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">voyiez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">voyait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">voyaient</span></div>
+  </div></div>
+  <div class="ts" data-t="fu"><div class="tl fu">Futur simple</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">verrai</span></div><div class="fi"><span class="fp">nous</span><span class="fv">verrons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">verras</span></div><div class="fi"><span class="fp">vous</span><span class="fv">verrez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">verra</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">verront</span></div>
+  </div></div>
+  <div class="ts" data-t="ip"><div class="tl ip">Impératif</div><div class="fip">
+    <div class="fi"><span class="fp">tu</span><span class="fv">vois</span></div>
+    <div class="fi"><span class="fp">nous</span><span class="fv">voyons</span></div>
+    <div class="fi"><span class="fp">vous</span><span class="fv">voyez</span></div>
+  </div></div>
+  <div class="ts" data-t="co"><div class="tl co">Conditionnel présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">verrais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">verrions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">verrais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">verriez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">verrait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">verraient</span></div>
+  </div></div>
+  <div class="ts" data-t="su"><div class="tl su">Subjonctif présent</div><div class="fg">
+    <div class="fi"><span class="fp">que je</span><span class="fv">voie</span></div><div class="fi"><span class="fp">que nous</span><span class="fv">voyions</span></div>
+    <div class="fi"><span class="fp">que tu</span><span class="fv">voies</span></div><div class="fi"><span class="fp">que vous</span><span class="fv">voyiez</span></div>
+    <div class="fi"><span class="fp">qu'il/elle</span><span class="fv">voie</span></div><div class="fi"><span class="fp">qu'ils</span><span class="fv">voient</span></div>
+  </div></div>
+  <div class="note">Participe passé: vu. Future/conditional stem: verr-. Same: prévoir (to plan/foresee, futur: prévoir→prévoi- not verr-).</div>
+</div></div>
+
+<!-- BOIRE -->
+<div class="card" data-g="irr" data-k="boire drink irregular">
+<div class="ch" onclick="tog(this)"><div><span class="vname">Boire</span><span class="ven">to drink</span></div><span class="badge ir">irrégulier</span><span class="tog">▾</span></div>
+<div class="cb">
+  <div class="ts" data-t="pr"><div class="tl pr">Présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">bois</span></div><div class="fi"><span class="fp">nous</span><span class="fv">buvons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">bois</span></div><div class="fi"><span class="fp">vous</span><span class="fv">buvez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">boit</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">boivent</span></div>
+  </div></div>
+  <div class="ts" data-t="pc"><div class="tl pc">Passé composé</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">ai bu</span></div><div class="fi"><span class="fp">nous</span><span class="fv">avons bu</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">as bu</span></div><div class="fi"><span class="fp">vous</span><span class="fv">avez bu</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">a bu</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">ont bu</span></div>
+  </div></div>
+  <div class="ts" data-t="im"><div class="tl im">Imparfait</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">buvais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">buvions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">buvais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">buviez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">buvait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">buvaient</span></div>
+  </div></div>
+  <div class="ts" data-t="fu"><div class="tl fu">Futur simple</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">boirai</span></div><div class="fi"><span class="fp">nous</span><span class="fv">boirons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">boiras</span></div><div class="fi"><span class="fp">vous</span><span class="fv">boirez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">boira</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">boiront</span></div>
+  </div></div>
+  <div class="ts" data-t="ip"><div class="tl ip">Impératif</div><div class="fip">
+    <div class="fi"><span class="fp">tu</span><span class="fv">bois</span></div>
+    <div class="fi"><span class="fp">nous</span><span class="fv">buvons</span></div>
+    <div class="fi"><span class="fp">vous</span><span class="fv">buvez</span></div>
+  </div></div>
+  <div class="ts" data-t="co"><div class="tl co">Conditionnel présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">boirais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">boirions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">boirais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">boiriez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">boirait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">boiraient</span></div>
+  </div></div>
+  <div class="ts" data-t="su"><div class="tl su">Subjonctif présent</div><div class="fg">
+    <div class="fi"><span class="fp">que je</span><span class="fv">boive</span></div><div class="fi"><span class="fp">que nous</span><span class="fv">buvions</span></div>
+    <div class="fi"><span class="fp">que tu</span><span class="fv">boives</span></div><div class="fi"><span class="fp">que vous</span><span class="fv">buviez</span></div>
+    <div class="fi"><span class="fp">qu'il/elle</span><span class="fv">boive</span></div><div class="fi"><span class="fp">qu'ils</span><span class="fv">boivent</span></div>
+  </div></div>
+  <div class="note">Participe passé: bu. Two stems: boi- (singular/ils) / buv- (nous/vous).</div>
+</div></div>
+
+<!-- CROIRE -->
+<div class="card" data-g="irr" data-k="croire believe think irregular">
+<div class="ch" onclick="tog(this)"><div><span class="vname">Croire</span><span class="ven">to believe / to think</span></div><span class="badge ir">irrégulier</span><span class="tog">▾</span></div>
+<div class="cb">
+  <div class="ts" data-t="pr"><div class="tl pr">Présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">crois</span></div><div class="fi"><span class="fp">nous</span><span class="fv">croyons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">crois</span></div><div class="fi"><span class="fp">vous</span><span class="fv">croyez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">croit</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">croient</span></div>
+  </div></div>
+  <div class="ts" data-t="pc"><div class="tl pc">Passé composé</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">ai cru</span></div><div class="fi"><span class="fp">nous</span><span class="fv">avons cru</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">as cru</span></div><div class="fi"><span class="fp">vous</span><span class="fv">avez cru</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">a cru</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">ont cru</span></div>
+  </div></div>
+  <div class="ts" data-t="im"><div class="tl im">Imparfait</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">croyais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">croyions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">croyais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">croyiez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">croyait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">croyaient</span></div>
+  </div></div>
+  <div class="ts" data-t="fu"><div class="tl fu">Futur simple</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">croirai</span></div><div class="fi"><span class="fp">nous</span><span class="fv">croirons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">croiras</span></div><div class="fi"><span class="fp">vous</span><span class="fv">croirez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">croira</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">croiront</span></div>
+  </div></div>
+  <div class="ts" data-t="ip"><div class="tl ip">Impératif</div><div class="fip">
+    <div class="fi"><span class="fp">tu</span><span class="fv">crois</span></div>
+    <div class="fi"><span class="fp">nous</span><span class="fv">croyons</span></div>
+    <div class="fi"><span class="fp">vous</span><span class="fv">croyez</span></div>
+  </div></div>
+  <div class="ts" data-t="co"><div class="tl co">Conditionnel présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">croirais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">croirions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">croirais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">croiriez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">croirait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">croiraient</span></div>
+  </div></div>
+  <div class="ts" data-t="su"><div class="tl su">Subjonctif présent</div><div class="fg">
+    <div class="fi"><span class="fp">que je</span><span class="fv">croie</span></div><div class="fi"><span class="fp">que nous</span><span class="fv">croyions</span></div>
+    <div class="fi"><span class="fp">que tu</span><span class="fv">croies</span></div><div class="fi"><span class="fp">que vous</span><span class="fv">croyiez</span></div>
+    <div class="fi"><span class="fp">qu'il/elle</span><span class="fv">croie</span></div><div class="fi"><span class="fp">qu'ils</span><span class="fv">croient</span></div>
+  </div></div>
+  <div class="note">Participe passé: cru. Two stems: croi- (singular/ils) / croy- (nous/vous).</div>
+</div></div>
+
+<!-- LIRE -->
+<div class="card" data-g="irr" data-k="lire read irregular élire relire">
+<div class="ch" onclick="tog(this)"><div><span class="vname">Lire</span><span class="ven">to read</span></div><span class="badge ir">irrégulier</span><span class="tog">▾</span></div>
+<div class="cb">
+  <div class="ts" data-t="pr"><div class="tl pr">Présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">lis</span></div><div class="fi"><span class="fp">nous</span><span class="fv">lisons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">lis</span></div><div class="fi"><span class="fp">vous</span><span class="fv">lisez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">lit</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">lisent</span></div>
+  </div></div>
+  <div class="ts" data-t="pc"><div class="tl pc">Passé composé</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">ai lu</span></div><div class="fi"><span class="fp">nous</span><span class="fv">avons lu</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">as lu</span></div><div class="fi"><span class="fp">vous</span><span class="fv">avez lu</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">a lu</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">ont lu</span></div>
+  </div></div>
+  <div class="ts" data-t="im"><div class="tl im">Imparfait</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">lisais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">lisions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">lisais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">lisiez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">lisait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">lisaient</span></div>
+  </div></div>
+  <div class="ts" data-t="fu"><div class="tl fu">Futur simple</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">lirai</span></div><div class="fi"><span class="fp">nous</span><span class="fv">lirons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">liras</span></div><div class="fi"><span class="fp">vous</span><span class="fv">lirez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">lira</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">liront</span></div>
+  </div></div>
+  <div class="ts" data-t="ip"><div class="tl ip">Impératif</div><div class="fip">
+    <div class="fi"><span class="fp">tu</span><span class="fv">lis</span></div>
+    <div class="fi"><span class="fp">nous</span><span class="fv">lisons</span></div>
+    <div class="fi"><span class="fp">vous</span><span class="fv">lisez</span></div>
+  </div></div>
+  <div class="ts" data-t="co"><div class="tl co">Conditionnel présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">lirais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">lirions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">lirais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">liriez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">lirait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">liraient</span></div>
+  </div></div>
+  <div class="ts" data-t="su"><div class="tl su">Subjonctif présent</div><div class="fg">
+    <div class="fi"><span class="fp">que je</span><span class="fv">lise</span></div><div class="fi"><span class="fp">que nous</span><span class="fv">lisions</span></div>
+    <div class="fi"><span class="fp">que tu</span><span class="fv">lises</span></div><div class="fi"><span class="fp">que vous</span><span class="fv">lisiez</span></div>
+    <div class="fi"><span class="fp">qu'il/elle</span><span class="fv">lise</span></div><div class="fi"><span class="fp">qu'ils</span><span class="fv">lisent</span></div>
+  </div></div>
+  <div class="note">Participe passé: lu. Same: élire (to elect), relire (to reread), sourire (to smile — same pattern).</div>
+</div></div>
+
+<!-- METTRE -->
+<div class="card" data-g="irr" data-k="mettre put place wear irregular permettre promettre remettre">
+<div class="ch" onclick="tog(this)"><div><span class="vname">Mettre</span><span class="ven">to put / to place / to wear</span></div><span class="badge ir">irrégulier</span><span class="tog">▾</span></div>
+<div class="cb">
+  <div class="ts" data-t="pr"><div class="tl pr">Présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">mets</span></div><div class="fi"><span class="fp">nous</span><span class="fv">mettons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">mets</span></div><div class="fi"><span class="fp">vous</span><span class="fv">mettez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">met</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">mettent</span></div>
+  </div></div>
+  <div class="ts" data-t="pc"><div class="tl pc">Passé composé</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">ai mis</span></div><div class="fi"><span class="fp">nous</span><span class="fv">avons mis</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">as mis</span></div><div class="fi"><span class="fp">vous</span><span class="fv">avez mis</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">a mis</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">ont mis</span></div>
+  </div></div>
+  <div class="ts" data-t="im"><div class="tl im">Imparfait</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">mettais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">mettions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">mettais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">mettiez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">mettait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">mettaient</span></div>
+  </div></div>
+  <div class="ts" data-t="fu"><div class="tl fu">Futur simple</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">mettrai</span></div><div class="fi"><span class="fp">nous</span><span class="fv">mettrons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">mettras</span></div><div class="fi"><span class="fp">vous</span><span class="fv">mettrez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">mettra</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">mettront</span></div>
+  </div></div>
+  <div class="ts" data-t="ip"><div class="tl ip">Impératif</div><div class="fip">
+    <div class="fi"><span class="fp">tu</span><span class="fv">mets</span></div>
+    <div class="fi"><span class="fp">nous</span><span class="fv">mettons</span></div>
+    <div class="fi"><span class="fp">vous</span><span class="fv">mettez</span></div>
+  </div></div>
+  <div class="ts" data-t="co"><div class="tl co">Conditionnel présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">mettrais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">mettrions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">mettrais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">mettriez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">mettrait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">mettraient</span></div>
+  </div></div>
+  <div class="ts" data-t="su"><div class="tl su">Subjonctif présent</div><div class="fg">
+    <div class="fi"><span class="fp">que je</span><span class="fv">mette</span></div><div class="fi"><span class="fp">que nous</span><span class="fv">mettions</span></div>
+    <div class="fi"><span class="fp">que tu</span><span class="fv">mettes</span></div><div class="fi"><span class="fp">que vous</span><span class="fv">mettiez</span></div>
+    <div class="fi"><span class="fp">qu'il/elle</span><span class="fv">mette</span></div><div class="fi"><span class="fp">qu'ils</span><span class="fv">mettent</span></div>
+  </div></div>
+  <div class="note">Participe passé: mis. Same: permettre (to allow), promettre (to promise), remettre (to put back), soumettre.</div>
+</div></div>
+
+<!-- CONNAÎTRE -->
+<div class="card" data-g="irr" data-k="connaître know people places irregular reconnaître">
+<div class="ch" onclick="tog(this)"><div><span class="vname">Connaître</span><span class="ven">to know (people/places)</span></div><span class="badge ir">irrégulier</span><span class="tog">▾</span></div>
+<div class="cb">
+  <div class="ts" data-t="pr"><div class="tl pr">Présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">connais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">connaissons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">connais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">connaissez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">connaît</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">connaissent</span></div>
+  </div></div>
+  <div class="ts" data-t="pc"><div class="tl pc">Passé composé</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">ai connu</span></div><div class="fi"><span class="fp">nous</span><span class="fv">avons connu</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">as connu</span></div><div class="fi"><span class="fp">vous</span><span class="fv">avez connu</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">a connu</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">ont connu</span></div>
+  </div></div>
+  <div class="ts" data-t="im"><div class="tl im">Imparfait</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">connaissais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">connaissions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">connaissais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">connaissiez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">connaissait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">connaissaient</span></div>
+  </div></div>
+  <div class="ts" data-t="fu"><div class="tl fu">Futur simple</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">connaîtrai</span></div><div class="fi"><span class="fp">nous</span><span class="fv">connaîtrons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">connaîtras</span></div><div class="fi"><span class="fp">vous</span><span class="fv">connaîtrez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">connaîtra</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">connaîtront</span></div>
+  </div></div>
+  <div class="ts" data-t="ip"><div class="tl ip">Impératif</div><div class="fip">
+    <div class="fi"><span class="fp">tu</span><span class="fv">connais</span></div>
+    <div class="fi"><span class="fp">nous</span><span class="fv">connaissons</span></div>
+    <div class="fi"><span class="fp">vous</span><span class="fv">connaissez</span></div>
+  </div></div>
+  <div class="ts" data-t="co"><div class="tl co">Conditionnel présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">connaîtrais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">connaîtrions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">connaîtrais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">connaîtriez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">connaîtrait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">connaîtraient</span></div>
+  </div></div>
+  <div class="ts" data-t="su"><div class="tl su">Subjonctif présent</div><div class="fg">
+    <div class="fi"><span class="fp">que je</span><span class="fv">connaisse</span></div><div class="fi"><span class="fp">que nous</span><span class="fv">connaissions</span></div>
+    <div class="fi"><span class="fp">que tu</span><span class="fv">connaisses</span></div><div class="fi"><span class="fp">que vous</span><span class="fv">connaissiez</span></div>
+    <div class="fi"><span class="fp">qu'il/elle</span><span class="fv">connaisse</span></div><div class="fi"><span class="fp">qu'ils</span><span class="fv">connaissent</span></div>
+  </div></div>
+  <div class="note">Connaître = know people/places. Savoir = know facts/how to. Participe passé: connu. Same: reconnaître, paraître, apparaître.</div>
+</div></div>
+
+<!-- VIVRE -->
+<div class="card" data-g="irr" data-k="vivre live irregular survivre">
+<div class="ch" onclick="tog(this)"><div><span class="vname">Vivre</span><span class="ven">to live</span></div><span class="badge ir">irrégulier</span><span class="tog">▾</span></div>
+<div class="cb">
+  <div class="ts" data-t="pr"><div class="tl pr">Présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">vis</span></div><div class="fi"><span class="fp">nous</span><span class="fv">vivons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">vis</span></div><div class="fi"><span class="fp">vous</span><span class="fv">vivez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">vit</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">vivent</span></div>
+  </div></div>
+  <div class="ts" data-t="pc"><div class="tl pc">Passé composé</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">ai vécu</span></div><div class="fi"><span class="fp">nous</span><span class="fv">avons vécu</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">as vécu</span></div><div class="fi"><span class="fp">vous</span><span class="fv">avez vécu</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">a vécu</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">ont vécu</span></div>
+  </div></div>
+  <div class="ts" data-t="im"><div class="tl im">Imparfait</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">vivais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">vivions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">vivais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">viviez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">vivait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">vivaient</span></div>
+  </div></div>
+  <div class="ts" data-t="fu"><div class="tl fu">Futur simple</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">vivrai</span></div><div class="fi"><span class="fp">nous</span><span class="fv">vivrons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">vivras</span></div><div class="fi"><span class="fp">vous</span><span class="fv">vivrez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">vivra</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">vivront</span></div>
+  </div></div>
+  <div class="ts" data-t="ip"><div class="tl ip">Impératif</div><div class="fip">
+    <div class="fi"><span class="fp">tu</span><span class="fv">vis</span></div>
+    <div class="fi"><span class="fp">nous</span><span class="fv">vivons</span></div>
+    <div class="fi"><span class="fp">vous</span><span class="fv">vivez</span></div>
+  </div></div>
+  <div class="ts" data-t="co"><div class="tl co">Conditionnel présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">vivrais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">vivrions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">vivrais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">vivriez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">vivrait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">vivraient</span></div>
+  </div></div>
+  <div class="ts" data-t="su"><div class="tl su">Subjonctif présent</div><div class="fg">
+    <div class="fi"><span class="fp">que je</span><span class="fv">vive</span></div><div class="fi"><span class="fp">que nous</span><span class="fv">vivions</span></div>
+    <div class="fi"><span class="fp">que tu</span><span class="fv">vives</span></div><div class="fi"><span class="fp">que vous</span><span class="fv">viviez</span></div>
+    <div class="fi"><span class="fp">qu'il/elle</span><span class="fv">vive</span></div><div class="fi"><span class="fp">qu'ils</span><span class="fv">vivent</span></div>
+  </div></div>
+  <div class="note">Participe passé: vécu. Same: survivre (to survive). Note: je vis (I live) vs je lis (I read) — different verbs, same spelling for je/tu!</div>
+</div></div>
+
+<!-- RECEVOIR ⭐ extra -->
+<div class="card" data-g="irr" data-k="recevoir receive get irregular oir apercevoir">
+<div class="ch" onclick="tog(this)"><div><span class="vname">Recevoir</span><span class="ven">to receive / to get ⭐ extra</span></div><span class="badge ir">irrégulier</span><span class="tog">▾</span></div>
+<div class="cb">
+  <div class="ts" data-t="pr"><div class="tl pr">Présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">reçois</span></div><div class="fi"><span class="fp">nous</span><span class="fv">recevons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">reçois</span></div><div class="fi"><span class="fp">vous</span><span class="fv">recevez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">reçoit</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">reçoivent</span></div>
+  </div></div>
+  <div class="ts" data-t="pc"><div class="tl pc">Passé composé</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">ai reçu</span></div><div class="fi"><span class="fp">nous</span><span class="fv">avons reçu</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">as reçu</span></div><div class="fi"><span class="fp">vous</span><span class="fv">avez reçu</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">a reçu</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">ont reçu</span></div>
+  </div></div>
+  <div class="ts" data-t="im"><div class="tl im">Imparfait</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">recevais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">recevions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">recevais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">receviez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">recevait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">recevaient</span></div>
+  </div></div>
+  <div class="ts" data-t="fu"><div class="tl fu">Futur simple</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">recevrai</span></div><div class="fi"><span class="fp">nous</span><span class="fv">recevrons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">recevras</span></div><div class="fi"><span class="fp">vous</span><span class="fv">recevrez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">recevra</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">recevront</span></div>
+  </div></div>
+  <div class="ts" data-t="ip"><div class="tl ip">Impératif</div><div class="fip">
+    <div class="fi"><span class="fp">tu</span><span class="fv">reçois</span></div>
+    <div class="fi"><span class="fp">nous</span><span class="fv">recevons</span></div>
+    <div class="fi"><span class="fp">vous</span><span class="fv">recevez</span></div>
+  </div></div>
+  <div class="ts" data-t="co"><div class="tl co">Conditionnel présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">recevrais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">recevrions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">recevrais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">recevriez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">recevrait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">recevraient</span></div>
+  </div></div>
+  <div class="ts" data-t="su"><div class="tl su">Subjonctif présent</div><div class="fg">
+    <div class="fi"><span class="fp">que je</span><span class="fv">reçoive</span></div><div class="fi"><span class="fp">que nous</span><span class="fv">recevions</span></div>
+    <div class="fi"><span class="fp">que tu</span><span class="fv">reçoives</span></div><div class="fi"><span class="fp">que vous</span><span class="fv">receviez</span></div>
+    <div class="fi"><span class="fp">qu'il/elle</span><span class="fv">reçoive</span></div><div class="fi"><span class="fp">qu'ils</span><span class="fv">reçoivent</span></div>
+  </div></div>
+  <div class="note">Participe passé: reçu. Note cedilla (ç) before a, o, u. Same: apercevoir (to notice), décevoir (to disappoint), concevoir.</div>
+</div></div>
+
+  </div>
+</div>
+
+<!-- ═══ MODALS ═══ -->
+<div class="sec" data-g="mod">
+  <div class="sec-hd"><div class="dot gn"></div><div class="sec-title">Verbes modaux et impersonnels — Modal &amp; Impersonal Verbs</div><div class="sec-sub">pouvoir · vouloir · devoir · savoir · falloir · pleuvoir · se souvenir + extras</div></div>
+  <div class="grid">
+
+<!-- POUVOIR -->
+<div class="card" data-g="mod" data-k="pouvoir can able modal irregular">
+<div class="ch" onclick="tog(this)"><div><span class="vname">Pouvoir</span><span class="ven">to be able to / can</span></div><span class="badge ir">modal irrég.</span><span class="tog">▾</span></div>
+<div class="cb">
+  <div class="ts" data-t="pr"><div class="tl pr">Présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">peux</span></div><div class="fi"><span class="fp">nous</span><span class="fv">pouvons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">peux</span></div><div class="fi"><span class="fp">vous</span><span class="fv">pouvez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">peut</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">peuvent</span></div>
+  </div></div>
+  <div class="ts" data-t="pc"><div class="tl pc">Passé composé</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">ai pu</span></div><div class="fi"><span class="fp">nous</span><span class="fv">avons pu</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">as pu</span></div><div class="fi"><span class="fp">vous</span><span class="fv">avez pu</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">a pu</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">ont pu</span></div>
+  </div></div>
+  <div class="ts" data-t="im"><div class="tl im">Imparfait</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">pouvais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">pouvions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">pouvais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">pouviez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">pouvait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">pouvaient</span></div>
+  </div></div>
+  <div class="ts" data-t="fu"><div class="tl fu">Futur simple</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">pourrai</span></div><div class="fi"><span class="fp">nous</span><span class="fv">pourrons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">pourras</span></div><div class="fi"><span class="fp">vous</span><span class="fv">pourrez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">pourra</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">pourront</span></div>
+  </div></div>
+  <div class="ts" data-t="ip"><div class="tl ip">Impératif</div><div class="fip">
+    <div class="fi noform">— no imperative form —</div>
+  </div></div>
+  <div class="ts" data-t="co"><div class="tl co">Conditionnel présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">pourrais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">pourrions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">pourrais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">pourriez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">pourrait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">pourraient</span></div>
+  </div></div>
+  <div class="ts" data-t="su"><div class="tl su">Subjonctif présent</div><div class="fg">
+    <div class="fi"><span class="fp">que je</span><span class="fv">puisse</span></div><div class="fi"><span class="fp">que nous</span><span class="fv">puissions</span></div>
+    <div class="fi"><span class="fp">que tu</span><span class="fv">puisses</span></div><div class="fi"><span class="fp">que vous</span><span class="fv">puissiez</span></div>
+    <div class="fi"><span class="fp">qu'il/elle</span><span class="fv">puisse</span></div><div class="fi"><span class="fp">qu'ils</span><span class="fv">puissent</span></div>
+  </div></div>
+  <div class="note">Participe passé: pu. Future/cond. stem: pourr-. No imperative. Formal: Puis-je...? (May I...?). Polite: Pourriez-vous...?</div>
+</div></div>
+
+<!-- VOULOIR -->
+<div class="card" data-g="mod" data-k="vouloir want wish modal irregular voudrais">
+<div class="ch" onclick="tog(this)"><div><span class="vname">Vouloir</span><span class="ven">to want / to wish</span></div><span class="badge ir">modal irrég.</span><span class="tog">▾</span></div>
+<div class="cb">
+  <div class="ts" data-t="pr"><div class="tl pr">Présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">veux</span></div><div class="fi"><span class="fp">nous</span><span class="fv">voulons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">veux</span></div><div class="fi"><span class="fp">vous</span><span class="fv">voulez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">veut</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">veulent</span></div>
+  </div></div>
+  <div class="ts" data-t="pc"><div class="tl pc">Passé composé</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">ai voulu</span></div><div class="fi"><span class="fp">nous</span><span class="fv">avons voulu</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">as voulu</span></div><div class="fi"><span class="fp">vous</span><span class="fv">avez voulu</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">a voulu</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">ont voulu</span></div>
+  </div></div>
+  <div class="ts" data-t="im"><div class="tl im">Imparfait</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">voulais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">voulions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">voulais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">vouliez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">voulait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">voulaient</span></div>
+  </div></div>
+  <div class="ts" data-t="fu"><div class="tl fu">Futur simple</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">voudrai</span></div><div class="fi"><span class="fp">nous</span><span class="fv">voudrons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">voudras</span></div><div class="fi"><span class="fp">vous</span><span class="fv">voudrez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">voudra</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">voudront</span></div>
+  </div></div>
+  <div class="ts" data-t="ip"><div class="tl ip">Impératif</div><div class="fip">
+    <div class="fi"><span class="fp">vous</span><span class="fv">veuillez</span></div>
+    <div class="fi noform">(only formal polite form used)</div>
+  </div></div>
+  <div class="ts" data-t="co"><div class="tl co">Conditionnel présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">voudrais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">voudrions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">voudrais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">voudriez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">voudrait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">voudraient</span></div>
+  </div></div>
+  <div class="ts" data-t="su"><div class="tl su">Subjonctif présent</div><div class="fg">
+    <div class="fi"><span class="fp">que je</span><span class="fv">veuille</span></div><div class="fi"><span class="fp">que nous</span><span class="fv">voulions</span></div>
+    <div class="fi"><span class="fp">que tu</span><span class="fv">veuilles</span></div><div class="fi"><span class="fp">que vous</span><span class="fv">vouliez</span></div>
+    <div class="fi"><span class="fp">qu'il/elle</span><span class="fv">veuille</span></div><div class="fi"><span class="fp">qu'ils</span><span class="fv">veuillent</span></div>
+  </div></div>
+  <div class="note">⭐ Je voudrais = polite "I would like" — always use in shops/restaurants instead of "je veux". Participe passé: voulu.</div>
+</div></div>
+
+<!-- DEVOIR -->
+<div class="card" data-g="mod" data-k="devoir must have to should owe modal irregular devrais">
+<div class="ch" onclick="tog(this)"><div><span class="vname">Devoir</span><span class="ven">to have to / must / to owe</span></div><span class="badge ir">modal irrég.</span><span class="tog">▾</span></div>
+<div class="cb">
+  <div class="ts" data-t="pr"><div class="tl pr">Présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">dois</span></div><div class="fi"><span class="fp">nous</span><span class="fv">devons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">dois</span></div><div class="fi"><span class="fp">vous</span><span class="fv">devez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">doit</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">doivent</span></div>
+  </div></div>
+  <div class="ts" data-t="pc"><div class="tl pc">Passé composé</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">ai dû</span></div><div class="fi"><span class="fp">nous</span><span class="fv">avons dû</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">as dû</span></div><div class="fi"><span class="fp">vous</span><span class="fv">avez dû</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">a dû</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">ont dû</span></div>
+  </div></div>
+  <div class="ts" data-t="im"><div class="tl im">Imparfait</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">devais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">devions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">devais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">deviez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">devait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">devaient</span></div>
+  </div></div>
+  <div class="ts" data-t="fu"><div class="tl fu">Futur simple</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">devrai</span></div><div class="fi"><span class="fp">nous</span><span class="fv">devrons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">devras</span></div><div class="fi"><span class="fp">vous</span><span class="fv">devrez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">devra</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">devront</span></div>
+  </div></div>
+  <div class="ts" data-t="ip"><div class="tl ip">Impératif</div><div class="fip">
+    <div class="fi noform">— no imperative form —</div>
+  </div></div>
+  <div class="ts" data-t="co"><div class="tl co">Conditionnel présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">devrais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">devrions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">devrais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">devriez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">devrait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">devraient</span></div>
+  </div></div>
+  <div class="ts" data-t="su"><div class="tl su">Subjonctif présent</div><div class="fg">
+    <div class="fi"><span class="fp">que je</span><span class="fv">doive</span></div><div class="fi"><span class="fp">que nous</span><span class="fv">devions</span></div>
+    <div class="fi"><span class="fp">que tu</span><span class="fv">doives</span></div><div class="fi"><span class="fp">que vous</span><span class="fv">deviez</span></div>
+    <div class="fi"><span class="fp">qu'il/elle</span><span class="fv">doive</span></div><div class="fi"><span class="fp">qu'ils</span><span class="fv">doivent</span></div>
+  </div></div>
+  <div class="note">⭐ Tu devrais = you should (advice). Participe passé: dû (accent to distinguish from "du" = partitive article).</div>
+</div></div>
+
+<!-- SAVOIR -->
+<div class="card" data-g="mod" data-k="savoir know facts how modal irregular">
+<div class="ch" onclick="tog(this)"><div><span class="vname">Savoir</span><span class="ven">to know (facts / how to)</span></div><span class="badge ir">modal irrég.</span><span class="tog">▾</span></div>
+<div class="cb">
+  <div class="ts" data-t="pr"><div class="tl pr">Présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">sais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">savons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">sais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">savez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">sait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">savent</span></div>
+  </div></div>
+  <div class="ts" data-t="pc"><div class="tl pc">Passé composé</div><div class="fg">
+    <div class="fi"><span class="fp">j'</span><span class="fv">ai su</span></div><div class="fi"><span class="fp">nous</span><span class="fv">avons su</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">as su</span></div><div class="fi"><span class="fp">vous</span><span class="fv">avez su</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">a su</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">ont su</span></div>
+  </div></div>
+  <div class="ts" data-t="im"><div class="tl im">Imparfait</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">savais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">savions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">savais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">saviez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">savait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">savaient</span></div>
+  </div></div>
+  <div class="ts" data-t="fu"><div class="tl fu">Futur simple</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">saurai</span></div><div class="fi"><span class="fp">nous</span><span class="fv">saurons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">sauras</span></div><div class="fi"><span class="fp">vous</span><span class="fv">saurez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">saura</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">sauront</span></div>
+  </div></div>
+  <div class="ts" data-t="ip"><div class="tl ip">Impératif</div><div class="fip">
+    <div class="fi"><span class="fp">tu</span><span class="fv">sache</span></div>
+    <div class="fi"><span class="fp">nous</span><span class="fv">sachons</span></div>
+    <div class="fi"><span class="fp">vous</span><span class="fv">sachez</span></div>
+  </div></div>
+  <div class="ts" data-t="co"><div class="tl co">Conditionnel présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">saurais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">saurions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">saurais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">sauriez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">saurait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">sauraient</span></div>
+  </div></div>
+  <div class="ts" data-t="su"><div class="tl su">Subjonctif présent</div><div class="fg">
+    <div class="fi"><span class="fp">que je</span><span class="fv">sache</span></div><div class="fi"><span class="fp">que nous</span><span class="fv">sachions</span></div>
+    <div class="fi"><span class="fp">que tu</span><span class="fv">saches</span></div><div class="fi"><span class="fp">que vous</span><span class="fv">sachiez</span></div>
+    <div class="fi"><span class="fp">qu'il/elle</span><span class="fv">sache</span></div><div class="fi"><span class="fp">qu'ils</span><span class="fv">sachent</span></div>
+  </div></div>
+  <div class="note">Savoir = know facts/how to (Je sais nager). Connaître = know people/places. Participe passé: su.</div>
+</div></div>
+
+<!-- FALLOIR -->
+<div class="card" data-g="mod" data-k="falloir must necessary impersonal faut il faut">
+<div class="ch" onclick="tog(this)"><div><span class="vname">Falloir</span><span class="ven">to be necessary — il faut</span></div><span class="badge im">impersonnel</span><span class="tog">▾</span></div>
+<div class="cb">
+  <div class="ts" data-t="pr"><div class="tl pr">Présent</div><div class="fg">
+    <div class="fi fi-full"><span class="fp">il</span><span class="fv">faut</span></div>
+  </div></div>
+  <div class="ts" data-t="pc"><div class="tl pc">Passé composé</div><div class="fg">
+    <div class="fi fi-full"><span class="fp">il</span><span class="fv">a fallu</span></div>
+  </div></div>
+  <div class="ts" data-t="im"><div class="tl im">Imparfait</div><div class="fg">
+    <div class="fi fi-full"><span class="fp">il</span><span class="fv">fallait</span></div>
+  </div></div>
+  <div class="ts" data-t="fu"><div class="tl fu">Futur simple</div><div class="fg">
+    <div class="fi fi-full"><span class="fp">il</span><span class="fv">faudra</span></div>
+  </div></div>
+  <div class="ts" data-t="ip"><div class="tl ip">Impératif</div><div class="fip">
+    <div class="fi noform">— no imperative —</div>
+  </div></div>
+  <div class="ts" data-t="co"><div class="tl co">Conditionnel présent</div><div class="fg">
+    <div class="fi fi-full"><span class="fp">il</span><span class="fv">faudrait</span></div>
+  </div></div>
+  <div class="ts" data-t="su"><div class="tl su">Subjonctif présent</div><div class="fg">
+    <div class="fi fi-full"><span class="fp">qu'il</span><span class="fv">faille</span></div>
+  </div></div>
+  <div class="note">Only ever "il" — always impersonal. il faut + inf. (one must). il faut que + subjonctif (it is necessary that). il faudrait = it would be necessary.</div>
+</div></div>
+
+<!-- PLEUVOIR -->
+<div class="card" data-g="mod" data-k="pleuvoir rain weather impersonal pleut">
+<div class="ch" onclick="tog(this)"><div><span class="vname">Pleuvoir</span><span class="ven">to rain — il pleut</span></div><span class="badge im">impersonnel</span><span class="tog">▾</span></div>
+<div class="cb">
+  <div class="ts" data-t="pr"><div class="tl pr">Présent</div><div class="fg">
+    <div class="fi fi-full"><span class="fp">il</span><span class="fv">pleut</span></div>
+  </div></div>
+  <div class="ts" data-t="pc"><div class="tl pc">Passé composé</div><div class="fg">
+    <div class="fi fi-full"><span class="fp">il</span><span class="fv">a plu</span></div>
+  </div></div>
+  <div class="ts" data-t="im"><div class="tl im">Imparfait</div><div class="fg">
+    <div class="fi fi-full"><span class="fp">il</span><span class="fv">pleuvait</span></div>
+  </div></div>
+  <div class="ts" data-t="fu"><div class="tl fu">Futur simple</div><div class="fg">
+    <div class="fi fi-full"><span class="fp">il</span><span class="fv">pleuvra</span></div>
+  </div></div>
+  <div class="ts" data-t="ip"><div class="tl ip">Impératif</div><div class="fip">
+    <div class="fi noform">— no imperative —</div>
+  </div></div>
+  <div class="ts" data-t="co"><div class="tl co">Conditionnel présent</div><div class="fg">
+    <div class="fi fi-full"><span class="fp">il</span><span class="fv">pleuvrait</span></div>
+  </div></div>
+  <div class="ts" data-t="su"><div class="tl su">Subjonctif présent</div><div class="fg">
+    <div class="fi fi-full"><span class="fp">qu'il</span><span class="fv">pleuve</span></div>
+  </div></div>
+  <div class="note">Always impersonal — only "il" form exists. Related weather: il neige (snows), il fait soleil/beau/chaud/froid/du vent.</div>
+</div></div>
+
+<!-- SE SOUVENIR -->
+<div class="card" data-g="mod" data-k="se souvenir remember reflexive irregular pronominal">
+<div class="ch" onclick="tog(this)"><div><span class="vname">Se souvenir</span><span class="ven">to remember</span></div><span class="badge rf">réfléchi</span><span class="tog">▾</span></div>
+<div class="cb">
+  <div class="ts" data-t="pr"><div class="tl pr">Présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">me souviens</span></div><div class="fi"><span class="fp">nous</span><span class="fv">nous souvenons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">te souviens</span></div><div class="fi"><span class="fp">vous</span><span class="fv">vous souvenez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">se souvient</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">se souviennent</span></div>
+  </div></div>
+  <div class="ts" data-t="pc"><div class="tl pc">Passé composé</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">me suis souvenu(e)</span></div><div class="fi"><span class="fp">nous</span><span class="fv">nous sommes souvenu(e)s</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">t'es souvenu(e)</span></div><div class="fi"><span class="fp">vous</span><span class="fv">vous êtes souvenu(e)s</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">s'est souvenu(e)</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">se sont souvenu(e)s</span></div>
+  </div></div>
+  <div class="ts" data-t="im"><div class="tl im">Imparfait</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">me souvenais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">nous souvenions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">te souvenais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">vous souveniez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">se souvenait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">se souvenaient</span></div>
+  </div></div>
+  <div class="ts" data-t="fu"><div class="tl fu">Futur simple</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">me souviendrai</span></div><div class="fi"><span class="fp">nous</span><span class="fv">nous souviendrons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">te souviendras</span></div><div class="fi"><span class="fp">vous</span><span class="fv">vous souviendrez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">se souviendra</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">se souviendront</span></div>
+  </div></div>
+  <div class="ts" data-t="ip"><div class="tl ip">Impératif</div><div class="fip">
+    <div class="fi"><span class="fp">tu</span><span class="fv">souviens-toi</span></div>
+    <div class="fi"><span class="fp">nous</span><span class="fv">souvenons-nous</span></div>
+    <div class="fi"><span class="fp">vous</span><span class="fv">souvenez-vous</span></div>
+  </div></div>
+  <div class="ts" data-t="co"><div class="tl co">Conditionnel présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">me souviendrais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">nous souviendrions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">te souviendrais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">vous souviendriez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">se souviendrait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">se souviendraient</span></div>
+  </div></div>
+  <div class="ts" data-t="su"><div class="tl su">Subjonctif présent</div><div class="fg">
+    <div class="fi"><span class="fp">que je</span><span class="fv">me souvienne</span></div><div class="fi"><span class="fp">que nous</span><span class="fv">nous souvenions</span></div>
+    <div class="fi"><span class="fp">que tu</span><span class="fv">te souviennes</span></div><div class="fi"><span class="fp">que vous</span><span class="fv">vous souveniez</span></div>
+    <div class="fi"><span class="fp">qu'il/elle</span><span class="fv">se souvienne</span></div><div class="fi"><span class="fp">qu'ils</span><span class="fv">se souviennent</span></div>
+  </div></div>
+  <div class="note">Reflexive verb — always uses ÊTRE in passé composé, participle agrees with subject. Se souvenir DE quelque chose: Je me souviens de toi.</div>
+</div></div>
+
+<!-- S'APPELER ⭐ extra -->
+<div class="card" data-g="mod" data-k="s'appeler be called name reflexive extra">
+<div class="ch" onclick="tog(this)"><div><span class="vname">S'appeler</span><span class="ven">to be called / one's name ⭐ extra</span></div><span class="badge rf">réfléchi</span><span class="tog">▾</span></div>
+<div class="cb">
+  <div class="ts" data-t="pr"><div class="tl pr">Présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">m'appelle</span></div><div class="fi"><span class="fp">nous</span><span class="fv">nous appelons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">t'appelles</span></div><div class="fi"><span class="fp">vous</span><span class="fv">vous appelez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">s'appelle</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">s'appellent</span></div>
+  </div></div>
+  <div class="ts" data-t="pc"><div class="tl pc">Passé composé</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">me suis appelé(e)</span></div><div class="fi"><span class="fp">nous</span><span class="fv">nous sommes appelé(e)s</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">t'es appelé(e)</span></div><div class="fi"><span class="fp">vous</span><span class="fv">vous êtes appelé(e)s</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">s'est appelé(e)</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">se sont appelé(e)s</span></div>
+  </div></div>
+  <div class="ts" data-t="im"><div class="tl im">Imparfait</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">m'appelais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">nous appelions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">t'appelais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">vous appeliez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">s'appelait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">s'appelaient</span></div>
+  </div></div>
+  <div class="ts" data-t="fu"><div class="tl fu">Futur simple</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">m'appellerai</span></div><div class="fi"><span class="fp">nous</span><span class="fv">nous appellerons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">t'appelleras</span></div><div class="fi"><span class="fp">vous</span><span class="fv">vous appellerez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">s'appellera</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">s'appelleront</span></div>
+  </div></div>
+  <div class="ts" data-t="ip"><div class="tl ip">Impératif</div><div class="fip">
+    <div class="fi noform">— rarely used in imperative —</div>
+  </div></div>
+  <div class="ts" data-t="co"><div class="tl co">Conditionnel présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">m'appellerais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">nous appellerions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">t'appellerais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">vous appelleriez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">s'appellerait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">s'appelleraient</span></div>
+  </div></div>
+  <div class="ts" data-t="su"><div class="tl su">Subjonctif présent</div><div class="fg">
+    <div class="fi"><span class="fp">que je</span><span class="fv">m'appelle</span></div><div class="fi"><span class="fp">que nous</span><span class="fv">nous appelions</span></div>
+    <div class="fi"><span class="fp">que tu</span><span class="fv">t'appelles</span></div><div class="fi"><span class="fp">que vous</span><span class="fv">vous appeliez</span></div>
+    <div class="fi"><span class="fp">qu'il/elle</span><span class="fv">s'appelle</span></div><div class="fi"><span class="fp">qu'ils</span><span class="fv">s'appellent</span></div>
+  </div></div>
+  <div class="note">⭐ The most asked question in French: "Comment tu t'appelles?" / "Je m'appelle...". Uses ÊTRE in passé composé. Doubles -ll- before silent endings.</div>
+</div></div>
+
+<!-- SE LEVER ⭐ extra -->
+<div class="card" data-g="mod" data-k="se lever get up wake reflexive extra pronominal">
+<div class="ch" onclick="tog(this)"><div><span class="vname">Se lever</span><span class="ven">to get up ⭐ extra</span></div><span class="badge rf">réfléchi</span><span class="tog">▾</span></div>
+<div class="cb">
+  <div class="ts" data-t="pr"><div class="tl pr">Présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">me lève</span></div><div class="fi"><span class="fp">nous</span><span class="fv">nous levons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">te lèves</span></div><div class="fi"><span class="fp">vous</span><span class="fv">vous levez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">se lève</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">se lèvent</span></div>
+  </div></div>
+  <div class="ts" data-t="pc"><div class="tl pc">Passé composé</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">me suis levé(e)</span></div><div class="fi"><span class="fp">nous</span><span class="fv">nous sommes levé(e)s</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">t'es levé(e)</span></div><div class="fi"><span class="fp">vous</span><span class="fv">vous êtes levé(e)s</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">s'est levé(e)</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">se sont levé(e)s</span></div>
+  </div></div>
+  <div class="ts" data-t="im"><div class="tl im">Imparfait</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">me levais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">nous levions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">te levais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">vous leviez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">se levait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">se levaient</span></div>
+  </div></div>
+  <div class="ts" data-t="fu"><div class="tl fu">Futur simple</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">me lèverai</span></div><div class="fi"><span class="fp">nous</span><span class="fv">nous lèverons</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">te lèveras</span></div><div class="fi"><span class="fp">vous</span><span class="fv">vous lèverez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">se lèvera</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">se lèveront</span></div>
+  </div></div>
+  <div class="ts" data-t="ip"><div class="tl ip">Impératif</div><div class="fip">
+    <div class="fi"><span class="fp">tu</span><span class="fv">lève-toi</span></div>
+    <div class="fi"><span class="fp">nous</span><span class="fv">levons-nous</span></div>
+    <div class="fi"><span class="fp">vous</span><span class="fv">levez-vous</span></div>
+  </div></div>
+  <div class="ts" data-t="co"><div class="tl co">Conditionnel présent</div><div class="fg">
+    <div class="fi"><span class="fp">je</span><span class="fv">me lèverais</span></div><div class="fi"><span class="fp">nous</span><span class="fv">nous lèverions</span></div>
+    <div class="fi"><span class="fp">tu</span><span class="fv">te lèverais</span></div><div class="fi"><span class="fp">vous</span><span class="fv">vous lèveriez</span></div>
+    <div class="fi"><span class="fp">il/elle</span><span class="fv">se lèverait</span></div><div class="fi"><span class="fp">ils/elles</span><span class="fv">se lèveraient</span></div>
+  </div></div>
+  <div class="ts" data-t="su"><div class="tl su">Subjonctif présent</div><div class="fg">
+    <div class="fi"><span class="fp">que je</span><span class="fv">me lève</span></div><div class="fi"><span class="fp">que nous</span><span class="fv">nous levions</span></div>
+    <div class="fi"><span class="fp">que tu</span><span class="fv">te lèves</span></div><div class="fi"><span class="fp">que vous</span><span class="fv">vous leviez</span></div>
+    <div class="fi"><span class="fp">qu'il/elle</span><span class="fv">se lève</span></div><div class="fi"><span class="fp">qu'ils</span><span class="fv">se lèvent</span></div>
+  </div></div>
+  <div class="note">Model for reflexive daily routine verbs. Always ÊTRE in passé composé. Same: se coucher (to go to bed), se réveiller (to wake up), se laver (to wash), s'habiller (to get dressed).</div>
+</div></div>
+
+  </div>
+</div>
+
+</div><!-- end wrap -->
+
+<script>
+let curG='all', curT='all';
+
+function tog(h){
+  const c=h.parentElement;
+  c.classList.toggle('open');
+}
+
+function setG(g,btn){
+  curG=g;
+  document.querySelectorAll('#gtabs .tb').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  applyFilters();
+}
+
+function setT(t,btn){
+  curT=t;
+  document.querySelectorAll('#ttabs .tt').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  applyTense();
+  applyFilters();
+}
+
+function applyTense(){
+  document.querySelectorAll('.ts').forEach(ts=>{
+    if(curT==='all'||ts.dataset.t===curT){
+      ts.classList.remove('th');
+    } else {
+      ts.classList.add('th');
+    }
+  });
+}
+
+function filter(){applyFilters();}
+
+function applyFilters(){
+  const q=document.getElementById('q').value.toLowerCase();
+  const cards=document.querySelectorAll('.card');
+  const secs=document.querySelectorAll('.sec');
+  let vis=0;
+
+  cards.forEach(c=>{
+    const kg=(c.dataset.g||'');
+    const kw=(c.dataset.k||'').toLowerCase();
+    const nm=c.querySelector('.vname').textContent.toLowerCase();
+    const gOk=curG==='all'||kg===curG;
+    const qOk=!q||kw.includes(q)||nm.includes(q);
+    if(gOk&&qOk){c.classList.remove('hide');vis++;}
+    else{c.classList.add('hide');}
+  });
+
+  secs.forEach(s=>{
+    const sg=s.dataset.g;
+    s.style.display=(curG==='all'||sg===curG)?'':'none';
+  });
+
+  document.getElementById('empty').classList.toggle('show',vis===0);
+}
+
+// Open the first card in each group on load
+document.querySelectorAll('.card.open').forEach(c=>{
+  // already open via class
+});
+</script>
+</body>
+</html>
