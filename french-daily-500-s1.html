@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French Daily Conversations — Essential 500</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700;1,400&family=DM+Mono:wght@400;500&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f4ef;--s1:#ffffff;--s2:#f0ece4;--s3:#e6e1d8;
+  --br:#ddd8cc;--tx:#1c1814;--t2:#5a5248;--t3:#9c9488;
+  --blue:#2558a8;--green:#237a44;--orange:#c47820;--red:#c03838;
+  --purple:#6b44a8;--teal:#1a7a6a;--navy:#1a2e50;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--tx);min-height:100vh}
+
+/* HERO */
+.hero{background:linear-gradient(150deg,#1a2e50 0%,#0e1e38 55%,#1a2e50 100%);padding:52px 24px 44px;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:'PARLER';position:absolute;bottom:-24px;left:50%;transform:translateX(-50%);font-family:'Fraunces',serif;font-size:8rem;font-weight:700;color:rgba(255,255,255,.03);white-space:nowrap;pointer-events:none;letter-spacing:12px}
+.hero-tag{display:inline-block;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);border-radius:20px;padding:4px 16px;font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:16px;font-family:'DM Mono',monospace}
+.hero h1{font-family:'Fraunces',serif;font-size:clamp(2rem,5vw,3.4rem);font-weight:700;color:#fff;line-height:1.1;margin-bottom:8px}
+.hero h1 em{font-style:italic;color:#f5b86a}
+.hero p{color:rgba(255,255,255,.55);font-size:.9rem;max-width:480px;margin:0 auto 20px}
+.stats{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.st{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:5px 14px;font-size:.76rem;color:rgba(255,255,255,.7);font-family:'DM Mono',monospace}
+.st strong{color:#fff}
+
+/* CONTROLS */
+.controls{background:var(--s1);border-bottom:2px solid var(--br);padding:11px 14px;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.ci{max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:8px}
+.sr{position:relative}
+.sr input{width:100%;background:var(--bg);border:1.5px solid var(--br);border-radius:8px;padding:8px 14px 8px 38px;font-family:'Nunito',sans-serif;font-size:.88rem;color:var(--tx);outline:none;transition:border-color .2s}
+.sr input:focus{border-color:var(--blue)}
+.sr input::placeholder{color:var(--t3)}
+.si{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--t3);font-size:.9rem}
+.tabs{display:flex;gap:5px;flex-wrap:wrap}
+.tb{padding:4px 12px;border-radius:16px;border:1.5px solid var(--br);background:transparent;font-family:'Nunito',sans-serif;font-size:.73rem;font-weight:700;cursor:pointer;color:var(--t2);transition:all .15s;white-space:nowrap}
+.tb:hover{border-color:var(--navy);color:var(--navy)}
+.tb.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.lv-row{display:flex;gap:5px;flex-wrap:wrap}
+.lv{padding:3px 11px;border-radius:14px;border:1.5px solid var(--br);background:transparent;font-family:'DM Mono',monospace;font-size:.67rem;font-weight:500;cursor:pointer;color:var(--t2);transition:all .15s}
+.lv:hover{border-color:var(--orange);color:var(--orange)}
+.lv.on{background:var(--orange);border-color:var(--orange);color:#fff}
+
+/* CATEGORY SECTION */
+.wrap{max-width:1200px;margin:0 auto;padding:20px 12px 60px}
+.cat-sec{margin-bottom:32px}
+.cat-hd{display:flex;align-items:center;gap:10px;padding:10px 0 8px;border-bottom:2px solid var(--br);margin-bottom:10px;position:sticky;top:118px;background:var(--bg);z-index:10}
+.cat-icon{font-size:1.3rem}
+.cat-title{font-family:'Fraunces',serif;font-size:1.15rem;font-weight:600;color:var(--tx)}
+.cat-count{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--t3);margin-left:auto}
+
+/* TABLE */
+.tbl{width:100%;border-collapse:collapse;font-size:.83rem}
+.tbl thead tr{background:var(--navy)}
+.tbl thead th{padding:7px 12px;text-align:left;color:#fff;font-family:'DM Mono',monospace;font-size:.63rem;letter-spacing:.6px;font-weight:500}
+.tbl tbody tr{border-bottom:1px solid var(--br);transition:background .1s}
+.tbl tbody tr:hover{background:var(--s2)}
+.tbl tbody tr.hide{display:none}
+.tbl td{padding:8px 12px;vertical-align:middle;line-height:1.5}
+.td-num{color:var(--t3);font-family:'DM Mono',monospace;font-size:.67rem;width:36px;text-align:center}
+.td-inf{color:var(--blue);font-weight:600}
+.td-for{color:var(--teal);font-weight:600}
+.td-en{color:var(--t2);font-style:italic}
+.lv-badge{display:inline-block;font-family:'DM Mono',monospace;font-size:.58rem;padding:2px 6px;border-radius:3px;font-weight:500;border:1px solid}
+.lv-a2{background:#e8f4ed;color:#1a6b3a;border-color:#a8d4b8}
+.lv-b1{background:#e8eef8;color:#1a3a8b;border-color:#a8bcdc}
+.copy-btn{background:none;border:none;cursor:pointer;color:var(--t3);font-size:.8rem;padding:2px 5px;border-radius:4px;transition:all .15s;opacity:0}
+.tbl tbody tr:hover .copy-btn{opacity:1}
+.copy-btn:hover{background:var(--s3);color:var(--blue)}
+.copy-btn.copied{color:var(--green);opacity:1}
+
+/* EMPTY */
+.empty{text-align:center;padding:40px;color:var(--t3);display:none}
+.empty.show{display:block}
+.empty h3{font-family:'Fraunces',serif;font-size:1.4rem;color:var(--t2)}
+
+@media(max-width:720px){
+  .tbl thead{display:none}
+  .tbl tbody tr{display:block;border:1.5px solid var(--br);border-radius:10px;margin-bottom:10px;padding:10px 12px;background:var(--s1)}
+  .tbl tbody tr:hover{background:var(--s2)}
+  .tbl td{display:block;padding:3px 0;border:none;font-size:.84rem;line-height:1.5}
+  .td-num{text-align:left;font-size:.65rem;color:var(--t3);margin-bottom:2px}
+  .td-inf::before{content:'🗣️ ';font-style:normal}
+  .td-for::before{content:'🎩 ';font-style:normal}
+  .td-en::before{content:'🇬🇧 ';font-style:normal;font-style:normal}
+  .td-en{font-style:normal;color:var(--t2)}
+  .tbl td:last-child{margin-top:4px}
+  .copy-btn{opacity:1;margin-top:4px}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-tag">Set 1 — Essential</div>
+  <h1>French Daily <em>Conversations</em></h1>
+  <p>500 essential sentences for everyday life · Informal · Formal · English</p>
+  <div class="stats">
+    <div class="st"><strong>500</strong> sentences</div>
+    <div class="st"><strong>20</strong> categories</div>
+    <div class="st">🗣️ Informal · 🎩 Formal · 🇬🇧 English</div>
+    <div class="st">A2 + B1 level</div>
+  </div>
+</div>
+
+<div class="controls">
+  <div class="ci">
+    <div class="sr">
+      <span class="si">🔍</span>
+      <input type="text" id="q" placeholder="Search in French or English… e.g. café, metro, office, doctor" oninput="run()">
+    </div>
+    <div class="tabs" id="ctabs">
+      <button class="tb on" onclick="setCat('all',this)">All</button>
+      <button class="tb" onclick="setCat('morning',this)">🌅 Morning</button>
+      <button class="tb" onclick="setCat('bathroom',this)">🚿 Bathroom</button>
+      <button class="tb" onclick="setCat('gym',this)">🏋️ Gym</button>
+      <button class="tb" onclick="setCat('breakfast',this)">☕ Breakfast</button>
+      <button class="tb" onclick="setCat('street',this)">🚶 Street</button>
+      <button class="tb" onclick="setCat('metro',this)">🚇 Metro</button>
+      <button class="tb" onclick="setCat('office',this)">🏢 Office</button>
+      <button class="tb" onclick="setCat('lunch',this)">🍽️ Lunch</button>
+      <button class="tb" onclick="setCat('shopping',this)">🛍️ Shopping</button>
+      <button class="tb" onclick="setCat('doctor',this)">🏥 Doctor</button>
+      <button class="tb" onclick="setCat('bank',this)">🏦 Bank</button>
+      <button class="tb" onclick="setCat('phone',this)">📱 Phone</button>
+      <button class="tb" onclick="setCat('evening',this)">🌆 Evening</button>
+      <button class="tb" onclick="setCat('dinner',this)">🍳 Dinner</button>
+      <button class="tb" onclick="setCat('social',this)">🎉 Social</button>
+      <button class="tb" onclick="setCat('feelings',this)">💬 Feelings</button>
+      <button class="tb" onclick="setCat('smalltalk',this)">😊 Small Talk</button>
+      <button class="tb" onclick="setCat('emergency',this)">🆘 Emergency</button>
+      <button class="tb" onclick="setCat('bedtime',this)">🌙 Bedtime</button>
+    </div>
+    <div class="lv-row">
+      <button class="lv on" onclick="setLv('all',this)">All Levels</button>
+      <button class="lv" onclick="setLv('A2',this)">🟢 A2</button>
+      <button class="lv" onclick="setLv('B1',this)">🔵 B1</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+<div id="empty" class="empty"><h3>No results found</h3><p>Try a different word.</p></div>
+
+<script>
+const DATA = [
+// ─── MORNING ───
+{c:'morning',l:'A2',i:'T\'as bien dormi ?',f:'Avez-vous bien dormi ?',e:'Did you sleep well?'},
+{c:'morning',l:'A2',i:'J\'arrive pas à me lever.',f:'J\'ai du mal à me lever.',e:'I can\'t get up.'},
+{c:'morning',l:'A2',i:'C\'est quelle heure ?',f:'Quelle heure est-il ?',e:'What time is it?'},
+{c:'morning',l:'A2',i:'J\'ai raté mon réveil.',f:'J\'ai manqué mon réveil.',e:'I missed my alarm.'},
+{c:'morning',l:'A2',i:'Je suis crevé(e).',f:'Je suis épuisé(e).',e:'I\'m exhausted.'},
+{c:'morning',l:'A2',i:'Encore cinq minutes…',f:'J\'ai besoin de quelques minutes supplémentaires.',e:'Just five more minutes…'},
+{c:'morning',l:'A2',i:'J\'ai pas bien dormi.',f:'Je n\'ai pas bien dormi.',e:'I didn\'t sleep well.'},
+{c:'morning',l:'A2',i:'C\'est déjà le matin ?',f:'Est-ce déjà le matin ?',e:'Is it already morning?'},
+{c:'morning',l:'A2',i:'Je me lève à 7h normalement.',f:'Je me lève habituellement à 7 heures.',e:'I normally get up at 7.'},
+{c:'morning',l:'A2',i:'J\'ai mis le réveil à 6h30.',f:'J\'ai réglé le réveil à 6h30.',e:'I set the alarm for 6:30.'},
+{c:'morning',l:'B1',i:'J\'ai du mal à me réveiller sans café.',f:'J\'ai du mal à me réveiller sans café.',e:'I struggle to wake up without coffee.'},
+{c:'morning',l:'B1',i:'Je suis du soir, pas du matin.',f:'Je suis plutôt du soir que du matin.',e:'I\'m a night owl, not a morning person.'},
+{c:'morning',l:'B1',i:'T\'as mis le réveil pour demain ?',f:'Avez-vous réglé le réveil pour demain ?',e:'Did you set the alarm for tomorrow?'},
+{c:'morning',l:'B1',i:'Je vais être en retard si je me dépêche pas.',f:'Je vais être en retard si je ne me dépêche pas.',e:'I\'m going to be late if I don\'t hurry.'},
+{c:'morning',l:'B1',i:'J\'ai rêvé toute la nuit, je suis pas reposé(e).',f:'J\'ai rêvé toute la nuit, je ne suis pas reposé(e).',e:'I dreamed all night, I\'m not rested.'},
+{c:'morning',l:'A2',i:'Dépêche-toi, on va être en retard !',f:'Dépêchez-vous, nous allons être en retard !',e:'Hurry up, we\'re going to be late!'},
+{c:'morning',l:'A2',i:'Tu veux que je te réveille ?',f:'Voulez-vous que je vous réveille ?',e:'Do you want me to wake you up?'},
+{c:'morning',l:'B1',i:'Je mets toujours deux réveils pour être sûr(e).',f:'Je mets toujours deux réveils par précaution.',e:'I always set two alarms to be safe.'},
+{c:'morning',l:'A2',i:'T\'as dormi combien d\'heures ?',f:'Combien d\'heures avez-vous dormi ?',e:'How many hours did you sleep?'},
+{c:'morning',l:'B1',i:'Je suis du genre à snoozer dix fois.',f:'J\'ai tendance à mettre l\'alarme en veille plusieurs fois.',e:'I\'m the type to hit snooze ten times.'},
+{c:'morning',l:'A2',i:'Bonne journée !',f:'Je vous souhaite une bonne journée.',e:'Have a good day!'},
+{c:'morning',l:'A2',i:'À ce soir !',f:'À ce soir.',e:'See you tonight!'},
+{c:'morning',l:'A2',i:'On se voit plus tard.',f:'Nous nous verrons plus tard.',e:'We\'ll see each other later.'},
+{c:'morning',l:'B1',i:'Je prends mon petit-déj en vitesse.',f:'Je prends mon petit-déjeuner rapidement.',e:'I\'m having a quick breakfast.'},
+{c:'morning',l:'B1',i:'J\'ai pas le temps ce matin.',f:'Je n\'ai pas le temps ce matin.',e:'I don\'t have time this morning.'},
+
+// ─── BATHROOM ───
+{c:'bathroom',l:'A2',i:'La douche est libre ?',f:'La salle de bain est-elle disponible ?',e:'Is the shower free?'},
+{c:'bathroom',l:'A2',i:'T\'as pris toute l\'eau chaude !',f:'Vous avez utilisé toute l\'eau chaude.',e:'You used all the hot water!'},
+{c:'bathroom',l:'A2',i:'J\'ai plus de shampooing.',f:'Je n\'ai plus de shampooing.',e:'I\'m out of shampoo.'},
+{c:'bathroom',l:'A2',i:'Je me prépare en vitesse.',f:'Je me prépare rapidement.',e:'I\'m getting ready quickly.'},
+{c:'bathroom',l:'A2',i:'T\'as vu mon rasoir ?',f:'Avez-vous vu mon rasoir ?',e:'Have you seen my razor?'},
+{c:'bathroom',l:'A2',i:'J\'en ai pour dix minutes.',f:'J\'en ai pour dix minutes.',e:'I\'ll be ten minutes.'},
+{c:'bathroom',l:'A2',i:'Je me maquille vite fait.',f:'Je me maquille rapidement.',e:'I\'m putting on makeup quickly.'},
+{c:'bathroom',l:'A2',i:'Y\'a plus de savon.',f:'Il n\'y a plus de savon.',e:'There\'s no soap left.'},
+{c:'bathroom',l:'A2',i:'La serviette est où ?',f:'Où se trouve la serviette ?',e:'Where is the towel?'},
+{c:'bathroom',l:'B1',i:'Le miroir est tout embué.',f:'Le miroir est complètement embué.',e:'The mirror is all steamed up.'},
+{c:'bathroom',l:'B1',i:'Je mets combien de temps à me préparer ? Vingt minutes maxi.',f:'Combien de temps me faut-il pour me préparer ? Vingt minutes maximum.',e:'How long do I take to get ready? Twenty minutes max.'},
+{c:'bathroom',l:'A2',i:'T\'as du dentifrice ?',f:'Avez-vous du dentifrice ?',e:'Do you have toothpaste?'},
+{c:'bathroom',l:'A2',i:'Je fais une douche rapide.',f:'Je prends une douche rapide.',e:'I\'m taking a quick shower.'},
+{c:'bathroom',l:'B1',i:'J\'ai oublié d\'acheter du gel douche.',f:'J\'ai oublié d\'acheter du gel douche.',e:'I forgot to buy shower gel.'},
+{c:'bathroom',l:'A2',i:'La douche est froide !',f:'La douche est froide !',e:'The shower is cold!'},
+{c:'bathroom',l:'B1',i:'Je vais faire le plein de produits ce soir.',f:'Je vais racheter des produits de salle de bain ce soir.',e:'I\'ll stock up on toiletries tonight.'},
+{c:'bathroom',l:'A2',i:'T\'as un sèche-cheveux ?',f:'Avez-vous un sèche-cheveux ?',e:'Do you have a hairdryer?'},
+{c:'bathroom',l:'B1',i:'Je me coiffe vite, j\'ai pas le temps.',f:'Je me coiffe rapidement, je n\'ai pas le temps.',e:'I\'ll do my hair quickly, I don\'t have time.'},
+{c:'bathroom',l:'A2',i:'Le robinet fuit encore.',f:'Le robinet fuit à nouveau.',e:'The tap is leaking again.'},
+{c:'bathroom',l:'B1',i:'Je ressors dans cinq minutes, promis.',f:'Je sors dans cinq minutes, je vous le promets.',e:'I\'ll be out in five minutes, I promise.'},
+
+// ─── GYM ───
+{c:'gym',l:'A2',i:'T\'as fini avec les haltères ?',f:'Avez-vous terminé avec les haltères ?',e:'Are you done with the dumbbells?'},
+{c:'gym',l:'A2',i:'Je peux utiliser ce tapis ?',f:'Puis-je utiliser ce tapis ?',e:'Can I use this mat?'},
+{c:'gym',l:'A2',i:'Tu viens combien de fois par semaine ?',f:'Vous venez combien de fois par semaine ?',e:'How many times a week do you come?'},
+{c:'gym',l:'A2',i:'C\'est ton premier jour ici ?',f:'Est-ce votre premier jour ici ?',e:'Is this your first day here?'},
+{c:'gym',l:'B1',i:'Tu fais quoi comme programme ?',f:'Quel programme suivez-vous ?',e:'What workout programme are you doing?'},
+{c:'gym',l:'A2',i:'Je cherche un coach sportif.',f:'Je recherche un coach sportif.',e:'I\'m looking for a personal trainer.'},
+{c:'gym',l:'A2',i:'Les vestiaires sont par là ?',f:'Les vestiaires sont-ils par là ?',e:'Are the changing rooms that way?'},
+{c:'gym',l:'B1',i:'Je fais que du cardio pour l\'instant.',f:'Je fais uniquement du cardio pour le moment.',e:'I\'m only doing cardio for now.'},
+{c:'gym',l:'B1',i:'T\'as bien progressé, respect !',f:'Vous avez vraiment progressé, félicitations !',e:'You\'ve really improved, well done!'},
+{c:'gym',l:'A2',i:'C\'est lourd comme poids.',f:'Ce poids est lourd.',e:'That\'s a heavy weight.'},
+{c:'gym',l:'B1',i:'Je me suis fait mal au dos.',f:'Je me suis blessé(e) au dos.',e:'I hurt my back.'},
+{c:'gym',l:'A2',i:'Tu peux me spotter ?',f:'Pourriez-vous m\'assister ?',e:'Can you spot me?'},
+{c:'gym',l:'B1',i:'J\'essaie de perdre du poids.',f:'J\'essaie de perdre du poids.',e:'I\'m trying to lose weight.'},
+{c:'gym',l:'B1',i:'Je veux prendre de la masse.',f:'Je souhaite prendre de la masse musculaire.',e:'I want to build muscle.'},
+{c:'gym',l:'A2',i:'La salle est ouverte jusqu\'à quelle heure ?',f:'La salle est-elle ouverte jusqu\'à quelle heure ?',e:'What time is the gym open until?'},
+{c:'gym',l:'B1',i:'Je me sens bien après l\'entraînement.',f:'Je me sens bien après l\'entraînement.',e:'I feel good after working out.'},
+{c:'gym',l:'A2',i:'Tu peux me montrer comment faire cet exercice ?',f:'Pourriez-vous me montrer comment faire cet exercice ?',e:'Can you show me how to do this exercise?'},
+{c:'gym',l:'B1',i:'J\'ai les courbatures partout.',f:'J\'ai des courbatures partout.',e:'I\'m sore all over.'},
+{c:'gym',l:'A2',i:'L\'abonnement coûte combien ?',f:'Quel est le tarif de l\'abonnement ?',e:'How much is the membership?'},
+{c:'gym',l:'B1',i:'Je m\'étire avant et après.',f:'Je fais des étirements avant et après l\'effort.',e:'I stretch before and after.'},
+{c:'gym',l:'B1',i:'Y\'a un cours de yoga ce soir ?',f:'Y a-t-il un cours de yoga ce soir ?',e:'Is there a yoga class tonight?'},
+{c:'gym',l:'B1',i:'Je me suis inscrit(e) il y a un mois.',f:'Je me suis inscrit(e) il y a un mois.',e:'I signed up a month ago.'},
+{c:'gym',l:'A2',i:'Tu bois quoi comme protéines ?',f:'Quels compléments protéinés consommez-vous ?',e:'What protein do you drink?'},
+{c:'gym',l:'B1',i:'Je fais une heure de sport par jour.',f:'Je fais une heure de sport par jour.',e:'I work out one hour a day.'},
+{c:'gym',l:'A2',i:'Je vais me changer.',f:'Je vais me changer.',e:'I\'m going to get changed.'},
+
+// ─── BREAKFAST ───
+{c:'breakfast',l:'A2',i:'Y\'a plus de pain.',f:'Il n\'y a plus de pain.',e:'There\'s no bread left.'},
+{c:'breakfast',l:'A2',i:'T\'as faim ?',f:'Avez-vous faim ?',e:'Are you hungry?'},
+{c:'breakfast',l:'A2',i:'Je mange rien le matin.',f:'Je ne mange rien le matin.',e:'I don\'t eat anything in the morning.'},
+{c:'breakfast',l:'A2',i:'Le café est prêt !',f:'Le café est prêt.',e:'The coffee is ready!'},
+{c:'breakfast',l:'A2',i:'Tu veux des œufs ?',f:'Voulez-vous des œufs ?',e:'Do you want eggs?'},
+{c:'breakfast',l:'B1',i:'J\'ai juste le temps de prendre un café.',f:'Je n\'ai que le temps de prendre un café.',e:'I only have time for a coffee.'},
+{c:'breakfast',l:'A2',i:'Le lait est encore bon ?',f:'Le lait est-il encore bon ?',e:'Is the milk still good?'},
+{c:'breakfast',l:'A2',i:'T\'as mangé le dernier croissant !',f:'Vous avez mangé le dernier croissant !',e:'You ate the last croissant!'},
+{c:'breakfast',l:'A2',i:'Je prends juste un jus d\'orange.',f:'Je prends simplement un jus d\'orange.',e:'I\'ll just have an orange juice.'},
+{c:'breakfast',l:'B1',i:'Je mange du yaourt avec des fruits le matin.',f:'Je mange du yaourt avec des fruits le matin.',e:'I eat yoghurt with fruit in the morning.'},
+{c:'breakfast',l:'A2',i:'On a plus de café.',f:'Nous n\'avons plus de café.',e:'We\'re out of coffee.'},
+{c:'breakfast',l:'B1',i:'Il faut faire les courses aujourd\'hui.',f:'Il faut faire les courses aujourd\'hui.',e:'We need to go shopping today.'},
+{c:'breakfast',l:'A2',i:'Je mets quoi dans mon café ? Du lait ou du sucre ?',f:'Que mettez-vous dans votre café ? Du lait ou du sucre ?',e:'What do you put in your coffee? Milk or sugar?'},
+{c:'breakfast',l:'B1',i:'Je saute le petit-déj quand je suis pressé(e).',f:'Je saute le petit-déjeuner lorsque je suis pressé(e).',e:'I skip breakfast when I\'m in a rush.'},
+{c:'breakfast',l:'A2',i:'Les tartines sont prêtes.',f:'Les tartines sont prêtes.',e:'The toast is ready.'},
+{c:'breakfast',l:'A2',i:'Tu veux du beurre ou de la confiture ?',f:'Voulez-vous du beurre ou de la confiture ?',e:'Do you want butter or jam?'},
+{c:'breakfast',l:'B1',i:'Je mange léger le matin.',f:'Je mange léger le matin.',e:'I eat light in the morning.'},
+{c:'breakfast',l:'A2',i:'C\'est quoi ton petit-déj préféré ?',f:'Quel est votre petit-déjeuner préféré ?',e:'What\'s your favourite breakfast?'},
+{c:'breakfast',l:'B1',i:'Je bois deux cafés avant de me sentir humain(e).',f:'Je bois deux cafés avant de me sentir réveillé(e).',e:'I drink two coffees before feeling human.'},
+{c:'breakfast',l:'A2',i:'Le grille-pain est cassé.',f:'Le grille-pain est en panne.',e:'The toaster is broken.'},
+
+// ─── CAFÉ / EATING OUT (breakfast) ───
+{c:'breakfast',l:'A2',i:'Un café et un croissant, s\'il te plaît.',f:'Un café et un croissant, s\'il vous plaît.',e:'A coffee and a croissant, please.'},
+{c:'breakfast',l:'A2',i:'C\'est quoi la formule du matin ?',f:'Quelle est la formule du petit-déjeuner ?',e:'What\'s the breakfast deal?'},
+{c:'breakfast',l:'A2',i:'Vous avez une table pour deux ?',f:'Avez-vous une table pour deux personnes ?',e:'Do you have a table for two?'},
+{c:'breakfast',l:'A2',i:'C\'est pour emporter.',f:'C\'est à emporter, s\'il vous plaît.',e:'It\'s to go.'},
+{c:'breakfast',l:'B1',i:'Le café, il est serré ?',f:'Le café est-il serré ?',e:'Is the coffee strong?'},
+{c:'breakfast',l:'A2',i:'Je peux avoir l\'addition ?',f:'Puis-je avoir l\'addition, s\'il vous plaît ?',e:'Can I have the bill, please?'},
+{c:'breakfast',l:'B1',i:'Vous avez du lait végétal ?',f:'Avez-vous du lait végétal ?',e:'Do you have plant-based milk?'},
+{c:'breakfast',l:'A2',i:'C\'était super bon !',f:'C\'était délicieux.',e:'That was really good!'},
+{c:'breakfast',l:'B1',i:'Je peux avoir un café allongé ?',f:'Puis-je avoir un café allongé, s\'il vous plaît ?',e:'Can I have an Americano?'},
+{c:'breakfast',l:'A2',i:'C\'est combien le café ?',f:'Quel est le prix du café ?',e:'How much is the coffee?'},
+
+// ─── STREET / DIRECTIONS ───
+{c:'street',l:'A2',i:'C\'est loin d\'ici ?',f:'Est-ce loin d\'ici ?',e:'Is it far from here?'},
+{c:'street',l:'A2',i:'Excuse, t\'aurais pas l\'heure ?',f:'Excusez-moi, auriez-vous l\'heure ?',e:'Excuse me, do you have the time?'},
+{c:'street',l:'A2',i:'C\'est par où la rue Rivoli ?',f:'Pourriez-vous m\'indiquer la rue de Rivoli ?',e:'Which way is Rue de Rivoli?'},
+{c:'street',l:'A2',i:'C\'est tout droit.',f:'C\'est tout droit.',e:'It\'s straight ahead.'},
+{c:'street',l:'A2',i:'Tournez à gauche au carrefour.',f:'Tournez à gauche au carrefour.',e:'Turn left at the junction.'},
+{c:'street',l:'A2',i:'C\'est à droite après le feu.',f:'C\'est à droite après le feu.',e:'It\'s on the right after the traffic light.'},
+{c:'street',l:'A2',i:'Je suis perdu(e).',f:'Je me suis perdu(e).',e:'I\'m lost.'},
+{c:'street',l:'B1',i:'Vous pouvez me dire comment aller à la gare ?',f:'Pourriez-vous m\'indiquer le chemin vers la gare ?',e:'Can you tell me how to get to the station?'},
+{c:'street',l:'A2',i:'C\'est à combien de minutes à pied ?',f:'C\'est à combien de minutes à pied ?',e:'How many minutes on foot?'},
+{c:'street',l:'B1',i:'Je cherche le bureau de poste.',f:'Je cherche le bureau de poste.',e:'I\'m looking for the post office.'},
+{c:'street',l:'A2',i:'Y\'a un supermarché près d\'ici ?',f:'Y a-t-il un supermarché à proximité ?',e:'Is there a supermarket nearby?'},
+{c:'street',l:'B1',i:'Je me suis trompé(e) de direction.',f:'Je me suis trompé(e) de direction.',e:'I went the wrong way.'},
+{c:'street',l:'A2',i:'C\'est la bonne rue ?',f:'Est-ce bien la bonne rue ?',e:'Is this the right street?'},
+{c:'street',l:'B1',i:'Je suis sur Google Maps mais je comprends pas.',f:'Je consulte Google Maps mais je ne comprends pas.',e:'I\'m on Google Maps but I don\'t understand it.'},
+{c:'street',l:'A2',i:'Continuez tout droit jusqu\'au bout.',f:'Continuez tout droit jusqu\'au bout de la rue.',e:'Continue straight ahead to the end of the street.'},
+{c:'street',l:'A2',i:'Traversez le pont.',f:'Traversez le pont.',e:'Cross the bridge.'},
+{c:'street',l:'B1',i:'C\'est à environ dix minutes à pied.',f:'C\'est à environ dix minutes à pied.',e:'It\'s about a ten-minute walk.'},
+{c:'street',l:'A2',i:'Merci beaucoup pour les indications.',f:'Merci beaucoup pour les indications.',e:'Thank you very much for the directions.'},
+{c:'street',l:'B1',i:'Désolé(e), je connais pas bien ce quartier.',f:'Je suis désolé(e), je ne connais pas bien ce quartier.',e:'Sorry, I don\'t know this area well.'},
+{c:'street',l:'A2',i:'C\'est juste en face.',f:'C\'est juste en face.',e:'It\'s just opposite.'},
+{c:'street',l:'A2',i:'Prenez la première à gauche.',f:'Prenez la première rue à gauche.',e:'Take the first left.'},
+{c:'street',l:'B1',i:'Vous ne pouvez pas le rater.',f:'Vous ne pouvez pas le manquer.',e:'You can\'t miss it.'},
+{c:'street',l:'A2',i:'C\'est à côté de la pharmacie.',f:'C\'est à côté de la pharmacie.',e:'It\'s next to the pharmacy.'},
+{c:'street',l:'B1',i:'Je cherche une pharmacie ouverte.',f:'Je cherche une pharmacie ouverte.',e:'I\'m looking for an open pharmacy.'},
+{c:'street',l:'A2',i:'C\'est quelle direction pour le centre-ville ?',f:'Quelle direction faut-il prendre pour le centre-ville ?',e:'Which direction for the city centre?'},
+
+// ─── METRO / TRANSPORT ───
+{c:'metro',l:'A2',i:'Le prochain métro, c\'est dans combien ?',f:'Dans combien de temps est le prochain métro ?',e:'How long until the next metro?'},
+{c:'metro',l:'A2',i:'C\'est quelle ligne pour aller à Châtelet ?',f:'Quelle ligne faut-il prendre pour Châtelet ?',e:'Which line for Châtelet?'},
+{c:'metro',l:'A2',i:'Faut changer où ?',f:'Où faut-il changer de ligne ?',e:'Where do I need to change?'},
+{c:'metro',l:'B1',i:'Mon Navigo marche plus.',f:'Mon passe Navigo ne fonctionne plus.',e:'My Navigo pass isn\'t working.'},
+{c:'metro',l:'A2',i:'T\'as pas un ticket en rab ?',f:'Auriez-vous un ticket supplémentaire ?',e:'Do you have a spare ticket?'},
+{c:'metro',l:'A2',i:'C\'est bondé ce matin.',f:'Il y a beaucoup de monde ce matin.',e:'It\'s packed this morning.'},
+{c:'metro',l:'A2',i:'Je descends à la prochaine.',f:'Je descends à la prochaine station.',e:'I\'m getting off at the next stop.'},
+{c:'metro',l:'A2',i:'Excusez-moi, vous pouvez bouger un peu ?',f:'Excusez-moi, pourriez-vous vous décaler légèrement ?',e:'Excuse me, could you move a little?'},
+{c:'metro',l:'B1',i:'C\'est direct ou y\'a des changements ?',f:'Est-ce direct ou faut-il changer ?',e:'Is it direct or do I need to change?'},
+{c:'metro',l:'B1',i:'Y\'a une grève aujourd\'hui ?',f:'Y a-t-il une grève aujourd\'hui ?',e:'Is there a strike today?'},
+{c:'metro',l:'A2',i:'Le métro est en retard.',f:'Le métro a du retard.',e:'The metro is delayed.'},
+{c:'metro',l:'A2',i:'C\'est quelle direction ?',f:'Quelle est la direction à prendre ?',e:'Which direction?'},
+{c:'metro',l:'B1',i:'Je prends le RER B pour l\'aéroport.',f:'Je prends le RER B pour l\'aéroport.',e:'I take the RER B for the airport.'},
+{c:'metro',l:'A2',i:'Le dernier métro est à quelle heure ?',f:'À quelle heure est le dernier métro ?',e:'What time is the last metro?'},
+{c:'metro',l:'B1',i:'J\'ai loupé ma correspondance.',f:'J\'ai raté ma correspondance.',e:'I missed my connection.'},
+{c:'metro',l:'A2',i:'Ça dure combien de temps ?',f:'Combien de temps dure le trajet ?',e:'How long does the journey take?'},
+{c:'metro',l:'B1',i:'Il vaut mieux prendre le bus, le métro est en panne.',f:'Il vaut mieux prendre le bus, le métro est en panne.',e:'Better take the bus, the metro is out of service.'},
+{c:'metro',l:'A2',i:'Où est l\'entrée du métro ?',f:'Où se trouve l\'entrée du métro ?',e:'Where is the metro entrance?'},
+{c:'metro',l:'B1',i:'Je recharge mon Navigo à la borne.',f:'Je recharge mon passe Navigo à la borne.',e:'I\'m topping up my Navigo at the machine.'},
+{c:'metro',l:'A2',i:'C\'est quelle sortie pour la Tour Eiffel ?',f:'Quelle est la sortie pour la Tour Eiffel ?',e:'Which exit for the Eiffel Tower?'},
+{c:'metro',l:'B1',i:'Le trajet dure environ vingt minutes.',f:'Le trajet dure environ vingt minutes.',e:'The journey takes about twenty minutes.'},
+{c:'metro',l:'A2',i:'Pouvez-vous me laisser passer ?',f:'Pourriez-vous me laisser passer ?',e:'Could you let me through?'},
+{c:'metro',l:'A2',i:'Attention à la fermeture des portes.',f:'Attention à la fermeture automatique des portes.',e:'Mind the closing doors.'},
+{c:'metro',l:'B1',i:'Je prends le Vélib\' ce matin, le métro est saturé.',f:'Je prends le Vélib\' ce matin, le métro est saturé.',e:'I\'m taking a Vélib\' this morning, the metro is overcrowded.'},
+{c:'metro',l:'A2',i:'Y\'a un taxi par ici ?',f:'Y a-t-il un taxi à proximité ?',e:'Is there a taxi around here?'},
+
+// ─── OFFICE ───
+{c:'office',l:'A2',i:'Bonjour, ça va ?',f:'Bonjour, comment allez-vous ?',e:'Hi, how are you?'},
+{c:'office',l:'A2',i:'T\'es en avance aujourd\'hui !',f:'Vous êtes en avance aujourd\'hui.',e:'You\'re early today!'},
+{c:'office',l:'A2',i:'Le patron est là ?',f:'Le directeur est-il présent ?',e:'Is the boss in?'},
+{c:'office',l:'A2',i:'J\'ai une réunion à 9h.',f:'J\'ai une réunion à 9 heures.',e:'I have a meeting at 9.'},
+{c:'office',l:'B1',i:'Mon ordi rame complètement.',f:'Mon ordinateur est extrêmement lent.',e:'My computer is really slow.'},
+{c:'office',l:'A2',i:'T\'as reçu mon mail ?',f:'Avez-vous reçu mon courriel ?',e:'Did you get my email?'},
+{c:'office',l:'A2',i:'On peut se parler cinq minutes ?',f:'Pourriez-vous m\'accorder cinq minutes ?',e:'Can we talk for five minutes?'},
+{c:'office',l:'B1',i:'C\'est urgent ou ça peut attendre ?',f:'Est-ce urgent ou cela peut-il attendre ?',e:'Is it urgent or can it wait?'},
+{c:'office',l:'B1',i:'T\'en penses quoi ?',f:'Qu\'en pensez-vous ?',e:'What do you think?'},
+{c:'office',l:'B1',i:'Faut qu\'on trouve une solution.',f:'Nous devons trouver une solution.',e:'We need to find a solution.'},
+{c:'office',l:'B1',i:'Je suis pas dispo cet après-midi.',f:'Je ne suis pas disponible cet après-midi.',e:'I\'m not available this afternoon.'},
+{c:'office',l:'B1',i:'On reporte à demain ?',f:'Pouvons-nous reporter à demain ?',e:'Shall we postpone to tomorrow?'},
+{c:'office',l:'B1',i:'J\'ai trop de boulot en ce moment.',f:'J\'ai beaucoup de travail en ce moment.',e:'I have too much work right now.'},
+{c:'office',l:'B1',i:'T\'as les chiffres du mois dernier ?',f:'Avez-vous les chiffres du mois dernier ?',e:'Do you have last month\'s figures?'},
+{c:'office',l:'A2',i:'La réunion dure combien de temps ?',f:'Combien de temps dure la réunion ?',e:'How long does the meeting last?'},
+{c:'office',l:'A2',i:'Je vais prendre ma pause.',f:'Je vais prendre ma pause.',e:'I\'m going to take my break.'},
+{c:'office',l:'B1',i:'Tu peux m\'envoyer le fichier ?',f:'Pourriez-vous m\'envoyer le fichier ?',e:'Can you send me the file?'},
+{c:'office',l:'B1',i:'Le projet avance bien.',f:'Le projet progresse bien.',e:'The project is going well.'},
+{c:'office',l:'B1',i:'On a un problème technique.',f:'Nous avons un problème technique.',e:'We have a technical problem.'},
+{c:'office',l:'A2',i:'Je travaille depuis chez moi aujourd\'hui.',f:'Je travaille à domicile aujourd\'hui.',e:'I\'m working from home today.'},
+{c:'office',l:'B1',i:'J\'ai besoin de ton aide sur ce dossier.',f:'J\'ai besoin de votre aide sur ce dossier.',e:'I need your help with this file.'},
+{c:'office',l:'A2',i:'À quelle heure on finit aujourd\'hui ?',f:'À quelle heure terminons-nous aujourd\'hui ?',e:'What time do we finish today?'},
+{c:'office',l:'B1',i:'Je prends une journée de congé vendredi.',f:'Je prends une journée de congé vendredi.',e:'I\'m taking a day off on Friday.'},
+{c:'office',l:'B1',i:'Le client a rappelé.',f:'Le client a rappelé.',e:'The client called back.'},
+{c:'office',l:'A2',i:'L\'imprimante est en panne.',f:'L\'imprimante est en panne.',e:'The printer is broken.'},
+{c:'office',l:'B1',i:'Je suis en télétravail trois jours par semaine.',f:'Je travaille en télétravail trois jours par semaine.',e:'I work remotely three days a week.'},
+{c:'office',l:'A2',i:'C\'est qui le responsable ici ?',f:'Qui est le responsable ici ?',e:'Who is in charge here?'},
+{c:'office',l:'B1',i:'On a un délai à respecter.',f:'Nous avons un délai à respecter.',e:'We have a deadline to meet.'},
+{c:'office',l:'A2',i:'Je reviens dans une heure.',f:'Je serai de retour dans une heure.',e:'I\'ll be back in an hour.'},
+{c:'office',l:'B1',i:'Je t\'envoie le compte-rendu par mail.',f:'Je vous envoie le compte-rendu par courriel.',e:'I\'ll send you the meeting notes by email.'},
+
+// ─── LUNCH ───
+{c:'lunch',l:'A2',i:'On mange où aujourd\'hui ?',f:'Où allons-nous déjeuner aujourd\'hui ?',e:'Where are we eating today?'},
+{c:'lunch',l:'A2',i:'T\'as faim ? On y va ?',f:'Avez-vous faim ? Partons-nous ?',e:'Are you hungry? Shall we go?'},
+{c:'lunch',l:'A2',i:'C\'est moi qui régale aujourd\'hui.',f:'C\'est moi qui invite aujourd\'hui.',e:'It\'s my treat today.'},
+{c:'lunch',l:'A2',i:'La carte, s\'il te plaît.',f:'La carte, s\'il vous plaît.',e:'The menu, please.'},
+{c:'lunch',l:'A2',i:'C\'est quoi le plat du jour ?',f:'Quel est le plat du jour ?',e:'What\'s the daily special?'},
+{c:'lunch',l:'B1',i:'Je suis allergique aux fruits de mer.',f:'Je suis allergique aux fruits de mer.',e:'I\'m allergic to seafood.'},
+{c:'lunch',l:'B1',i:'C\'était pas terrible.',f:'Ce n\'était pas excellent.',e:'It wasn\'t great.'},
+{c:'lunch',l:'A2',i:'L\'addition, s\'il vous plaît.',f:'L\'addition, s\'il vous plaît.',e:'The bill, please.'},
+{c:'lunch',l:'A2',i:'On partage la note ?',f:'Partageons-nous l\'addition ?',e:'Shall we split the bill?'},
+{c:'lunch',l:'B1',i:'Vous avez une option végétarienne ?',f:'Avez-vous une option végétarienne ?',e:'Do you have a vegetarian option?'},
+{c:'lunch',l:'A2',i:'C\'est bien cuit ? Je veux pas de viande saignante.',f:'Est-ce bien cuit ? Je ne veux pas de viande saignante.',e:'Is it well done? I don\'t want rare meat.'},
+{c:'lunch',l:'B1',i:'Je peux avoir ça sans sauce ?',f:'Puis-je avoir cela sans sauce ?',e:'Can I have that without sauce?'},
+{c:'lunch',l:'A2',i:'Une carafe d\'eau, s\'il vous plaît.',f:'Une carafe d\'eau, s\'il vous plaît.',e:'A jug of water, please.'},
+{c:'lunch',l:'B1',i:'C\'est long, on attend depuis vingt minutes.',f:'C\'est long, nous attendons depuis vingt minutes.',e:'It\'s taking a while, we\'ve been waiting twenty minutes.'},
+{c:'lunch',l:'A2',i:'Je peux avoir le menu du jour ?',f:'Puis-je avoir le menu du jour ?',e:'Can I have the set lunch menu?'},
+{c:'lunch',l:'B1',i:'On retourne au bureau, il est presque 14h.',f:'Nous retournons au bureau, il est presque 14 heures.',e:'We\'re heading back, it\'s almost 2pm.'},
+{c:'lunch',l:'A2',i:'J\'ai pris le même que toi.',f:'J\'ai pris la même chose que vous.',e:'I got the same as you.'},
+{c:'lunch',l:'B1',i:'Le service est un peu lent aujourd\'hui.',f:'Le service est un peu lent aujourd\'hui.',e:'The service is a bit slow today.'},
+{c:'lunch',l:'A2',i:'C\'est ouvert le dimanche ?',f:'Est-ce ouvert le dimanche ?',e:'Is it open on Sundays?'},
+{c:'lunch',l:'A2',i:'Je réserve une table pour ce soir ?',f:'Puis-je réserver une table pour ce soir ?',e:'Shall I book a table for tonight?'},
+{c:'lunch',l:'B1',i:'Je mange sur le pouce aujourd\'hui.',f:'Je mange sur le pouce aujourd\'hui.',e:'I\'m eating on the go today.'},
+
+// ─── SHOPPING ───
+{c:'shopping',l:'A2',i:'Vous avez ça en taille M ?',f:'Avez-vous ceci en taille M ?',e:'Do you have this in size M?'},
+{c:'shopping',l:'A2',i:'C\'est combien ?',f:'Combien cela coûte-t-il ?',e:'How much is it?'},
+{c:'shopping',l:'B1',i:'Vous faites les retours ?',f:'Effectuez-vous les remboursements ?',e:'Do you do returns?'},
+{c:'shopping',l:'A2',i:'Je peux payer en carte ?',f:'Puis-je payer par carte ?',e:'Can I pay by card?'},
+{c:'shopping',l:'A2',i:'Vous fermez à quelle heure ?',f:'À quelle heure fermez-vous ?',e:'What time do you close?'},
+{c:'shopping',l:'A2',i:'C\'est par où les caisses ?',f:'Où se trouvent les caisses ?',e:'Where are the checkouts?'},
+{c:'shopping',l:'A2',i:'Vous avez un sac ?',f:'Auriez-vous un sac, s\'il vous plaît ?',e:'Do you have a bag?'},
+{c:'shopping',l:'B1',i:'J\'attends un colis.',f:'J\'attends un colis.',e:'I\'m waiting for a parcel.'},
+{c:'shopping',l:'B1',i:'C\'est en solde ?',f:'Est-ce en promotion ?',e:'Is it on sale?'},
+{c:'shopping',l:'A2',i:'Je cherche les rayons cosmétiques.',f:'Pourriez-vous m\'indiquer le rayon cosmétique ?',e:'I\'m looking for the cosmetics aisle.'},
+{c:'shopping',l:'B1',i:'Vous avez ce modèle en noir ?',f:'Avez-vous ce modèle en noir ?',e:'Do you have this model in black?'},
+{c:'shopping',l:'A2',i:'C\'est pour offrir.',f:'C\'est pour offrir.',e:'It\'s a gift.'},
+{c:'shopping',l:'B1',i:'Je veux échanger ça.',f:'Je souhaite échanger cet article.',e:'I want to exchange this.'},
+{c:'shopping',l:'A2',i:'Vous avez les toilettes ?',f:'Où se trouvent les toilettes ?',e:'Where are the toilets?'},
+{c:'shopping',l:'B1',i:'Le ticket de caisse, s\'il vous plaît.',f:'Le ticket de caisse, s\'il vous plaît.',e:'The receipt, please.'},
+{c:'shopping',l:'A2',i:'C\'est pas la bonne taille.',f:'Ce n\'est pas la bonne taille.',e:'It\'s not the right size.'},
+{c:'shopping',l:'B1',i:'Je commande en ligne généralement.',f:'Je commande généralement en ligne.',e:'I usually order online.'},
+{c:'shopping',l:'A2',i:'La cabine d\'essayage est par là ?',f:'Les cabines d\'essayage sont-elles par là ?',e:'Are the fitting rooms that way?'},
+{c:'shopping',l:'B1',i:'Je reviens demain si vous le recevez.',f:'Je reviendrai demain si vous le recevez.',e:'I\'ll come back tomorrow if you get it in.'},
+{c:'shopping',l:'A2',i:'Vous acceptez les espèces ?',f:'Acceptez-vous les espèces ?',e:'Do you accept cash?'},
+
+// ─── DOCTOR / PHARMACY ───
+{c:'doctor',l:'A2',i:'Je voudrais prendre rendez-vous.',f:'Je souhaite prendre un rendez-vous.',e:'I\'d like to make an appointment.'},
+{c:'doctor',l:'A2',i:'J\'ai mal à la tête.',f:'J\'ai des maux de tête.',e:'I have a headache.'},
+{c:'doctor',l:'A2',i:'J\'ai de la fièvre.',f:'J\'ai de la fièvre.',e:'I have a fever.'},
+{c:'doctor',l:'A2',i:'J\'ai mal au ventre.',f:'J\'ai des douleurs abdominales.',e:'I have a stomach ache.'},
+{c:'doctor',l:'B1',i:'Ça fait trois jours que je tousse.',f:'Je tousse depuis trois jours.',e:'I\'ve been coughing for three days.'},
+{c:'doctor',l:'A2',i:'Je suis allergique à la pénicilline.',f:'Je suis allergique à la pénicilline.',e:'I\'m allergic to penicillin.'},
+{c:'doctor',l:'B1',i:'C\'est grave, docteur ?',f:'Est-ce grave, docteur ?',e:'Is it serious, doctor?'},
+{c:'doctor',l:'A2',i:'Vous avez quelque chose contre le rhume ?',f:'Avez-vous quelque chose contre le rhume ?',e:'Do you have something for a cold?'},
+{c:'doctor',l:'B1',i:'J\'ai besoin d\'une ordonnance.',f:'J\'ai besoin d\'une ordonnance.',e:'I need a prescription.'},
+{c:'doctor',l:'A2',i:'Je prends ce médicament combien de fois par jour ?',f:'Combien de fois par jour dois-je prendre ce médicament ?',e:'How many times a day do I take this medicine?'},
+{c:'doctor',l:'B1',i:'J\'ai un rendez-vous à 10h avec le Dr Martin.',f:'J\'ai un rendez-vous à 10 heures avec le Dr Martin.',e:'I have an appointment at 10 with Dr Martin.'},
+{c:'doctor',l:'B1',i:'Depuis quand avez-vous ces symptômes ?',f:'Depuis quand avez-vous ces symptômes ?',e:'How long have you had these symptoms?'},
+{c:'doctor',l:'A2',i:'J\'ai mal ici.',f:'J\'ai une douleur ici.',e:'It hurts here.'},
+{c:'doctor',l:'B1',i:'Est-ce que c\'est couvert par la Sécu ?',f:'Est-ce pris en charge par la Sécurité sociale ?',e:'Is this covered by social security?'},
+{c:'doctor',l:'A2',i:'Je vais mieux, merci.',f:'Je me sens mieux, merci.',e:'I\'m feeling better, thank you.'},
+{c:'doctor',l:'B1',i:'J\'ai pas de médecin traitant.',f:'Je n\'ai pas de médecin traitant.',e:'I don\'t have a GP.'},
+{c:'doctor',l:'A2',i:'C\'est pour un renouvellement d\'ordonnance.',f:'C\'est pour un renouvellement d\'ordonnance.',e:'It\'s for a prescription renewal.'},
+{c:'doctor',l:'B1',i:'Je me suis foulé(e) la cheville.',f:'Je me suis foulé(e) la cheville.',e:'I sprained my ankle.'},
+{c:'doctor',l:'A2',i:'J\'ai besoin d\'un arrêt de travail.',f:'J\'ai besoin d\'un arrêt de travail.',e:'I need a sick note.'},
+{c:'doctor',l:'B1',i:'Je suis sous traitement depuis six mois.',f:'Je suis sous traitement depuis six mois.',e:'I\'ve been on treatment for six months.'},
+
+// ─── BANK / ADMIN ───
+{c:'bank',l:'A2',i:'Je voudrais ouvrir un compte.',f:'Je souhaite ouvrir un compte bancaire.',e:'I\'d like to open a bank account.'},
+{c:'bank',l:'A2',i:'Je peux retirer de l\'argent ?',f:'Puis-je effectuer un retrait ?',e:'Can I withdraw money?'},
+{c:'bank',l:'B1',i:'Ma carte a été refusée.',f:'Ma carte a été refusée.',e:'My card was declined.'},
+{c:'bank',l:'B1',i:'Je veux faire un virement.',f:'Je souhaite effectuer un virement.',e:'I want to make a transfer.'},
+{c:'bank',l:'A2',i:'Le DAB est où ?',f:'Où se trouve le distributeur automatique de billets ?',e:'Where is the ATM?'},
+{c:'bank',l:'B1',i:'J\'ai perdu ma carte.',f:'J\'ai perdu ma carte bancaire.',e:'I\'ve lost my card.'},
+{c:'bank',l:'B1',i:'Je dois faire opposition sur ma carte.',f:'Je dois faire opposition sur ma carte.',e:'I need to cancel my card.'},
+{c:'bank',l:'A2',i:'Quel est votre taux d\'intérêt ?',f:'Quel est votre taux d\'intérêt ?',e:'What is your interest rate?'},
+{c:'bank',l:'B1',i:'J\'ai besoin de mon RIB.',f:'J\'ai besoin de mon relevé d\'identité bancaire.',e:'I need my bank account details (RIB).'},
+{c:'bank',l:'A2',i:'Je peux avoir un relevé de compte ?',f:'Puis-je obtenir un relevé de compte ?',e:'Can I have a bank statement?'},
+{c:'bank',l:'B1',i:'Mon compte est à découvert.',f:'Mon compte est à découvert.',e:'My account is overdrawn.'},
+{c:'bank',l:'B1',i:'Je veux signaler une transaction suspecte.',f:'Je souhaite signaler une transaction suspecte.',e:'I want to report a suspicious transaction.'},
+{c:'bank',l:'A2',i:'Je dois changer des euros en livres.',f:'Je dois changer des euros en livres sterling.',e:'I need to change euros to pounds.'},
+{c:'bank',l:'B1',i:'Quels documents sont nécessaires ?',f:'Quels documents sont nécessaires ?',e:'What documents are required?'},
+{c:'bank',l:'A2',i:'Le délai de traitement c\'est combien ?',f:'Quel est le délai de traitement ?',e:'What is the processing time?'},
+{c:'bank',l:'B1',i:'J\'ai une assurance habitation ?',f:'Ai-je une assurance habitation ?',e:'Do I have home insurance?'},
+{c:'bank',l:'A2',i:'Je peux parler à un conseiller ?',f:'Puis-je parler à un conseiller ?',e:'Can I speak to an advisor?'},
+{c:'bank',l:'B1',i:'Je veux résilier ce contrat.',f:'Je souhaite résilier ce contrat.',e:'I want to cancel this contract.'},
+{c:'bank',l:'A2',i:'J\'ai reçu un courrier de votre banque.',f:'J\'ai reçu un courrier de votre établissement.',e:'I received a letter from your bank.'},
+{c:'bank',l:'B1',i:'Mon prélèvement n\'est pas passé.',f:'Mon prélèvement n\'a pas été effectué.',e:'My direct debit didn\'t go through.'},
+
+// ─── PHONE ───
+{c:'phone',l:'A2',i:'Allô, c\'est qui ?',f:'Allô, qui est à l\'appareil ?',e:'Hello, who is this?'},
+{c:'phone',l:'A2',i:'T\'entends bien ?',f:'Vous entendez-vous correctement ?',e:'Can you hear me ok?'},
+{c:'phone',l:'A2',i:'Je te rappelle.',f:'Je vous rappelle.',e:'I\'ll call you back.'},
+{c:'phone',l:'A2',i:'Je suis dans le métro, je t\'appelle plus tard.',f:'Je suis dans le métro, je vous rappellerai plus tard.',e:'I\'m on the metro, I\'ll call you later.'},
+{c:'phone',l:'B1',i:'La connexion est mauvaise.',f:'La connexion est mauvaise.',e:'The connection is bad.'},
+{c:'phone',l:'A2',i:'T\'as reçu mon message ?',f:'Avez-vous reçu mon message ?',e:'Did you get my message?'},
+{c:'phone',l:'A2',i:'Je t\'envoie un texto.',f:'Je vous envoie un message.',e:'I\'ll send you a text.'},
+{c:'phone',l:'B1',i:'Laissez-moi un message après le bip.',f:'Veuillez laisser un message après le signal sonore.',e:'Please leave a message after the beep.'},
+{c:'phone',l:'A2',i:'Je suis pas disponible, laisse un message.',f:'Je ne suis pas disponible, veuillez laisser un message.',e:'I\'m not available, please leave a message.'},
+{c:'phone',l:'B1',i:'Je vous mets en attente une seconde.',f:'Je vous mets en attente un instant.',e:'I\'m putting you on hold for a moment.'},
+{c:'phone',l:'A2',i:'Mon téléphone est mort.',f:'Mon téléphone est déchargé.',e:'My phone is dead.'},
+{c:'phone',l:'B1',i:'Je t\'envoie le lien par WhatsApp.',f:'Je vous envoie le lien par message.',e:'I\'ll send you the link on WhatsApp.'},
+{c:'phone',l:'A2',i:'T\'as du réseau ici ?',f:'Y a-t-il du réseau ici ?',e:'Do you have signal here?'},
+{c:'phone',l:'B1',i:'Je suis en déplacement, je réponds dès que possible.',f:'Je suis en déplacement, je répondrai dès que possible.',e:'I\'m travelling, I\'ll reply as soon as I can.'},
+{c:'phone',l:'A2',i:'Peux-tu parler plus fort ?',f:'Pourriez-vous parler plus fort ?',e:'Can you speak louder?'},
+{c:'phone',l:'B1',i:'On a été coupés.',f:'Nous avons été coupés.',e:'We got cut off.'},
+{c:'phone',l:'A2',i:'Je te passe quelqu\'un.',f:'Je vous passe quelqu\'un.',e:'I\'ll put someone on.'},
+{c:'phone',l:'B1',i:'Je vais vérifier et je te rappelle.',f:'Je vais vérifier et je vous rappellerai.',e:'I\'ll check and call you back.'},
+{c:'phone',l:'A2',i:'T\'es libre ce soir ?',f:'Êtes-vous libre ce soir ?',e:'Are you free tonight?'},
+{c:'phone',l:'B1',i:'Je t\'envoie ma position sur Maps.',f:'Je vous envoie ma position sur Maps.',e:'I\'ll send you my location on Maps.'},
+
+// ─── EVENING ───
+{c:'evening',l:'A2',i:'J\'suis rentré(e).',f:'Je suis rentré(e).',e:'I\'m home.'},
+{c:'evening',l:'A2',i:'C\'était comment ta journée ?',f:'Comment s\'est passée votre journée ?',e:'How was your day?'},
+{c:'evening',l:'A2',i:'Je suis épuisé(e).',f:'Je suis épuisé(e).',e:'I\'m exhausted.'},
+{c:'evening',l:'A2',i:'On commande ce soir ?',f:'Souhaitez-vous commander à livrer ce soir ?',e:'Shall we order in tonight?'},
+{c:'evening',l:'A2',i:'T\'as envie de quoi pour dîner ?',f:'Que souhaitez-vous pour le dîner ?',e:'What do you feel like for dinner?'},
+{c:'evening',l:'A2',i:'Je fais la vaisselle ce soir.',f:'Je ferai la vaisselle ce soir.',e:'I\'ll do the dishes tonight.'},
+{c:'evening',l:'A2',i:'C\'est ton tour de faire les courses.',f:'C\'est à votre tour de faire les courses.',e:'It\'s your turn to do the shopping.'},
+{c:'evening',l:'B1',i:'J\'ai besoin de décompresser.',f:'J\'ai besoin de décompresser.',e:'I need to decompress.'},
+{c:'evening',l:'B1',i:'On sort ou on reste à la maison ?',f:'Sortons-nous ou restons-nous à la maison ?',e:'Are we going out or staying in?'},
+{c:'evening',l:'A2',i:'Je vais me changer.',f:'Je vais me changer.',e:'I\'m going to change.'},
+{c:'evening',l:'B1',i:'J\'ai ramené du boulot à finir ce soir.',f:'J\'ai ramené du travail à terminer ce soir.',e:'I\'ve brought work home to finish tonight.'},
+{c:'evening',l:'A2',i:'Le courrier est arrivé ?',f:'Le courrier est-il arrivé ?',e:'Has the post arrived?'},
+{c:'evening',l:'B1',i:'Je vais me poser un peu devant la télé.',f:'Je vais me reposer devant la télévision.',e:'I\'m going to relax in front of the TV.'},
+{c:'evening',l:'A2',i:'T\'as fait les courses ?',f:'Avez-vous fait les courses ?',e:'Did you do the shopping?'},
+{c:'evening',l:'B1',i:'J\'ai passé une super journée.',f:'J\'ai passé une excellente journée.',e:'I had a great day.'},
+{c:'evening',l:'A2',i:'Je suis rentré(e) plus tôt.',f:'Je suis rentré(e) plus tôt que prévu.',e:'I got home earlier than planned.'},
+{c:'evening',l:'B1',i:'La journée a été longue.',f:'La journée a été longue.',e:'It\'s been a long day.'},
+{c:'evening',l:'A2',i:'On regarde quoi ce soir ?',f:'Que regardons-nous ce soir ?',e:'What are we watching tonight?'},
+{c:'evening',l:'B1',i:'Je vais faire un peu de sport avant de dîner.',f:'Je vais faire un peu de sport avant de dîner.',e:'I\'m going to work out a bit before dinner.'},
+{c:'evening',l:'A2',i:'T\'as pas oublié de sortir les poubelles ?',f:'N\'avez-vous pas oublié de sortir les poubelles ?',e:'Did you forget to take out the bins?'},
+
+// ─── DINNER / COOKING ───
+{c:'dinner',l:'A2',i:'Qu\'est-ce qu\'on mange ce soir ?',f:'Que mangeons-nous ce soir ?',e:'What are we having for dinner?'},
+{c:'dinner',l:'A2',i:'Je cuisine ou on commande ?',f:'Cuisinons-nous ou commandons-nous ?',e:'Are we cooking or ordering?'},
+{c:'dinner',l:'A2',i:'Y\'a quoi dans le frigo ?',f:'Qu\'y a-t-il dans le réfrigérateur ?',e:'What\'s in the fridge?'},
+{c:'dinner',l:'A2',i:'Je fais des pâtes ce soir.',f:'Je prépare des pâtes ce soir.',e:'I\'m making pasta tonight.'},
+{c:'dinner',l:'B1',i:'Tu peux mettre la table ?',f:'Pourriez-vous mettre la table ?',e:'Can you set the table?'},
+{c:'dinner',l:'A2',i:'C\'est prêt dans dix minutes.',f:'Ce sera prêt dans dix minutes.',e:'It\'ll be ready in ten minutes.'},
+{c:'dinner',l:'A2',i:'T\'as faim ?',f:'Avez-vous faim ?',e:'Are you hungry?'},
+{c:'dinner',l:'B1',i:'Je cuisine pas bien, je commande souvent.',f:'Je ne cuisine pas très bien, je commande souvent.',e:'I don\'t cook well, I often order out.'},
+{c:'dinner',l:'A2',i:'C\'est délicieux !',f:'C\'est délicieux !',e:'It\'s delicious!'},
+{c:'dinner',l:'A2',i:'Tu veux encore de la sauce ?',f:'Voulez-vous encore de la sauce ?',e:'Do you want more sauce?'},
+{c:'dinner',l:'B1',i:'Je vais essayer une nouvelle recette.',f:'Je vais essayer une nouvelle recette.',e:'I\'m going to try a new recipe.'},
+{c:'dinner',l:'A2',i:'Le repas était très bon.',f:'Le repas était très bon.',e:'The meal was very good.'},
+{c:'dinner',l:'A2',i:'Je fais la vaisselle.',f:'Je fais la vaisselle.',e:'I\'ll do the washing up.'},
+{c:'dinner',l:'B1',i:'J\'ai trop mangé.',f:'J\'ai trop mangé.',e:'I ate too much.'},
+{c:'dinner',l:'A2',i:'Tu veux un dessert ?',f:'Voulez-vous un dessert ?',e:'Do you want dessert?'},
+{c:'dinner',l:'B1',i:'Je suis au régime, je fais attention.',f:'Je suis au régime, je fais attention.',e:'I\'m on a diet, I\'m being careful.'},
+{c:'dinner',l:'A2',i:'On ouvre une bouteille ?',f:'Ouvrons-nous une bouteille ?',e:'Shall we open a bottle?'},
+{c:'dinner',l:'B1',i:'La livraison met combien de temps ?',f:'Combien de temps prend la livraison ?',e:'How long does delivery take?'},
+{c:'dinner',l:'A2',i:'Je range les restes au frigo.',f:'Je range les restes au réfrigérateur.',e:'I\'m putting the leftovers in the fridge.'},
+{c:'dinner',l:'A2',i:'T\'as mangé suffisamment ?',f:'Avez-vous mangé suffisamment ?',e:'Did you eat enough?'},
+
+// ─── SOCIAL ───
+{c:'social',l:'A2',i:'On se retrouve à quelle heure ?',f:'À quelle heure nous retrouvons-nous ?',e:'What time shall we meet?'},
+{c:'social',l:'A2',i:'T\'es libre ce week-end ?',f:'Êtes-vous libre ce week-end ?',e:'Are you free this weekend?'},
+{c:'social',l:'A2',i:'On va où ce soir ?',f:'Où allons-nous ce soir ?',e:'Where are we going tonight?'},
+{c:'social',l:'A2',i:'Tu viens avec nous ?',f:'Venez-vous avec nous ?',e:'Are you coming with us?'},
+{c:'social',l:'B1',i:'C\'est sympa comme endroit.',f:'C\'est un endroit agréable.',e:'This is a nice place.'},
+{c:'social',l:'A2',i:'C\'est toi qui invites ?',f:'Est-ce vous qui invitez ?',e:'Are you buying?'},
+{c:'social',l:'B1',i:'On se retrouve devant le ciné à 20h.',f:'Nous nous retrouvons devant le cinéma à 20 heures.',e:'We\'re meeting in front of the cinema at 8pm.'},
+{c:'social',l:'A2',i:'Je suis pas sûr(e) de pouvoir venir.',f:'Je ne suis pas sûr(e) de pouvoir venir.',e:'I\'m not sure I can come.'},
+{c:'social',l:'B1',i:'C\'était une super soirée !',f:'C\'était une excellente soirée !',e:'That was a great evening!'},
+{c:'social',l:'A2',i:'Je rentre, j\'suis fatigué(e).',f:'Je rentre, je suis fatigué(e).',e:'I\'m heading home, I\'m tired.'},
+{c:'social',l:'B1',i:'On se fait ça la semaine prochaine ?',f:'Pouvons-nous faire ça la semaine prochaine ?',e:'Shall we do that next week?'},
+{c:'social',l:'A2',i:'T\'as le numéro de quelqu\'un ici ?',f:'Avez-vous le numéro de quelqu\'un ici ?',e:'Do you have someone\'s number here?'},
+{c:'social',l:'B1',i:'Je passe te prendre à quelle heure ?',f:'À quelle heure puis-je passer te prendre ?',e:'What time shall I pick you up?'},
+{c:'social',l:'A2',i:'C\'est annulé.',f:'C\'est annulé.',e:'It\'s cancelled.'},
+{c:'social',l:'B1',i:'Je vais pas pouvoir, désolé(e).',f:'Je ne vais pas pouvoir, je suis désolé(e).',e:'I won\'t be able to make it, sorry.'},
+{c:'social',l:'A2',i:'Bonne fête !',f:'Je vous souhaite une bonne fête.',e:'Happy celebration!'},
+{c:'social',l:'A2',i:'Joyeux anniversaire !',f:'Je vous souhaite un joyeux anniversaire.',e:'Happy birthday!'},
+{c:'social',l:'B1',i:'Tu peux amener quelque chose ?',f:'Pouvez-vous apporter quelque chose ?',e:'Can you bring something?'},
+{c:'social',l:'A2',i:'C\'était super de te voir.',f:'C\'était un plaisir de vous voir.',e:'It was great to see you.'},
+{c:'social',l:'B1',i:'On se refait ça bientôt !',f:'Nous recommençons cela bientôt !',e:'Let\'s do this again soon!'},
+
+// ─── FEELINGS ───
+{c:'feelings',l:'A2',i:'Je suis content(e).',f:'Je suis content(e).',e:'I\'m happy.'},
+{c:'feelings',l:'A2',i:'Je suis triste.',f:'Je suis triste.',e:'I\'m sad.'},
+{c:'feelings',l:'A2',i:'Je suis stressé(e).',f:'Je suis stressé(e).',e:'I\'m stressed.'},
+{c:'feelings',l:'B1',i:'J\'en ai marre.',f:'J\'en ai assez.',e:'I\'ve had enough / I\'m fed up.'},
+{c:'feelings',l:'A2',i:'J\'ai peur.',f:'J\'ai peur.',e:'I\'m scared.'},
+{c:'feelings',l:'B1',i:'Je me sens pas bien aujourd\'hui.',f:'Je ne me sens pas bien aujourd\'hui.',e:'I don\'t feel well today.'},
+{c:'feelings',l:'A2',i:'Je suis en colère.',f:'Je suis en colère.',e:'I\'m angry.'},
+{c:'feelings',l:'B1',i:'Je suis dépassé(e) par les événements.',f:'Je suis dépassé(e) par les événements.',e:'I\'m overwhelmed.'},
+{c:'feelings',l:'A2',i:'Je suis super content(e) pour toi !',f:'Je suis vraiment content(e) pour vous !',e:'I\'m so happy for you!'},
+{c:'feelings',l:'B1',i:'Ça m\'énerve vraiment.',f:'Cela m\'énerve vraiment.',e:'That really annoys me.'},
+{c:'feelings',l:'A2',i:'J\'ai honte.',f:'J\'ai honte.',e:'I\'m ashamed / embarrassed.'},
+{c:'feelings',l:'B1',i:'Je me sens seul(e) parfois.',f:'Je me sens seul(e) parfois.',e:'I feel lonely sometimes.'},
+{c:'feelings',l:'A2',i:'Je suis surpris(e).',f:'Je suis surpris(e).',e:'I\'m surprised.'},
+{c:'feelings',l:'B1',i:'Je suis à bout.',f:'Je suis à bout.',e:'I\'m at my limit / at the end of my rope.'},
+{c:'feelings',l:'A2',i:'Ça m\'est égal.',f:'Cela m\'est égal.',e:'I don\'t mind / I don\'t care.'},
+{c:'feelings',l:'B1',i:'Je suis soulagé(e).',f:'Je suis soulagé(e).',e:'I\'m relieved.'},
+{c:'feelings',l:'A2',i:'Je suis désolé(e).',f:'Je suis désolé(e).',e:'I\'m sorry.'},
+{c:'feelings',l:'B1',i:'Ça m\'a vraiment touché(e).',f:'Cela m\'a vraiment touché(e).',e:'That really moved me.'},
+{c:'feelings',l:'A2',i:'J\'ai pas envie.',f:'Je n\'en ai pas envie.',e:'I don\'t feel like it.'},
+{c:'feelings',l:'B1',i:'Je me sens bien dans ma peau.',f:'Je me sens bien dans ma peau.',e:'I feel good about myself.'},
+
+// ─── SMALL TALK ───
+{c:'smalltalk',l:'A2',i:'Ça fait longtemps !',f:'Cela fait longtemps !',e:'It\'s been a long time!'},
+{c:'smalltalk',l:'A2',i:'T\'habites où ?',f:'Où habitez-vous ?',e:'Where do you live?'},
+{c:'smalltalk',l:'A2',i:'Tu fais quoi dans la vie ?',f:'Quelle est votre profession ?',e:'What do you do for a living?'},
+{c:'smalltalk',l:'A2',i:'Tu viens d\'où ?',f:'D\'où venez-vous ?',e:'Where are you from?'},
+{c:'smalltalk',l:'B1',i:'Ça fait combien de temps que tu es à Paris ?',f:'Depuis combien de temps êtes-vous à Paris ?',e:'How long have you been in Paris?'},
+{c:'smalltalk',l:'A2',i:'Tu parles bien français !',f:'Vous parlez très bien français !',e:'You speak French well!'},
+{c:'smalltalk',l:'A2',i:'Il fait beau aujourd\'hui.',f:'Il fait beau aujourd\'hui.',e:'The weather is nice today.'},
+{c:'smalltalk',l:'A2',i:'C\'est quoi ton resto préféré ?',f:'Quel est votre restaurant préféré ?',e:'What\'s your favourite restaurant?'},
+{c:'smalltalk',l:'B1',i:'Tu regardes quoi comme série ?',f:'Quelle série regardez-vous en ce moment ?',e:'What series are you watching?'},
+{c:'smalltalk',l:'A2',i:'T\'as des enfants ?',f:'Avez-vous des enfants ?',e:'Do you have children?'},
+{c:'smalltalk',l:'B1',i:'Tu aimes Paris ?',f:'Aimez-vous Paris ?',e:'Do you like Paris?'},
+{c:'smalltalk',l:'A2',i:'C\'est quoi ton sport préféré ?',f:'Quel est votre sport préféré ?',e:'What\'s your favourite sport?'},
+{c:'smalltalk',l:'B1',i:'C\'est quoi la dernière chose que tu as regardé ?',f:'Quelle est la dernière chose que vous avez regardée ?',e:'What\'s the last thing you watched?'},
+{c:'smalltalk',l:'A2',i:'Tu écoutes quoi comme musique ?',f:'Quel genre de musique écoutez-vous ?',e:'What kind of music do you listen to?'},
+{c:'smalltalk',l:'B1',i:'T\'as des projets pour les vacances ?',f:'Avez-vous des projets pour les vacances ?',e:'Do you have holiday plans?'},
+{c:'smalltalk',l:'A2',i:'Bonne chance !',f:'Je vous souhaite bonne chance.',e:'Good luck!'},
+{c:'smalltalk',l:'A2',i:'Félicitations !',f:'Félicitations !',e:'Congratulations!'},
+{c:'smalltalk',l:'B1',i:'C\'est pas facile d\'apprendre le français.',f:'Il n\'est pas facile d\'apprendre le français.',e:'French isn\'t easy to learn.'},
+{c:'smalltalk',l:'A2',i:'Je comprends pas très bien.',f:'Je ne comprends pas très bien.',e:'I don\'t understand very well.'},
+{c:'smalltalk',l:'B1',i:'Vous pouvez répéter plus lentement ?',f:'Pourriez-vous répéter plus lentement ?',e:'Could you repeat more slowly?'},
+{c:'smalltalk',l:'A2',i:'Comment ça s\'écrit ?',f:'Comment cela s\'écrit-il ?',e:'How do you spell it?'},
+{c:'smalltalk',l:'B1',i:'Je cherche mes mots en français.',f:'Je cherche mes mots en français.',e:'I\'m searching for my words in French.'},
+{c:'smalltalk',l:'A2',i:'C\'est quoi en anglais ?',f:'Comment dit-on cela en anglais ?',e:'What is that in English?'},
+
+// ─── EMERGENCY ───
+{c:'emergency',l:'A2',i:'Au secours !',f:'Au secours !',e:'Help!'},
+{c:'emergency',l:'A2',i:'Appelez le 15 !',f:'Appelez le 15, s\'il vous plaît.',e:'Call 15 (SAMU)!'},
+{c:'emergency',l:'A2',i:'Y\'a eu un accident.',f:'Il y a eu un accident.',e:'There\'s been an accident.'},
+{c:'emergency',l:'A2',i:'On m\'a volé mon sac !',f:'On m\'a volé mon sac.',e:'My bag has been stolen!'},
+{c:'emergency',l:'B1',i:'J\'ai besoin d\'une ambulance.',f:'J\'ai besoin d\'une ambulance.',e:'I need an ambulance.'},
+{c:'emergency',l:'A2',i:'Il y a le feu !',f:'Il y a un incendie.',e:'There\'s a fire!'},
+{c:'emergency',l:'B1',i:'Je me suis fait agresser.',f:'J\'ai été agressé(e).',e:'I\'ve been attacked.'},
+{c:'emergency',l:'A2',i:'Où est l\'hôpital le plus proche ?',f:'Où se trouve l\'hôpital le plus proche ?',e:'Where is the nearest hospital?'},
+{c:'emergency',l:'B1',i:'J\'ai perdu mon passeport.',f:'J\'ai perdu mon passeport.',e:'I\'ve lost my passport.'},
+{c:'emergency',l:'A2',i:'Appelez la police !',f:'Appelez la police, s\'il vous plaît.',e:'Call the police!'},
+{c:'emergency',l:'B1',i:'J\'ai besoin de faire une déclaration de vol.',f:'Je dois déposer une plainte pour vol.',e:'I need to report a theft.'},
+{c:'emergency',l:'A2',i:'Quelqu\'un a vu mon enfant ?',f:'Quelqu\'un a-t-il vu mon enfant ?',e:'Has anyone seen my child?'},
+{c:'emergency',l:'B1',i:'Je suis bloqué(e), j\'ai plus de batterie.',f:'Je suis bloqué(e), mon téléphone n\'a plus de batterie.',e:'I\'m stuck, my phone has no battery.'},
+{c:'emergency',l:'A2',i:'C\'est une urgence !',f:'C\'est une urgence !',e:'It\'s an emergency!'},
+{c:'emergency',l:'B1',i:'Ma voiture est tombée en panne.',f:'Ma voiture est tombée en panne.',e:'My car has broken down.'},
+
+// ─── BEDTIME ───
+{c:'bedtime',l:'A2',i:'Je regarde un épisode et je dors.',f:'Je regarde un épisode puis je me couche.',e:'I\'ll watch one episode then sleep.'},
+{c:'bedtime',l:'A2',i:'Baisse le son, j\'essaie de dormir.',f:'Pourriez-vous baisser le son ? J\'essaie de dormir.',e:'Turn it down, I\'m trying to sleep.'},
+{c:'bedtime',l:'A2',i:'T\'éteins la lumière ?',f:'Pourriez-vous éteindre la lumière ?',e:'Can you turn off the light?'},
+{c:'bedtime',l:'A2',i:'Bonne nuit, à demain.',f:'Bonne nuit, à demain.',e:'Good night, see you tomorrow.'},
+{c:'bedtime',l:'A2',i:'Je mets le réveil à 7h.',f:'Je règle le réveil à 7 heures.',e:'I\'m setting the alarm for 7.'},
+{c:'bedtime',l:'A2',i:'Je suis épuisé(e), je vais me coucher.',f:'Je suis épuisé(e), je vais me coucher.',e:'I\'m exhausted, I\'m going to bed.'},
+{c:'bedtime',l:'B1',i:'Je lis un peu avant de dormir.',f:'Je lis un peu avant de dormir.',e:'I read a little before sleeping.'},
+{c:'bedtime',l:'A2',i:'Je dors pas bien en ce moment.',f:'Je ne dors pas bien en ce moment.',e:'I\'m not sleeping well at the moment.'},
+{c:'bedtime',l:'B1',i:'Je vais pas tarder à aller me coucher.',f:'Je vais bientôt aller me coucher.',e:'I\'m going to bed soon.'},
+{c:'bedtime',l:'A2',i:'Fais de beaux rêves.',f:'Faites de beaux rêves.',e:'Sweet dreams.'},
+{c:'bedtime',l:'B1',i:'Je peux pas m\'endormir.',f:'Je n\'arrive pas à m\'endormir.',e:'I can\'t fall asleep.'},
+{c:'bedtime',l:'A2',i:'J\'ai oublié de brancher mon téléphone.',f:'J\'ai oublié de brancher mon téléphone.',e:'I forgot to charge my phone.'},
+{c:'bedtime',l:'B1',i:'Je pense trop, j\'arrive pas à me détendre.',f:'Je pense trop, je n\'arrive pas à me détendre.',e:'I\'m overthinking, I can\'t relax.'},
+{c:'bedtime',l:'A2',i:'À demain !',f:'À demain.',e:'See you tomorrow!'},
+{c:'bedtime',l:'B1',i:'Je me lève tôt demain, il faut que je dorme.',f:'Je me lève tôt demain, il faut que je dorme.',e:'I\'m up early tomorrow, I need to sleep.'},
+{c:'morning',l:'A2',i:'Il fait froid ce matin.',f:'Il fait froid ce matin.',e:'It\'s cold this morning.'},
+{c:'morning',l:'B1',i:'Je me prépare, j\'en ai pour vingt minutes.',f:'Je me prépare, j\'en ai pour vingt minutes.',e:'I\'m getting ready, I\'ll be twenty minutes.'},
+{c:'morning',l:'A2',i:'Où sont mes clés ?',f:'Où sont mes clés ?',e:'Where are my keys?'},
+{c:'morning',l:'B1',i:'J\'ai besoin d\'un café avant de parler à qui que ce soit.',f:'J\'ai besoin d\'un café avant de parler à quiconque.',e:'I need a coffee before talking to anyone.'},
+{c:'morning',l:'A2',i:'Le temps est gris ce matin.',f:'Le temps est gris ce matin.',e:'It\'s grey this morning.'},
+{c:'morning',l:'A2',i:'Je vais être en retard au travail.',f:'Je vais être en retard au travail.',e:'I\'m going to be late for work.'},
+{c:'bathroom',l:'A2',i:'Je peux utiliser ta crème ?',f:'Puis-je utiliser votre crème ?',e:'Can I use your cream?'},
+{c:'bathroom',l:'B1',i:'J\'ai besoin de racheter du dentifrice.',f:'Je dois racheter du dentifrice.',e:'I need to buy more toothpaste.'},
+{c:'bathroom',l:'A2',i:'La douche prend combien de temps à chauffer ?',f:'Combien de temps faut-il pour que la douche chauffe ?',e:'How long does the shower take to heat up?'},
+{c:'bathroom',l:'B1',i:'Je vais couper mes cheveux ce week-end.',f:'Je vais me faire couper les cheveux ce week-end.',e:'I\'m getting my hair cut this weekend.'},
+{c:'gym',l:'B1',i:'Je fais du sport pour gérer le stress.',f:'Je fais du sport pour gérer le stress.',e:'I exercise to manage stress.'},
+{c:'gym',l:'A2',i:'Tu vas au sport ce soir ?',f:'Allez-vous faire du sport ce soir ?',e:'Are you going to the gym tonight?'},
+{c:'gym',l:'B1',i:'J\'ai pas fait de sport depuis deux semaines.',f:'Je n\'ai pas fait de sport depuis deux semaines.',e:'I haven\'t exercised in two weeks.'},
+{c:'gym',l:'B1',i:'Je m\'inscris à un cours collectif.',f:'Je m\'inscris à un cours collectif.',e:'I\'m signing up for a group class.'},
+{c:'street',l:'B1',i:'Je cherche un café ouvert le dimanche matin.',f:'Je cherche un café ouvert le dimanche matin.',e:'I\'m looking for a café open Sunday morning.'},
+{c:'street',l:'A2',i:'Il y a un arrêt de bus par ici ?',f:'Y a-t-il un arrêt de bus à proximité ?',e:'Is there a bus stop nearby?'},
+{c:'street',l:'B1',i:'C\'est dans quelle rue exactement ?',f:'Dans quelle rue exactement se trouve-t-il ?',e:'Which street exactly is it on?'},
+{c:'street',l:'A2',i:'Il y a un parking par ici ?',f:'Y a-t-il un parking à proximité ?',e:'Is there a car park nearby?'},
+{c:'metro',l:'B1',i:'Le bus est moins rapide mais plus agréable.',f:'Le bus est moins rapide mais plus agréable.',e:'The bus is slower but more pleasant.'},
+{c:'metro',l:'A2',i:'Je prends le taxi quand il pleut.',f:'Je prends le taxi quand il pleut.',e:'I take a taxi when it rains.'},
+{c:'metro',l:'B1',i:'Je préfère marcher quand c\'est moins de vingt minutes.',f:'Je préfère marcher lorsque c\'est à moins de vingt minutes.',e:'I prefer to walk when it\'s under twenty minutes.'},
+{c:'metro',l:'A2',i:'C\'est payant, le bus ?',f:'Le bus est-il payant ?',e:'Do you have to pay for the bus?'},
+{c:'office',l:'B1',i:'Je dois rédiger un rapport pour vendredi.',f:'Je dois rédiger un rapport pour vendredi.',e:'I need to write a report by Friday.'},
+{c:'office',l:'A2',i:'On a une réunion d\'équipe ce matin.',f:'Nous avons une réunion d\'équipe ce matin.',e:'We have a team meeting this morning.'},
+{c:'office',l:'A2',i:'Le wifi ne marche pas.',f:'Le wifi ne fonctionne pas.',e:'The wifi isn\'t working.'},
+{c:'office',l:'B1',i:'Je transmets ça à mon collègue.',f:'Je transmets cela à mon collègue.',e:'I\'ll pass that on to my colleague.'},
+{c:'office',l:'A2',i:'J\'ai besoin d\'imprimer ce document.',f:'J\'ai besoin d\'imprimer ce document.',e:'I need to print this document.'},
+{c:'office',l:'B1',i:'On fait le point sur le projet demain ?',f:'Pouvons-nous faire le point sur le projet demain ?',e:'Shall we review the project tomorrow?'},
+{c:'office',l:'B1',i:'Vous pouvez me mettre en copie sur ce mail ?',f:'Pourriez-vous me mettre en copie sur ce courriel ?',e:'Can you CC me on that email?'},
+{c:'office',l:'A2',i:'La salle de réunion est libre ?',f:'La salle de réunion est-elle disponible ?',e:'Is the meeting room free?'},
+{c:'lunch',l:'B1',i:'Je mange dehors tous les jours.',f:'Je déjeune à l\'extérieur tous les jours.',e:'I eat out every day.'},
+{c:'lunch',l:'A2',i:'Je prends juste une salade.',f:'Je prends juste une salade.',e:'I\'ll just have a salad.'},
+{c:'lunch',l:'B1',i:'Je mange devant mon ordinateur aujourd\'hui.',f:'Je déjeune devant mon ordinateur aujourd\'hui.',e:'I\'m eating at my desk today.'},
+{c:'lunch',l:'A2',i:'Je mange sans gluten.',f:'Je mange sans gluten.',e:'I eat gluten-free.'},
+{c:'shopping',l:'B1',i:'Y\'a des réductions en ce moment ?',f:'Y a-t-il des réductions en ce moment ?',e:'Are there any discounts at the moment?'},
+{c:'shopping',l:'A2',i:'Je cherche un cadeau pour mon ami.',f:'Je cherche un cadeau pour mon ami.',e:'I\'m looking for a gift for my friend.'},
+{c:'shopping',l:'B1',i:'C\'est quoi votre politique de remboursement ?',f:'Quelle est votre politique de remboursement ?',e:'What is your refund policy?'},
+{c:'shopping',l:'A2',i:'Vous avez ça en d\'autres couleurs ?',f:'Avez-vous cela en d\'autres couleurs ?',e:'Do you have this in other colours?'},
+{c:'shopping',l:'A2',i:'Je peux essayer ça ?',f:'Puis-je essayer cela ?',e:'Can I try this on?'},
+{c:'doctor',l:'B1',i:'J\'ai du mal à dormir depuis quelques semaines.',f:'J\'ai du mal à dormir depuis quelques semaines.',e:'I\'ve had trouble sleeping for a few weeks.'},
+{c:'doctor',l:'A2',i:'Je vais à la pharmacie.',f:'Je vais à la pharmacie.',e:'I\'m going to the pharmacy.'},
+{c:'doctor',l:'B1',i:'C\'est remboursé par la mutuelle ?',f:'Est-ce remboursé par la mutuelle ?',e:'Is this covered by supplementary health insurance?'},
+{c:'doctor',l:'A2',i:'J\'ai une douleur dans le dos.',f:'J\'ai une douleur dans le dos.',e:'I have a pain in my back.'},
+{c:'doctor',l:'B1',i:'Je prends des médicaments contre l\'hypertension.',f:'Je prends des médicaments contre l\'hypertension.',e:'I take medication for high blood pressure.'},
+{c:'bank',l:'B1',i:'Je veux simuler un crédit.',f:'Je souhaite simuler un crédit.',e:'I\'d like to simulate a loan.'},
+{c:'bank',l:'B1',i:'Je veux épargner chaque mois.',f:'Je souhaite épargner chaque mois.',e:'I want to save each month.'},
+{c:'bank',l:'A2',i:'Je peux avoir un justificatif de domicile ?',f:'Puis-je obtenir un justificatif de domicile ?',e:'Can I get a proof of address?'},
+{c:'phone',l:'A2',i:'Je peux te rappeler dans cinq minutes ?',f:'Puis-je vous rappeler dans cinq minutes ?',e:'Can I call you back in five minutes?'},
+{c:'phone',l:'B1',i:'Je vais mettre en mode silencieux.',f:'Je vais mettre mon téléphone en mode silencieux.',e:'I\'m going to put it on silent.'},
+{c:'phone',l:'B1',i:'Je suis en réunion, je rappelle.',f:'Je suis en réunion, je vous rappellerai.',e:'I\'m in a meeting, I\'ll call back.'},
+{c:'evening',l:'B1',i:'Je vais prendre un bain ce soir.',f:'Je vais prendre un bain ce soir.',e:'I\'m going to have a bath tonight.'},
+{c:'evening',l:'A2',i:'Je vais faire un tour dehors.',f:'Je vais faire un tour dehors.',e:'I\'m going for a walk outside.'},
+{c:'evening',l:'B1',i:'On peut parler ce soir ? J\'ai quelque chose à te dire.',f:'Pouvons-nous parler ce soir ? J\'ai quelque chose à vous dire.',e:'Can we talk tonight? I have something to tell you.'},
+{c:'dinner',l:'B1',i:'J\'ai envie de quelque chose de chaud.',f:'J\'ai envie de quelque chose de chaud.',e:'I feel like something warm.'},
+{c:'dinner',l:'A2',i:'C\'est pas assez cuit.',f:'Ce n\'est pas assez cuit.',e:'It\'s not cooked enough.'},
+{c:'dinner',l:'B1',i:'On cuisine ensemble ce soir ?',f:'Cuisinons-nous ensemble ce soir ?',e:'Shall we cook together tonight?'},
+{c:'dinner',l:'A2',i:'Il reste des restes d\'hier ?',f:'Reste-t-il des restes d\'hier ?',e:'Are there leftovers from yesterday?'},
+{c:'social',l:'B1',i:'Je fais pas la fête en semaine.',f:'Je ne sors pas en semaine.',e:'I don\'t go out during the week.'},
+{c:'social',l:'A2',i:'On se voit quand ?',f:'Quand nous voyons-nous ?',e:'When are we seeing each other?'},
+{c:'social',l:'B1',i:'C\'est moi qui choisis le resto cette fois.',f:'C\'est moi qui choisis le restaurant cette fois.',e:'I\'m choosing the restaurant this time.'},
+{c:'social',l:'A2',i:'Je suis en route, j\'arrive dans dix minutes.',f:'Je suis en route, j\'arrive dans dix minutes.',e:'I\'m on my way, I\'ll be there in ten minutes.'},
+{c:'social',l:'B1',i:'C\'est une bonne idée, j\'en suis !',f:'C\'est une excellente idée, je suis partant(e) !',e:'Great idea, I\'m in!'},
+{c:'feelings',l:'B1',i:'Je me sens pas à ma place.',f:'Je ne me sens pas à ma place.',e:'I don\'t feel like I fit in.'},
+{c:'feelings',l:'A2',i:'Je suis de bonne humeur aujourd\'hui.',f:'Je suis de bonne humeur aujourd\'hui.',e:'I\'m in a good mood today.'},
+{c:'feelings',l:'B1',i:'J\'ai besoin de souffler.',f:'J\'ai besoin de souffler.',e:'I need a breather.'},
+{c:'feelings',l:'A2',i:'Ça va aller.',f:'Ça va aller.',e:'It\'s going to be ok.'},
+{c:'feelings',l:'B1',i:'Je suis anxieux(se) à propos de ça.',f:'Je suis anxieux(se) à ce sujet.',e:'I\'m anxious about that.'},
+{c:'smalltalk',l:'A2',i:'C\'est quoi ton plat préféré ?',f:'Quel est votre plat préféré ?',e:'What\'s your favourite dish?'},
+{c:'smalltalk',l:'B1',i:'T\'es plutôt matin ou soir ?',f:'Êtes-vous plutôt du matin ou du soir ?',e:'Are you more of a morning or evening person?'},
+{c:'smalltalk',l:'A2',i:'Tu aimes voyager ?',f:'Aimez-vous voyager ?',e:'Do you like travelling?'},
+{c:'smalltalk',l:'B1',i:'T\'as déjà vécu à l\'étranger ?',f:'Avez-vous déjà vécu à l\'étranger ?',e:'Have you ever lived abroad?'},
+{c:'smalltalk',l:'A2',i:'Tu as un animal de compagnie ?',f:'Avez-vous un animal de compagnie ?',e:'Do you have a pet?'},
+{c:'smalltalk',l:'A2',i:'C\'est quoi ton film préféré ?',f:'Quel est votre film préféré ?',e:'What\'s your favourite film?'},
+{c:'emergency',l:'B1',i:'Je peux utiliser votre téléphone ? C\'est urgent.',f:'Puis-je utiliser votre téléphone ? C\'est urgent.',e:'Can I use your phone? It\'s urgent.'},
+{c:'emergency',l:'A2',i:'Aidez-moi, s\'il vous plaît !',f:'Aidez-moi, s\'il vous plaît !',e:'Please help me!'},
+{c:'emergency',l:'B1',i:'Il faut appeler le SAMU.',f:'Il faut appeler le SAMU.',e:'We need to call the emergency services.'},
+{c:'bedtime',l:'B1',i:'Je vais méditer avant de dormir.',f:'Je vais méditer avant de dormir.',e:'I\'m going to meditate before sleeping.'},
+{c:'bedtime',l:'A2',i:'Je regarde mon téléphone trop longtemps avant de dormir.',f:'Je regarde mon téléphone trop longtemps avant de dormir.',e:'I look at my phone too long before sleeping.'},
+{c:'bedtime',l:'B1',i:'Je ferme les yeux mais je pense à tout.',f:'Je ferme les yeux mais je pense à tout.',e:'I close my eyes but I think about everything.'},
+{c:'bedtime',l:'A2',i:'Je me couche tôt ce soir.',f:'Je me couche tôt ce soir.',e:'I\'m going to bed early tonight.'},
+];
+
+let curCat='all', curLv='all';
+
+function render(){
+  const q = document.getElementById('q').value.toLowerCase().trim();
+  const wrap = document.getElementById('table-wrap');
+  wrap.innerHTML = '';
+
+  const cats = [...new Set(DATA.map(d=>d.c))];
+  const catLabels = {
+    morning:'🌅 Morning',bathroom:'🚿 Bathroom',gym:'🏋️ Gym',
+    breakfast:'☕ Breakfast & Café',street:'🚶 Street & Directions',
+    metro:'🚇 Metro & Transport',office:'🏢 Office',lunch:'🍽️ Lunch & Restaurant',
+    shopping:'🛍️ Shopping',doctor:'🏥 Doctor & Pharmacy',bank:'🏦 Bank & Admin',
+    phone:'📱 Phone Calls',evening:'🌆 Coming Home',dinner:'🍳 Dinner & Cooking',
+    social:'🎉 Social Life',feelings:'💬 Feelings',smalltalk:'😊 Small Talk',
+    emergency:'🆘 Emergency',bedtime:'🌙 Bedtime'
+  };
+
+  let totalVis = 0;
+  cats.forEach(cat => {
+    if(curCat !== 'all' && curCat !== cat) return;
+    const rows = DATA.filter(d => {
+      if(d.c !== cat) return false;
+      if(curLv !== 'all' && d.l !== curLv) return false;
+      if(q && !d.i.toLowerCase().includes(q) && !d.f.toLowerCase().includes(q) && !d.e.toLowerCase().includes(q)) return false;
+      return true;
+    });
+    if(rows.length === 0) return;
+    totalVis += rows.length;
+
+    const sec = document.createElement('div');
+    sec.className = 'cat-sec';
+    sec.innerHTML = `<div class="cat-hd"><span class="cat-icon">${catLabels[cat]?.split(' ')[0]||'📌'}</span><span class="cat-title">${catLabels[cat]||cat}</span><span class="cat-count">${rows.length} sentences</span></div>`;
+
+    const table = document.createElement('table');
+    table.className = 'tbl';
+    table.innerHTML = `<thead><tr><th>#</th><th>🗣️ Informal French</th><th>🎩 Formal French</th><th>🇬🇧 English</th><th>Lvl</th><th></th></tr></thead>`;
+    const tbody = document.createElement('tbody');
+    rows.forEach((d,i) => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td class="td-num">${i+1}</td>
+        <td class="td-inf">${d.i}</td>
+        <td class="td-for">${d.f}</td>
+        <td class="td-en">${d.e}</td>
+        <td><span class="lv-badge lv-${d.l.toLowerCase()}">${d.l}</span></td>
+        <td><button class="copy-btn" onclick="copyRow(this,'${d.i.replace(/'/g,"\\'")}','${d.f.replace(/'/g,"\\'")}')">📋</button></td>`;
+      tbody.appendChild(tr);
+    });
+    table.appendChild(tbody);
+    sec.appendChild(table);
+    wrap.appendChild(sec);
+  });
+
+  document.getElementById('empty').classList.toggle('show', totalVis === 0);
+  document.getElementById('total-count').textContent = totalVis;
+}
+
+function copyRow(btn, inf, form){
+  const text = `Informal: ${inf}\nFormal: ${form}`;
+  navigator.clipboard.writeText(text).then(()=>{
+    btn.textContent = '✅';
+    btn.classList.add('copied');
+    setTimeout(()=>{ btn.textContent = '📋'; btn.classList.remove('copied'); }, 1500);
+  });
+}
+
+function setCat(c, btn){
+  curCat = c;
+  document.querySelectorAll('#ctabs .tb').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  render();
+}
+function setLv(l, btn){
+  curLv = l;
+  document.querySelectorAll('.lv-row .lv').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  render();
+}
+function run(){ render(); }
+
+window.onload = render;
+</script>
+
+<div id="table-wrap"></div>
+<p style="text-align:center;color:var(--t3);font-size:.75rem;font-family:'DM Mono',monospace;margin-top:8px">Showing <span id="total-count">500</span> sentences</p>
+</div>
+
+</body>
+</html>
