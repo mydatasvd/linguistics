@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French B1 — Mini-Essays & Connectors</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700;1,400;1,600&family=DM+Mono:wght@400;500&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#faf7f2;--s1:#ffffff;--s2:#f3efe8;--s3:#e9e4da;
+  --br:#ddd8cc;--tx:#1e1a12;--t2:#5a5248;--t3:#9c9488;
+  --blue:#2055a0;--green:#1e7a3a;--orange:#c47010;--red:#b83030;
+  --purple:#6040a8;--teal:#157068;--navy:#18284a;--warm:#b86820;
+  /* connector highlight colors */
+  --c-seq:#fff3d0;--c-seq-b:#c47010;       /* sequence/time */
+  --c-con:#fde8e8;--c-con-b:#b83030;       /* contrast/concession */
+  --c-cau:#e8f4ec;--c-cau-b:#1e7a3a;       /* cause/reason */
+  --c-con2:#e8edf8;--c-con2-b:#2055a0;     /* consequence */
+  --c-add:#f0eafc;--c-add-b:#6040a8;       /* addition */
+  --c-ex:#fff0e4;--c-ex-b:#b86820;         /* example/illustration */
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--tx);min-height:100vh}
+
+/* HERO */
+.hero{background:linear-gradient(155deg,#18284a 0%,#0e1a32 50%,#18284a 100%);padding:56px 24px 48px;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:'ÉCRIRE';position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);font-family:'Fraunces',serif;font-size:9rem;font-weight:700;color:rgba(255,255,255,.025);white-space:nowrap;pointer-events:none;letter-spacing:14px}
+.hero-tag{display:inline-block;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:4px 16px;font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:18px;font-family:'DM Mono',monospace}
+.hero h1{font-family:'Fraunces',serif;font-size:clamp(2rem,5.5vw,3.6rem);font-weight:700;color:#fff;line-height:1.1;margin-bottom:10px;position:relative}
+.hero h1 em{font-style:italic;color:#f5c878}
+.hero p{color:rgba(255,255,255,.55);font-size:.92rem;max-width:520px;margin:0 auto 22px;position:relative}
+.stats{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;position:relative}
+.st{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:5px 14px;font-size:.76rem;color:rgba(255,255,255,.7);font-family:'DM Mono',monospace}
+.st strong{color:#fff}
+
+/* CONNECTOR LEGEND */
+.legend{background:var(--s1);border-bottom:2px solid var(--br);padding:12px 16px}
+.legend-inner{max-width:1160px;margin:0 auto}
+.legend-title{font-family:'DM Mono',monospace;font-size:.63rem;letter-spacing:1px;text-transform:uppercase;color:var(--t3);margin-bottom:8px}
+.legend-pills{display:flex;gap:7px;flex-wrap:wrap}
+.lp{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:5px;font-size:.75rem;font-weight:700;cursor:default}
+.lp-seq{background:var(--c-seq);color:var(--c-seq-b)}
+.lp-con{background:var(--c-con);color:var(--c-con-b)}
+.lp-cau{background:var(--c-cau);color:var(--c-cau-b)}
+.lp-con2{background:var(--c-con2);color:var(--c-con2-b)}
+.lp-add{background:var(--c-add);color:var(--c-add-b)}
+.lp-ex{background:var(--c-ex);color:var(--c-ex-b)}
+
+/* CONTROLS */
+.controls{background:var(--s1);border-bottom:1.5px solid var(--br);padding:10px 16px;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+.ci{max-width:1160px;margin:0 auto;display:flex;flex-direction:column;gap:8px}
+.sr{position:relative}
+.sr input{width:100%;background:var(--bg);border:1.5px solid var(--br);border-radius:8px;padding:7px 14px 7px 36px;font-family:'Nunito',sans-serif;font-size:.88rem;color:var(--tx);outline:none;transition:border-color .2s}
+.sr input:focus{border-color:var(--navy)}
+.sr input::placeholder{color:var(--t3)}
+.si{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--t3)}
+.tabs{display:flex;gap:5px;flex-wrap:wrap}
+.tb{padding:4px 12px;border-radius:16px;border:1.5px solid var(--br);background:transparent;font-family:'Nunito',sans-serif;font-size:.73rem;font-weight:700;cursor:pointer;color:var(--t2);transition:all .15s;white-space:nowrap}
+.tb:hover{border-color:var(--navy);color:var(--navy)}
+.tb.on{background:var(--navy);border-color:var(--navy);color:#fff}
+
+/* LAYOUT */
+.wrap{max-width:1160px;margin:0 auto;padding:24px 14px 60px}
+
+/* ESSAY CARD */
+.essay-card{background:var(--s1);border:1.5px solid var(--br);border-radius:14px;overflow:hidden;margin-bottom:24px;transition:box-shadow .15s}
+.essay-card:hover{box-shadow:0 6px 28px rgba(0,0,0,.07)}
+.essay-card.hide{display:none}
+
+.ec-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:var(--s2);border-bottom:1.5px solid var(--br);cursor:pointer}
+.ec-header:hover{background:var(--s3)}
+.ec-num{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--t3);flex-shrink:0;min-width:28px}
+.ec-icon{font-size:1.4rem;flex-shrink:0}
+.ec-meta{flex:1}
+.ec-title{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:600;color:var(--tx)}
+.ec-sub{font-size:.73rem;color:var(--t2);margin-top:2px}
+.ec-cat{font-family:'DM Mono',monospace;font-size:.6rem;padding:2px 8px;border-radius:3px;background:var(--navy);color:#fff;margin-left:auto;flex-shrink:0}
+.ec-tog{color:var(--t3);font-size:.85rem;transition:transform .22s;flex-shrink:0;margin-left:8px}
+.essay-card.open .ec-tog{transform:rotate(180deg)}
+
+.ec-body{display:none;padding:0}
+.essay-card.open .ec-body{display:block}
+
+.ec-section{padding:16px 18px;border-bottom:1px solid var(--br)}
+.ec-section:last-child{border-bottom:none}
+.ec-section-label{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:1px;text-transform:uppercase;color:var(--t3);margin-bottom:10px}
+
+/* ESSAY TEXT */
+.essay-fr{font-size:.93rem;line-height:1.9;color:var(--tx)}
+.essay-en{font-size:.88rem;line-height:1.85;color:var(--t2);font-style:italic;margin-top:4px}
+
+/* CONNECTOR HIGHLIGHTS */
+.hl{display:inline;padding:1px 4px;border-radius:3px;font-weight:700}
+.hl-seq{background:var(--c-seq);color:var(--c-seq-b)}
+.hl-con{background:var(--c-con);color:var(--c-con-b)}
+.hl-cau{background:var(--c-cau);color:var(--c-cau-b)}
+.hl-con2{background:var(--c-con2);color:var(--c-con2-b)}
+.hl-add{background:var(--c-add);color:var(--c-add-b)}
+.hl-ex{background:var(--c-ex);color:var(--c-ex-b)}
+
+/* CONNECTORS USED BOX */
+.connectors-used{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.cu-item{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:5px;font-size:.74rem;font-weight:700}
+
+/* TIPS BOX */
+.tip-box{background:#fffbf0;border:1px solid #e8d890;border-radius:8px;padding:10px 14px;font-size:.83rem;color:#5a4a10;line-height:1.6;margin-top:8px}
+.tip-box::before{content:'💡 '}
+
+/* VOCAB BOX */
+.vocab-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.voc{background:var(--s2);border:1px solid var(--br);border-radius:5px;padding:3px 9px;font-size:.78rem}
+.voc .vfr{color:var(--blue);font-weight:600}
+.voc .ven{color:var(--t2);font-size:.73rem}
+
+.empty{text-align:center;padding:40px;color:var(--t3);display:none}
+.empty.show{display:block}
+.empty h3{font-family:'Fraunces',serif;font-size:1.4rem;color:var(--t2)}
+
+/* CONNECTOR REFERENCE SECTION */
+.ref-section{background:var(--s1);border:1.5px solid var(--br);border-radius:14px;padding:20px 20px 24px;margin-bottom:30px}
+.ref-title{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:600;margin-bottom:14px;color:var(--tx)}
+.ref-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
+.ref-block{border-radius:8px;padding:11px 13px;font-size:.83rem}
+.ref-block h4{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.8px;text-transform:uppercase;margin-bottom:7px;font-weight:500}
+.ref-block ul{list-style:none;display:flex;flex-direction:column;gap:4px}
+.ref-block li{line-height:1.5}
+.ref-block li span{font-weight:700}
+.rb-seq{background:var(--c-seq)}
+.rb-seq h4{color:var(--c-seq-b)}
+.rb-con{background:var(--c-con)}
+.rb-con h4{color:var(--c-con-b)}
+.rb-cau{background:var(--c-cau)}
+.rb-cau h4{color:var(--c-cau-b)}
+.rb-con2{background:var(--c-con2)}
+.rb-con2 h4{color:var(--c-con2-b)}
+.rb-add{background:var(--c-add)}
+.rb-add h4{color:var(--c-add-b)}
+.rb-ex{background:var(--c-ex)}
+.rb-ex h4{color:var(--c-ex-b)}
+
+@media(max-width:600px){
+  .ref-grid{grid-template-columns:1fr}
+  .ec-header{flex-wrap:wrap}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-tag">Niveau B1 · Expression Orale & Écrite</div>
+  <h1>Mini-Essays &amp; <em>Connectors</em></h1>
+  <p>20 model texts on real topics — holidays, food, activities — with connectors highlighted and explained</p>
+  <div class="stats">
+    <div class="st"><strong>20</strong> mini-essays</div>
+    <div class="st"><strong>100+ words</strong> each</div>
+    <div class="st">🇫🇷 French + 🇬🇧 English</div>
+    <div class="st">B1 level</div>
+  </div>
+</div>
+
+<!-- CONNECTOR LEGEND -->
+<div class="legend">
+  <div class="legend-inner">
+    <div class="legend-title">Connector colour code</div>
+    <div class="legend-pills">
+      <span class="lp lp-seq">🟡 Sequence / Time</span>
+      <span class="lp lp-con">🔴 Contrast / Concession</span>
+      <span class="lp lp-cau">🟢 Cause / Reason</span>
+      <span class="lp lp-con2">🔵 Consequence / Result</span>
+      <span class="lp lp-add">🟣 Addition</span>
+      <span class="lp lp-ex">🟠 Example / Illustration</span>
+    </div>
+  </div>
+</div>
+
+<div class="controls">
+  <div class="ci">
+    <div class="sr">
+      <span class="si">🔍</span>
+      <input type="text" id="q" placeholder="Search topic… e.g. plage, ski, restaurant, forêt, gastronomie" oninput="run()">
+    </div>
+    <div class="tabs" id="ctabs">
+      <button class="tb on" onclick="setCat('all',this)">All Topics</button>
+      <button class="tb" onclick="setCat('vacances',this)">🏖️ Holidays</button>
+      <button class="tb" onclick="setCat('nature',this)">🌿 Nature</button>
+      <button class="tb" onclick="setCat('gastronomie',this)">🍽️ Food & Gastronomy</button>
+      <button class="tb" onclick="setCat('sortir',this)">🎉 Going Out</button>
+      <button class="tb" onclick="setCat('activite',this)">⚽ Activities</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+<div id="empty" class="empty"><h3>Aucun résultat</h3><p>Try a different search.</p></div>
+
+<!-- ══════════════════════════════════
+  CONNECTOR REFERENCE
+══════════════════════════════════ -->
+<div class="ref-section" id="ref-sec">
+  <div class="ref-title">📚 Essential Connectors — Quick Reference</div>
+  <div class="ref-grid">
+    <div class="ref-block rb-seq">
+      <h4>🟡 Sequence & Time</h4>
+      <ul>
+        <li><span>D'abord</span> — First of all</li>
+        <li><span>Ensuite / Puis</span> — Then / Next</li>
+        <li><span>Après</span> — After</li>
+        <li><span>Enfin</span> — Finally / At last</li>
+        <li><span>Le lendemain</span> — The next day</li>
+        <li><span>Au début</span> — At the beginning</li>
+        <li><span>À la fin</span> — At the end</li>
+        <li><span>Pendant ce temps</span> — Meanwhile</li>
+      </ul>
+    </div>
+    <div class="ref-block rb-con">
+      <h4>🔴 Contrast & Concession</h4>
+      <ul>
+        <li><span>Mais</span> — But</li>
+        <li><span>Cependant / Pourtant</span> — However / Yet</li>
+        <li><span>Bien que + subjonctif</span> — Although</li>
+        <li><span>Malgré + nom</span> — Despite</li>
+        <li><span>Même si</span> — Even if / Even though</li>
+        <li><span>Par contre / En revanche</span> — On the other hand</li>
+        <li><span>Au lieu de</span> — Instead of</li>
+        <li><span>Quand même</span> — Still / Nevertheless</li>
+      </ul>
+    </div>
+    <div class="ref-block rb-cau">
+      <h4>🟢 Cause & Reason</h4>
+      <ul>
+        <li><span>Parce que</span> — Because</li>
+        <li><span>Car</span> — Because / For (formal)</li>
+        <li><span>Puisque</span> — Since / Given that</li>
+        <li><span>Grâce à</span> — Thanks to</li>
+        <li><span>À cause de</span> — Because of (negative)</li>
+        <li><span>Étant donné que</span> — Given that</li>
+        <li><span>Vu que</span> — Seeing that</li>
+      </ul>
+    </div>
+    <div class="ref-block rb-con2">
+      <h4>🔵 Consequence & Result</h4>
+      <ul>
+        <li><span>Donc</span> — So / Therefore</li>
+        <li><span>Ainsi</span> — Thus / So</li>
+        <li><span>C'est pourquoi</span> — That's why</li>
+        <li><span>Du coup</span> — As a result (informal)</li>
+        <li><span>Par conséquent</span> — Consequently</li>
+        <li><span>Ce qui fait que</span> — Which means that</li>
+        <li><span>Tellement… que</span> — So much… that</li>
+      </ul>
+    </div>
+    <div class="ref-block rb-add">
+      <h4>🟣 Addition</h4>
+      <ul>
+        <li><span>Et / De plus</span> — And / Moreover</li>
+        <li><span>En plus</span> — In addition / On top of that</li>
+        <li><span>Également / Aussi</span> — Also / As well</li>
+        <li><span>Non seulement… mais aussi</span> — Not only… but also</li>
+        <li><span>D'ailleurs</span> — Besides / What's more</li>
+        <li><span>Par ailleurs</span> — Furthermore</li>
+        <li><span>Voire</span> — Indeed / Even</li>
+      </ul>
+    </div>
+    <div class="ref-block rb-ex">
+      <h4>🟠 Example & Illustration</h4>
+      <ul>
+        <li><span>Par exemple</span> — For example</li>
+        <li><span>Comme</span> — Like / Such as</li>
+        <li><span>Notamment</span> — In particular</li>
+        <li><span>Tel que</span> — Such as</li>
+        <li><span>C'est le cas de</span> — This is the case with</li>
+        <li><span>En particulier</span> — In particular</li>
+        <li><span>Surtout</span> — Especially / Above all</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+  ESSAYS
+══════════════════════════════════ -->
+
+<!-- 1. VACANCES D'ÉTÉ -->
+<div class="essay-card" data-cat="vacances" data-k="été vacances plage mer soleil voyage">
+<div class="ec-header" onclick="tog(this)">
+  <span class="ec-num">01</span><span class="ec-icon">☀️</span>
+  <div class="ec-meta"><div class="ec-title">Mes vacances d'été</div><div class="ec-sub">Summer holidays — describing a trip</div></div>
+  <span class="ec-cat">Vacances</span><span class="ec-tog">▾</span>
+</div>
+<div class="ec-body">
+  <div class="ec-section">
+    <div class="ec-section-label">🇫🇷 Texte en français</div>
+    <div class="essay-fr">
+      <span class="hl hl-seq">L'été dernier</span>, j'ai décidé de partir en vacances en Espagne avec deux amis. <span class="hl hl-seq">D'abord</span>, nous avons pris un vol depuis Paris, ce qui nous a pris environ deux heures. <span class="hl hl-seq">À notre arrivée</span>, il faisait déjà plus de trente degrés, <span class="hl hl-con2">donc</span> nous nous sommes directement dirigés vers la plage. <span class="hl hl-add">En plus</span>, l'hôtel était situé à seulement cinq minutes de la mer, <span class="hl hl-cau">ce qui était parfait car</span> nous pouvions y aller à pied. <span class="hl hl-seq">Pendant la semaine</span>, nous avons visité plusieurs villages typiques, <span class="hl hl-add">notamment</span> un petit port de pêche où les fruits de mer étaient délicieux. <span class="hl hl-con">Cependant</span>, un jour il a plu toute la matinée, <span class="hl hl-con2">du coup</span> nous avons visité un musée local qui était vraiment intéressant. <span class="hl hl-seq">Enfin</span>, le dernier soir, nous avons mangé dans un restaurant en bord de mer avec une vue magnifique sur le coucher du soleil. <span class="hl hl-cau">Grâce à</span> ce voyage, j'ai pu me ressourcer complètement et revenir à Paris plein(e) d'énergie. <span class="hl hl-add">D'ailleurs</span>, je pense déjà à y retourner l'année prochaine.
+    </div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">🇬🇧 English translation</div>
+    <div class="essay-en">Last summer, I decided to go on holiday to Spain with two friends. First, we took a flight from Paris, which took about two hours. On arrival, it was already over thirty degrees, so we headed straight to the beach. What's more, the hotel was only five minutes from the sea, which was perfect because we could walk there. During the week, we visited several typical villages, in particular a small fishing port where the seafood was delicious. However, one day it rained all morning, so we visited a local museum which was really interesting. Finally, on the last evening, we ate in a seafront restaurant with a magnificent view of the sunset. Thanks to this trip, I was able to completely recharge and return to Paris full of energy. What's more, I'm already thinking about going back next year.</div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">Connectors used</div>
+    <div class="connectors-used">
+      <span class="cu-item lp-seq">L'été dernier · D'abord · À notre arrivée · Pendant · Enfin</span>
+      <span class="cu-item lp-con">Cependant</span>
+      <span class="cu-item lp-cau">Car · Grâce à</span>
+      <span class="cu-item lp-con2">Donc · Du coup</span>
+      <span class="cu-item lp-add">En plus · D'ailleurs · Notamment</span>
+    </div>
+    <div class="tip-box">Use <strong>L'été dernier / L'hiver dernier</strong> to set the time. Start each new idea with a connector — never just pile sentences with "et… et… et…"</div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">Useful vocabulary</div>
+    <div class="vocab-list">
+      <span class="voc"><span class="vfr">se ressourcer</span> <span class="ven">— to recharge</span></span>
+      <span class="voc"><span class="vfr">un port de pêche</span> <span class="ven">— a fishing port</span></span>
+      <span class="voc"><span class="vfr">en bord de mer</span> <span class="ven">— by the sea</span></span>
+      <span class="voc"><span class="vfr">le coucher du soleil</span> <span class="ven">— the sunset</span></span>
+      <span class="voc"><span class="vfr">se diriger vers</span> <span class="ven">— to head towards</span></span>
+    </div>
+  </div>
+</div></div>
+
+<!-- 2. VACANCES D'HIVER -->
+<div class="essay-card" data-cat="vacances" data-k="hiver ski neige froid alpes montagne">
+<div class="ec-header" onclick="tog(this)">
+  <span class="ec-num">02</span><span class="ec-icon">❄️</span>
+  <div class="ec-meta"><div class="ec-title">Mes vacances d'hiver</div><div class="ec-sub">Winter holidays — skiing & snow</div></div>
+  <span class="ec-cat">Vacances</span><span class="ec-tog">▾</span>
+</div>
+<div class="ec-body">
+  <div class="ec-section">
+    <div class="ec-section-label">🇫🇷 Texte en français</div>
+    <div class="essay-fr">
+      <span class="hl hl-seq">En décembre dernier</span>, j'ai eu la chance de partir une semaine dans les Alpes avec des collègues de travail. <span class="hl hl-con">Même si</span> je n'avais jamais skié de ma vie, j'ai décidé de tenter l'expérience. <span class="hl hl-seq">Le premier jour</span>, j'ai pris des cours pour débutants, <span class="hl hl-con">mais</span> c'était bien plus difficile que je ne le pensais. <span class="hl hl-cau">En effet</span>, rester en équilibre sur des skis n'est pas du tout naturel au début. <span class="hl hl-con">Cependant</span>, <span class="hl hl-seq">au bout de deux jours</span>, j'arrivais déjà à descendre les pistes vertes sans tomber. <span class="hl hl-add">De plus</span>, le paysage enneigé était absolument magnifique, <span class="hl hl-con2">ce qui nous a donné encore plus d'envie</span> de profiter de chaque moment. <span class="hl hl-seq">Le soir</span>, on se retrouvait tous au chalet autour d'une raclette et d'un bon vin chaud. <span class="hl hl-add">D'ailleurs</span>, c'est ce que j'ai préféré : le côté convivial des repas après le ski. <span class="hl hl-con">Malgré</span> le froid intense — il faisait parfois moins quinze — ces vacances ont été parmi les meilleures de ma vie. <span class="hl hl-cau">Grâce à</span> mes collègues qui m'ont encouragé(e), j'ai complètement surpassé ma peur.
+    </div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">🇬🇧 English translation</div>
+    <div class="essay-en">Last December, I was lucky enough to spend a week in the Alps with work colleagues. Even though I had never skied in my life, I decided to give it a try. On the first day, I took beginner lessons, but it was much harder than I thought. Indeed, staying balanced on skis is not at all natural at first. However, after two days, I was already managing to go down the green runs without falling. What's more, the snowy landscape was absolutely beautiful, which gave us even more desire to enjoy every moment. In the evenings, we all gathered at the chalet over raclette and warm wine. What's more, that's what I liked most: the convivial atmosphere of meals after skiing. Despite the intense cold — sometimes minus fifteen — these holidays were among the best of my life. Thanks to my colleagues who encouraged me, I completely overcame my fear.</div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">Connectors used</div>
+    <div class="connectors-used">
+      <span class="cu-item lp-seq">En décembre dernier · Le premier jour · Au bout de deux jours · Le soir</span>
+      <span class="cu-item lp-con">Même si · Mais · Cependant · Malgré</span>
+      <span class="cu-item lp-cau">En effet · Grâce à</span>
+      <span class="cu-item lp-con2">Ce qui nous a donné</span>
+      <span class="cu-item lp-add">De plus · D'ailleurs</span>
+    </div>
+    <div class="tip-box"><strong>En effet</strong> (indeed) is very useful to reinforce a point you just made. <strong>Au bout de + time</strong> (after / at the end of) is a natural B1 time expression.</div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">Useful vocabulary</div>
+    <div class="vocab-list">
+      <span class="voc"><span class="vfr">une piste verte</span> <span class="ven">— beginner ski run</span></span>
+      <span class="voc"><span class="vfr">enneigé(e)</span> <span class="ven">— snow-covered</span></span>
+      <span class="voc"><span class="vfr">convivial(e)</span> <span class="ven">— friendly, sociable</span></span>
+      <span class="voc"><span class="vfr">surpasser sa peur</span> <span class="ven">— to overcome one's fear</span></span>
+      <span class="voc"><span class="vfr">une raclette</span> <span class="ven">— a French mountain cheese dish</span></span>
+    </div>
+  </div>
+</div></div>
+
+<!-- 3. LA PLAGE -->
+<div class="essay-card" data-cat="nature" data-k="plage mer sable baignade soleil bronzer">
+<div class="ec-header" onclick="tog(this)">
+  <span class="ec-num">03</span><span class="ec-icon">🏖️</span>
+  <div class="ec-meta"><div class="ec-title">Une journée à la plage</div><div class="ec-sub">A day at the beach — sensory description</div></div>
+  <span class="ec-cat">Nature</span><span class="ec-tog">▾</span>
+</div>
+<div class="ec-body">
+  <div class="ec-section">
+    <div class="ec-section-label">🇫🇷 Texte en français</div>
+    <div class="essay-fr">
+      Il y a quelques semaines, j'ai passé une journée inoubliable sur une plage de la Côte d'Azur. <span class="hl hl-seq">Dès notre arrivée</span>, j'ai été frappé(e) par la beauté du paysage : le sable blanc, l'eau turquoise et le ciel d'un bleu intense. <span class="hl hl-seq">Dans un premier temps</span>, on s'est installés sur des serviettes et on a profité du soleil pendant une bonne heure. <span class="hl hl-seq">Ensuite</span>, on est allés se baigner. <span class="hl hl-cau">Puisque</span> la mer était calme et chaude, on a nagé assez loin du bord. <span class="hl hl-add">En plus</span>, j'ai essayé le paddle pour la première fois, <span class="hl hl-con">même si</span> j'ai chuté plusieurs fois au début, ce qui a beaucoup fait rire tout le monde. <span class="hl hl-seq">L'après-midi</span>, on a mangé des glaces en marchant le long du bord de mer. <span class="hl hl-add">Par ailleurs</span>, on a découvert un petit marché d'artisanat local, <span class="hl hl-ex">notamment</span> des bijoux faits main et des épices locales. <span class="hl hl-seq">Au coucher du soleil</span>, la plage prenait des couleurs orangées et roses spectaculaires. <span class="hl hl-con">Pourtant</span>, malgré cette beauté, ce qui m'a le plus marqué(e), c'est simplement le sentiment de liberté que procure une journée au bord de la mer.
+    </div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">🇬🇧 English translation</div>
+    <div class="essay-en">A few weeks ago, I spent an unforgettable day on a beach on the French Riviera. As soon as we arrived, I was struck by the beauty of the scenery: white sand, turquoise water and an intensely blue sky. At first, we settled on towels and enjoyed the sun for a good hour. Then we went for a swim. Since the sea was calm and warm, we swam quite far from the shore. What's more, I tried paddleboarding for the first time, even though I fell off several times at the start, which made everyone laugh a lot. In the afternoon, we ate ice creams while walking along the waterfront. Furthermore, we discovered a small local craft market, in particular handmade jewellery and local spices. At sunset, the beach took on spectacular orange and pink colours. Yet, despite this beauty, what struck me most was simply the feeling of freedom that a day by the sea gives you.</div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">Connectors used</div>
+    <div class="connectors-used">
+      <span class="cu-item lp-seq">Dès notre arrivée · Dans un premier temps · Ensuite · L'après-midi · Au coucher du soleil</span>
+      <span class="cu-item lp-con">Même si · Pourtant</span>
+      <span class="cu-item lp-cau">Puisque</span>
+      <span class="cu-item lp-add">En plus · Par ailleurs · Notamment</span>
+    </div>
+    <div class="tip-box"><strong>Dès notre arrivée</strong> (as soon as we arrived) is elegant. <strong>Dans un premier temps… Ensuite… Enfin</strong> is a classic B1 essay structure for sequencing events.</div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">Useful vocabulary</div>
+    <div class="vocab-list">
+      <span class="voc"><span class="vfr">être frappé(e) par</span> <span class="ven">— to be struck by</span></span>
+      <span class="voc"><span class="vfr">le bord de mer</span> <span class="ven">— the waterfront / seaside</span></span>
+      <span class="voc"><span class="vfr">le paddle</span> <span class="ven">— paddleboarding</span></span>
+      <span class="voc"><span class="vfr">des bijoux faits main</span> <span class="ven">— handmade jewellery</span></span>
+      <span class="voc"><span class="vfr">procurer</span> <span class="ven">— to give / to provide (a feeling)</span></span>
+    </div>
+  </div>
+</div></div>
+
+<!-- 4. LA FORÊT -->
+<div class="essay-card" data-cat="nature" data-k="forêt randonnée nature balade arbres">
+<div class="ec-header" onclick="tog(this)">
+  <span class="ec-num">04</span><span class="ec-icon">🌲</span>
+  <div class="ec-meta"><div class="ec-title">Une randonnée en forêt</div><div class="ec-sub">A hike in the forest — nature & feelings</div></div>
+  <span class="ec-cat">Nature</span><span class="ec-tog">▾</span>
+</div>
+<div class="ec-body">
+  <div class="ec-section">
+    <div class="ec-section-label">🇫🇷 Texte en français</div>
+    <div class="essay-fr">
+      <span class="hl hl-seq">Le week-end dernier</span>, j'ai fait une randonnée de cinq kilomètres dans la forêt de Fontainebleau avec un ami. <span class="hl hl-cau">Puisque</span> nous habitons tous les deux à Paris, cette escapade dans la nature était vraiment bienvenue. <span class="hl hl-seq">Dès les premières minutes</span>, j'ai ressenti une sensation de calme et de sérénité que je ne retrouve jamais en ville. <span class="hl hl-add">De plus</span>, l'air frais et l'odeur des pins étaient vraiment ressourçants. <span class="hl hl-seq">Après environ deux heures de marche</span>, on a trouvé un petit coin isolé au bord d'un ruisseau où l'on s'est assis pour déjeuner. <span class="hl hl-con">Même si</span> le sentier était parfois difficile, <span class="hl hl-add">notamment</span> à cause des racines et des pierres, on n'a jamais eu envie de s'arrêter. <span class="hl hl-cau">Grâce à</span> cette randonnée, j'ai compris l'importance de se déconnecter régulièrement du numérique. <span class="hl hl-con">Cependant</span>, ce qui m'a le plus surpris(e), c'est la richesse de la faune : on a vu des chevreuils à seulement quelques mètres de nous. <span class="hl hl-con2">C'est pourquoi</span> je compte maintenant faire une randonnée au moins une fois par mois. <span class="hl hl-add">En outre</span>, j'ai commencé à m'intéresser à la botanique depuis cette journée.
+    </div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">🇬🇧 English translation</div>
+    <div class="essay-en">Last weekend, I did a five-kilometre hike in the Fontainebleau forest with a friend. Since we both live in Paris, this escape into nature was really welcome. From the very first minutes, I felt a sense of calm and serenity that I never find in the city. What's more, the fresh air and the smell of pine trees were truly restorative. After about two hours of walking, we found a quiet spot by a stream where we sat down for lunch. Even if the path was sometimes difficult, notably because of roots and stones, we never wanted to stop. Thanks to this hike, I understood the importance of regularly disconnecting from technology. However, what surprised me most was the richness of the wildlife: we saw deer just a few metres away from us. That's why I now plan to go hiking at least once a month. Furthermore, I've started to become interested in botany since that day.</div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">Connectors used</div>
+    <div class="connectors-used">
+      <span class="cu-item lp-seq">Le week-end dernier · Dès les premières minutes · Après deux heures</span>
+      <span class="cu-item lp-con">Même si · Cependant</span>
+      <span class="cu-item lp-cau">Puisque · Grâce à</span>
+      <span class="cu-item lp-con2">C'est pourquoi</span>
+      <span class="cu-item lp-add">De plus · Notamment · En outre</span>
+    </div>
+    <div class="tip-box"><strong>En outre</strong> is a slightly formal way to say "furthermore" — great for giving your French a more literary touch. <strong>C'est pourquoi</strong> is a strong consequence connector that sounds very natural in spoken French.</div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">Useful vocabulary</div>
+    <div class="vocab-list">
+      <span class="voc"><span class="vfr">un ruisseau</span> <span class="ven">— a stream</span></span>
+      <span class="voc"><span class="vfr">un sentier</span> <span class="ven">— a path / trail</span></span>
+      <span class="voc"><span class="vfr">un chevreuil</span> <span class="ven">— a deer (roe deer)</span></span>
+      <span class="voc"><span class="vfr">se déconnecter</span> <span class="ven">— to disconnect (from tech)</span></span>
+      <span class="voc"><span class="vfr">ressourçant(e)</span> <span class="ven">— restorative, recharging</span></span>
+    </div>
+  </div>
+</div></div>
+
+<!-- 5. UN DÎNER EN FAMILLE -->
+<div class="essay-card" data-cat="gastronomie" data-k="dîner famille repas maison cuisine cuisiner">
+<div class="ec-header" onclick="tog(this)">
+  <span class="ec-num">05</span><span class="ec-icon">🍲</span>
+  <div class="ec-meta"><div class="ec-title">Un dîner en famille</div><div class="ec-sub">A family dinner — food, atmosphere, memories</div></div>
+  <span class="ec-cat">Gastronomie</span><span class="ec-tog">▾</span>
+</div>
+<div class="ec-body">
+  <div class="ec-section">
+    <div class="ec-section-label">🇫🇷 Texte en français</div>
+    <div class="essay-fr">
+      <span class="hl hl-seq">Le week-end dernier</span>, j'ai été invité(e) à un dîner chez des amis français. <span class="hl hl-seq">Dès mon arrivée</span>, j'ai été accueilli(e) chaleureusement avec un verre de champagne. <span class="hl hl-seq">D'abord</span>, on nous a servi une entrée de foie gras avec une brioche toastée, <span class="hl hl-add">accompagnée</span> d'un verre de sauternes. <span class="hl hl-seq">Ensuite</span>, le plat principal était un bœuf bourguignon mijoté pendant plusieurs heures, <span class="hl hl-ex">tellement</span> fondant qu'il se défaisait à la fourchette. <span class="hl hl-add">De plus</span>, on a eu droit à un plateau de fromages impressionnant — <span class="hl hl-ex">notamment</span> un camembert, un comté et un roquefort. <span class="hl hl-seq">Pour finir</span>, une tarte tatin maison, encore tiède. <span class="hl hl-con">Bien que</span> je ne mange pas souvent de plats aussi riches, ce repas était une véritable célébration. <span class="hl hl-cau">Car</span> ce que j'apprécie le plus dans la gastronomie française, c'est qu'un repas n'est jamais juste une question de nourriture : c'est un moment de partage. <span class="hl hl-con2">C'est pourquoi</span> je rentre toujours de ces dîners avec le sentiment d'avoir vécu quelque chose de spécial.
+    </div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">🇬🇧 English translation</div>
+    <div class="essay-en">Last weekend, I was invited to a dinner at French friends' house. As soon as I arrived, I was warmly welcomed with a glass of champagne. First, we were served a foie gras starter with toasted brioche, accompanied by a glass of Sauternes. Then, the main course was a beef bourguignon slow-cooked for several hours, so tender it fell apart with a fork. What's more, we were treated to an impressive cheese board — in particular a camembert, a comté and a roquefort. Finally, a homemade tarte tatin, still warm. Although I don't often eat such rich dishes, this meal was a true celebration. Because what I appreciate most about French gastronomy is that a meal is never just about food: it's a moment of sharing. That's why I always come back from these dinners with the feeling of having experienced something special.</div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">Connectors used</div>
+    <div class="connectors-used">
+      <span class="cu-item lp-seq">D'abord · Ensuite · Pour finir · Dès mon arrivée</span>
+      <span class="cu-item lp-con">Bien que</span>
+      <span class="cu-item lp-cau">Car</span>
+      <span class="cu-item lp-con2">C'est pourquoi</span>
+      <span class="cu-item lp-add">De plus · Notamment · Accompagnée</span>
+      <span class="cu-item lp-ex">Tellement… que</span>
+    </div>
+    <div class="tip-box"><strong>Tellement… que</strong> (so… that) is a great B1 intensifier. <strong>D'abord… Ensuite… Pour finir</strong> is the classic food description sequence.</div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">Useful vocabulary</div>
+    <div class="vocab-list">
+      <span class="voc"><span class="vfr">mijoter</span> <span class="ven">— to simmer / slow-cook</span></span>
+      <span class="voc"><span class="vfr">fondant(e)</span> <span class="ven">— melt-in-your-mouth tender</span></span>
+      <span class="voc"><span class="vfr">un plateau de fromages</span> <span class="ven">— a cheese board</span></span>
+      <span class="voc"><span class="vfr">le partage</span> <span class="ven">— sharing</span></span>
+      <span class="voc"><span class="vfr">chaleureusement</span> <span class="ven">— warmly</span></span>
+    </div>
+  </div>
+</div></div>
+
+<!-- 6. UN RESTAURANT GASTRONOMIQUE -->
+<div class="essay-card" data-cat="gastronomie" data-k="restaurant gastronomie étoilé dîner luxe cuisine">
+<div class="ec-header" onclick="tog(this)">
+  <span class="ec-num">06</span><span class="ec-icon">⭐</span>
+  <div class="ec-meta"><div class="ec-title">Un restaurant gastronomique</div><div class="ec-sub">A fine dining experience — describing the meal</div></div>
+  <span class="ec-cat">Gastronomie</span><span class="ec-tog">▾</span>
+</div>
+<div class="ec-body">
+  <div class="ec-section">
+    <div class="ec-section-label">🇫🇷 Texte en français</div>
+    <div class="essay-fr">
+      Pour fêter mon anniversaire, des amis m'ont emmené(e) dans un restaurant gastronomique dans le 8ème arrondissement de Paris. <span class="hl hl-con">Bien que</span> j'aie souvent entendu parler de ce type d'établissement, c'était ma première expérience dans un restaurant étoilé. <span class="hl hl-seq">À notre arrivée</span>, l'accueil était impeccable : le personnel était attentionné et élégant. <span class="hl hl-seq">D'abord</span>, on nous a proposé un menu dégustation en sept plats, <span class="hl hl-add">chacun</span> présenté comme une véritable œuvre d'art. <span class="hl hl-ex">Par exemple</span>, l'entrée était une fine tranche de saint-pierre avec une émulsion de citron et quelques herbes fraîches. <span class="hl hl-con">Cependant</span>, ce qui m'a le plus impressionné(e), c'est la précision avec laquelle chaque saveur était équilibrée. <span class="hl hl-add">En outre</span>, le sommelier nous a proposé des accords mets-vins absolument remarquables. <span class="hl hl-con2">Ainsi</span>, chaque bouchée était une découverte. <span class="hl hl-cau">Grâce à</span> cette soirée, j'ai compris pourquoi la gastronomie française est reconnue dans le monde entier. <span class="hl hl-add">D'ailleurs</span>, c'est bien plus qu'un repas : c'est une expérience sensorielle complète.
+    </div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">🇬🇧 English translation</div>
+    <div class="essay-en">To celebrate my birthday, friends took me to a gastronomic restaurant in the 8th arrondissement of Paris. Although I had often heard about this type of establishment, it was my first experience in a starred restaurant. On arrival, the welcome was impeccable: the staff were attentive and elegant. First, we were offered a seven-course tasting menu, each one presented like a true work of art. For example, the starter was a thin slice of John Dory with a lemon emulsion and a few fresh herbs. However, what impressed me most was the precision with which every flavour was balanced. Furthermore, the sommelier offered us absolutely remarkable wine pairings. Thus, each bite was a discovery. Thanks to this evening, I understood why French gastronomy is recognised around the world. What's more, it's much more than a meal: it's a complete sensory experience.</div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">Connectors used</div>
+    <div class="connectors-used">
+      <span class="cu-item lp-seq">À notre arrivée · D'abord</span>
+      <span class="cu-item lp-con">Bien que · Cependant</span>
+      <span class="cu-item lp-cau">Grâce à</span>
+      <span class="cu-item lp-con2">Ainsi</span>
+      <span class="cu-item lp-add">En outre · D'ailleurs · Chacun</span>
+      <span class="cu-item lp-ex">Par exemple</span>
+    </div>
+    <div class="tip-box"><strong>Ainsi</strong> (thus/so) is a formal consequence connector — excellent for written French and impresses in oral exams. <strong>Bien que + subjonctif</strong> adds sophistication.</div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">Useful vocabulary</div>
+    <div class="vocab-list">
+      <span class="voc"><span class="vfr">un menu dégustation</span> <span class="ven">— a tasting menu</span></span>
+      <span class="voc"><span class="vfr">attentionné(e)</span> <span class="ven">— attentive, considerate</span></span>
+      <span class="voc"><span class="vfr">un accord mets-vins</span> <span class="ven">— a food and wine pairing</span></span>
+      <span class="voc"><span class="vfr">une saveur</span> <span class="ven">— a flavour</span></span>
+      <span class="voc"><span class="vfr">sensoriel(le)</span> <span class="ven">— sensory</span></span>
+    </div>
+  </div>
+</div></div>
+
+<!-- 7. UN MARCHÉ DE PRODUCTEURS -->
+<div class="essay-card" data-cat="gastronomie" data-k="marché produits locaux fromage fruits légumes">
+<div class="ec-header" onclick="tog(this)">
+  <span class="ec-num">07</span><span class="ec-icon">🧀</span>
+  <div class="ec-meta"><div class="ec-title">Un marché de producteurs</div><div class="ec-sub">A local food market — colours, smells, tasting</div></div>
+  <span class="ec-cat">Gastronomie</span><span class="ec-tog">▾</span>
+</div>
+<div class="ec-body">
+  <div class="ec-section">
+    <div class="ec-section-label">🇫🇷 Texte en français</div>
+    <div class="essay-fr">
+      <span class="hl hl-seq">Samedi matin</span>, je suis allé(e) pour la première fois au marché de la Bastille à Paris. <span class="hl hl-seq">Dès que</span> j'ai franchi l'entrée, j'ai été submergé(e) par un mélange de couleurs et d'odeurs extraordinaires. <span class="hl hl-add">D'un côté</span>, des étals couverts de légumes frais aux couleurs vives ; <span class="hl hl-add">de l'autre</span>, des fromages affinés dont l'odeur puissante envahissait l'air. <span class="hl hl-seq">D'abord</span>, j'ai acheté des tomates cerises et des courgettes d'un agriculteur local qui m'a expliqué sa méthode de culture bio. <span class="hl hl-seq">Ensuite</span>, je me suis arrêté(e) devant un stand de charcuterie où j'ai goûté un saucisson au vin rouge absolument délicieux. <span class="hl hl-add">En plus</span>, j'ai trouvé des herbes aromatiques que je cherchais depuis longtemps : du thym, du romarin et de l'estragon frais. <span class="hl hl-con">Bien que</span> le marché soit bondé le samedi matin, l'ambiance y était chaleureuse et conviviale. <span class="hl hl-con2">Du coup</span>, j'ai passé bien plus de temps que prévu. <span class="hl hl-cau">C'est parce que</span> ces producteurs prennent le temps de raconter leur travail que je préfère le marché au supermarché.
+    </div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">🇬🇧 English translation</div>
+    <div class="essay-en">On Saturday morning, I went to the Bastille market in Paris for the first time. As soon as I crossed the entrance, I was overwhelmed by an extraordinary mix of colours and smells. On one side, stalls covered in brightly coloured fresh vegetables; on the other, aged cheeses whose powerful smell filled the air. First, I bought cherry tomatoes and courgettes from a local farmer who explained his organic growing method. Then, I stopped at a charcuterie stall where I tasted an absolutely delicious red wine saucisson. What's more, I found aromatic herbs I had been looking for for a long time: thyme, rosemary and fresh tarragon. Although the market is packed on Saturday morning, the atmosphere was warm and friendly. As a result, I spent much longer there than planned. It's because these producers take the time to talk about their work that I prefer the market to the supermarket.</div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">Connectors used</div>
+    <div class="connectors-used">
+      <span class="cu-item lp-seq">Samedi matin · Dès que · D'abord · Ensuite</span>
+      <span class="cu-item lp-con">Bien que</span>
+      <span class="cu-item lp-cau">C'est parce que</span>
+      <span class="cu-item lp-con2">Du coup</span>
+      <span class="cu-item lp-add">D'un côté… de l'autre · En plus</span>
+    </div>
+    <div class="tip-box"><strong>D'un côté… de l'autre</strong> (on one side… on the other) is perfect for describing contrasting scenes. <strong>Du coup</strong> is informal but very natural in spoken French for consequences.</div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">Useful vocabulary</div>
+    <div class="vocab-list">
+      <span class="voc"><span class="vfr">un étal</span> <span class="ven">— a market stall</span></span>
+      <span class="voc"><span class="vfr">affiné(e)</span> <span class="ven">— aged (cheese)</span></span>
+      <span class="voc"><span class="vfr">la charcuterie</span> <span class="ven">— cured meats / deli</span></span>
+      <span class="voc"><span class="vfr">bondé(e)</span> <span class="ven">— packed / crowded</span></span>
+      <span class="voc"><span class="vfr">l'estragon</span> <span class="ven">— tarragon</span></span>
+    </div>
+  </div>
+</div></div>
+
+<!-- 8. UN BARBECUE ENTRE AMIS -->
+<div class="essay-card" data-cat="gastronomie" data-k="barbecue amis été jardin grillade">
+<div class="ec-header" onclick="tog(this)">
+  <span class="ec-num">08</span><span class="ec-icon">🔥</span>
+  <div class="ec-meta"><div class="ec-title">Un barbecue entre amis</div><div class="ec-sub">A barbecue with friends — casual, fun atmosphere</div></div>
+  <span class="ec-cat">Gastronomie</span><span class="ec-tog">▾</span>
+</div>
+<div class="ec-body">
+  <div class="ec-section">
+    <div class="ec-section-label">🇫🇷 Texte en français</div>
+    <div class="essay-fr">
+      <span class="hl hl-seq">L'été dernier</span>, un ami a organisé un barbecue dans son jardin en banlieue parisienne. <span class="hl hl-cau">Puisque</span> tout le monde habitait loin, nous sommes arrivés dès le début d'après-midi. <span class="hl hl-seq">D'abord</span>, on s'est retrouvés autour d'un apéritif : des chips, du guacamole fait maison et des boissons fraîches. <span class="hl hl-seq">Pendant ce temps</span>, notre hôte préparait le feu pour le barbecue avec une patience admirable. <span class="hl hl-seq">Une fois</span> que les braises étaient prêtes, il a grillé des merguez, des côtelettes d'agneau et des légumes marinés. <span class="hl hl-con">Même si</span> le temps était un peu nuageux en début de soirée, la chaleur du barbecue et la bonne humeur générale ont tout rendu parfait. <span class="hl hl-add">En plus</span>, quelqu'un avait apporté une bonne bouteille de rosé bien frais, ce qui s'accordait parfaitement avec les grillades. <span class="hl hl-seq">Après le repas</span>, on a joué à des jeux de société jusqu'à tard dans la nuit. <span class="hl hl-con2">C'est pourquoi</span> ce genre de soirées informelles me manque quand je suis à Paris : <span class="hl hl-cau">car</span> il n'y a rien de mieux que de partager un repas en plein air avec des gens qu'on aime.
+    </div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">🇬🇧 English translation</div>
+    <div class="essay-en">Last summer, a friend organised a barbecue in his garden in the Paris suburbs. Since everyone lived far away, we arrived at the beginning of the afternoon. First, we gathered around an aperitif: crisps, homemade guacamole and cold drinks. Meanwhile, our host prepared the fire for the barbecue with admirable patience. Once the coals were ready, he grilled merguez sausages, lamb chops and marinated vegetables. Even if the weather was a bit cloudy at the start of the evening, the warmth of the barbecue and the general good mood made everything perfect. What's more, someone had brought a good, well-chilled bottle of rosé, which paired perfectly with the grilled food. After the meal, we played board games until late at night. That's why I miss these kinds of informal evenings when I'm in Paris: because there's nothing better than sharing an outdoor meal with people you love.</div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">Connectors used</div>
+    <div class="connectors-used">
+      <span class="cu-item lp-seq">L'été dernier · D'abord · Pendant ce temps · Une fois que · Après le repas</span>
+      <span class="cu-item lp-con">Même si</span>
+      <span class="cu-item lp-cau">Puisque · Car</span>
+      <span class="cu-item lp-con2">C'est pourquoi</span>
+      <span class="cu-item lp-add">En plus</span>
+    </div>
+    <div class="tip-box"><strong>Une fois que</strong> (once) is a very natural time connector. <strong>Pendant ce temps</strong> (meanwhile) allows you to describe two things happening at the same time.</div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">Useful vocabulary</div>
+    <div class="vocab-list">
+      <span class="voc"><span class="vfr">les braises</span> <span class="ven">— the embers / coals</span></span>
+      <span class="voc"><span class="vfr">une côtelette d'agneau</span> <span class="ven">— a lamb chop</span></span>
+      <span class="voc"><span class="vfr">mariné(e)</span> <span class="ven">— marinated</span></span>
+      <span class="voc"><span class="vfr">en plein air</span> <span class="ven">— outdoors / in the open air</span></span>
+      <span class="voc"><span class="vfr">un jeu de société</span> <span class="ven">— a board game</span></span>
+    </div>
+  </div>
+</div></div>
+
+<!-- 9. UNE SOIRÉE EN BAR -->
+<div class="essay-card" data-cat="sortir" data-k="bar soirée amis boire cocktail ambiance">
+<div class="ec-header" onclick="tog(this)">
+  <span class="ec-num">09</span><span class="ec-icon">🍸</span>
+  <div class="ec-meta"><div class="ec-title">Une soirée dans un bar</div><div class="ec-sub">An evening at a bar — atmosphere, people, drinks</div></div>
+  <span class="ec-cat">Sortir</span><span class="ec-tog">▾</span>
+</div>
+<div class="ec-body">
+  <div class="ec-section">
+    <div class="ec-section-label">🇫🇷 Texte en français</div>
+    <div class="essay-fr">
+      <span class="hl hl-seq">Vendredi soir</span>, j'ai retrouvé des collègues dans un bar à cocktails dans le Marais. <span class="hl hl-seq">À notre arrivée</span>, le bar était déjà bien animé, <span class="hl hl-con2">si bien que</span> nous avons dû attendre un peu pour trouver une table. <span class="hl hl-cau">Puisque</span> c'était une occasion spéciale, j'ai commandé un cocktail signature de la maison : un mélange de rhum, de citron vert et de basilic frais. <span class="hl hl-add">De plus</span>, le barman était passionné et nous a expliqué la composition de chaque cocktail avec enthousiasme. <span class="hl hl-seq">Pendant la soirée</span>, la musique était parfaite — ni trop forte pour qu'on puisse parler, ni trop discrète. <span class="hl hl-add">D'ailleurs</span>, c'est exactement ce que je cherche dans un bon bar : une ambiance qui permet à la fois de s'amuser et de discuter. <span class="hl hl-con">Cependant</span>, vers minuit, le lieu est devenu tellement bondé que l'on ne s'entendait plus. <span class="hl hl-con2">Du coup</span>, on a décidé de finir la soirée dans un endroit plus calme. <span class="hl hl-cau">Grâce à</span> cette soirée, j'ai eu la chance de vraiment décompresser après une semaine de travail intense. <span class="hl hl-con2">Ainsi</span>, le week-end a commencé sous les meilleurs auspices.
+    </div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">🇬🇧 English translation</div>
+    <div class="essay-en">On Friday evening, I met up with colleagues at a cocktail bar in the Marais. When we arrived, the bar was already very lively, so much so that we had to wait a bit to find a table. Since it was a special occasion, I ordered the house signature cocktail: a blend of rum, lime and fresh basil. What's more, the barman was passionate and enthusiastically explained the composition of each cocktail to us. During the evening, the music was perfect — neither too loud for us to talk, nor too quiet. What's more, that's exactly what I look for in a good bar: an atmosphere that allows you to both enjoy yourself and have a conversation. However, around midnight, the place became so packed that we could no longer hear each other. As a result, we decided to finish the evening somewhere quieter. Thanks to this evening, I was able to really unwind after an intense week of work. Thus, the weekend started off on the best possible note.</div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">Connectors used</div>
+    <div class="connectors-used">
+      <span class="cu-item lp-seq">Vendredi soir · À notre arrivée · Pendant la soirée · Vers minuit</span>
+      <span class="cu-item lp-con">Cependant</span>
+      <span class="cu-item lp-cau">Puisque · Grâce à</span>
+      <span class="cu-item lp-con2">Si bien que · Du coup · Ainsi</span>
+      <span class="cu-item lp-add">De plus · D'ailleurs</span>
+    </div>
+    <div class="tip-box"><strong>Si bien que</strong> (so much so that) is a very useful consequence connector. <strong>Ni trop… ni trop</strong> (neither too… nor too) is a great structure for balanced descriptions.</div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">Useful vocabulary</div>
+    <div class="vocab-list">
+      <span class="voc"><span class="vfr">animé(e)</span> <span class="ven">— lively, buzzing</span></span>
+      <span class="voc"><span class="vfr">un cocktail signature</span> <span class="ven">— a signature cocktail</span></span>
+      <span class="voc"><span class="vfr">décompresser</span> <span class="ven">— to unwind, decompress</span></span>
+      <span class="voc"><span class="vfr">sous les meilleurs auspices</span> <span class="ven">— under the best auspices / on the best note</span></span>
+      <span class="voc"><span class="vfr">bondé(e)</span> <span class="ven">— packed / crowded</span></span>
+    </div>
+  </div>
+</div></div>
+
+<!-- 10. UNE BOÎTE DE NUIT -->
+<div class="essay-card" data-cat="sortir" data-k="boîte club nuit danse musique soirée">
+<div class="ec-header" onclick="tog(this)">
+  <span class="ec-num">10</span><span class="ec-icon">🎶</span>
+  <div class="ec-meta"><div class="ec-title">Une nuit en boîte de nuit</div><div class="ec-sub">A night out clubbing — music, energy, experience</div></div>
+  <span class="ec-cat">Sortir</span><span class="ec-tog">▾</span>
+</div>
+<div class="ec-body">
+  <div class="ec-section">
+    <div class="ec-section-label">🇫🇷 Texte en français</div>
+    <div class="essay-fr">
+      <span class="hl hl-seq">La semaine dernière</span>, pour la première fois depuis longtemps, j'ai décidé de sortir en boîte de nuit avec des amis. <span class="hl hl-cau">Puisque</span> l'un d'eux connaissait le DJ programmé ce soir-là, on a pu entrer sans faire la queue. <span class="hl hl-seq">À l'intérieur</span>, l'atmosphère était électrique : des lumières stroboscopiques, une musique techno pulsante et une foule déjà en mouvement. <span class="hl hl-add">De plus</span>, la salle était immense et le son parfaitement calibré. <span class="hl hl-seq">Dans un premier temps</span>, on s'est retrouvés au bar pour prendre un verre et observer l'ambiance. <span class="hl hl-seq">Ensuite</span>, irrésistiblement attirés par la musique, on a rejoint la piste de danse. <span class="hl hl-con">Bien que</span> je ne sois pas particulièrement grand danseur, je me suis laissé(e) emporter par le rythme. <span class="hl hl-add">D'ailleurs</span>, c'est souvent ce qui se passe quand la musique est vraiment bonne. <span class="hl hl-seq">On n'est rentrés</span> qu'à 4h du matin, complètement épuisés mais euphoriques. <span class="hl hl-con">Pourtant</span>, <span class="hl hl-cau">malgré</span> la fatigue du lendemain, je ne regrette absolument rien : ce genre de soirée reste une expérience unique de liberté et d'énergie collective.
+    </div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">🇬🇧 English translation</div>
+    <div class="essay-en">Last week, for the first time in a long time, I decided to go clubbing with friends. Since one of them knew the DJ performing that evening, we were able to get in without queuing. Inside, the atmosphere was electric: strobe lights, pulsing techno music and a crowd already moving. What's more, the room was enormous and the sound perfectly calibrated. At first, we gathered at the bar to have a drink and take in the atmosphere. Then, irresistibly drawn in by the music, we joined the dancefloor. Although I'm not particularly a great dancer, I let myself be carried away by the rhythm. What's more, that's often what happens when the music is really good. We didn't get home until 4am, completely exhausted but euphoric. Yet, despite the tiredness the next day, I have absolutely no regrets: this kind of evening remains a unique experience of freedom and collective energy.</div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">Connectors used</div>
+    <div class="connectors-used">
+      <span class="cu-item lp-seq">La semaine dernière · À l'intérieur · Dans un premier temps · Ensuite · On n'est rentrés qu'à</span>
+      <span class="cu-item lp-con">Bien que · Pourtant · Malgré</span>
+      <span class="cu-item lp-cau">Puisque</span>
+      <span class="cu-item lp-add">De plus · D'ailleurs</span>
+    </div>
+    <div class="tip-box"><strong>Ne… que</strong> (only / not until) is a great restrictive structure: <em>On n'est rentrés qu'à 4h</em> = We didn't get back until 4am. Very natural in French.</div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">Useful vocabulary</div>
+    <div class="vocab-list">
+      <span class="voc"><span class="vfr">une piste de danse</span> <span class="ven">— a dancefloor</span></span>
+      <span class="voc"><span class="vfr">stroboscopique</span> <span class="ven">— strobe (light)</span></span>
+      <span class="voc"><span class="vfr">euphorique</span> <span class="ven">— euphoric</span></span>
+      <span class="voc"><span class="vfr">se laisser emporter</span> <span class="ven">— to let oneself be carried away</span></span>
+      <span class="voc"><span class="vfr">calibré(e)</span> <span class="ven">— calibrated, perfectly tuned</span></span>
+    </div>
+  </div>
+</div></div>
+
+<!-- 11. UN CONCERT -->
+<div class="essay-card" data-cat="sortir" data-k="concert musique live salle spectacle">
+<div class="ec-header" onclick="tog(this)">
+  <span class="ec-num">11</span><span class="ec-icon">🎸</span>
+  <div class="ec-meta"><div class="ec-title">Un concert inoubliable</div><div class="ec-sub">An unforgettable concert — emotions, atmosphere</div></div>
+  <span class="ec-cat">Sortir</span><span class="ec-tog">▾</span>
+</div>
+<div class="ec-body">
+  <div class="ec-section">
+    <div class="ec-section-label">🇫🇷 Texte en français</div>
+    <div class="essay-fr">
+      <span class="hl hl-seq">Le mois dernier</span>, j'ai assisté à un concert de jazz à la Philharmonie de Paris. <span class="hl hl-con">Bien que</span> je ne sois pas un grand connaisseur de jazz, j'ai accepté l'invitation d'un ami sans hésiter. <span class="hl hl-seq">En arrivant</span>, j'ai été impressionné(e) par la beauté de la salle : une architecture moderne et une acoustique exceptionnelle. <span class="hl hl-seq">Dès les premières notes</span>, le silence s'est fait dans le public, <span class="hl hl-con2">si bien que</span> chaque nuance de la musique était parfaitement audible. <span class="hl hl-add">De plus</span>, le musicien principal jouait de la trompette avec une maîtrise et une émotion absolument poignantes. <span class="hl hl-seq">À mi-concert</span>, j'ai réalisé que je n'avais pas regardé mon téléphone une seule fois. <span class="hl hl-ex">C'est dire</span> à quel point j'étais absorbé(e). <span class="hl hl-con">Cependant</span>, ce qui m'a le plus touché(e), c'est la complicité entre les musiciens : chaque improvisation semblait une conversation intime. <span class="hl hl-seq">À la fin</span>, le public a applaudi debout pendant plusieurs minutes. <span class="hl hl-cau">C'est parce que</span> la musique live touche quelque chose que les enregistrements ne peuvent pas reproduire : l'émotion du moment présent.
+    </div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">🇬🇧 English translation</div>
+    <div class="essay-en">Last month, I attended a jazz concert at the Philharmonie de Paris. Although I'm not a great jazz connoisseur, I accepted a friend's invitation without hesitation. On arriving, I was impressed by the beauty of the hall: a modern architecture and exceptional acoustics. From the very first notes, silence fell over the audience, so much so that every nuance of the music was perfectly audible. What's more, the lead musician played the trumpet with absolutely poignant mastery and emotion. At the halfway point, I realised I hadn't looked at my phone once. That shows how absorbed I was. However, what moved me most was the complicity between the musicians: each improvisation seemed like an intimate conversation. At the end, the audience applauded standing for several minutes. It's because live music touches something that recordings cannot reproduce: the emotion of the present moment.</div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">Connectors used</div>
+    <div class="connectors-used">
+      <span class="cu-item lp-seq">Le mois dernier · En arrivant · Dès les premières notes · À mi-concert · À la fin</span>
+      <span class="cu-item lp-con">Bien que · Cependant</span>
+      <span class="cu-item lp-cau">C'est parce que</span>
+      <span class="cu-item lp-con2">Si bien que</span>
+      <span class="cu-item lp-add">De plus</span>
+      <span class="cu-item lp-ex">C'est dire</span>
+    </div>
+    <div class="tip-box"><strong>C'est dire à quel point</strong> (that shows how much) is a wonderful emphatic expression. <strong>Dès les premières notes / Dès le début</strong> sets the scene immediately.</div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">Useful vocabulary</div>
+    <div class="vocab-list">
+      <span class="voc"><span class="vfr">l'acoustique</span> <span class="ven">— the acoustics</span></span>
+      <span class="voc"><span class="vfr">poignant(e)</span> <span class="ven">— moving, poignant</span></span>
+      <span class="voc"><span class="vfr">la complicité</span> <span class="ven">— the complicity / connection</span></span>
+      <span class="voc"><span class="vfr">une improvisation</span> <span class="ven">— an improvisation</span></span>
+      <span class="voc"><span class="vfr">applaudir debout</span> <span class="ven">— to give a standing ovation</span></span>
+    </div>
+  </div>
+</div></div>
+
+<!-- 12. UN VOYAGE EN TRAIN -->
+<div class="essay-card" data-cat="vacances" data-k="train voyage TGV trajet paysage">
+<div class="ec-header" onclick="tog(this)">
+  <span class="ec-num">12</span><span class="ec-icon">🚄</span>
+  <div class="ec-meta"><div class="ec-title">Un voyage en train</div><div class="ec-sub">A train journey — observations, feelings, arrival</div></div>
+  <span class="ec-cat">Vacances</span><span class="ec-tog">▾</span>
+</div>
+<div class="ec-body">
+  <div class="ec-section">
+    <div class="ec-section-label">🇫🇷 Texte en français</div>
+    <div class="essay-fr">
+      <span class="hl hl-seq">La semaine dernière</span>, j'ai pris le TGV de Paris à Marseille pour rendre visite à un ami. <span class="hl hl-cau">Puisque</span> le trajet ne dure que trois heures, c'est bien plus agréable que l'avion. <span class="hl hl-seq">Dès que</span> le train a quitté la gare de Lyon, j'ai sorti un livre et une bouteille d'eau. <span class="hl hl-con">Cependant</span>, la beauté du paysage défilant par la fenêtre m'a rendu(e) incapable de lire plus d'une page. <span class="hl hl-add">En effet</span>, à mesure que le train avançait vers le sud, la végétation changeait progressivement : les plaines céréalières ont laissé place aux garrigues provençales. <span class="hl hl-add">De plus</span>, la lumière devenait de plus en plus dorée et intense. <span class="hl hl-seq">Vers la fin du trajet</span>, le viaduc de Millau est apparu dans toute sa splendeur, <span class="hl hl-con2">ce qui m'a coupé(e) le souffle</span>. <span class="hl hl-seq">À l'arrivée</span> à Marseille, l'air sentait déjà la mer et les herbes de Provence. <span class="hl hl-con2">Ainsi</span>, même le voyage lui-même était une expérience en soi. <span class="hl hl-add">D'ailleurs</span>, je préfère le train à l'avion pour cette raison précise : le trajet fait partie du voyage.
+    </div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">🇬🇧 English translation</div>
+    <div class="essay-en">Last week, I took the TGV from Paris to Marseille to visit a friend. Since the journey only takes three hours, it's much more pleasant than flying. As soon as the train left the Gare de Lyon, I took out a book and a bottle of water. However, the beauty of the landscape passing by the window made it impossible for me to read more than a page. Indeed, as the train moved south, the vegetation gradually changed: the cereal plains gave way to Provençal garrigue. What's more, the light became increasingly golden and intense. Towards the end of the journey, the Millau viaduct appeared in all its splendour, which took my breath away. On arrival in Marseille, the air already smelled of the sea and Provençal herbs. Thus, even the journey itself was an experience in its own right. What's more, I prefer the train to the plane for this very reason: the journey is part of the trip.</div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">Connectors used</div>
+    <div class="connectors-used">
+      <span class="cu-item lp-seq">La semaine dernière · Dès que · Vers la fin · À l'arrivée</span>
+      <span class="cu-item lp-con">Cependant</span>
+      <span class="cu-item lp-cau">Puisque</span>
+      <span class="cu-item lp-con2">Ce qui m'a coupé le souffle · Ainsi</span>
+      <span class="cu-item lp-add">En effet · De plus · D'ailleurs</span>
+    </div>
+    <div class="tip-box"><strong>À mesure que</strong> (as / as… progressively) is a beautiful B1 time connector for showing gradual change. <strong>Couper le souffle</strong> (to take one's breath away) is a vivid idiomatic expression.</div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">Useful vocabulary</div>
+    <div class="vocab-list">
+      <span class="voc"><span class="vfr">la garrigue</span> <span class="ven">— Provençal scrubland</span></span>
+      <span class="voc"><span class="vfr">défiler</span> <span class="ven">— to scroll past / to pass by</span></span>
+      <span class="voc"><span class="vfr">couper le souffle</span> <span class="ven">— to take one's breath away</span></span>
+      <span class="voc"><span class="vfr">en soi</span> <span class="ven">— in itself</span></span>
+      <span class="voc"><span class="vfr">les herbes de Provence</span> <span class="ven">— Provençal herbs</span></span>
+    </div>
+  </div>
+</div></div>
+
+<!-- 13. UN CITY TRIP -->
+<div class="essay-card" data-cat="vacances" data-k="ville city trip musée visite culture tourisme">
+<div class="ec-header" onclick="tog(this)">
+  <span class="ec-num">13</span><span class="ec-icon">🏛️</span>
+  <div class="ec-meta"><div class="ec-title">Un city trip — découvrir une ville</div><div class="ec-sub">A city break — culture, museums, food</div></div>
+  <span class="ec-cat">Vacances</span><span class="ec-tog">▾</span>
+</div>
+<div class="ec-body">
+  <div class="ec-section">
+    <div class="ec-section-label">🇫🇷 Texte en français</div>
+    <div class="essay-fr">
+      <span class="hl hl-seq">Ce week-end</span>, je suis allé(e) passer trois jours à Lisbonne. <span class="hl hl-add">Non seulement</span> c'était la première fois que je visitais cette ville, <span class="hl hl-add">mais aussi</span> c'était l'occasion de pratiquer mon portugais. <span class="hl hl-seq">Dès le premier jour</span>, j'ai exploré le quartier de l'Alfama, le plus ancien de la ville, <span class="hl hl-ex">notamment</span> ses ruelles pavées et ses maisons ornées d'azulejos bleus. <span class="hl hl-seq">Le lendemain</span>, j'ai visité le musée Gulbenkian, dont la collection est impressionnante. <span class="hl hl-add">De plus</span>, l'entrée était gratuite ce jour-là, <span class="hl hl-con2">ce qui était une belle surprise</span>. <span class="hl hl-seq">Le soir</span>, j'ai assisté à un concert de fado dans un restaurant typique. <span class="hl hl-cau">Car</span> il est impossible de visiter Lisbonne sans entendre ce genre musical emblématique. <span class="hl hl-con">Bien que</span> je ne comprenne pas le portugais, la mélancolie du fado m'a profondément touché(e). <span class="hl hl-con2">C'est pourquoi</span> je pense que la musique est vraiment universelle. <span class="hl hl-seq">Le dernier jour</span>, j'ai acheté des pâtisseries locales à emporter pour mes collègues.
+    </div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">🇬🇧 English translation</div>
+    <div class="essay-en">This weekend, I went to spend three days in Lisbon. Not only was it the first time I had visited this city, but it was also an opportunity to practise my Portuguese. From the very first day, I explored the Alfama district, the oldest in the city, in particular its cobbled alleyways and houses decorated with blue azulejos tiles. The next day, I visited the Gulbenkian Museum, whose collection is impressive. What's more, entry was free that day, which was a lovely surprise. In the evening, I attended a fado concert at a typical restaurant. Because it's impossible to visit Lisbon without hearing this iconic musical genre. Although I don't understand Portuguese, the melancholy of fado deeply moved me. That's why I think music is truly universal. On the last day, I bought local pastries to take back for my colleagues.</div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">Connectors used</div>
+    <div class="connectors-used">
+      <span class="cu-item lp-seq">Dès le premier jour · Le lendemain · Le soir · Le dernier jour</span>
+      <span class="cu-item lp-con">Bien que</span>
+      <span class="cu-item lp-cau">Car</span>
+      <span class="cu-item lp-con2">Ce qui était · C'est pourquoi</span>
+      <span class="cu-item lp-add">Non seulement… mais aussi · De plus · Notamment</span>
+    </div>
+    <div class="tip-box"><strong>Non seulement… mais aussi</strong> (not only… but also) is a powerful addition connector. <strong>Le lendemain</strong> (the next day) is essential for storytelling.</div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">Useful vocabulary</div>
+    <div class="vocab-list">
+      <span class="voc"><span class="vfr">une ruelle pavée</span> <span class="ven">— a cobbled alleyway</span></span>
+      <span class="voc"><span class="vfr">emblématique</span> <span class="ven">— iconic, emblematic</span></span>
+      <span class="voc"><span class="vfr">la mélancolie</span> <span class="ven">— melancholy</span></span>
+      <span class="voc"><span class="vfr">des azulejos</span> <span class="ven">— Portuguese decorative tiles</span></span>
+      <span class="voc"><span class="vfr">à emporter</span> <span class="ven">— to take away</span></span>
+    </div>
+  </div>
+</div></div>
+
+<!-- 14. LE SPORT EN VACANCES -->
+<div class="essay-card" data-cat="activite" data-k="sport surf vélo natation activité physique vacances">
+<div class="ec-header" onclick="tog(this)">
+  <span class="ec-num">14</span><span class="ec-icon">🏄</span>
+  <div class="ec-meta"><div class="ec-title">Le sport pendant les vacances</div><div class="ec-sub">Sport on holiday — trying something new</div></div>
+  <span class="ec-cat">Activités</span><span class="ec-tog">▾</span>
+</div>
+<div class="ec-body">
+  <div class="ec-section">
+    <div class="ec-section-label">🇫🇷 Texte en français</div>
+    <div class="essay-fr">
+      <span class="hl hl-seq">L'été dernier</span>, pendant mes vacances dans les Landes, j'ai décidé de prendre des cours de surf pour la première fois. <span class="hl hl-cau">Puisque</span> les plages de la côte atlantique sont réputées pour leurs vagues, c'était l'endroit idéal pour apprendre. <span class="hl hl-seq">Le premier matin</span>, notre moniteur nous a expliqué les bases : comment se positionner sur la planche, comment lire les vagues et comment tomber sans se blesser. <span class="hl hl-con">Bien que</span> je me sois retrouvé(e) dans l'eau plus souvent que sur la planche, l'expérience était incroyablement stimulante. <span class="hl hl-seq">Au fil des jours</span>, j'ai progressé et j'ai réussi à rester debout quelques secondes. <span class="hl hl-add">De plus</span>, l'effort physique intense m'a permis de dormir comme un bébé chaque nuit. <span class="hl hl-add">En outre</span>, j'ai rencontré des gens venus du monde entier qui partageaient cette passion. <span class="hl hl-con">Cependant</span>, la mer peut être imprévisible et il faut toujours respecter les règles de sécurité. <span class="hl hl-con2">Ainsi</span>, j'ai compris que le surf est bien plus qu'un sport : c'est un état d'esprit. <span class="hl hl-cau">Grâce à</span> cette expérience, j'envisage sérieusement de m'y mettre davantage.
+    </div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">🇬🇧 English translation</div>
+    <div class="essay-en">Last summer, during my holiday in the Landes, I decided to take surfing lessons for the first time. Since the beaches of the Atlantic coast are renowned for their waves, it was the ideal place to learn. On the first morning, our instructor explained the basics: how to position yourself on the board, how to read the waves and how to fall without getting hurt. Although I found myself in the water more often than on the board, the experience was incredibly stimulating. Over the days, I progressed and managed to stay upright for a few seconds. What's more, the intense physical effort allowed me to sleep like a baby each night. Furthermore, I met people from all over the world who shared this passion. However, the sea can be unpredictable and you must always respect safety rules. Thus, I understood that surfing is much more than a sport: it's a mindset. Thanks to this experience, I'm seriously considering getting more into it.</div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">Connectors used</div>
+    <div class="connectors-used">
+      <span class="cu-item lp-seq">L'été dernier · Le premier matin · Au fil des jours</span>
+      <span class="cu-item lp-con">Bien que · Cependant</span>
+      <span class="cu-item lp-cau">Puisque · Grâce à</span>
+      <span class="cu-item lp-con2">Ainsi</span>
+      <span class="cu-item lp-add">De plus · En outre</span>
+    </div>
+    <div class="tip-box"><strong>Au fil des jours / des semaines</strong> (over the days / weeks) is a natural way to show gradual progress. <strong>Envisager de</strong> (to consider doing) is a great B1 verb for plans.</div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">Useful vocabulary</div>
+    <div class="vocab-list">
+      <span class="voc"><span class="vfr">un moniteur</span> <span class="ven">— an instructor</span></span>
+      <span class="voc"><span class="vfr">une planche</span> <span class="ven">— a board</span></span>
+      <span class="voc"><span class="vfr">stimulant(e)</span> <span class="ven">— stimulating</span></span>
+      <span class="voc"><span class="vfr">un état d'esprit</span> <span class="ven">— a mindset</span></span>
+      <span class="voc"><span class="vfr">imprévisible</span> <span class="ven">— unpredictable</span></span>
+    </div>
+  </div>
+</div></div>
+
+<!-- 15. UNE VISITE CULTURELLE -->
+<div class="essay-card" data-cat="activite" data-k="musée expo art visite culture tableau">
+<div class="ec-header" onclick="tog(this)">
+  <span class="ec-num">15</span><span class="ec-icon">🖼️</span>
+  <div class="ec-meta"><div class="ec-title">Une visite au musée</div><div class="ec-sub">A museum visit — art, reactions, discoveries</div></div>
+  <span class="ec-cat">Activités</span><span class="ec-tog">▾</span>
+</div>
+<div class="ec-body">
+  <div class="ec-section">
+    <div class="ec-section-label">🇫🇷 Texte en français</div>
+    <div class="essay-fr">
+      <span class="hl hl-seq">Dimanche dernier</span>, je suis allé(e) visiter l'exposition temporaire sur Frida Kahlo au Centre Pompidou. <span class="hl hl-cau">Puisque</span> je m'intéresse à l'art mexicain depuis longtemps, c'était une occasion que je ne pouvais pas manquer. <span class="hl hl-seq">Dès l'entrée</span>, on est plongé dans l'univers coloré et intense de l'artiste. <span class="hl hl-add">De plus</span>, la scénographie était remarquablement bien pensée : chaque salle correspondait à une période de sa vie. <span class="hl hl-ex">Par exemple</span>, une salle était entièrement dédiée à ses autoportraits, qui sont à la fois fascinants et troublants. <span class="hl hl-con">Bien que</span> certaines œuvres soient difficiles à regarder à cause de leur intensité émotionnelle, elles témoignent d'une force de caractère extraordinaire. <span class="hl hl-add">En outre</span>, des documents d'archives — lettres, photographies, journaux intimes — étaient exposés, <span class="hl hl-con2">ce qui permettait</span> de comprendre l'artiste au-delà de son œuvre. <span class="hl hl-seq">En sortant</span>, j'ai eu envie de lire sa biographie. <span class="hl hl-con2">C'est pourquoi</span> je pense que les bonnes expositions ne se contentent pas de montrer des œuvres : elles donnent envie d'en savoir plus.
+    </div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">🇬🇧 English translation</div>
+    <div class="essay-en">Last Sunday, I went to visit the temporary exhibition on Frida Kahlo at the Centre Pompidou. Since I've been interested in Mexican art for a long time, it was an opportunity I couldn't miss. From the entrance, you're plunged into the colourful and intense world of the artist. What's more, the scenography was remarkably well thought out: each room corresponded to a period of her life. For example, one room was entirely dedicated to her self-portraits, which are both fascinating and unsettling. Although some works are difficult to look at because of their emotional intensity, they testify to an extraordinary strength of character. Furthermore, archive documents — letters, photographs, diaries — were displayed, which allowed you to understand the artist beyond her work. On leaving, I felt like reading her biography. That's why I think good exhibitions don't just show artworks: they make you want to know more.</div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">Connectors used</div>
+    <div class="connectors-used">
+      <span class="cu-item lp-seq">Dimanche dernier · Dès l'entrée · En sortant</span>
+      <span class="cu-item lp-con">Bien que</span>
+      <span class="cu-item lp-cau">Puisque · À cause de</span>
+      <span class="cu-item lp-con2">Ce qui permettait · C'est pourquoi</span>
+      <span class="cu-item lp-add">De plus · En outre</span>
+      <span class="cu-item lp-ex">Par exemple</span>
+    </div>
+    <div class="tip-box"><strong>Témoigner de</strong> (to testify to / to demonstrate) is an excellent B1 verb for art and culture descriptions. <strong>Au-delà de</strong> (beyond) adds depth to your argument.</div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">Useful vocabulary</div>
+    <div class="vocab-list">
+      <span class="voc"><span class="vfr">une scénographie</span> <span class="ven">— exhibition design</span></span>
+      <span class="voc"><span class="vfr">un autoportrait</span> <span class="ven">— a self-portrait</span></span>
+      <span class="voc"><span class="vfr">troublant(e)</span> <span class="ven">— unsettling, disturbing</span></span>
+      <span class="voc"><span class="vfr">témoigner de</span> <span class="ven">— to testify to, demonstrate</span></span>
+      <span class="voc"><span class="vfr">un journal intime</span> <span class="ven">— a diary</span></span>
+    </div>
+  </div>
+</div></div>
+
+<!-- 16. UNE SOIRÉE CINÉMA -->
+<div class="essay-card" data-cat="sortir" data-k="cinéma film soirée amis review avis">
+<div class="ec-header" onclick="tog(this)">
+  <span class="ec-num">16</span><span class="ec-icon">🎬</span>
+  <div class="ec-meta"><div class="ec-title">Une soirée cinéma</div><div class="ec-sub">A cinema evening — reviewing a film</div></div>
+  <span class="ec-cat">Sortir</span><span class="ec-tog">▾</span>
+</div>
+<div class="ec-body">
+  <div class="ec-section">
+    <div class="ec-section-label">🇫🇷 Texte en français</div>
+    <div class="essay-fr">
+      <span class="hl hl-seq">Hier soir</span>, je suis allé(e) voir un film français au cinéma avec un ami. <span class="hl hl-add">Non seulement</span> c'était notre première sortie depuis plusieurs semaines, <span class="hl hl-add">mais</span> c'était aussi un film dont on entendait beaucoup parler depuis sa sortie. <span class="hl hl-seq">Avant la séance</span>, on s'est retrouvés au café d'à côté pour discuter de nos attentes. <span class="hl hl-seq">Une fois dans la salle</span>, la grande qualité de l'image et du son nous a immédiatement impressionnés. <span class="hl hl-con">Bien que</span> l'histoire soit complexe et parfois difficile à suivre, la mise en scène était absolument brillante. <span class="hl hl-add">En particulier</span>, le jeu des acteurs principaux était époustouflant : on y croyait complètement. <span class="hl hl-con">Cependant</span>, la fin m'a laissé(e) perplexe et j'aurais aimé plus de clarté. <span class="hl hl-con2">Du coup</span>, on a passé une bonne heure après le film à débattre de son interprétation. <span class="hl hl-cau">C'est justement parce que</span> le film laisse des questions ouvertes qu'il reste longtemps dans la tête. <span class="hl hl-add">D'ailleurs</span>, je pense que c'est la marque des grands films : ils continuent à vivre en vous après la salle.
+    </div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">🇬🇧 English translation</div>
+    <div class="essay-en">Yesterday evening, I went to see a French film at the cinema with a friend. Not only was it our first outing in several weeks, but it was also a film we had been hearing a lot about since its release. Before the screening, we met at the café next door to discuss our expectations. Once in the cinema, the high quality of the image and sound immediately impressed us. Although the story is complex and sometimes hard to follow, the directing was absolutely brilliant. In particular, the performance of the lead actors was breathtaking: we completely believed in it. However, the ending left me puzzled and I would have liked more clarity. As a result, we spent a good hour after the film debating its interpretation. It's precisely because the film leaves open questions that it stays in your head for a long time. What's more, I think that's the mark of great films: they continue to live in you after you've left the cinema.</div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">Connectors used</div>
+    <div class="connectors-used">
+      <span class="cu-item lp-seq">Hier soir · Avant la séance · Une fois dans la salle</span>
+      <span class="cu-item lp-con">Bien que · Cependant</span>
+      <span class="cu-item lp-cau">C'est justement parce que</span>
+      <span class="cu-item lp-con2">Du coup</span>
+      <span class="cu-item lp-add">Non seulement… mais · En particulier · D'ailleurs</span>
+    </div>
+    <div class="tip-box"><strong>C'est justement parce que</strong> (it's precisely because) adds emphasis to a cause. <strong>Laisser perplexe</strong> (to leave puzzled) is a great expression for film/book reviews.</div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">Useful vocabulary</div>
+    <div class="vocab-list">
+      <span class="voc"><span class="vfr">la mise en scène</span> <span class="ven">— the directing</span></span>
+      <span class="voc"><span class="vfr">époustouflant(e)</span> <span class="ven">— breathtaking, mind-blowing</span></span>
+      <span class="voc"><span class="vfr">perplexe</span> <span class="ven">— puzzled, perplexed</span></span>
+      <span class="voc"><span class="vfr">une interprétation</span> <span class="ven">— an interpretation</span></span>
+      <span class="voc"><span class="vfr">laisser des questions ouvertes</span> <span class="ven">— to leave open questions</span></span>
+    </div>
+  </div>
+</div></div>
+
+<!-- 17. UNE ESCAPADE À LA MONTAGNE -->
+<div class="essay-card" data-cat="nature" data-k="montagne randonnée altitude vue paysage nature">
+<div class="ec-header" onclick="tog(this)">
+  <span class="ec-num">17</span><span class="ec-icon">⛰️</span>
+  <div class="ec-meta"><div class="ec-title">Une escapade à la montagne</div><div class="ec-sub">A mountain getaway — altitude, views, emotions</div></div>
+  <span class="ec-cat">Nature</span><span class="ec-tog">▾</span>
+</div>
+<div class="ec-body">
+  <div class="ec-section">
+    <div class="ec-section-label">🇫🇷 Texte en français</div>
+    <div class="essay-fr">
+      <span class="hl hl-seq">Il y a quelques semaines</span>, j'ai fait une escapade de deux jours dans les Pyrénées. <span class="hl hl-cau">Étant donné que</span> j'habitais à Paris depuis plusieurs mois sans quitter la ville, j'avais vraiment besoin de grands espaces. <span class="hl hl-seq">Le premier matin</span>, on a entamé une montée de quatre heures vers un lac d'altitude. <span class="hl hl-con">Bien que</span> le début du sentier soit assez escarpé, la vue récompensait chaque effort. <span class="hl hl-add">De plus</span>, à mesure qu'on montait, l'air devenait plus frais et plus pur — un contraste saisissant avec la pollution parisienne. <span class="hl hl-seq">Après trois heures</span>, on a atteint un plateau d'où la vue sur les sommets enneigés était absolument spectaculaire. <span class="hl hl-con">Pourtant</span>, c'est le lac lui-même qui m'a le plus ému(e) : une eau d'un vert émeraude irréel, entourée de rochers gris et silencieux. <span class="hl hl-add">En outre</span>, on a eu la chance d'apercevoir des marmottes qui jouaient entre les pierres. <span class="hl hl-con2">C'est pour toutes ces raisons</span> que la montagne exerce sur moi une fascination que la mer n'a pas : elle inspire le silence, la grandeur et la sérénité.
+    </div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">🇬🇧 English translation</div>
+    <div class="essay-en">A few weeks ago, I went on a two-day getaway in the Pyrenees. Given that I had been living in Paris for several months without leaving the city, I really needed open spaces. On the first morning, we started a four-hour climb towards a high-altitude lake. Although the beginning of the path is quite steep, the view rewarded every effort. What's more, as we climbed, the air became fresher and purer — a striking contrast with Parisian pollution. After three hours, we reached a plateau from which the view over the snow-capped peaks was absolutely spectacular. Yet, it was the lake itself that moved me most: an otherworldly emerald green water, surrounded by grey and silent rocks. Furthermore, we were lucky enough to spot marmots playing between the stones. It's for all these reasons that the mountains exert a fascination over me that the sea doesn't: it inspires silence, grandeur and serenity.</div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">Connectors used</div>
+    <div class="connectors-used">
+      <span class="cu-item lp-seq">Il y a quelques semaines · Le premier matin · Après trois heures</span>
+      <span class="cu-item lp-con">Bien que · Pourtant</span>
+      <span class="cu-item lp-cau">Étant donné que</span>
+      <span class="cu-item lp-con2">C'est pour toutes ces raisons</span>
+      <span class="cu-item lp-add">De plus · En outre</span>
+    </div>
+    <div class="tip-box"><strong>Étant donné que</strong> (given that) is a formal cause connector — great for written B1. <strong>C'est pour toutes ces raisons que</strong> is a strong conclusion connector.</div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">Useful vocabulary</div>
+    <div class="vocab-list">
+      <span class="voc"><span class="vfr">escarpé(e)</span> <span class="ven">— steep</span></span>
+      <span class="voc"><span class="vfr">un plateau</span> <span class="ven">— a plateau / flat summit</span></span>
+      <span class="voc"><span class="vfr">une marmotte</span> <span class="ven">— a marmot</span></span>
+      <span class="voc"><span class="vfr">saisissant(e)</span> <span class="ven">— striking, startling</span></span>
+      <span class="voc"><span class="vfr">la grandeur</span> <span class="ven">— grandeur, greatness</span></span>
+    </div>
+  </div>
+</div></div>
+
+<!-- 18. UN REPAS AU RESTAURANT AVEC DES AMIS -->
+<div class="essay-card" data-cat="gastronomie" data-k="restaurant amis repas partager apéro plat dessert addition">
+<div class="ec-header" onclick="tog(this)">
+  <span class="ec-num">18</span><span class="ec-icon">🍷</span>
+  <div class="ec-meta"><div class="ec-title">Un dîner au restaurant entre amis</div><div class="ec-sub">Dinner out with friends — sharing the experience</div></div>
+  <span class="ec-cat">Gastronomie</span><span class="ec-tog">▾</span>
+</div>
+<div class="ec-body">
+  <div class="ec-section">
+    <div class="ec-section-label">🇫🇷 Texte en français</div>
+    <div class="essay-fr">
+      <span class="hl hl-seq">Samedi soir</span>, on a fêté l'anniversaire d'une amie dans un bistrot parisien du 11ème arrondissement. <span class="hl hl-cau">Puisque</span> c'était elle qui avait choisi le restaurant, on faisait tous confiance à son bon goût. <span class="hl hl-add">Et effectivement</span>, dès l'entrée dans le restaurant, l'ambiance était parfaite : une décoration chaleureuse, une lumière tamisée et une odeur de cuisine réconfortante. <span class="hl hl-seq">D'abord</span>, on a partagé plusieurs entrées : une planche de charcuterie, des escargots gratinés et une salade de betterave au chèvre chaud. <span class="hl hl-seq">Ensuite</span>, j'ai choisi un magret de canard accompagné de pommes sarladaises. <span class="hl hl-add">Non seulement</span> la cuisson était parfaite, <span class="hl hl-add">mais</span> la présentation était aussi soignée. <span class="hl hl-seq">Pour finir</span>, on a partagé une fondante au chocolat avec une boule de glace à la vanille. <span class="hl hl-con">Même si</span> l'addition était un peu élevée, cela valait largement le prix. <span class="hl hl-con2">C'est d'ailleurs pourquoi</span> on a décidé d'y retourner le mois prochain pour une autre occasion.
+    </div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">🇬🇧 English translation</div>
+    <div class="essay-en">On Saturday evening, we celebrated a friend's birthday at a Parisian bistro in the 11th arrondissement. Since she was the one who had chosen the restaurant, we all trusted her good taste. And indeed, from the moment we entered the restaurant, the atmosphere was perfect: warm decor, soft lighting and a comforting smell of cooking. First, we shared several starters: a charcuterie board, gratinated snails and a warm goat's cheese and beetroot salad. Then, I chose a duck breast with sarladaise potatoes. Not only was the cooking perfect, but the presentation was also meticulous. Finally, we shared a warm chocolate fondant with a scoop of vanilla ice cream. Even if the bill was a little high, it was well worth the price. That's also why we decided to go back next month for another occasion.</div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">Connectors used</div>
+    <div class="connectors-used">
+      <span class="cu-item lp-seq">Samedi soir · D'abord · Ensuite · Pour finir</span>
+      <span class="cu-item lp-con">Même si</span>
+      <span class="cu-item lp-cau">Puisque</span>
+      <span class="cu-item lp-con2">C'est d'ailleurs pourquoi</span>
+      <span class="cu-item lp-add">Et effectivement · Non seulement… mais</span>
+    </div>
+    <div class="tip-box"><strong>Et effectivement</strong> (and indeed) confirms and reinforces what was just said. <strong>D'abord… Ensuite… Pour finir</strong> is THE classic structure for describing a meal course by course.</div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">Useful vocabulary</div>
+    <div class="vocab-list">
+      <span class="voc"><span class="vfr">un magret de canard</span> <span class="ven">— duck breast</span></span>
+      <span class="voc"><span class="vfr">des pommes sarladaises</span> <span class="ven">— potatoes cooked in duck fat</span></span>
+      <span class="voc"><span class="vfr">soigné(e)</span> <span class="ven">— meticulous, carefully done</span></span>
+      <span class="voc"><span class="vfr">une fondante au chocolat</span> <span class="ven">— a warm chocolate fondant</span></span>
+      <span class="voc"><span class="vfr">la cuisson</span> <span class="ven">— the cooking / how something is cooked</span></span>
+    </div>
+  </div>
+</div></div>
+
+<!-- 19. UN WEEK-END À LA CAMPAGNE -->
+<div class="essay-card" data-cat="nature" data-k="campagne week-end calme nature déconnexion repos">
+<div class="ec-header" onclick="tog(this)">
+  <span class="ec-num">19</span><span class="ec-icon">🌾</span>
+  <div class="ec-meta"><div class="ec-title">Un week-end à la campagne</div><div class="ec-sub">A weekend in the countryside — rest, calm, nature</div></div>
+  <span class="ec-cat">Nature</span><span class="ec-tog">▾</span>
+</div>
+<div class="ec-body">
+  <div class="ec-section">
+    <div class="ec-section-label">🇫🇷 Texte en français</div>
+    <div class="essay-fr">
+      <span class="hl hl-seq">Le week-end dernier</span>, j'ai eu la chance de passer deux jours à la campagne en Normandie chez des amis. <span class="hl hl-cau">Puisque</span> je vis à Paris depuis plus d'un an, le rythme de la ville commençait à me peser. <span class="hl hl-con2">Du coup</span>, cette invitation est tombée à pic. <span class="hl hl-seq">Dès le vendredi soir</span>, après seulement deux heures de route, j'ai ressenti un changement radical : plus de bruit, plus de pollution, simplement le chant des oiseaux et l'odeur de l'herbe fraîche. <span class="hl hl-seq">Le lendemain matin</span>, on s'est levés tôt pour se promener dans les champs. <span class="hl hl-add">De plus</span>, nos hôtes avaient préparé un petit-déjeuner avec des produits de leur jardin : des œufs frais, des confitures maison et du pain de la boulangerie du village. <span class="hl hl-con">Bien que</span> la météo ne soit pas idéale — il pleuvait légèrement — on a quand même passé l'après-midi dehors sous des imperméables. <span class="hl hl-add">En effet</span>, il y a quelque chose de presque romantique dans la pluie normande et ses paysages verts. <span class="hl hl-con2">C'est pourquoi</span> ces deux jours ont été exactement ce dont j'avais besoin : un retour à l'essentiel.
+    </div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">🇬🇧 English translation</div>
+    <div class="essay-en">Last weekend, I was lucky enough to spend two days in the countryside in Normandy at friends' house. Since I've been living in Paris for over a year, the rhythm of the city had started to weigh on me. As a result, this invitation came at just the right time. From Friday evening, after only two hours of driving, I felt a radical change: no more noise, no more pollution, simply the birdsong and the smell of fresh grass. The next morning, we got up early to walk in the fields. What's more, our hosts had prepared breakfast with produce from their garden: fresh eggs, homemade jams and bread from the village bakery. Although the weather wasn't ideal — it was drizzling slightly — we still spent the afternoon outside under raincoats. Indeed, there's something almost romantic about the Norman rain and its green landscapes. That's why these two days were exactly what I needed: a return to the essentials.</div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">Connectors used</div>
+    <div class="connectors-used">
+      <span class="cu-item lp-seq">Le week-end dernier · Dès le vendredi soir · Le lendemain matin</span>
+      <span class="cu-item lp-con">Bien que · Quand même</span>
+      <span class="cu-item lp-cau">Puisque</span>
+      <span class="cu-item lp-con2">Du coup · C'est pourquoi</span>
+      <span class="cu-item lp-add">De plus · En effet</span>
+    </div>
+    <div class="tip-box"><strong>Tomber à pic</strong> (to come at just the right time) is a very natural idiomatic expression. <strong>Un retour à l'essentiel</strong> (a return to the essentials) is a beautiful closing phrase.</div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">Useful vocabulary</div>
+    <div class="vocab-list">
+      <span class="voc"><span class="vfr">peser</span> <span class="ven">— to weigh on (someone)</span></span>
+      <span class="voc"><span class="vfr">tomber à pic</span> <span class="ven">— to come at just the right time</span></span>
+      <span class="voc"><span class="vfr">un imperméable</span> <span class="ven">— a raincoat</span></span>
+      <span class="voc"><span class="vfr">l'essentiel</span> <span class="ven">— the essentials / what matters</span></span>
+      <span class="voc"><span class="vfr">un changement radical</span> <span class="ven">— a radical change</span></span>
+    </div>
+  </div>
+</div></div>
+
+<!-- 20. PARLER DE SES VACANCES EN GÉNÉRAL -->
+<div class="essay-card" data-cat="vacances" data-k="vacances idéales préférences bilan expérience générale">
+<div class="ec-header" onclick="tog(this)">
+  <span class="ec-num">20</span><span class="ec-icon">✈️</span>
+  <div class="ec-meta"><div class="ec-title">Mes vacances idéales</div><div class="ec-sub">Describing your ideal holiday — opinion & argument</div></div>
+  <span class="ec-cat">Vacances</span><span class="ec-tog">▾</span>
+</div>
+<div class="ec-body">
+  <div class="ec-section">
+    <div class="ec-section-label">🇫🇷 Texte en français</div>
+    <div class="essay-fr">
+      Quand on me demande quelles sont mes vacances idéales, je réponds toujours la même chose : un mélange de nature, de culture et de gastronomie. <span class="hl hl-add">En effet</span>, j'ai besoin de me ressourcer dans la nature, <span class="hl hl-add">mais aussi</span> de découvrir de nouveaux endroits et de nouvelles cuisines. <span class="hl hl-con">Cependant</span>, j'évite les destinations trop touristiques, <span class="hl hl-cau">car</span> j'aime me fondre dans la vie locale plutôt que de simplement voir les monuments. <span class="hl hl-ex">Par exemple</span>, lors de mon dernier voyage en Espagne, ma meilleure expérience n'était pas la Sagrada Família, mais une petite bodega dans un village où j'ai mangé du jambon ibérique avec des vignerons locaux. <span class="hl hl-add">De plus</span>, je préfère voyager lentement : rester plusieurs jours dans le même endroit plutôt que de tout voir en courant. <span class="hl hl-cau">Puisque</span> j'habite à Paris, une ville que tout le monde veut visiter, j'apprécie d'autant plus les endroits préservés et authentiques. <span class="hl hl-add">D'ailleurs</span>, certains de mes meilleurs souvenirs de voyage viennent de rencontres fortuites avec des locaux, <span class="hl hl-con2">ce qui m'a rappelé</span> que les plus belles choses ne se planifient pas. <span class="hl hl-seq">En conclusion</span>, pour moi, les vacances idéales ne sont pas une question de destination, mais d'état d'esprit.
+    </div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">🇬🇧 English translation</div>
+    <div class="essay-en">When people ask me what my ideal holiday is, I always give the same answer: a mix of nature, culture and gastronomy. Indeed, I need to recharge in nature, but also to discover new places and new cuisines. However, I avoid destinations that are too touristy, because I like to blend into local life rather than just seeing monuments. For example, during my last trip to Spain, my best experience wasn't the Sagrada Família, but a small bodega in a village where I ate Iberian ham with local winemakers. What's more, I prefer to travel slowly: staying several days in the same place rather than trying to see everything at a run. Since I live in Paris, a city that everyone wants to visit, I appreciate preserved and authentic places all the more. What's more, some of my best travel memories come from chance encounters with locals, which reminded me that the most beautiful things can't be planned. In conclusion, for me, the ideal holiday isn't about the destination, but the mindset.</div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">Connectors used</div>
+    <div class="connectors-used">
+      <span class="cu-item lp-seq">En conclusion</span>
+      <span class="cu-item lp-con">Cependant</span>
+      <span class="cu-item lp-cau">Car · Puisque</span>
+      <span class="cu-item lp-con2">Ce qui m'a rappelé</span>
+      <span class="cu-item lp-add">En effet · Mais aussi · De plus · D'ailleurs</span>
+      <span class="cu-item lp-ex">Par exemple</span>
+    </div>
+    <div class="tip-box"><strong>En conclusion</strong> is essential for closing any oral or written piece. <strong>D'autant plus</strong> (all the more) is a great B1 intensifier. <strong>Se fondre dans</strong> (to blend into) is a vivid idiomatic expression.</div>
+  </div>
+  <div class="ec-section">
+    <div class="ec-section-label">Useful vocabulary</div>
+    <div class="vocab-list">
+      <span class="voc"><span class="vfr">se fondre dans</span> <span class="ven">— to blend into</span></span>
+      <span class="voc"><span class="vfr">une bodega</span> <span class="ven">— a wine cellar / local bar</span></span>
+      <span class="voc"><span class="vfr">fortuit(e)</span> <span class="ven">— chance, fortuitous</span></span>
+      <span class="voc"><span class="vfr">préservé(e)</span> <span class="ven">— unspoilt, preserved</span></span>
+      <span class="voc"><span class="vfr">d'autant plus</span> <span class="ven">— all the more</span></span>
+    </div>
+  </div>
+</div></div>
+
+</div><!-- wrap -->
+
+<script>
+function tog(h){ h.parentElement.classList.toggle('open') }
+
+let curCat = 'all';
+function setCat(c, btn){
+  curCat = c;
+  document.querySelectorAll('#ctabs .tb').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  run();
+}
+function run(){
+  const q = document.getElementById('q').value.toLowerCase().trim();
+  const ref = document.getElementById('ref-sec');
+  let vis = 0;
+  document.querySelectorAll('.essay-card').forEach(card => {
+    const cat = card.dataset.cat || '';
+    const kw = (card.dataset.k || '').toLowerCase();
+    const title = card.querySelector('.ec-title')?.textContent.toLowerCase() || '';
+    const catOk = curCat === 'all' || curCat === cat;
+    const qOk = !q || kw.includes(q) || title.includes(q) || card.textContent.toLowerCase().includes(q);
+    if(catOk && qOk){ card.classList.remove('hide'); vis++; }
+    else { card.classList.add('hide'); }
+  });
+  ref.style.display = (curCat === 'all' && !q) ? '' : 'none';
+  document.getElementById('empty').classList.toggle('show', vis === 0);
+}
+</script>
+</body>
+</html>
