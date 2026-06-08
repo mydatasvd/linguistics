@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mon Guide de Français B1</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,700;1,400;1,600&family=DM+Mono:wght@400;500&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fdf9f3;--s1:#ffffff;--s2:#f5f0e8;--s3:#ece6d9;
+  --br:#ddd6c8;--tx:#1e1a14;--t2:#5c5448;--t3:#9c9080;
+  --red:#c94040;--blue:#2563a8;--green:#2a7a4a;--orange:#c47a20;
+  --purple:#6b44a8;--teal:#1a7a6a;--pink:#b83070;--gold:#a07a10;
+  --wh:#ffffff;--ink:#1e1a14;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;line-height:1.6}
+
+/* HERO */
+.hero{
+  background:linear-gradient(160deg,#1e1a14 0%,#2a2010 40%,#1a1408 100%);
+  padding:60px 24px 52px;text-align:center;position:relative;overflow:hidden
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 30% 50%,rgba(201,64,64,.12),transparent 60%),
+             radial-gradient(ellipse at 70% 50%,rgba(37,99,168,.1),transparent 60%);
+}
+.hero::after{
+  content:'FRANÇAIS';position:absolute;bottom:-30px;left:50%;transform:translateX(-50%);
+  font-family:'Fraunces',serif;font-size:9rem;font-weight:700;color:rgba(255,255,255,.03);
+  white-space:nowrap;letter-spacing:10px;pointer-events:none;
+}
+.hero-label{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);
+  border-radius:20px;padding:5px 16px;font-size:.72rem;letter-spacing:2px;
+  text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:20px;
+  font-family:'DM Mono',monospace;position:relative;
+}
+.hero h1{
+  font-family:'Fraunces',serif;font-size:clamp(2.2rem,6vw,4rem);
+  font-weight:700;color:#fff;line-height:1.1;margin-bottom:10px;position:relative;
+}
+.hero h1 em{font-style:italic;color:#f5b56a}
+.hero-sub{color:rgba(255,255,255,.55);font-size:.95rem;font-weight:300;max-width:500px;margin:0 auto 24px;position:relative;}
+.hero-meta{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;position:relative;}
+.hm{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);
+    border-radius:8px;padding:6px 14px;font-size:.78rem;color:rgba(255,255,255,.7);
+    font-family:'DM Mono',monospace;}
+.hm strong{color:#fff}
+
+/* CONTROLS */
+.controls{
+  background:var(--s1);border-bottom:2px solid var(--br);
+  padding:12px 16px;position:sticky;top:0;z-index:100;
+  box-shadow:0 2px 12px rgba(0,0,0,.06)
+}
+.ci{max-width:1160px;margin:0 auto;display:flex;flex-direction:column;gap:9px}
+.sr{position:relative}
+.sr input{
+  width:100%;background:var(--bg);border:1.5px solid var(--br);
+  border-radius:8px;padding:8px 14px 8px 40px;font-family:'Nunito',sans-serif;
+  font-size:.9rem;color:var(--tx);outline:none;transition:border-color .2s;
+}
+.sr input:focus{border-color:var(--blue)}
+.sr input::placeholder{color:var(--t3)}
+.si{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--t3)}
+.row-tabs{display:flex;gap:5px;flex-wrap:wrap}
+.tb{
+  padding:5px 13px;border-radius:18px;border:1.5px solid var(--br);
+  background:transparent;font-family:'Nunito',sans-serif;font-size:.76rem;
+  font-weight:700;cursor:pointer;color:var(--t2);transition:all .17s;white-space:nowrap
+}
+.tb:hover{border-color:var(--blue);color:var(--blue)}
+.tb.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.tb.on.r{background:var(--red);border-color:var(--red)}
+.tb.on.g{background:var(--green);border-color:var(--green)}
+.tb.on.o{background:var(--orange);border-color:var(--orange)}
+.tb.on.p{background:var(--purple);border-color:var(--purple)}
+.tb.on.t{background:var(--teal);border-color:var(--teal)}
+.tb.on.pk{background:var(--pink);border-color:var(--pink)}
+
+/* LAYOUT */
+.wrap{max-width:1160px;margin:0 auto;padding:26px 14px 60px}
+.sec{margin-bottom:48px}
+.sec-hd{
+  display:flex;align-items:center;gap:12px;
+  margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid var(--br)
+}
+.sec-icon{
+  width:36px;height:36px;border-radius:10px;display:flex;align-items:center;
+  justify-content:center;font-size:1.1rem;flex-shrink:0;
+}
+.sec-title{font-family:'Fraunces',serif;font-size:1.35rem;font-weight:600;color:var(--tx)}
+.sec-sub{font-size:.7rem;color:var(--t3);font-family:'DM Mono',monospace;margin-left:auto;text-align:right}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+@media(max-width:680px){.grid{grid-template-columns:1fr}}
+
+/* CARDS */
+.card{
+  background:var(--s1);border:1.5px solid var(--br);border-radius:12px;
+  overflow:hidden;transition:transform .13s,box-shadow .13s
+}
+.card:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(0,0,0,.07)}
+.card.hide{display:none}
+.ch{
+  display:flex;align-items:center;gap:10px;padding:13px 16px;
+  cursor:pointer;background:var(--s2);border-bottom:1.5px solid var(--br);
+  transition:background .13s
+}
+.ch:hover,.card.open .ch{background:var(--s3)}
+.cn{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--t3);flex-shrink:0;min-width:24px}
+.cmeta{flex:1}
+.ctitle{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:600;color:var(--tx);line-height:1.3}
+.csub{font-size:.73rem;color:var(--t2);margin-top:2px}
+.tog{color:var(--t3);font-size:.85rem;transition:transform .22s;flex-shrink:0}
+.card.open .tog{transform:rotate(180deg)}
+.cb{display:none}
+.card.open .cb{display:block}
+
+/* CONTENT BLOCKS */
+.blk{padding:13px 16px;border-bottom:1px solid var(--br)}
+.blk:last-child{border-bottom:none}
+.blk-label{
+  font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:1px;
+  text-transform:uppercase;font-weight:500;padding:3px 8px;border-radius:4px;
+  display:inline-block;margin-bottom:8px;
+}
+.lbl-fr{color:var(--blue);background:#e8f0fc}
+.lbl-en{color:var(--green);background:#e4f4ec}
+.lbl-rule{color:var(--orange);background:#fdf0e0}
+.lbl-ex{color:var(--red);background:#fce8e8}
+.lbl-tip{color:var(--purple);background:#f0ecfc}
+.lbl-err{color:var(--pink);background:#fce8f0}
+.lbl-voc{color:var(--teal);background:#e4f4f0}
+
+.desc{font-size:.87rem;color:var(--t2);line-height:1.65}
+.fr-box{
+  background:#f0f5ff;border-left:3px solid var(--blue);
+  border-radius:0 7px 7px 0;padding:10px 14px;margin-top:8px;
+  font-size:.87rem;line-height:1.65;color:var(--tx)
+}
+.fr-box strong{color:var(--blue)}
+.fr-box code{
+  font-family:'DM Mono',monospace;font-size:.81rem;
+  background:rgba(37,99,168,.1);padding:1px 5px;border-radius:3px;color:var(--blue)
+}
+.rule-box{
+  background:#fff8ed;border-left:3px solid var(--orange);
+  border-radius:0 7px 7px 0;padding:10px 14px;margin-top:8px;
+  font-size:.87rem;line-height:1.7;color:var(--tx)
+}
+.rule-box strong{color:var(--orange)}
+.rule-box code{
+  font-family:'DM Mono',monospace;font-size:.81rem;
+  background:rgba(196,122,32,.1);padding:1px 5px;border-radius:3px;color:var(--orange)
+}
+.ex-list{margin-top:8px;display:flex;flex-direction:column;gap:5px}
+.ex-row{font-size:.86rem;line-height:1.55;display:flex;gap:6px;align-items:flex-start}
+.ex-fr{color:var(--blue);font-weight:600;flex:1}
+.ex-en{color:var(--green);flex:1;font-style:italic}
+.ex-badge{
+  font-family:'DM Mono',monospace;font-size:.6rem;padding:1px 5px;
+  border-radius:3px;background:var(--s3);color:var(--t3);flex-shrink:0;margin-top:3px
+}
+.err-box{
+  background:#fff0f4;border-left:3px solid var(--pink);
+  border-radius:0 7px 7px 0;padding:10px 14px;margin-top:8px
+}
+.err-row{display:flex;gap:8px;align-items:flex-start;margin-bottom:5px;font-size:.84rem}
+.err-row:last-child{margin-bottom:0}
+.ex{color:var(--red);font-weight:700;flex-shrink:0}
+.ec{color:var(--green);font-weight:700;flex-shrink:0}
+.et{color:var(--tx)}
+.tip-box{
+  background:#f5f0ff;border:1px solid #d0c0f0;border-radius:7px;
+  padding:10px 14px;margin-top:8px;font-size:.84rem;color:#3a2460;line-height:1.6
+}
+.tip-box::before{content:'💡 ';font-style:normal}
+.tw{overflow-x:auto;padding:8px 14px 12px}
+table{width:100%;border-collapse:collapse;font-size:.82rem}
+th{
+  background:var(--blue);color:#fff;padding:6px 10px;text-align:left;
+  font-family:'DM Mono',monospace;font-size:.67rem;letter-spacing:.5px
+}
+td{padding:6px 10px;border-bottom:1px solid var(--br);color:var(--tx);line-height:1.5}
+tr:nth-child(even) td{background:var(--s2)}
+td code{font-family:'DM Mono',monospace;font-size:.78rem;background:var(--s3);padding:1px 4px;border-radius:3px}
+td .fr{color:var(--blue);font-weight:600}
+td .en{color:var(--green);font-style:italic}
+td .bad{color:var(--red)}
+td .good{color:var(--green);font-weight:600}
+
+/* VOCAB PILL */
+.vocab-grid{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.vp{
+  background:var(--s2);border:1px solid var(--br);border-radius:6px;
+  padding:4px 10px;font-size:.8rem;line-height:1.5;
+}
+.vp .vfr{color:var(--blue);font-weight:600}
+.vp .ven{color:var(--t2);font-style:italic;font-size:.75rem}
+
+.empty{text-align:center;padding:50px 20px;color:var(--t3);display:none}
+.empty.show{display:block}
+.empty h3{font-family:'Fraunces',serif;font-size:1.5rem;color:var(--t2);margin-bottom:6px}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-label">🇫🇷 Niveau B1.2 · Paris · 2026</div>
+  <h1>Mon Guide de<br><em>Français B1</em></h1>
+  <p class="hero-sub">Built from your actual school materials · Explanations in English · Examples &amp; tips to remember</p>
+  <div class="hero-meta">
+    <div class="hm">📚 <strong>22</strong> lessons</div>
+    <div class="hm">📝 <strong>12</strong> grammar topics</div>
+    <div class="hm">💬 Bilingual EN/FR</div>
+    <div class="hm">✅ From your teacher Lucie</div>
+  </div>
+</div>
+
+<div class="controls">
+  <div class="ci">
+    <div class="sr">
+      <span class="si">🔍</span>
+      <input type="text" id="q" placeholder="Search… e.g. subjonctif, negation, passif, pronoms, conditionnel" oninput="run()">
+    </div>
+    <div class="row-tabs" id="gtabs">
+      <button class="tb on" onclick="setG('all',this)">All Topics</button>
+      <button class="tb r" onclick="setG('passe',this)">Le Passé</button>
+      <button class="tb g" onclick="setG('pronoms',this)">Pronoms</button>
+      <button class="tb o" onclick="setG('subjonctif',this)">Subjonctif</button>
+      <button class="tb p" onclick="setG('negation',this)">Négation</button>
+      <button class="tb t" onclick="setG('passif',this)">Passif</button>
+      <button class="tb pk" onclick="setG('conditionnel',this)">Conditionnel</button>
+      <button class="tb" style="--c:#1a7a6a" onclick="setG('connectors',this)">Connecteurs</button>
+      <button class="tb" onclick="setG('gerondif',this)">Gérondif</button>
+      <button class="tb" onclick="setG('vocab',this)">Vocabulaire</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+<div id="empty" class="empty"><h3>Aucun résultat</h3><p>Try a different search term.</p></div>
+
+<!-- ═══════════════════════════════
+  1. LE PASSÉ
+════════════════════════════════ -->
+<div class="sec" data-g="passe">
+  <div class="sec-hd">
+    <div class="sec-icon" style="background:#fce8e8">📅</div>
+    <div>
+      <div class="sec-title">Le Passé — Past Tenses</div>
+    </div>
+    <div class="sec-sub">passé composé · imparfait · plus-que-parfait</div>
+  </div>
+  <div class="grid">
+
+<!-- PASSÉ COMPOSÉ -->
+<div class="card" data-g="passe" data-k="passé composé avoir être participe passé completed action past">
+<div class="ch" onclick="tog(this)"><div class="cn">1</div>
+<div class="cmeta"><div class="ctitle">Le Passé Composé</div><div class="csub">Completed actions in the past</div></div>
+<span class="tog">▾</span></div>
+<div class="cb">
+  <div class="blk"><span class="blk-label lbl-en">What it is</span>
+    <p class="desc">The passé composé expresses a <strong>completed action</strong> in the past. It is the most commonly used past tense in spoken French. It is formed with an auxiliary verb (avoir or être) + past participle.</p>
+  </div>
+  <div class="blk"><span class="blk-label lbl-fr">Ce que c'est</span>
+    <div class="fr-box">Le passé composé exprime une <strong>action terminée</strong> dans le passé. C'est le temps du passé le plus utilisé à l'oral en français. Il se forme avec un auxiliaire (avoir ou être) + participe passé.</div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">Formation: avoir + participe passé</span>
+    <div class="rule-box">
+      Most verbs use <strong>avoir</strong>:<br>
+      <code>j'ai parlé · tu as mangé · il a fini · nous avons vu · vous avez pris · ils ont fait</code><br><br>
+      Regular past participles:<br>
+      <code>-er → -é</code> (parler → parlé, manger → mangé)<br>
+      <code>-ir → -i</code> (finir → fini, choisir → choisi)<br>
+      <code>-re → -u</code> (vendre → vendu, attendre → attendu)
+    </div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">Formation: être + participe passé</span>
+    <div class="rule-box">
+      Movement / state change verbs use <strong>être</strong> (DR MRS VANDERTRAMP):<br>
+      <code>aller, venir, partir, arriver, entrer, sortir, monter, descendre, naître, mourir, rester, retourner, tomber, passer</code><br><br>
+      ⚠️ With être: the participle <strong>agrees with the subject</strong>:<br>
+      <code>Elle est partie. ✓</code> (not "parti")<br>
+      <code>Ils sont arrivés. ✓</code><br><br>
+      ALL reflexive verbs use être:<br>
+      <code>Je me suis levé(e). Elle s'est habillée.</code>
+    </div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">Special: sortir, monter, descendre, passer, rentrer</span>
+    <div class="rule-box">
+      These verbs use <strong>être</strong> for movement (no object), but <strong>avoir</strong> when they have a direct object (COD):<br><br>
+      <code>Je suis sorti(e).</code> (intransitive — went out)<br>
+      <code>J'ai sorti la poubelle.</code> (sorti QUOI? → la poubelle = COD → avoir)<br>
+      <code>J'ai monté la valise.</code> (monté quoi? → la valise)<br>
+      <code>Je suis monté(e) à l'étage.</code> (no object → être)
+    </div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-ex">Examples</span>
+    <div class="ex-list">
+      <div class="ex-row"><span class="ex-fr">J'ai mangé une pizza hier.</span><span class="ex-en">I ate a pizza yesterday.</span></div>
+      <div class="ex-row"><span class="ex-fr">Elle est partie à 8h.</span><span class="ex-en">She left at 8am.</span></div>
+      <div class="ex-row"><span class="ex-fr">Nous avons regardé un film.</span><span class="ex-en">We watched a film.</span></div>
+      <div class="ex-row"><span class="ex-fr">Ils se sont mariés en juin.</span><span class="ex-en">They got married in June.</span></div>
+    </div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-err">Common Mistakes</span>
+    <div class="err-box">
+      <div class="err-row"><span class="ex">✗</span><span class="et"><span class="bad">J'ai allé au cinéma.</span> → <span class="good">Je suis allé au cinéma.</span> (aller uses être)</span></div>
+      <div class="err-row"><span class="ex">✗</span><span class="et"><span class="bad">Elle a partie tôt.</span> → <span class="good">Elle est partie tôt.</span></span></div>
+      <div class="err-row"><span class="ex">✗</span><span class="et"><span class="bad">J'ai bu pas de café.</span> → <span class="good">Je n'ai pas bu de café.</span></span></div>
+    </div>
+  </div>
+</div></div>
+
+<!-- IMPARFAIT -->
+<div class="card" data-g="passe" data-k="imparfait imperfect ongoing background description habitual past">
+<div class="ch" onclick="tog(this)"><div class="cn">2</div>
+<div class="cmeta"><div class="ctitle">L'Imparfait</div><div class="csub">Background, habits, descriptions in the past</div></div>
+<span class="tog">▾</span></div>
+<div class="cb">
+  <div class="blk"><span class="blk-label lbl-en">What it is</span>
+    <p class="desc">The imparfait describes <strong>ongoing situations, background, habits</strong>, and states in the past. Unlike the passé composé (completed action), the imparfait shows actions without a clear start or end.</p>
+  </div>
+  <div class="blk"><span class="blk-label lbl-fr">Ce que c'est</span>
+    <div class="fr-box">L'imparfait décrit des <strong>situations en cours, le décor, les habitudes</strong> et les états dans le passé. Contrairement au passé composé (action terminée), l'imparfait montre des actions sans début ni fin précis.</div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">Formation</span>
+    <div class="rule-box">
+      Take the <strong>nous form of the présent</strong>, remove <code>-ons</code>, add: <code>-ais, -ais, -ait, -ions, -iez, -aient</code><br><br>
+      parler → nous parlons → parl-:<br>
+      <code>je parlais · tu parlais · il parlait · nous parlions · vous parliez · ils parlaient</code><br><br>
+      ⚠️ Only irregular stem: <strong>être → ét-</strong><br>
+      <code>j'étais · tu étais · il était · nous étions · vous étiez · ils étaient</code>
+    </div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">When to use imparfait vs passé composé</span>
+    <div class="rule-box">
+      <strong>Imparfait:</strong><br>
+      • Background/setting the scene: <code>Il faisait beau. Les rues étaient calmes.</code><br>
+      • Ongoing action (interrupted by another): <code>Je dormais quand le téléphone a sonné.</code><br>
+      • Repeated habits: <code>Quand j'étais enfant, je jouais au foot tous les jours.</code><br>
+      • States/descriptions: <code>Elle était fatiguée. Il avait les yeux bleus.</code><br><br>
+      <strong>Passé composé:</strong><br>
+      • Completed, delimited action: <code>Il est arrivé à 8h. J'ai pris le bus.</code><br>
+      • Sequence of events: <code>Je me suis levé, j'ai pris une douche, j'ai pris le bus.</code>
+    </div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-ex">Examples together</span>
+    <div class="ex-list">
+      <div class="ex-row"><span class="ex-fr">Il neigeait quand je suis sorti(e).</span><span class="ex-en">It was snowing when I went out.</span></div>
+      <div class="ex-row"><span class="ex-fr">Elle lisait quand son ami a appelé.</span><span class="ex-en">She was reading when her friend called.</span></div>
+      <div class="ex-row"><span class="ex-fr">Avant, je travaillais à Paris.</span><span class="ex-en">Before, I used to work in Paris.</span></div>
+    </div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-tip">Memory tip</span>
+    <div class="tip-box">Think of a movie: imparfait = the <strong>background / scenery</strong> (what was happening); passé composé = the <strong>main action / plot events</strong> (what happened).</div>
+  </div>
+</div></div>
+
+<!-- PLUS-QUE-PARFAIT -->
+<div class="card" data-g="passe" data-k="plus-que-parfait pluperfect had done before another past avait été">
+<div class="ch" onclick="tog(this)"><div class="cn">3</div>
+<div class="cmeta"><div class="ctitle">Le Plus-que-parfait</div><div class="csub">The "past of the past" — before another past event</div></div>
+<span class="tog">▾</span></div>
+<div class="cb">
+  <div class="blk"><span class="blk-label lbl-en">What it is</span>
+    <p class="desc">The plus-que-parfait is used to describe an action that happened <strong>before another past action</strong>. In English: "had done" — "I had already eaten when she arrived."</p>
+  </div>
+  <div class="blk"><span class="blk-label lbl-fr">Ce que c'est</span>
+    <div class="fr-box">Le plus-que-parfait décrit une action qui s'est passée <strong>avant une autre action passée</strong>. C'est le « passé du passé ». En anglais : "had done" — <em>J'avais déjà mangé quand elle est arrivée.</em></div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">Formation</span>
+    <div class="rule-box">
+      <strong>Imparfait of avoir or être + past participle</strong><br><br>
+      With avoir: <code>j'avais mangé · tu avais fini · il avait pris · nous avions vu</code><br>
+      With être: <code>j'étais parti(e) · elle était arrivée · ils étaient allés</code><br><br>
+      Same rules as passé composé for choosing avoir/être and agreement.
+    </div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-ex">Examples</span>
+    <div class="ex-list">
+      <div class="ex-row"><span class="ex-fr">Quand je suis arrivé, le film avait déjà commencé.</span><span class="ex-en">When I arrived, the film had already started.</span></div>
+      <div class="ex-row"><span class="ex-fr">Elle était fatiguée parce qu'elle n'avait pas dormi.</span><span class="ex-en">She was tired because she hadn't slept.</span></div>
+      <div class="ex-row"><span class="ex-fr">Il m'a raconté qu'il s'était marié.</span><span class="ex-en">He told me he had gotten married.</span></div>
+      <div class="ex-row"><span class="ex-fr">J'avais déjà mangé quand mon mari a dit qu'il avait préparé le dîner.</span><span class="ex-en">I had already eaten when my husband said he had prepared dinner.</span></div>
+    </div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-tip">Memory tip</span>
+    <div class="tip-box">Timeline: plus-que-parfait → passé composé → maintenant<br>
+    "j'avais mangé" (PQP) happened BEFORE "elle est arrivée" (PC) which is itself in the past.</div>
+  </div>
+</div></div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════
+  2. PRONOMS COMPLÉMENTS
+════════════════════════════════ -->
+<div class="sec" data-g="pronoms">
+  <div class="sec-hd">
+    <div class="sec-icon" style="background:#e8f0fc">🔄</div>
+    <div><div class="sec-title">Pronoms Compléments</div></div>
+    <div class="sec-sub">le/la/les · lui/leur · y · en · double pronouns</div>
+  </div>
+  <div class="grid">
+
+<!-- COD/COI BASIC -->
+<div class="card" data-g="pronoms" data-k="pronoms compléments COD COI le la les lui leur direct indirect object">
+<div class="ch" onclick="tog(this)"><div class="cn">4</div>
+<div class="cmeta"><div class="ctitle">Pronoms COD et COI</div><div class="csub">le / la / les (direct) · lui / leur (indirect)</div></div>
+<span class="tog">▾</span></div>
+<div class="cb">
+  <div class="blk"><span class="blk-label lbl-en">What they are</span>
+    <p class="desc">Pronouns replace nouns to avoid repetition. The key is identifying whether the noun answers <em>quoi/qui</em> directly (COD) or <em>à qui</em> (COI).</p>
+  </div>
+  <div class="blk"><span class="blk-label lbl-fr">Ce que c'est</span>
+    <div class="fr-box">Les pronoms remplacent les noms pour éviter la répétition. La clé est d'identifier si le nom répond à <em>quoi/qui</em> directement (COD) ou à <em>à qui</em> (COI).</div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">COD — Direct Object (answers quoi? / qui?)</span>
+    <div class="rule-box">
+      <code>le</code> (masc. sing.) · <code>la</code> (fem. sing.) · <code>les</code> (plural)<br><br>
+      <em>Tu regardes <strong>le film</strong>?</em> → <em>Tu <strong>le</strong> regardes?</em><br>
+      <em>Elle achète <strong>la robe</strong>.</em> → <em>Elle <strong>la</strong> achète.</em><br>
+      <em>Ils aiment <strong>les films</strong>.</em> → <em>Ils <strong>les</strong> aiment.</em>
+    </div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">COI — Indirect Object (answers à qui?)</span>
+    <div class="rule-box">
+      <code>lui</code> (sing. masc/fem) · <code>leur</code> (plural)<br><br>
+      <em>Je parle <strong>à Marie</strong>.</em> → <em>Je <strong>lui</strong> parle.</em><br>
+      <em>Il téléphone <strong>à ses parents</strong>.</em> → <em>Il <strong>leur</strong> téléphone.</em><br><br>
+      ⚠️ lui/leur NEVER replace things — only people
+    </div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">Position of pronouns</span>
+    <div class="rule-box">
+      Before the conjugated verb: <code>Je <strong>le</strong> vois.</code><br>
+      Before the infinitive: <code>Je veux <strong>le</strong> voir.</code><br>
+      With negative: <code>Je ne <strong>le</strong> vois pas.</code><br>
+      Passé composé — before auxiliary: <code>Je <strong>l'</strong>ai vu.</code>
+    </div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">Agreement in passé composé</span>
+    <div class="rule-box">
+      When COD comes <strong>before avoir</strong>, the past participle agrees:<br>
+      <code>Les fleurs que j'ai achetées.</code> (achetées: fem. plur.)<br>
+      <code>Je les ai achetées.</code> (les = fleurs → fem. plur.)<br>
+      <code>La chaise? Je l'ai prise.</code> (prise: fem. sing.)
+    </div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-err">Common Mistakes</span>
+    <div class="err-box">
+      <div class="err-row"><span class="ex">✗</span><span class="et"><span class="bad">Je lui vois.</span> → <span class="good">Je le/la vois.</span> (voir takes a direct object)</span></div>
+      <div class="err-row"><span class="ex">✗</span><span class="et"><span class="bad">Je les parle.</span> → <span class="good">Je leur parle.</span> (parler à = indirect)</span></div>
+    </div>
+  </div>
+</div></div>
+
+<!-- Y and EN -->
+<div class="card" data-g="pronoms" data-k="pronom y en place thing quantity">
+<div class="ch" onclick="tog(this)"><div class="cn">5</div>
+<div class="cmeta"><div class="ctitle">Les Pronoms Y et EN</div><div class="csub">y (place/à + thing) · en (quantity/de + thing)</div></div>
+<span class="tog">▾</span></div>
+<div class="cb">
+  <div class="blk"><span class="blk-label lbl-en">What they replace</span>
+    <p class="desc"><strong>Y</strong> replaces a place or à + thing. <strong>EN</strong> replaces de + thing, or a quantity.</p>
+  </div>
+  <div class="blk"><span class="blk-label lbl-fr">Ce qu'ils remplacent</span>
+    <div class="fr-box"><strong>Y</strong> remplace un lieu ou à + chose. <strong>EN</strong> remplace de + chose, ou une quantité.</div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">Y — replaces à + place or à + thing (not person)</span>
+    <div class="rule-box">
+      <em>Tu vas <strong>au marché</strong>?</em> → <em>Tu <strong>y</strong> vas?</em><br>
+      <em>Il pense <strong>à son travail</strong>.</em> → <em>Il <strong>y</strong> pense.</em><br>
+      <em>Elle répond <strong>à la question</strong>.</em> → <em>Elle <strong>y</strong> répond.</em><br><br>
+      ⚠️ Y does NOT replace people (use lui/leur for people with à)
+    </div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">EN — replaces de + thing, or quantities</span>
+    <div class="rule-box">
+      Replacing <em>de + noun</em>: <code>Je viens <strong>de Paris</strong>.</code> → <code>J'<strong>en</strong> viens.</code><br>
+      Replacing quantity: <code>Tu veux <strong>du café</strong>?</code> → <code>Tu <strong>en</strong> veux?</code><br>
+      Replacing a number: <code>J'ai <strong>deux chats</strong>.</code> → <code>J'<strong>en</strong> ai deux.</code><br>
+      Verb + de: <code>Je doute <strong>de son succès</strong>.</code> → <code>J'<strong>en</strong> doute.</code>
+    </div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-ex">Examples</span>
+    <div class="ex-list">
+      <div class="ex-row"><span class="ex-fr">— Tu vas à la piscine? — Oui, j'y vais.</span><span class="ex-en">Yes, I'm going there.</span></div>
+      <div class="ex-row"><span class="ex-fr">— Tu as des frères? — J'en ai deux.</span><span class="ex-en">I have two (of them).</span></div>
+      <div class="ex-row"><span class="ex-fr">— Elle parle de son voyage? — Oui, elle en parle.</span><span class="ex-en">Yes, she talks about it.</span></div>
+    </div>
+  </div>
+</div></div>
+
+<!-- DOUBLE PRONOUNS -->
+<div class="card" data-g="pronoms" data-k="double pronouns order me te le lui y en deux pronoms ordre">
+<div class="ch" onclick="tog(this)"><div class="cn">6</div>
+<div class="cmeta"><div class="ctitle">Double Pronoms — Order</div><div class="csub">When two pronouns appear together</div></div>
+<span class="tog">▾</span></div>
+<div class="cb">
+  <div class="blk"><span class="blk-label lbl-en">What it is</span>
+    <p class="desc">When two pronouns are used together in one sentence, they must follow a strict fixed order before the verb.</p>
+  </div>
+  <div class="blk"><span class="blk-label lbl-fr">Ce que c'est</span>
+    <div class="fr-box">Quand deux pronoms sont utilisés ensemble, ils doivent suivre un ordre fixe et précis avant le verbe.</div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">The Order (memorize this!)</span>
+    <div class="rule-box">
+      <strong>me/te/se/nous/vous → le/la/les → lui/leur → y → en + verb</strong><br><br>
+      <code>Je <strong>te le</strong> donne.</code> (I give it to you)<br>
+      <code>Il <strong>le lui</strong> explique.</code> (He explains it to him/her)<br>
+      <code>Je <strong>le lui</strong> recommande.</code><br>
+      <code>Nous <strong>les leur</strong> avons envoyé.</code><br>
+      <code>Il <strong>y en</strong> a beaucoup.</code>
+    </div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-ex">Examples from your lessons</span>
+    <div class="ex-list">
+      <div class="ex-row"><span class="ex-fr">Je te la laisserai.</span><span class="ex-en">I will leave it for you. (fem.)</span></div>
+      <div class="ex-row"><span class="ex-fr">Je leur en ai prêté une.</span><span class="ex-en">I lent one to them.</span></div>
+      <div class="ex-row"><span class="ex-fr">Je vous y ai conviés.</span><span class="ex-en">I invited you there.</span></div>
+      <div class="ex-row"><span class="ex-fr">Je ne lui en ai pas donné.</span><span class="ex-en">I didn't give any to him/her.</span></div>
+      <div class="ex-row"><span class="ex-fr">On leur en a envoyé une.</span><span class="ex-en">We sent one to them.</span></div>
+    </div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-tip">Memory tip</span>
+    <div class="tip-box">Think of it as a train: me/te/nous/vous → le/la/les → lui/leur → y → en → 🚂 VERB<br>
+    The first group (me/te…) always comes before the second (le/la/les) which always comes before the third (lui/leur), etc.</div>
+  </div>
+</div></div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════
+  3. LE SUBJONCTIF
+════════════════════════════════ -->
+<div class="sec" data-g="subjonctif">
+  <div class="sec-hd">
+    <div class="sec-icon" style="background:#fdf0e0">🌀</div>
+    <div><div class="sec-title">Le Subjonctif</div></div>
+    <div class="sec-sub">formation · triggers · vs indicatif</div>
+  </div>
+  <div class="grid">
+
+<!-- SUBJONCTIF FORMATION -->
+<div class="card" data-g="subjonctif" data-k="subjonctif présent formation il faut que je veuille puisse aille">
+<div class="ch" onclick="tog(this)"><div class="cn">7</div>
+<div class="cmeta"><div class="ctitle">Subjonctif Présent — Formation</div><div class="csub">How to build it from the present tense</div></div>
+<span class="tog">▾</span></div>
+<div class="cb">
+  <div class="blk"><span class="blk-label lbl-en">What it is</span>
+    <p class="desc">The subjunctive expresses actions that are <strong>not real — hypothetical, desired, doubted, felt</strong>. It is almost always introduced by <code>que</code> and appears in the second clause when the subjects are different.</p>
+  </div>
+  <div class="blk"><span class="blk-label lbl-fr">Ce que c'est</span>
+    <div class="fr-box">Le subjonctif exprime des actions qui ne sont <strong>pas réelles — hypothétiques, souhaitées, douteuses, ressenties</strong>. Il est presque toujours introduit par <code>que</code> et apparaît dans la deuxième proposition quand les sujets sont différents.</div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">Formation rules (from your teacher)</span>
+    <div class="rule-box">
+      <strong>For je/tu/il/elle/ils/elles:</strong> Take the 3rd person plural (ils) of the présent, remove -ent, add: <code>-e, -es, -e, -ent</code><br><br>
+      <strong>For nous/vous:</strong> Take the 1st person plural (nous) of the présent, remove -ons, add: <code>-ions, -iez</code><br><br>
+      Example — <strong>boire</strong> (ils boivent → buv- / nous buvons → buv-):<br>
+      <code>que je boive · que tu boives · qu'il boive · que nous buvions · que vous buviez · qu'ils boivent</code><br><br>
+      Example — <strong>dormir</strong> (ils dorment → dorm- / nous dormons → dorm-):<br>
+      <code>que je dorme · que tu dormes · qu'il dorme · que nous dormions · que vous dormiez · qu'ils dorment</code>
+    </div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">Irregular Subjonctifs</span>
+    <div class="tw"><table>
+      <tr><th>Verb</th><th>je/il</th><th>nous</th></tr>
+      <tr><td>être</td><td>que je sois</td><td>que nous soyons</td></tr>
+      <tr><td>avoir</td><td>que j'aie</td><td>que nous ayons</td></tr>
+      <tr><td>aller</td><td>que j'aille</td><td>que nous allions</td></tr>
+      <tr><td>faire</td><td>que je fasse</td><td>que nous fassions</td></tr>
+      <tr><td>pouvoir</td><td>que je puisse</td><td>que nous puissions</td></tr>
+      <tr><td>savoir</td><td>que je sache</td><td>que nous sachions</td></tr>
+      <tr><td>vouloir</td><td>que je veuille</td><td>que nous voulions</td></tr>
+      <tr><td>venir</td><td>que je vienne</td><td>que nous venions</td></tr>
+    </table></div>
+  </div>
+</div></div>
+
+<!-- SUBJONCTIF TRIGGERS -->
+<div class="card" data-g="subjonctif" data-k="subjonctif triggers when to use expressions il faut que je veux que sentiment">
+<div class="ch" onclick="tog(this)"><div class="cn">8</div>
+<div class="cmeta"><div class="ctitle">Quand utiliser le subjonctif?</div><div class="csub">Triggers, expressions, vs infinitif</div></div>
+<span class="tog">▾</span></div>
+<div class="cb">
+  <div class="blk"><span class="blk-label lbl-en">When to use it</span>
+    <p class="desc">The subjunctive is triggered by specific expressions — necessity, desire, feelings, doubt. It always needs two different subjects; otherwise use the infinitive.</p>
+  </div>
+  <div class="blk"><span class="blk-label lbl-fr">Quand l'utiliser</span>
+    <div class="fr-box">Le subjonctif est déclenché par des expressions précises — nécessité, désir, sentiments, doute. Il faut toujours deux sujets différents ; sinon on utilise l'infinitif.</div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">Triggers — use subjonctif after these</span>
+    <div class="rule-box">
+      <strong>Necessity / Obligation:</strong><br>
+      <code>il faut que, il est nécessaire que, il est indispensable que, il est important que</code><br><br>
+      <strong>Will / Desire / Wish:</strong><br>
+      <code>vouloir que, souhaiter que, désirer que, préférer que, aimer que, aimerais que</code><br><br>
+      <strong>Feelings / Emotions:</strong><br>
+      <code>être content/heureux/triste/surpris/désolé que, regretter que, avoir peur que, c'est bizarre/étonnant que</code><br><br>
+      <strong>Doubt / Negation of belief:</strong><br>
+      <code>ne pas croire que, ne pas penser que, douter que, il est possible que, il se peut que</code><br><br>
+      <strong>Concession:</strong><br>
+      <code>bien que, quoique, pour que, afin que, avant que, à moins que</code><br><br>
+      <strong>Verbs like demander, exiger, insister:</strong><br>
+      <code>demander que, exiger que, suggérer que, ordonner que</code>
+    </div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">Important: same subject → infinitif</span>
+    <div class="rule-box">
+      If BOTH clauses have the <strong>same subject</strong>, use infinitif, NOT subjonctif:<br><br>
+      ✓ <code>Je veux <strong>aller</strong> au sport.</code> (I want to go — same subject: je)<br>
+      ✓ <code>Je veux que <strong>tu ailles</strong> au sport.</code> (I want YOU to go — different subjects)<br><br>
+      ✓ <code>Je souhaite <strong>finir</strong> mon dessin.</code> (same: je)<br>
+      ✓ <code>Je souhaite que tu <strong>finisses</strong> ton dessin.</code> (different: je / tu)
+    </div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-ex">Examples from your lessons</span>
+    <div class="ex-list">
+      <div class="ex-row"><span class="ex-fr">Il faut que vous soyez motivé.</span><span class="ex-en">You need to be motivated.</span></div>
+      <div class="ex-row"><span class="ex-fr">Je ne comprends pas qu'autant de monde puisse frauder.</span><span class="ex-en">I don't understand how so many people can cheat.</span></div>
+      <div class="ex-row"><span class="ex-fr">C'est bizarre qu'ils ne restent pas.</span><span class="ex-en">It's strange that they don't stay.</span></div>
+      <div class="ex-row"><span class="ex-fr">Je suis surpris qu'ils aient autant de temps libre.</span><span class="ex-en">I'm surprised they have so much free time.</span></div>
+      <div class="ex-row"><span class="ex-fr">Je demande que vous me remboursiez.</span><span class="ex-en">I request that you reimburse me.</span></div>
+    </div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">Indicatif vs Subjonctif</span>
+    <div class="rule-box">
+      Use <strong>indicatif</strong> after verbs of certainty/fact (croire, penser, espérer, dire, savoir when affirmative):<br>
+      <code>Je crois <strong>qu'il vient</strong>.</code> (certain belief → indicatif)<br>
+      <code>Je ne crois pas <strong>qu'il vienne</strong>.</code> (doubt → subjonctif)<br>
+      <code>Sachez <strong>que j'ai été</strong> privé d'Internet.</code> (fact → indicatif)<br>
+      <code>Je veux <strong>qu'il vienne</strong>.</code> (wish → subjonctif)
+    </div>
+  </div>
+</div></div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════
+  4. LA NÉGATION COMPLEXE
+════════════════════════════════ -->
+<div class="sec" data-g="negation">
+  <div class="sec-hd">
+    <div class="sec-icon" style="background:#f0ecfc">🚫</div>
+    <div><div class="sec-title">La Négation Complexe</div></div>
+    <div class="sec-sub">jamais · plus · rien · personne · aucun · nulle part · que</div>
+  </div>
+  <div class="grid">
+
+<!-- NÉGATION COMPLEXE -->
+<div class="card" data-g="negation" data-k="négation complexe ne jamais plus rien personne aucun nulle part que restriction">
+<div class="ch" onclick="tog(this)"><div class="cn">9</div>
+<div class="cmeta"><div class="ctitle">Les Négations Complexes</div><div class="csub">Beyond ne…pas — all negative forms</div></div>
+<span class="tog">▾</span></div>
+<div class="cb">
+  <div class="blk"><span class="blk-label lbl-en">What they are</span>
+    <p class="desc">In French, you cannot use <code>ne…pas</code> with words like "someone", "something", "somewhere". Each positive word has a specific negative partner.</p>
+  </div>
+  <div class="blk"><span class="blk-label lbl-fr">Ce que c'est</span>
+    <div class="fr-box">En français, on ne peut pas utiliser <code>ne…pas</code> avec des mots comme « quelqu'un », « quelque chose », « quelque part ». Chaque mot positif a un partenaire négatif précis.</div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">Complete table</span>
+    <div class="tw"><table>
+      <tr><th>Positive</th><th>Negative</th><th>Meaning</th><th>Example</th></tr>
+      <tr><td>souvent, toujours</td><td class="fr">ne…jamais</td><td>never</td><td>Je ne vais jamais au cinéma.</td></tr>
+      <tr><td>déjà</td><td class="fr">ne…pas encore</td><td>not yet</td><td>Je n'ai pas encore fini.</td></tr>
+      <tr><td>encore, toujours</td><td class="fr">ne…plus</td><td>no longer</td><td>Il ne fume plus.</td></tr>
+      <tr><td>quelque chose</td><td class="fr">ne…rien</td><td>nothing</td><td>Je ne vois rien.</td></tr>
+      <tr><td>quelqu'un, tout le monde</td><td class="fr">ne…personne</td><td>nobody</td><td>Je ne vois personne.</td></tr>
+      <tr><td>des, un/une</td><td class="fr">ne…aucun(e)</td><td>no/none</td><td>Je n'ai aucun ami.</td></tr>
+      <tr><td>quelque part, partout</td><td class="fr">ne…nulle part</td><td>nowhere</td><td>Je ne vais nulle part.</td></tr>
+      <tr><td>et, ou</td><td class="fr">ne…ni…ni</td><td>neither…nor</td><td>Elle ne boit ni café ni thé.</td></tr>
+      <tr><td>beaucoup, tout</td><td class="fr">ne…que</td><td>only</td><td>Je n'ai que 2€.</td></tr>
+      <tr><td>avec + noun</td><td class="fr">sans</td><td>without</td><td>Elle sort sans manteau.</td></tr>
+    </table></div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">Position in the sentence</span>
+    <div class="rule-box">
+      <strong>Personne, nulle part:</strong> go AFTER the past participle:<br>
+      <code>Je n'ai vu <strong>personne</strong>.</code> / <code>Je ne suis allé <strong>nulle part</strong>.</code><br><br>
+      <strong>Rien:</strong> before past participle in compound tenses:<br>
+      <code>Je n'ai <strong>rien</strong> mangé.</code><br><br>
+      <strong>Personne as SUBJECT:</strong> goes at the beginning:<br>
+      <code><strong>Personne</strong> n'est venu.</code> / <code><strong>Rien</strong> ne s'est passé.</code>
+    </div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">Combined negations (your lesson specialty!)</span>
+    <div class="rule-box">
+      You can combine several negatives for extra emphasis:<br>
+      <code>ne…jamais personne</code> → never anyone<br>
+      <em>Le samedi, je ne vois <strong>jamais personne</strong>.</em><br><br>
+      <code>ne…plus rien</code> → nothing anymore<br>
+      <em>Il n'y a <strong>plus rien</strong> à manger.</em><br><br>
+      <code>ne…plus jamais</code> → never again<br>
+      <em>Je ne fumerai <strong>plus jamais</strong>.</em><br><br>
+      <code>ne…encore rien</code> → nothing yet<br>
+      <em>Il ne s'est <strong>encore rien</strong> passé.</em>
+    </div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-ex">Examples from your exercises</span>
+    <div class="ex-list">
+      <div class="ex-row"><span class="ex-fr">Je ne vois personne dans la rue.</span><span class="ex-en">I don't see anyone in the street.</span></div>
+      <div class="ex-row"><span class="ex-fr">Il ne travaille plus dans cette entreprise.</span><span class="ex-en">He no longer works at that company.</span></div>
+      <div class="ex-row"><span class="ex-fr">Je n'ai aucun ami dans cette ville.</span><span class="ex-en">I have no friends in this city.</span></div>
+      <div class="ex-row"><span class="ex-fr">Elle ne mange ni fromage, ni beurre, ni pain.</span><span class="ex-en">She eats neither cheese, nor butter, nor bread.</span></div>
+      <div class="ex-row"><span class="ex-fr">Je ne l'ai trouvé nulle part.</span><span class="ex-en">I found it nowhere.</span></div>
+      <div class="ex-row"><span class="ex-fr">Je n'ai que 3 minutes avant de partir!</span><span class="ex-en">I only have 3 minutes before leaving!</span></div>
+    </div>
+  </div>
+</div></div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════
+  5. LA VOIX PASSIVE
+════════════════════════════════ -->
+<div class="sec" data-g="passif">
+  <div class="sec-hd">
+    <div class="sec-icon" style="background:#e4f4f0">📰</div>
+    <div><div class="sec-title">La Voix Passive</div></div>
+    <div class="sec-sub">être + participe passé · all tenses · active ↔ passive</div>
+  </div>
+  <div class="grid">
+
+<!-- PASSIF FORMATION -->
+<div class="card" data-g="passif" data-k="passif voix passive être participe passé par complement agent active">
+<div class="ch" onclick="tog(this)"><div class="cn">10</div>
+<div class="cmeta"><div class="ctitle">La Voix Passive</div><div class="csub">Shifting focus from the doer to the action</div></div>
+<span class="tog">▾</span></div>
+<div class="cb">
+  <div class="blk"><span class="blk-label lbl-en">What it is</span>
+    <p class="desc">In the passive voice, the object of the action becomes the subject. Used when the agent is unknown, unimportant, or when we want to emphasize the result.</p>
+  </div>
+  <div class="blk"><span class="blk-label lbl-fr">Ce que c'est</span>
+    <div class="fr-box">À la voix passive, le complément d'objet de l'action devient le sujet. On l'utilise quand l'agent est inconnu, sans importance, ou quand on veut mettre en valeur le résultat de l'action.</div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">Formation</span>
+    <div class="rule-box">
+      <strong>Subject + être (conjugated) + past participle + (par + agent)</strong><br><br>
+      Active: <code>Le chat attrape la souris.</code><br>
+      Passive: <code>La souris <strong>est attrapée</strong> par le chat.</code><br><br>
+      ⚠️ The past participle <strong>agrees with the new subject</strong> (passive subject):<br>
+      <code>Les rues <strong>ont été recouvertes</strong> de papier.</code> (rues = fém. plur.)<br>
+      <code>Le journal <strong>a été édité</strong> à Paris.</code> (journal = masc. sing.)<br><br>
+      ⚠️ The verb "avoir" has NO passive form.
+    </div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">Passive in all tenses</span>
+    <div class="tw"><table>
+      <tr><th>Tense</th><th>Active</th><th>Passive</th></tr>
+      <tr><td>Présent</td><td>On utilise les apps.</td><td>Les apps sont utilisées.</td></tr>
+      <tr><td>Passé composé</td><td>On a imprimé 300 000 ex.</td><td>300 000 ex. ont été imprimés.</td></tr>
+      <tr><td>Imparfait</td><td>On diffusait l'info.</td><td>L'info était diffusée.</td></tr>
+      <tr><td>Plus-que-parfait</td><td>On avait présenté le projet.</td><td>Le projet avait été présenté.</td></tr>
+      <tr><td>Futur</td><td>On publiera les résultats.</td><td>Les résultats seront publiés.</td></tr>
+      <tr><td>Conditionnel</td><td>On utiliserait cette méthode.</td><td>Cette méthode serait utilisée.</td></tr>
+    </table></div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">Passive with ON (no agent needed)</span>
+    <div class="rule-box">
+      When the agent is "on" or "les gens" (unspecified people), the agent is dropped:<br>
+      <code>On prépare les crêpes.</code> → <code>Les crêpes sont préparées.</code><br>
+      <code>On installe les décorations.</code> → <code>Les décorations sont installées.</code><br>
+      ⚠️ Do NOT write "par on" — simply omit the agent.
+    </div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-tip">Adverb placement in passive</span>
+    <div class="tip-box">With compound passive tenses, the adverb goes between the auxiliary <em>être</em> and the past participle:<br>
+    <code>Son projet avait <strong>déjà</strong> été présenté par plusieurs professionnels.</code></div>
+  </div>
+</div></div>
+
+<!-- DISTINGUISHING PASSIVE vs ADJECTIVE -->
+<div class="card" data-g="passif" data-k="passif vs adjectif state result distinguer être">
+<div class="ch" onclick="tog(this)"><div class="cn">11</div>
+<div class="cmeta"><div class="ctitle">Passif vs État</div><div class="csub">Is "est fermé" passive or just a description?</div></div>
+<span class="tog">▾</span></div>
+<div class="cb">
+  <div class="blk"><span class="blk-label lbl-en">What it is</span>
+    <p class="desc">Not every <code>être + participe passé</code> is passive. Sometimes it simply describes the resulting state of something.</p>
+  </div>
+  <div class="blk"><span class="blk-label lbl-fr">Ce que c'est</span>
+    <div class="fr-box">Ce n'est pas tout <code>être + participe passé</code> qui est passif. Parfois, ça décrit simplement l'état résultant de quelque chose.</div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">The difference</span>
+    <div class="rule-box">
+      Sometimes <code>être + participe passé</code> describes a <strong>state</strong> (result), not a passive action.<br><br>
+      <strong>Passive</strong> (action by someone):<br>
+      <code>La porte <strong>est fermée</strong> par le gardien.</code> = The guard closes it (ongoing action)<br><br>
+      <strong>State/Result</strong> (adjective):<br>
+      <code>La porte <strong>est fermée</strong>.</code> = The door is in a closed state (nobody is doing anything now)<br><br>
+      From your lesson exercises:<br>
+      <code>Le père <strong>est ravi</strong> des résultats.</code> → State (adjective) → NOT passive ✗<br>
+      <code>Les tasses <strong>sont apportées</strong> par la serveuse.</code> → Passive ✓
+    </div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-tip">Quick test</span>
+    <div class="tip-box">Ask: "Is there an agent (by someone/something) doing this action?" If yes → passive. If it just describes a resulting state → adjective/état.</div>
+  </div>
+</div></div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════
+  6. LES CONDITIONNELS
+════════════════════════════════ -->
+<div class="sec" data-g="conditionnel">
+  <div class="sec-hd">
+    <div class="sec-icon" style="background:#fce8e8">🔮</div>
+    <div><div class="sec-title">Les Conditionnels et L'Hypothèse</div></div>
+    <div class="sec-sub">si + présent · si + imparfait · si + PQP · conditionnel passé</div>
+  </div>
+  <div class="grid">
+
+<!-- ALL 3 CONDITIONALS -->
+<div class="card" data-g="conditionnel" data-k="conditionnel hypothèse si présent futur imparfait conditionnel passé plus-que-parfait">
+<div class="ch" onclick="tog(this)"><div class="cn">12</div>
+<div class="cmeta"><div class="ctitle">Les 3 Types d'Hypothèse</div><div class="csub">General truth · Future · Present/Unreal</div></div>
+<span class="tog">▾</span></div>
+<div class="cb">
+  <div class="blk"><span class="blk-label lbl-en">What it is</span>
+    <p class="desc">French has 4 conditional structures depending on whether the hypothesis is always true, likely in the future, unreal in the present, or a regret about the past.</p>
+  </div>
+  <div class="blk"><span class="blk-label lbl-fr">Ce que c'est</span>
+    <div class="fr-box">Le français a 4 structures conditionnelles selon que l'hypothèse est toujours vraie, probable dans le futur, irréelle dans le présent, ou un regret sur le passé.</div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">Type 1: Hypothèse de vérité générale (always true)</span>
+    <div class="rule-box">
+      <strong>Si + présent → présent</strong><br>
+      <code>Si tu manges trop de sucre, tu grossis.</code><br>
+      <em>If you eat too much sugar, you gain weight. (always true)</em>
+    </div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">Type 2: Hypothèse sur le futur (real/likely)</span>
+    <div class="rule-box">
+      <strong>Si + présent → futur simple</strong><br>
+      <code>Si elles économisent cette année, elles feront un voyage.</code><br>
+      <em>If they save money this year, they will take a trip.</em><br><br>
+      <code>Si vous ratez votre train, vous dormirez à l'hôtel.</code><br>
+      <em>If you miss your train, you will sleep at the hotel.</em><br><br>
+      ⚠️ <strong>NEVER use futur after si!</strong><br>
+      <span class="bad">Si tu viendras → ✗</span> | <span class="good">Si tu viens → ✓</span>
+    </div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">Type 3: Hypothèse sur le présent (unreal)</span>
+    <div class="rule-box">
+      <strong>Si + imparfait → conditionnel présent</strong><br>
+      <code>Si elles économisaient, elles feraient un voyage.</code><br>
+      <em>If they saved (but they don't), they would take a trip.</em><br><br>
+      <code>Si tu avais des vacances pour Pâques, tu ferais quoi?</code><br>
+      <code>Si j'avais un CDI, je voyagerais partout.</code><br><br>
+      Conditionnel présent forms — future stem + imparfait endings (-ais, -ais, -ait, -ions, -iez, -aient):<br>
+      avoir → aurai → <code>j'aurais</code> · être → serai → <code>je serais</code> · aller → <code>j'irais</code> · faire → <code>je ferais</code> · pouvoir → <code>je pourrais</code> · vouloir → <code>je voudrais</code>
+    </div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">Type 4: Hypothèse sur le passé (regret/what if)</span>
+    <div class="rule-box">
+      <strong>Si + plus-que-parfait → conditionnel passé</strong><br><br>
+      <code>Si elles avaient économisé, elles auraient fait un voyage.</code><br>
+      <em>If they had saved (but they didn't), they would have taken a trip.</em><br><br>
+      Conditionnel passé = <strong>avoir/être (conditionnel) + past participle</strong>:<br>
+      <code>j'aurais mangé · tu aurais fini · il aurait pris</code><br>
+      <code>je serais parti(e) · nous serions allé(e)s</code><br><br>
+      Examples from your class:<br>
+      <code>Si j'avais été française, j'aurais appris la pâtisserie française.</code><br>
+      <code>Si nous avions eu le temps, nous serions allés au supermarché.</code><br>
+      <code>S'ils n'avaient pas sympathisé, ils ne seraient pas allés boire un café.</code>
+    </div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-err">Common Mistakes</span>
+    <div class="err-box">
+      <div class="err-row"><span class="ex">✗</span><span class="et"><span class="bad">Si j'aurais su…</span> → <span class="good">Si j'avais su…</span> (NEVER conditionnel after si)</span></div>
+      <div class="err-row"><span class="ex">✗</span><span class="et"><span class="bad">Si il viendra…</span> → <span class="good">S'il vient…</span> (NEVER futur after si)</span></div>
+    </div>
+  </div>
+</div></div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════
+  7. CONNECTEURS
+════════════════════════════════ -->
+<div class="sec" data-g="connectors">
+  <div class="sec-hd">
+    <div class="sec-icon" style="background:#e4f4ec">🔗</div>
+    <div><div class="sec-title">Connecteurs Logiques</div></div>
+    <div class="sec-sub">concession · opposition · but · comparaison</div>
+  </div>
+  <div class="grid">
+
+<!-- CONCESSION -->
+<div class="card" data-g="connectors" data-k="concession bien que malgré pourtant cependant quand même même si though although">
+<div class="ch" onclick="tog(this)"><div class="cn">13</div>
+<div class="cmeta"><div class="ctitle">La Concession</div><div class="csub">Expressing contradiction between two facts</div></div>
+<span class="tog">▾</span></div>
+<div class="cb">
+  <div class="blk"><span class="blk-label lbl-en">What it is</span>
+    <p class="desc">Concession expresses a contradiction: "Even though X is true, Y is also true." Used in debates, opinion pieces, and everyday speech.</p>
+  </div>
+  <div class="blk"><span class="blk-label lbl-fr">Ce que c'est</span>
+    <div class="fr-box">La concession exprime une contradiction : « Même si X est vrai, Y est aussi vrai. » Elle s'utilise dans les débats, les articles d'opinion et le discours quotidien.</div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">Concession + noun</span>
+    <div class="rule-box">
+      <code>malgré + nom</code> · <code>en dépit de + nom</code> · <code>sans + nom</code><br><br>
+      <code>Malgré la pluie, nous sommes sortis.</code> Despite the rain, we went out.<br>
+      <code>En dépit des difficultés, elle a réussi.</code><br>
+      <code>Plusieurs présidents ont été élus <strong>malgré</strong> des campagnes féroces.</code>
+    </div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">Concession + indicatif</span>
+    <div class="rule-box">
+      <code>pourtant · cependant · néanmoins · toutefois · quand même</code><br>
+      (These come at the start of the second sentence, followed by a comma)<br><br>
+      <code>Les réseaux sociaux se développent. <strong>Pourtant,</strong> ils sont très critiqués.</code><br>
+      <code>Elle est fatiguée, <strong>cependant</strong> elle continue.</code><br>
+      <code>Il était en retard. <strong>Quand même,</strong> il a trouvé une solution.</code>
+    </div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">Concession + subjonctif</span>
+    <div class="rule-box">
+      <code>bien que + subjonctif</code> · <code>quoique + subjonctif</code><br><br>
+      <code><strong>Bien que</strong> les journalistes les aient accusés, les électeurs ont voté pour eux.</code><br>
+      <code><strong>Bien que</strong> le temps soit pluvieux, il a décidé de rester dehors.</code><br>
+      <code><strong>Bien qu'</strong>elle soit fatiguée, elle travaille.</code>
+    </div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">Concession + indicatif (même si)</span>
+    <div class="rule-box">
+      <code>même si + indicatif</code><br><br>
+      <code><strong>Même si</strong> elle avait révisé pendant des heures, elle n'a pas réussi.</code><br>
+      <code><strong>Même si</strong> il pleut, je sortirai.</code>
+    </div>
+  </div>
+</div></div>
+
+<!-- OPPOSITION -->
+<div class="card" data-g="connectors" data-k="opposition par contre au contraire alors que tandis que au lieu de en revanche contrast">
+<div class="ch" onclick="tog(this)"><div class="cn">14</div>
+<div class="cmeta"><div class="ctitle">L'Opposition et la Comparaison</div><div class="csub">Contrasting two different things</div></div>
+<span class="tog">▾</span></div>
+<div class="cb">
+  <div class="blk"><span class="blk-label lbl-en">What it is</span>
+    <p class="desc">Opposition contrasts two different realities — unlike concession, the two facts don't contradict each other, they simply differ.</p>
+  </div>
+  <div class="blk"><span class="blk-label lbl-fr">Ce que c'est</span>
+    <div class="fr-box">L'opposition met en contraste deux réalités différentes — contrairement à la concession, les deux faits ne se contredisent pas, ils sont simplement différents.</div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">Opposition markers</span>
+    <div class="tw"><table>
+      <tr><th>Expression</th><th>Use with</th><th>Example</th></tr>
+      <tr><td class="fr">mais</td><td>+ clause</td><td>Je veux venir, mais je suis occupé.</td></tr>
+      <tr><td class="fr">au contraire</td><td>+ clause</td><td>Elle est timide. Au contraire, lui est extraverti.</td></tr>
+      <tr><td class="fr">par contre / en revanche</td><td>+ clause</td><td>Il est riche. Par contre, il n'est pas heureux.</td></tr>
+      <tr><td class="fr">alors que / tandis que</td><td>+ indicatif</td><td>Elle travaille alors qu'il se repose.</td></tr>
+      <tr><td class="fr">au lieu de</td><td>+ infinitif</td><td>Au lieu de mentir, dis la vérité.</td></tr>
+      <tr><td class="fr">contrairement à</td><td>+ nom</td><td>Contrairement à Paris, Lyon est calme.</td></tr>
+    </table></div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-ex">Examples from your class</span>
+    <div class="ex-list">
+      <div class="ex-row"><span class="ex-fr">Les médias traditionnels coûtent de l'argent, au contraire des réseaux sociaux qui sont gratuits.</span></div>
+      <div class="ex-row"><span class="ex-fr">Au lieu de dire la vérité, certains médias postent des fake news.</span></div>
+      <div class="ex-row"><span class="ex-fr">Je consomme local, tandis que mes voisins achètent en supermarché.</span></div>
+    </div>
+  </div>
+</div></div>
+
+<!-- BUT (PURPOSE) -->
+<div class="card" data-g="connectors" data-k="but purpose pour afin de pour que viser chercher afin que infinitif subjonctif">
+<div class="ch" onclick="tog(this)"><div class="cn">15</div>
+<div class="cmeta"><div class="ctitle">L'Expression du But</div><div class="csub">Expressing purpose — pour, afin de, pour que…</div></div>
+<span class="tog">▾</span></div>
+<div class="cb">
+  <div class="blk"><span class="blk-label lbl-en">What it is</span>
+    <p class="desc">Purpose expressions explain <em>why</em> an action is done. Use infinitive when both clauses share the same subject; use subjunctive when subjects differ.</p>
+  </div>
+  <div class="blk"><span class="blk-label lbl-fr">Ce que c'est</span>
+    <div class="fr-box">Les expressions de but expliquent <em>pourquoi</em> une action est faite. On utilise l'infinitif quand les deux propositions ont le même sujet ; on utilise le subjonctif quand les sujets sont différents.</div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">Same subject → infinitif</span>
+    <div class="rule-box">
+      <code>pour + infinitif</code> · <code>afin de + infinitif</code> · <code>de façon à + infinitif</code><br><br>
+      <code>Je travaille <strong>pour</strong> gagner de l'argent.</code><br>
+      <code>Il court tous les jours <strong>afin de</strong> perdre du poids.</code><br>
+      <code>Elle a pris un taxi <strong>pour</strong> ne pas être en retard.</code>
+    </div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">Different subjects → subjonctif</span>
+    <div class="rule-box">
+      <code>pour que + subjonctif</code> · <code>afin que + subjonctif</code><br><br>
+      <code>Il parle lentement <strong>pour que</strong> tout le monde <strong>comprenne</strong>.</code><br>
+      <code>Ce projet vise à installer des chocolateries <strong>pour que</strong> les producteurs <strong>gagnent</strong> plus.</code>
+    </div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">Verb expressions of purpose</span>
+    <div class="rule-box">
+      <code>viser à + infinitif</code> — to aim to<br>
+      <code>chercher à + infinitif</code> — to seek to<br>
+      <code>essayer de + infinitif</code> — to try to<br>
+      <code>œuvrer pour + infinitif</code> — to work toward<br>
+      <code>remédier à + nom</code> — to remedy, fix<br><br>
+      <em>Ce projet <strong>vise à</strong> installer des chocolateries en milieu rural.</em><br>
+      <em>Instant Chocolat <strong>cherche à</strong> obtenir des financements.</em>
+    </div>
+  </div>
+</div></div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════
+  8. GÉRONDIF & PARTICIPE PRÉSENT
+════════════════════════════════ -->
+<div class="sec" data-g="gerondif">
+  <div class="sec-hd">
+    <div class="sec-icon" style="background:#e8f0fc">⚙️</div>
+    <div><div class="sec-title">Gérondif &amp; Participe Présent</div></div>
+    <div class="sec-sub">en + -ant · -ant without en · difference explained</div>
+  </div>
+  <div class="grid">
+
+<!-- GÉRONDIF -->
+<div class="card" data-g="gerondif" data-k="gérondif participe présent en -ant simultaneous manner formation">
+<div class="ch" onclick="tog(this)"><div class="cn">16</div>
+<div class="cmeta"><div class="ctitle">Le Gérondif</div><div class="csub">en + -ant · Two actions at the same time</div></div>
+<span class="tog">▾</span></div>
+<div class="cb">
+  <div class="blk"><span class="blk-label lbl-en">What it is</span>
+    <p class="desc">The gérondif expresses <strong>simultaneous actions, manner, or cause</strong>. It always uses <code>en</code> + present participle (-ant form). Both actions must have the <strong>same subject</strong>.</p>
+  </div>
+  <div class="blk"><span class="blk-label lbl-fr">Ce que c'est</span>
+    <div class="fr-box">Le gérondif exprime la <strong>simultanéité, la manière ou la cause</strong>. Il utilise toujours <code>en</code> + participe présent (forme en -ant). Les deux actions doivent avoir le <strong>même sujet</strong>.</div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">Formation</span>
+    <div class="rule-box">
+      Take the <strong>nous form of présent</strong>, remove <code>-ons</code>, add <code>-ant</code>:<br>
+      parler → nous parlons → <code>en parlant</code><br>
+      manger → nous mangeons → <code>en mangeant</code><br>
+      prendre → nous prenons → <code>en prenant</code><br>
+      lire → nous lisons → <code>en lisant</code><br><br>
+      <strong>Irregular:</strong><br>
+      être → <code>en étant</code> · avoir → <code>en ayant</code> · savoir → <code>en sachant</code><br><br>
+      It is always <strong>invariable</strong> (never changes form).
+    </div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">Three uses of gérondif</span>
+    <div class="rule-box">
+      <strong>1. Simultanéité</strong> (= pendant que, quand): both actions at same time<br>
+      <code>Je consulte mes mails <strong>en buvant</strong> un café.</code> = while drinking<br><br>
+      <strong>2. Manière</strong> (= comment?): explains how something is done<br>
+      <code>Elle a décroché l'entretien <strong>en insistant</strong>.</code> = by insisting<br><br>
+      <strong>3. Cause/Temps</strong>: when/as<br>
+      <code><strong>En arrivant</strong>, elle a rencontré le directeur.</code> = upon arriving
+    </div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">Gérondif vs Participe Présent</span>
+    <div class="rule-box">
+      <strong>Gérondif</strong> = <code>en + -ant</code> → modifies a <strong>verb</strong> (same subject as main verb)<br>
+      <code>Je me rhabille <strong>en buvant</strong> un café.</code> (je = subject of both)<br><br>
+      <strong>Participe présent</strong> = <code>-ant</code> (no en) → modifies a <strong>noun</strong> (can have different subject)<br>
+      <code>Les employés <strong>parlant</strong> français peuvent suivre une formation.</code> (= qui parlent)<br>
+      <code>Un chargé de clientèle est une personne <strong>devant</strong> posséder des qualités humaines.</code>
+    </div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-ex">Examples from your lessons</span>
+    <div class="ex-list">
+      <div class="ex-row"><span class="ex-fr">Je vais au travail en réfléchissant au programme.</span><span class="ex-en">I go to work while thinking about the day's schedule.</span></div>
+      <div class="ex-row"><span class="ex-fr">Je ne téléphone pas en conduisant.</span><span class="ex-en">I don't call while driving.</span></div>
+      <div class="ex-row"><span class="ex-fr">En arrivant en avance, elle a rencontré le directeur.</span><span class="ex-en">By arriving early, she met the director.</span></div>
+      <div class="ex-row"><span class="ex-fr">Les candidats se présentant en retard ne seront pas reçus.</span><span class="ex-en">Candidates who arrive late will not be received.</span></div>
+    </div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">Pronom relatif OÙ (from your lesson)</span>
+    <div class="rule-box">
+      <code>où</code> can replace a <strong>place</strong> or a <strong>time expression</strong>:<br><br>
+      Place: <code>C'est le magasin <strong>où</strong> j'ai acheté ma veste.</code> (= dans le magasin)<br>
+      Time: <code>Je me lève à l'heure <strong>où</strong> je devrais être au bureau.</code> (= à cette heure-là)<br>
+      <code>Elle a quitté son travail le jour <strong>où</strong> elle a accouché.</code><br>
+      <code>Décembre est un mois <strong>où</strong> on se fait beaucoup de cadeaux.</code>
+    </div>
+  </div>
+</div></div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════
+  9. VOCABULAIRE FAMILIER + UTILE
+════════════════════════════════ -->
+<div class="sec" data-g="vocab">
+  <div class="sec-hd">
+    <div class="sec-icon" style="background:#fdf0e0">💬</div>
+    <div><div class="sec-title">Vocabulaire Utile</div></div>
+    <div class="sec-sub">familier · adverbes · place de l'adverbe · lettre formelle</div>
+  </div>
+  <div class="grid">
+
+<!-- FRANÇAIS FAMILIER -->
+<div class="card" data-g="vocab" data-k="français familier slang informal expressions bosser boite kiffer crevé">
+<div class="ch" onclick="tog(this)"><div class="cn">17</div>
+<div class="cmeta"><div class="ctitle">Français Familier</div><div class="csub">Informal French your teacher taught you</div></div>
+<span class="tog">▾</span></div>
+<div class="cb">
+  <div class="blk"><span class="blk-label lbl-en">What it is</span>
+    <p class="desc">Informal French used in everyday spoken conversation — different from the formal French you write. Native speakers use these words constantly.</p>
+  </div>
+  <div class="blk"><span class="blk-label lbl-fr">Ce que c'est</span>
+    <div class="fr-box">Le français familier est utilisé dans les conversations orales du quotidien — différent du français formel qu'on écrit. Les locuteurs natifs utilisent ces mots constamment.</div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-voc">From your 28/05 lesson</span>
+    <div class="vocab-grid">
+      <div class="vp"><span class="vfr">bosser</span><span class="ven"> → travailler (to work)</span></div>
+      <div class="vp"><span class="vfr">une boîte</span><span class="ven"> → une entreprise (a company)</span></div>
+      <div class="vp"><span class="vfr">être crevé(e)</span><span class="ven"> → être épuisé(e) (exhausted)</span></div>
+      <div class="vp"><span class="vfr">kiffer</span><span class="ven"> → aimer (to like/love)</span></div>
+      <div class="vp"><span class="vfr">bouffer</span><span class="ven"> → manger (to eat)</span></div>
+      <div class="vp"><span class="vfr">filer</span><span class="ven"> → donner (to give)</span></div>
+      <div class="vp"><span class="vfr">fourrer</span><span class="ven"> → mettre (to put)</span></div>
+      <div class="vp"><span class="vfr">un pote</span><span class="ven"> → un(e) ami(e) (friend)</span></div>
+      <div class="vp"><span class="vfr">un môme / gamin / gosse</span><span class="ven"> → un enfant (child)</span></div>
+      <div class="vp"><span class="vfr">faire la teuf</span><span class="ven"> → faire la fête (to party)</span></div>
+      <div class="vp"><span class="vfr">en avoir marre de</span><span class="ven"> → être fatigué de (fed up with)</span></div>
+      <div class="vp"><span class="vfr">être soulé(e) de</span><span class="ven"> → être agacé(e) (annoyed by)</span></div>
+      <div class="vp"><span class="vfr">picoler</span><span class="ven"> → boire de l'alcool (to drink alcohol)</span></div>
+      <div class="vp"><span class="vfr">arnaquer</span><span class="ven"> → escroquer (to scam/rip off)</span></div>
+      <div class="vp"><span class="vfr">choper la crève</span><span class="ven"> → attraper un rhume (catch a cold)</span></div>
+      <div class="vp"><span class="vfr">avoir du bol</span><span class="ven"> → avoir de la chance (to be lucky)</span></div>
+      <div class="vp"><span class="vfr">avoir eu chaud</span><span class="ven"> → avoir évité un danger (narrow escape)</span></div>
+      <div class="vp"><span class="vfr">puer</span><span class="ven"> → sentir mauvais (to stink)</span></div>
+      <div class="vp"><span class="vfr">les flics / les keufs</span><span class="ven"> → la police (the police)</span></div>
+      <div class="vp"><span class="vfr">c'est le bordel / le bazar</span><span class="ven"> → c'est mal rangé (it's a mess)</span></div>
+      <div class="vp"><span class="vfr">avoir les crocs / la dalle</span><span class="ven"> → avoir faim (to be hungry)</span></div>
+      <div class="vp"><span class="vfr">le PQ</span><span class="ven"> → le papier toilette (toilet paper)</span></div>
+      <div class="vp"><span class="vfr">tomber en cloque</span><span class="ven"> → être enceinte (to be pregnant)</span></div>
+    </div>
+  </div>
+</div></div>
+
+<!-- ADVERB PLACEMENT -->
+<div class="card" data-g="vocab" data-k="place de l'adverbe adverb position compound tense entre auxiliaire participe passé bien déjà vite">
+<div class="ch" onclick="tog(this)"><div class="cn">18</div>
+<div class="cmeta"><div class="ctitle">La Place de l'Adverbe</div><div class="csub">Where exactly does the adverb go?</div></div>
+<span class="tog">▾</span></div>
+<div class="cb">
+  <div class="blk"><span class="blk-label lbl-en">What it is</span>
+    <p class="desc">In French, the adverb position depends on the tense. With simple tenses it goes after the verb; with compound tenses, short adverbs go between the auxiliary and the past participle.</p>
+  </div>
+  <div class="blk"><span class="blk-label lbl-fr">Ce que c'est</span>
+    <div class="fr-box">En français, la place de l'adverbe dépend du temps. Avec les temps simples, il se place après le verbe ; avec les temps composés, les adverbes courts se placent entre l'auxiliaire et le participe passé.</div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">With a simple tense (présent, imparfait…)</span>
+    <div class="rule-box">
+      Adverb goes <strong>after the verb</strong>:<br>
+      <code>Je mange <strong>vite</strong>.</code><br>
+      <code>Il parle <strong>bien</strong>.</code><br>
+      <code>Nous travaillons <strong>beaucoup</strong>.</code>
+    </div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">With a compound tense (passé composé, PQP…)</span>
+    <div class="rule-box">
+      Short adverbs go <strong>between the auxiliary and the past participle</strong>:<br>
+      <code>J'ai <strong>bien</strong> mangé.</code><br>
+      <code>Il a <strong>déjà</strong> fini.</code><br>
+      <code>Nous avons <strong>beaucoup trop</strong> travaillé.</code><br><br>
+      Long adverbs (in -ment) can go after the full verb:<br>
+      <code>J'ai mangé <strong>rapidement</strong>.</code><br>
+      <code>Il a travaillé <strong>sérieusement</strong>.</code>
+    </div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-ex">In the passive (adverb between être and PP)</span>
+    <div class="ex-list">
+      <div class="ex-row"><span class="ex-fr">Son projet avait <strong>déjà</strong> été présenté.</span><span class="ex-en">His project had already been presented.</span></div>
+    </div>
+  </div>
+</div></div>
+
+<!-- FORMAL LETTER -->
+<div class="card" data-g="vocab" data-k="lettre formelle réclamation structure formal letter complaint formule appel objet salutation">
+<div class="ch" onclick="tog(this)"><div class="cn">19</div>
+<div class="cmeta"><div class="ctitle">La Lettre de Réclamation</div><div class="csub">Formal complaint letter structure</div></div>
+<span class="tog">▾</span></div>
+<div class="cb">
+  <div class="blk"><span class="blk-label lbl-en">What it is</span>
+    <p class="desc">A formal complaint letter in French follows a strict structure. It uses the subjunctive for demands and specific polite formulas for opening and closing.</p>
+  </div>
+  <div class="blk"><span class="blk-label lbl-fr">Ce que c'est</span>
+    <div class="fr-box">Une lettre de réclamation formelle en français suit une structure précise. Elle utilise le subjonctif pour les demandes et des formules de politesse spécifiques pour l'introduction et la conclusion.</div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">Structure of a formal letter</span>
+    <div class="rule-box">
+      <strong>1. Expéditeur</strong> (sender: name, address, email, ref.)<br>
+      <strong>2. Destinataire</strong> (recipient: company/service)<br>
+      <strong>3. Lieu et date</strong> (city, date)<br>
+      <strong>4. Objet</strong> (subject: Objet: Réclamation — [topic])<br>
+      <strong>5. Formule d'appel:</strong> <code>Madame, Monsieur,</code><br>
+      <strong>6. Corps:</strong> Context → Problem → Feelings → Demand<br>
+      <strong>7. Formule finale</strong><br>
+      <strong>8. Signature</strong>
+    </div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">Key expressions from your lesson</span>
+    <div class="rule-box">
+      <strong>Insisting on a fact:</strong><br>
+      <code>Sachez que j'ai été privé d'Internet pendant 10 jours.</code><br><br>
+      <strong>Insisting on a feeling:</strong><br>
+      <code>Permettez-moi de vous dire que je suis très mécontent.</code><br><br>
+      <strong>Making a demand (subjonctif):</strong><br>
+      <code>Je demande que vous me remboursiez la somme.</code><br>
+      <code>Je souhaite que vous régliez mon problème.</code><br><br>
+      <strong>Closing formulas:</strong><br>
+      <code>Veuillez agréer, Madame, Monsieur, mes sincères salutations.</code><br>
+      <code>Je vous prie d'agréer mes salutations distinguées.</code><br>
+      <code>N'hésitez pas à me contacter si vous avez besoin de plus amples informations.</code><br>
+      <code>Je vous saurais gré de me répondre rapidement.</code>
+    </div>
+  </div>
+</div></div>
+
+<!-- PHONÉTIQUE -->
+<div class="card" data-g="vocab" data-k="phonétique é e è sounds pronunciation fermer blé père le">
+<div class="ch" onclick="tog(this)"><div class="cn">20</div>
+<div class="cmeta"><div class="ctitle">Phonétique: é, è, e</div><div class="csub">Three different e sounds in French</div></div>
+<span class="tog">▾</span></div>
+<div class="cb">
+  <div class="blk"><span class="blk-label lbl-en">What it is</span>
+    <p class="desc">The letter "e" in French produces three distinct sounds depending on the accent and position. Confusing them changes the meaning of words.</p>
+  </div>
+  <div class="blk"><span class="blk-label lbl-fr">Ce que c'est</span>
+    <div class="fr-box">La lettre « e » en français produit trois sons distincts selon l'accent et la position dans le mot. Les confondre peut changer le sens des mots.</div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-rule">The Three Sounds</span>
+    <div class="tw"><table>
+      <tr><th>Sound</th><th>Symbol</th><th>How to make it</th><th>Examples</th></tr>
+      <tr><td>[e]</td><td>é</td><td>Closed, smile shape: "ay"</td><td>fermer, blé, sauter, chez, pied</td></tr>
+      <tr><td>[ɛ]</td><td>è / ê / ai / ei</td><td>Open, drop jaw slightly</td><td>père, merci, fête, lait, veille, les</td></tr>
+      <tr><td>[ə]</td><td>e (mute)</td><td>Very short, barely said</td><td>le, monsieur, demain, me</td></tr>
+    </table></div>
+  </div>
+  <div class="blk"><span class="blk-label lbl-tip">Tongue twister from your lesson</span>
+    <div class="tip-box">
+      <em>Je suis ce que je suis et si je suis ce que je suis, qu'est-ce que je suis?</em><br><br>
+      <em>Le bébé de René regarde le nez de son père et tête le lait de sa mère.</em>
+    </div>
+  </div>
+</div></div>
+
+  </div>
+</div>
+
+</div><!-- wrap -->
+
+<script>
+let cG='all';
+function tog(h){h.parentElement.classList.toggle('open')}
+function setG(g,btn){
+  cG=g;
+  document.querySelectorAll('#gtabs .tb').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  run();
+}
+function run(){
+  const q=document.getElementById('q').value.toLowerCase().trim();
+  const cards=document.querySelectorAll('.card');
+  const secs=document.querySelectorAll('.sec');
+  let vis=0;
+  cards.forEach(c=>{
+    const cg=c.dataset.g||'';
+    const kw=(c.dataset.k||'').toLowerCase();
+    const nm=c.querySelector('.ctitle')?c.querySelector('.ctitle').textContent.toLowerCase():'';
+    const gOk=cG==='all'||cg===cG;
+    const qOk=!q||kw.includes(q)||nm.includes(q);
+    if(gOk&&qOk){c.classList.remove('hide');vis++;}
+    else{c.classList.add('hide');}
+  });
+  secs.forEach(s=>{
+    const hasVis=[...s.querySelectorAll('.card')].some(c=>!c.classList.contains('hide'));
+    s.style.display=hasVis?'':'none';
+  });
+  document.getElementById('empty').classList.toggle('show',vis===0);
+}
+</script>
+</body>
+</html>
