@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French Daily Conversations — Set 2</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700;1,400&family=DM+Mono:wght@400;500&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4f1f8;--s1:#ffffff;--s2:#ede9f4;--s3:#e2dced;
+  --br:#d8d2e8;--tx:#1c1828;--t2:#524e62;--t3:#948ea8;
+  --blue:#2558a8;--green:#237a44;--orange:#c47820;--red:#c03838;
+  --purple:#6b44a8;--teal:#1a7a6a;--navy:#1a1e50;--pink:#a83070;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--tx);min-height:100vh}
+
+.hero{background:linear-gradient(150deg,#1a1e50 0%,#2a1060 55%,#1a1e50 100%);padding:52px 24px 44px;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:'EXPRIMER';position:absolute;bottom:-24px;left:50%;transform:translateX(-50%);font-family:'Fraunces',serif;font-size:8rem;font-weight:700;color:rgba(255,255,255,.03);white-space:nowrap;pointer-events:none;letter-spacing:12px}
+.hero-tag{display:inline-block;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);border-radius:20px;padding:4px 16px;font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:16px;font-family:'DM Mono',monospace}
+.hero h1{font-family:'Fraunces',serif;font-size:clamp(2rem,5vw,3.4rem);font-weight:700;color:#fff;line-height:1.1;margin-bottom:8px}
+.hero h1 em{font-style:italic;color:#c8a0f5}
+.hero p{color:rgba(255,255,255,.55);font-size:.9rem;max-width:520px;margin:0 auto 20px}
+.stats{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.st{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:5px 14px;font-size:.76rem;color:rgba(255,255,255,.7);font-family:'DM Mono',monospace}
+.st strong{color:#fff}
+
+.controls{background:var(--s1);border-bottom:2px solid var(--br);padding:11px 14px;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.ci{max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:8px}
+.sr{position:relative}
+.sr input{width:100%;background:var(--bg);border:1.5px solid var(--br);border-radius:8px;padding:8px 14px 8px 38px;font-family:'Nunito',sans-serif;font-size:.88rem;color:var(--tx);outline:none;transition:border-color .2s}
+.sr input:focus{border-color:var(--purple)}
+.sr input::placeholder{color:var(--t3)}
+.si{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--t3)}
+.tabs{display:flex;gap:5px;flex-wrap:wrap}
+.tb{padding:4px 12px;border-radius:16px;border:1.5px solid var(--br);background:transparent;font-family:'Nunito',sans-serif;font-size:.73rem;font-weight:700;cursor:pointer;color:var(--t2);transition:all .15s;white-space:nowrap}
+.tb:hover{border-color:var(--purple);color:var(--purple)}
+.tb.on{background:var(--purple);border-color:var(--purple);color:#fff}
+.lv-row{display:flex;gap:5px;flex-wrap:wrap}
+.lv{padding:3px 11px;border-radius:14px;border:1.5px solid var(--br);background:transparent;font-family:'DM Mono',monospace;font-size:.67rem;font-weight:500;cursor:pointer;color:var(--t2);transition:all .15s}
+.lv:hover{border-color:var(--orange);color:var(--orange)}
+.lv.on{background:var(--orange);border-color:var(--orange);color:#fff}
+
+.wrap{max-width:1200px;margin:0 auto;padding:20px 12px 60px}
+.cat-sec{margin-bottom:32px}
+.cat-hd{display:flex;align-items:center;gap:10px;padding:10px 0 8px;border-bottom:2px solid var(--br);margin-bottom:10px;position:sticky;top:118px;background:var(--bg);z-index:10}
+.cat-icon{font-size:1.3rem}
+.cat-title{font-family:'Fraunces',serif;font-size:1.15rem;font-weight:600;color:var(--tx)}
+.cat-count{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--t3);margin-left:auto}
+
+.tbl{width:100%;border-collapse:collapse;font-size:.83rem}
+.tbl thead tr{background:var(--purple)}
+.tbl thead th{padding:7px 12px;text-align:left;color:#fff;font-family:'DM Mono',monospace;font-size:.63rem;letter-spacing:.6px;font-weight:500}
+.tbl tbody tr{border-bottom:1px solid var(--br);transition:background .1s}
+.tbl tbody tr:hover{background:var(--s2)}
+.tbl td{padding:8px 12px;vertical-align:middle;line-height:1.5}
+.td-num{color:var(--t3);font-family:'DM Mono',monospace;font-size:.67rem;width:36px;text-align:center}
+.td-inf{color:var(--blue);font-weight:600}
+.td-for{color:var(--teal);font-weight:600}
+.td-en{color:var(--t2);font-style:italic}
+.lv-badge{display:inline-block;font-family:'DM Mono',monospace;font-size:.58rem;padding:2px 6px;border-radius:3px;font-weight:500;border:1px solid}
+.lv-a2{background:#e8f4ed;color:#1a6b3a;border-color:#a8d4b8}
+.lv-b1{background:#e8eef8;color:#1a3a8b;border-color:#a8bcdc}
+.copy-btn{background:none;border:none;cursor:pointer;color:var(--t3);font-size:.8rem;padding:2px 5px;border-radius:4px;transition:all .15s;opacity:0}
+.tbl tbody tr:hover .copy-btn{opacity:1}
+.copy-btn:hover{background:var(--s3);color:var(--purple)}
+.copy-btn.copied{color:var(--green);opacity:1}
+
+.empty{text-align:center;padding:40px;color:var(--t3);display:none}
+.empty.show{display:block}
+.empty h3{font-family:'Fraunces',serif;font-size:1.4rem;color:var(--t2)}
+
+@media(max-width:720px){
+  .tbl thead{display:none}
+  .tbl tbody tr{display:block;border:1.5px solid var(--br);border-radius:10px;margin-bottom:10px;padding:10px 12px;background:var(--s1)}
+  .tbl tbody tr:hover{background:var(--s2)}
+  .tbl td{display:block;padding:3px 0;border:none;font-size:.84rem;line-height:1.5}
+  .td-num{text-align:left;font-size:.65rem;color:var(--t3);margin-bottom:2px}
+  .td-inf::before{content:'🗣️ ';font-style:normal}
+  .td-for::before{content:'🎩 ';font-style:normal}
+  .td-en::before{content:'🇬🇧 ';font-style:normal}
+  .td-en{font-style:normal;color:var(--t2)}
+  .copy-btn{opacity:1;margin-top:4px}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-tag">Set 2 — Express Yourself</div>
+  <h1>French Daily <em>Conversations</em></h1>
+  <p>500 sentences — emotions · health · IT work · introductions · holidays · public life · variations</p>
+  <div class="stats">
+    <div class="st"><strong>500</strong> sentences</div>
+    <div class="st"><strong>9</strong> categories</div>
+    <div class="st">🗣️ Informal · 🎩 Formal · 🇬🇧 English</div>
+    <div class="st">A2 + B1 level</div>
+  </div>
+</div>
+
+<div class="controls">
+  <div class="ci">
+    <div class="sr">
+      <span class="si">🔍</span>
+      <input type="text" id="q" placeholder="Search… e.g. fever, meeting, sad, pharmacy, holiday, bug" oninput="run()">
+    </div>
+    <div class="tabs" id="ctabs">
+      <button class="tb on" onclick="setCat('all',this)">All</button>
+      <button class="tb" onclick="setCat('emotions',this)">😊 Emotions</button>
+      <button class="tb" onclick="setCat('health',this)">🤒 Health</button>
+      <button class="tb" onclick="setCat('public',this)">🏪 Public Life</button>
+      <button class="tb" onclick="setCat('it',this)">💻 IT & Tech Work</button>
+      <button class="tb" onclick="setCat('intro',this)">🤝 Introductions</button>
+      <button class="tb" onclick="setCat('summer',this)">☀️ Summer Holidays</button>
+      <button class="tb" onclick="setCat('winter',this)">❄️ Winter Holidays</button>
+      <button class="tb" onclick="setCat('problems',this)">🆘 Problems & Help</button>
+      <button class="tb" onclick="setCat('variations',this)">🔄 Variations</button>
+    </div>
+    <div class="lv-row">
+      <button class="lv on" onclick="setLv('all',this)">All Levels</button>
+      <button class="lv" onclick="setLv('A2',this)">🟢 A2</button>
+      <button class="lv" onclick="setLv('B1',this)">🔵 B1</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+<div id="empty" class="empty"><h3>No results found</h3><p>Try a different word.</p></div>
+
+<script>
+const DATA = [
+
+// ═══════════════════════════════════════
+// 😊 EMOTIONS & EXPRESSING YOURSELF
+// ═══════════════════════════════════════
+// HAPPINESS & POSITIVITY
+{c:'emotions',l:'A2',i:'Je suis trop content(e) !',f:'Je suis très content(e) !',e:'I\'m so happy!'},
+{c:'emotions',l:'A2',i:'Je suis aux anges.',f:'Je suis aux anges.',e:'I\'m over the moon.'},
+{c:'emotions',l:'B1',i:'Ça me rend vraiment heureux(se).',f:'Cela me rend vraiment heureux(se).',e:'That really makes me happy.'},
+{c:'emotions',l:'A2',i:'C\'est une super nouvelle !',f:'C\'est une excellente nouvelle !',e:'That\'s great news!'},
+{c:'emotions',l:'B1',i:'Je suis fier(e) de moi.',f:'Je suis fier(fière) de moi.',e:'I\'m proud of myself.'},
+{c:'emotions',l:'A2',i:'J\'adore ça !',f:'J\'apprécie vraiment cela.',e:'I love it!'},
+{c:'emotions',l:'B1',i:'Je me sens vraiment bien en ce moment.',f:'Je me sens vraiment bien en ce moment.',e:'I\'m feeling really good right now.'},
+{c:'emotions',l:'A2',i:'Ça m\'a fait trop plaisir.',f:'Cela m\'a vraiment fait plaisir.',e:'That really pleased me.'},
+{c:'emotions',l:'B1',i:'Je suis enthousiaste à l\'idée de commencer.',f:'Je suis enthousiaste à l\'idée de commencer.',e:'I\'m excited to get started.'},
+{c:'emotions',l:'A2',i:'Je suis de super bonne humeur.',f:'Je suis de très bonne humeur.',e:'I\'m in a great mood.'},
+{c:'emotions',l:'B1',i:'Je rayonne aujourd\'hui.',f:'Je suis rayonnant(e) aujourd\'hui.',e:'I\'m glowing today.'},
+{c:'emotions',l:'B1',i:'Ça me donne de l\'énergie.',f:'Cela me donne de l\'énergie.',e:'It gives me energy.'},
+
+// SADNESS & DISAPPOINTMENT
+{c:'emotions',l:'A2',i:'Je suis triste.',f:'Je suis triste.',e:'I\'m sad.'},
+{c:'emotions',l:'B1',i:'J\'ai le moral à zéro.',f:'Je n\'ai pas le moral.',e:'I\'m feeling really low.'},
+{c:'emotions',l:'B1',i:'Je suis déçu(e), je m\'attendais à mieux.',f:'Je suis déçu(e), je m\'attendais à mieux.',e:'I\'m disappointed, I expected better.'},
+{c:'emotions',l:'A2',i:'J\'ai envie de pleurer.',f:'J\'ai envie de pleurer.',e:'I feel like crying.'},
+{c:'emotions',l:'B1',i:'Je me sens vide.',f:'Je me sens vide.',e:'I feel empty.'},
+{c:'emotions',l:'B1',i:'Ça m\'a brisé le cœur.',f:'Cela m\'a brisé le cœur.',e:'It broke my heart.'},
+{c:'emotions',l:'A2',i:'Je passe une mauvaise journée.',f:'Je passe une mauvaise journée.',e:'I\'m having a bad day.'},
+{c:'emotions',l:'B1',i:'Je me sens incompris(e).',f:'Je me sens incompris(e).',e:'I feel misunderstood.'},
+
+// STRESS & ANXIETY
+{c:'emotions',l:'A2',i:'Je suis stressé(e).',f:'Je suis stressé(e).',e:'I\'m stressed.'},
+{c:'emotions',l:'B1',i:'J\'ai beaucoup de pression en ce moment.',f:'Je subis beaucoup de pression en ce moment.',e:'I\'m under a lot of pressure right now.'},
+{c:'emotions',l:'B1',i:'Je suis angoissé(e) à l\'idée de rater.',f:'Je suis angoissé(e) à l\'idée d\'échouer.',e:'I\'m anxious about failing.'},
+{c:'emotions',l:'A2',i:'J\'ai les nerfs.',f:'Je suis nerveux(se).',e:'I\'m on edge.'},
+{c:'emotions',l:'B1',i:'J\'arrête pas de penser à ça.',f:'Je n\'arrête pas de penser à cela.',e:'I can\'t stop thinking about it.'},
+{c:'emotions',l:'B1',i:'J\'ai du mal à me concentrer quand je suis stressé(e).',f:'J\'ai du mal à me concentrer lorsque je suis stressé(e).',e:'I struggle to focus when I\'m stressed.'},
+
+// ANGER & FRUSTRATION
+{c:'emotions',l:'A2',i:'Je suis vraiment en colère.',f:'Je suis vraiment en colère.',e:'I\'m really angry.'},
+{c:'emotions',l:'B1',i:'Ça m\'énerve profondément.',f:'Cela m\'énerve profondément.',e:'It deeply annoys me.'},
+{c:'emotions',l:'B1',i:'Je suis à bout de patience.',f:'Je suis à bout de patience.',e:'I\'ve run out of patience.'},
+{c:'emotions',l:'A2',i:'C\'est vraiment pas juste.',f:'Ce n\'est vraiment pas juste.',e:'That\'s really not fair.'},
+{c:'emotions',l:'B1',i:'Je retiens ma colère mais c\'est difficile.',f:'Je retiens ma colère mais c\'est difficile.',e:'I\'m holding back my anger but it\'s hard.'},
+
+// TIREDNESS & BURNOUT
+{c:'emotions',l:'A2',i:'Je suis épuisé(e), j\'en peux plus.',f:'Je suis épuisé(e), je n\'en peux plus.',e:'I\'m exhausted, I can\'t take any more.'},
+{c:'emotions',l:'B1',i:'Je suis au bout du rouleau.',f:'Je suis au bout du rouleau.',e:'I\'m completely burnt out.'},
+{c:'emotions',l:'B1',i:'J\'ai besoin de vraies vacances.',f:'J\'ai besoin de vraies vacances.',e:'I need a real holiday.'},
+{c:'emotions',l:'A2',i:'Je suis vidé(e).',f:'Je suis vidé(e).',e:'I\'m drained.'},
+{c:'emotions',l:'B1',i:'Je dors mal depuis quelques semaines.',f:'Je dors mal depuis quelques semaines.',e:'I\'ve been sleeping badly for a few weeks.'},
+
+// GRATITUDE & RELIEF
+{c:'emotions',l:'A2',i:'Merci infiniment.',f:'Je vous remercie infiniment.',e:'Thank you so much.'},
+{c:'emotions',l:'B1',i:'Je suis tellement soulagé(e).',f:'Je suis tellement soulagé(e).',e:'I\'m so relieved.'},
+{c:'emotions',l:'B1',i:'Je t\'en suis vraiment reconnaissant(e).',f:'Je vous en suis vraiment reconnaissant(e).',e:'I\'m truly grateful to you.'},
+{c:'emotions',l:'A2',i:'C\'est exactement ce dont j\'avais besoin.',f:'C\'est exactement ce dont j\'avais besoin.',e:'That\'s exactly what I needed.'},
+{c:'emotions',l:'B1',i:'Ça m\'a vraiment aidé(e), merci.',f:'Cela m\'a vraiment aidé(e), merci.',e:'That really helped me, thank you.'},
+
+// CONFIDENCE & MOTIVATION
+{c:'emotions',l:'B1',i:'Je me sens capable de tout.',f:'Je me sens capable de tout.',e:'I feel capable of anything.'},
+{c:'emotions',l:'A2',i:'J\'y crois vraiment.',f:'J\'y crois vraiment.',e:'I really believe in it.'},
+{c:'emotions',l:'B1',i:'Je suis motivé(e) comme jamais.',f:'Je suis motivé(e) comme jamais.',e:'I\'m more motivated than ever.'},
+{c:'emotions',l:'B1',i:'Je suis prêt(e) à relever ce défi.',f:'Je suis prêt(e) à relever ce défi.',e:'I\'m ready to take on this challenge.'},
+{c:'emotions',l:'A2',i:'Je vais y arriver.',f:'Je vais y arriver.',e:'I\'m going to make it.'},
+
+// ═══════════════════════════════════════
+// 🤒 HEALTH
+// ═══════════════════════════════════════
+// GENERAL UNWELLNESS
+{c:'health',l:'A2',i:'Je me sens pas bien du tout.',f:'Je ne me sens pas bien du tout.',e:'I don\'t feel well at all.'},
+{c:'health',l:'A2',i:'J\'ai de la fièvre.',f:'J\'ai de la fièvre.',e:'I have a fever.'},
+{c:'health',l:'A2',i:'J\'ai 39 de fièvre.',f:'J\'ai une température de 39 degrés.',e:'My temperature is 39.'},
+{c:'health',l:'A2',i:'J\'ai des frissons.',f:'J\'ai des frissons.',e:'I have chills.'},
+{c:'health',l:'A2',i:'Je me sens fatigué(e) et sans énergie.',f:'Je me sens fatigué(e) et sans énergie.',e:'I feel tired and without energy.'},
+{c:'health',l:'B1',i:'J\'ai la nausée depuis ce matin.',f:'J\'ai des nausées depuis ce matin.',e:'I\'ve been nauseous since this morning.'},
+{c:'health',l:'A2',i:'J\'ai vomi cette nuit.',f:'J\'ai vomi cette nuit.',e:'I was sick in the night.'},
+{c:'health',l:'B1',i:'Je me sens fiévreux(se) mais j\'ai pas pris ma température.',f:'Je me sens fiévreux(se) mais je n\'ai pas pris ma température.',e:'I feel feverish but I haven\'t taken my temperature.'},
+
+// BODY PAIN
+{c:'health',l:'A2',i:'J\'ai mal à la tête.',f:'J\'ai des maux de tête.',e:'I have a headache.'},
+{c:'health',l:'A2',i:'J\'ai une migraine terrible.',f:'J\'ai une migraine terrible.',e:'I have a terrible migraine.'},
+{c:'health',l:'A2',i:'J\'ai mal au dos.',f:'J\'ai une douleur dans le dos.',e:'I have back pain.'},
+{c:'health',l:'A2',i:'J\'ai mal au ventre.',f:'J\'ai des douleurs abdominales.',e:'I have a stomach ache.'},
+{c:'health',l:'A2',i:'J\'ai mal à la gorge.',f:'J\'ai mal à la gorge.',e:'I have a sore throat.'},
+{c:'health',l:'A2',i:'J\'ai mal aux jambes.',f:'J\'ai des douleurs dans les jambes.',e:'My legs ache.'},
+{c:'health',l:'B1',i:'J\'ai une douleur aiguë dans la poitrine.',f:'J\'ai une douleur aiguë dans la poitrine.',e:'I have a sharp pain in my chest.'},
+{c:'health',l:'A2',i:'J\'ai mal aux dents.',f:'J\'ai mal aux dents.',e:'I have toothache.'},
+{c:'health',l:'B1',i:'J\'ai une douleur qui irradie dans le bras.',f:'J\'ai une douleur qui irradie dans le bras.',e:'I have pain radiating down my arm.'},
+{c:'health',l:'A2',i:'J\'ai le nez bouché.',f:'J\'ai le nez bouché.',e:'My nose is blocked.'},
+{c:'health',l:'A2',i:'Je tousse beaucoup.',f:'Je tousse beaucoup.',e:'I\'m coughing a lot.'},
+{c:'health',l:'B1',i:'J\'ai mal partout, les muscles sont douloureux.',f:'J\'ai des douleurs partout, les muscles sont douloureux.',e:'I ache all over, my muscles are painful.'},
+
+// EXPLAINING TO A DOCTOR
+{c:'health',l:'B1',i:'Ça a commencé il y a trois jours.',f:'Cela a commencé il y a trois jours.',e:'It started three days ago.'},
+{c:'health',l:'B1',i:'La douleur est constante ou elle va et vient.',f:'La douleur est constante ou elle va et vient.',e:'The pain is constant or comes and goes.'},
+{c:'health',l:'B1',i:'C\'est pire la nuit.',f:'C\'est pire la nuit.',e:'It\'s worse at night.'},
+{c:'health',l:'B1',i:'J\'ai du mal à avaler.',f:'J\'ai du mal à avaler.',e:'I have difficulty swallowing.'},
+{c:'health',l:'B1',i:'Je prends déjà ce médicament.',f:'Je prends déjà ce médicament.',e:'I\'m already taking this medication.'},
+{c:'health',l:'B1',i:'J\'ai eu ça l\'année dernière aussi.',f:'J\'ai eu cela l\'année dernière également.',e:'I had this last year too.'},
+{c:'health',l:'A2',i:'Est-ce grave, docteur ?',f:'Est-ce grave, docteur ?',e:'Is it serious, doctor?'},
+{c:'health',l:'B1',i:'Est-ce que je dois rester chez moi ?',f:'Dois-je rester chez moi ?',e:'Do I need to stay home?'},
+{c:'health',l:'B1',i:'Je suis enceinte, est-ce que je peux prendre ce médicament ?',f:'Je suis enceinte, puis-je prendre ce médicament ?',e:'I\'m pregnant, can I take this medicine?'},
+{c:'health',l:'A2',i:'Je suis allergique aux antibiotiques.',f:'Je suis allergique aux antibiotiques.',e:'I\'m allergic to antibiotics.'},
+{c:'health',l:'B1',i:'J\'ai besoin d\'un arrêt de travail de deux jours.',f:'J\'ai besoin d\'un arrêt de travail de deux jours.',e:'I need a sick note for two days.'},
+{c:'health',l:'B1',i:'Pouvez-vous me faire une ordonnance ?',f:'Pourriez-vous me faire une ordonnance ?',e:'Could you write me a prescription?'},
+{c:'health',l:'B1',i:'Je voudrais être adressé(e) à un spécialiste.',f:'Je souhaite être orienté(e) vers un spécialiste.',e:'I\'d like a referral to a specialist.'},
+
+// PHARMACY
+{c:'health',l:'A2',i:'Vous avez quelque chose contre la toux ?',f:'Avez-vous quelque chose contre la toux ?',e:'Do you have something for a cough?'},
+{c:'health',l:'A2',i:'Je cherche un antidouleur.',f:'Je cherche un antidouleur.',e:'I\'m looking for a painkiller.'},
+{c:'health',l:'B1',i:'C\'est remboursé sur ordonnance ?',f:'Est-ce remboursé sur ordonnance ?',e:'Is this reimbursed on prescription?'},
+{c:'health',l:'A2',i:'Je peux prendre ça avec de l\'alcool ?',f:'Puis-je prendre cela avec de l\'alcool ?',e:'Can I take this with alcohol?'},
+{c:'health',l:'B1',i:'Je dois prendre ça avant ou après les repas ?',f:'Dois-je prendre cela avant ou après les repas ?',e:'Should I take this before or after meals?'},
+{c:'health',l:'A2',i:'C\'est pour un enfant de six ans.',f:'C\'est pour un enfant de six ans.',e:'It\'s for a six-year-old child.'},
+{c:'health',l:'B1',i:'Vous avez une version générique ?',f:'Avez-vous une version générique ?',e:'Do you have a generic version?'},
+{c:'health',l:'A2',i:'J\'ai une ordonnance.',f:'J\'ai une ordonnance.',e:'I have a prescription.'},
+{c:'health',l:'B1',i:'Quels sont les effets secondaires ?',f:'Quels sont les effets secondaires ?',e:'What are the side effects?'},
+
+// MENTAL HEALTH & SLEEP
+{c:'health',l:'B1',i:'Je dors pas bien depuis des semaines.',f:'Je ne dors pas bien depuis des semaines.',e:'I haven\'t been sleeping well for weeks.'},
+{c:'health',l:'B1',i:'J\'ai des insomnies fréquentes.',f:'Je souffre d\'insomnies fréquentes.',e:'I suffer from frequent insomnia.'},
+{c:'health',l:'B1',i:'Je me sens déprimé(e) ces derniers temps.',f:'Je me sens déprimé(e) ces derniers temps.',e:'I\'ve been feeling depressed lately.'},
+{c:'health',l:'B1',i:'J\'ai besoin de voir un psychologue.',f:'J\'ai besoin de consulter un psychologue.',e:'I need to see a psychologist.'},
+{c:'health',l:'B1',i:'Le stress affecte beaucoup ma santé.',f:'Le stress affecte beaucoup ma santé.',e:'Stress affects my health a lot.'},
+{c:'health',l:'B1',i:'J\'ai du mal à gérer l\'anxiété.',f:'J\'ai du mal à gérer l\'anxiété.',e:'I struggle to manage anxiety.'},
+
+// ═══════════════════════════════════════
+// 🏪 PUBLIC LIFE
+// ═══════════════════════════════════════
+// ASKING STRANGERS FOR HELP
+{c:'public',l:'A2',i:'Excusez-moi, vous pouvez m\'aider ?',f:'Excusez-moi, pourriez-vous m\'aider ?',e:'Excuse me, could you help me?'},
+{c:'public',l:'A2',i:'Je cherche la rue des Martyrs.',f:'Pourriez-vous m\'indiquer la rue des Martyrs ?',e:'I\'m looking for Rue des Martyrs.'},
+{c:'public',l:'B1',i:'Vous connaissez un bon restaurant par ici ?',f:'Connaissez-vous un bon restaurant à proximité ?',e:'Do you know a good restaurant around here?'},
+{c:'public',l:'A2',i:'Vous pouvez me prendre en photo ?',f:'Pourriez-vous me prendre en photo ?',e:'Could you take a photo of me?'},
+{c:'public',l:'B1',i:'Vous savez où je peux trouver un distributeur ?',f:'Savez-vous où je peux trouver un distributeur automatique ?',e:'Do you know where I can find an ATM?'},
+{c:'public',l:'A2',i:'Je peux vous demander quelque chose ?',f:'Puis-je vous demander quelque chose ?',e:'May I ask you something?'},
+
+// SUPERMARKET
+{c:'public',l:'A2',i:'Où sont les produits laitiers ?',f:'Où se trouvent les produits laitiers ?',e:'Where are the dairy products?'},
+{c:'public',l:'A2',i:'C\'est où le rayon boulangerie ?',f:'Où se trouve le rayon boulangerie ?',e:'Where is the bakery aisle?'},
+{c:'public',l:'B1',i:'Vous avez des produits sans gluten ?',f:'Avez-vous des produits sans gluten ?',e:'Do you have gluten-free products?'},
+{c:'public',l:'A2',i:'Cette caisse est ouverte ?',f:'Cette caisse est-elle ouverte ?',e:'Is this checkout open?'},
+{c:'public',l:'A2',i:'Avez-vous un sac réutilisable ?',f:'Avez-vous un sac réutilisable ?',e:'Do you have a reusable bag?'},
+{c:'public',l:'B1',i:'Est-ce que ce produit est en promotion ?',f:'Ce produit est-il en promotion ?',e:'Is this product on offer?'},
+{c:'public',l:'A2',i:'Je peux avoir un bon de réduction ?',f:'Puis-je avoir un bon de réduction ?',e:'Can I have a discount voucher?'},
+{c:'public',l:'B1',i:'La date de péremption est dépassée.',f:'La date de péremption est dépassée.',e:'The expiry date has passed.'},
+
+// PHARMACY
+{c:'public',l:'A2',i:'J\'ai mal à la gorge, vous avez quelque chose ?',f:'J\'ai mal à la gorge, avez-vous quelque chose ?',e:'I have a sore throat, do you have something for it?'},
+{c:'public',l:'B1',i:'C\'est pour une brûlure légère.',f:'C\'est pour une brûlure légère.',e:'It\'s for a minor burn.'},
+{c:'public',l:'A2',i:'Je prends déjà de l\'ibuprofène, c\'est compatible ?',f:'Je prends déjà de l\'ibuprofène, est-ce compatible ?',e:'I\'m already taking ibuprofen, is it compatible?'},
+{c:'public',l:'B1',i:'Vous me conseillez quoi pour les allergies saisonnières ?',f:'Que me conseillez-vous pour les allergies saisonnières ?',e:'What do you recommend for seasonal allergies?'},
+{c:'public',l:'A2',i:'C\'est disponible sans ordonnance ?',f:'Est-ce disponible sans ordonnance ?',e:'Is it available without a prescription?'},
+{c:'public',l:'B1',i:'Je cherche quelque chose de naturel si possible.',f:'Je cherche quelque chose de naturel si possible.',e:'I\'m looking for something natural if possible.'},
+
+// POLICE
+{c:'public',l:'A2',i:'J\'ai besoin d\'aide, appelez la police.',f:'J\'ai besoin d\'aide, appelez la police.',e:'I need help, call the police.'},
+{c:'public',l:'B1',i:'Je voudrais déposer une plainte.',f:'Je souhaite déposer une plainte.',e:'I would like to file a complaint.'},
+{c:'public',l:'B1',i:'On m\'a volé mon téléphone dans le métro.',f:'On m\'a volé mon téléphone dans le métro.',e:'My phone was stolen on the metro.'},
+{c:'public',l:'A2',i:'J\'ai perdu mon passeport.',f:'J\'ai perdu mon passeport.',e:'I\'ve lost my passport.'},
+{c:'public',l:'B1',i:'Je suis victime d\'une arnaque.',f:'Je suis victime d\'une arnaque.',e:'I\'ve been scammed.'},
+{c:'public',l:'B1',i:'Il y a eu un incident, je veux faire un rapport.',f:'Il y a eu un incident, je souhaite rédiger un rapport.',e:'There\'s been an incident, I want to make a report.'},
+{c:'public',l:'A2',i:'Où est le commissariat le plus proche ?',f:'Où se trouve le commissariat le plus proche ?',e:'Where is the nearest police station?'},
+{c:'public',l:'B1',i:'J\'ai été témoin d\'un accident.',f:'J\'ai été témoin d\'un accident.',e:'I witnessed an accident.'},
+
+// PRÉFECTURE / ADMIN
+{c:'public',l:'B1',i:'Je veux renouveler mon titre de séjour.',f:'Je souhaite renouveler mon titre de séjour.',e:'I want to renew my residence permit.'},
+{c:'public',l:'B1',i:'J\'ai pris rendez-vous en ligne.',f:'J\'ai pris rendez-vous en ligne.',e:'I made an appointment online.'},
+{c:'public',l:'B1',i:'Quels documents faut-il apporter ?',f:'Quels documents faut-il apporter ?',e:'What documents do I need to bring?'},
+{c:'public',l:'B1',i:'Mon dossier est complet.',f:'Mon dossier est complet.',e:'My file is complete.'},
+{c:'public',l:'B1',i:'Quel est le délai de traitement ?',f:'Quel est le délai de traitement ?',e:'What is the processing time?'},
+{c:'public',l:'B1',i:'J\'ai reçu une convocation.',f:'J\'ai reçu une convocation.',e:'I received a summons / official letter.'},
+{c:'public',l:'B1',i:'Je n\'ai pas reçu ma carte de séjour.',f:'Je n\'ai pas reçu ma carte de séjour.',e:'I haven\'t received my residence card.'},
+{c:'public',l:'B1',i:'Je peux avoir un récépissé en attendant ?',f:'Puis-je obtenir un récépissé dans l\'attente ?',e:'Can I get a temporary receipt while I wait?'},
+{c:'public',l:'B1',i:'Mon visa expire dans un mois.',f:'Mon visa expire dans un mois.',e:'My visa expires in one month.'},
+{c:'public',l:'A2',i:'Je comprends pas ce formulaire.',f:'Je ne comprends pas ce formulaire.',e:'I don\'t understand this form.'},
+
+// ═══════════════════════════════════════
+// 💻 IT & SOFTWARE ENGINEERING
+// ═══════════════════════════════════════
+// INTRODUCING YOURSELF
+{c:'it',l:'A2',i:'Je suis développeur(se) back-end.',f:'Je suis développeur(se) back-end.',e:'I\'m a back-end developer.'},
+{c:'it',l:'A2',i:'Je travaille principalement en Python et JavaScript.',f:'Je travaille principalement en Python et JavaScript.',e:'I mainly work in Python and JavaScript.'},
+{c:'it',l:'B1',i:'J\'ai cinq ans d\'expérience en développement logiciel.',f:'J\'ai cinq ans d\'expérience en développement logiciel.',e:'I have five years of experience in software development.'},
+{c:'it',l:'B1',i:'Je suis spécialisé(e) dans les API REST.',f:'Je suis spécialisé(e) dans les API REST.',e:'I specialise in REST APIs.'},
+{c:'it',l:'A2',i:'Je travaille en méthode agile.',f:'Je travaille selon la méthodologie agile.',e:'I work using agile methodology.'},
+{c:'it',l:'B1',i:'Je suis ingénieur(e) logiciel dans une startup.',f:'Je suis ingénieur(e) logiciel dans une startup.',e:'I\'m a software engineer at a startup.'},
+{c:'it',l:'B1',i:'Je travaille sur des projets cloud.',f:'Je travaille sur des projets cloud.',e:'I work on cloud projects.'},
+
+// DAILY STANDUP / SCRUM
+{c:'it',l:'A2',i:'Hier j\'ai travaillé sur le bug de connexion.',f:'Hier j\'ai travaillé sur le bug de connexion.',e:'Yesterday I worked on the login bug.'},
+{c:'it',l:'B1',i:'Aujourd\'hui je prévois de finir la fonctionnalité de paiement.',f:'Aujourd\'hui je prévois de terminer la fonctionnalité de paiement.',e:'Today I plan to finish the payment feature.'},
+{c:'it',l:'B1',i:'J\'ai un bloquant, j\'attends une réponse de l\'équipe infra.',f:'J\'ai un bloquant, j\'attends une réponse de l\'équipe infrastructure.',e:'I have a blocker, I\'m waiting for a response from the infra team.'},
+{c:'it',l:'A2',i:'J\'ai pas de bloquant aujourd\'hui.',f:'Je n\'ai aucun bloquant aujourd\'hui.',e:'I have no blockers today.'},
+{c:'it',l:'B1',i:'Je suis en train de revoir mon code avant de faire la PR.',f:'Je suis en train de revoir mon code avant de soumettre la pull request.',e:'I\'m reviewing my code before making the PR.'},
+{c:'it',l:'B1',i:'Le ticket est en cours, je le finis avant ce soir.',f:'Le ticket est en cours, je le terminerai avant ce soir.',e:'The ticket is in progress, I\'ll finish it before tonight.'},
+{c:'it',l:'A2',i:'J\'ai fini la tâche, elle est en review.',f:'J\'ai terminé la tâche, elle est en cours de révision.',e:'I finished the task, it\'s in review.'},
+{c:'it',l:'B1',i:'Je travaille sur le sprint numéro trois.',f:'Je travaille sur le sprint numéro trois.',e:'I\'m working on sprint three.'},
+
+// BUGS & TECHNICAL ISSUES
+{c:'it',l:'A2',i:'Il y a un bug dans la prod.',f:'Il y a un bug en production.',e:'There\'s a bug in production.'},
+{c:'it',l:'B1',i:'L\'application crash au démarrage.',f:'L\'application plante au démarrage.',e:'The application crashes on startup.'},
+{c:'it',l:'B1',i:'Le bug est difficile à reproduire.',f:'Le bug est difficile à reproduire.',e:'The bug is hard to reproduce.'},
+{c:'it',l:'B1',i:'J\'ai identifié la source du problème.',f:'J\'ai identifié la source du problème.',e:'I\'ve identified the source of the problem.'},
+{c:'it',l:'B1',i:'Le bug vient d\'une mauvaise gestion de la mémoire.',f:'Le bug provient d\'une mauvaise gestion de la mémoire.',e:'The bug comes from poor memory management.'},
+{c:'it',l:'A2',i:'Je peux pas reproduire le bug en local.',f:'Je ne peux pas reproduire le bug en local.',e:'I can\'t reproduce the bug locally.'},
+{c:'it',l:'B1',i:'On a un problème de performance sur la base de données.',f:'Nous avons un problème de performance sur la base de données.',e:'We have a performance issue on the database.'},
+{c:'it',l:'B1',i:'L\'API renvoie une erreur 500.',f:'L\'API renvoie une erreur 500.',e:'The API is returning a 500 error.'},
+{c:'it',l:'B1',i:'J\'ai poussé un correctif, à tester.',f:'J\'ai déployé un correctif, à tester.',e:'I pushed a fix, needs testing.'},
+{c:'it',l:'A2',i:'Les tests unitaires passent.',f:'Les tests unitaires passent.',e:'The unit tests are passing.'},
+
+// MEETINGS & CLARIFICATION
+{c:'it',l:'A2',i:'Vous pouvez répéter s\'il vous plaît ?',f:'Pourriez-vous répéter, s\'il vous plaît ?',e:'Could you repeat that please?'},
+{c:'it',l:'B1',i:'Je ne suis pas sûr(e) d\'avoir bien compris la spécification.',f:'Je ne suis pas certain(e) d\'avoir bien compris la spécification.',e:'I\'m not sure I understood the spec correctly.'},
+{c:'it',l:'B1',i:'Pouvez-vous clarifier ce point ?',f:'Pourriez-vous clarifier ce point ?',e:'Could you clarify this point?'},
+{c:'it',l:'B1',i:'Quel est le cas d\'utilisation exact ?',f:'Quel est le cas d\'utilisation exact ?',e:'What is the exact use case?'},
+{c:'it',l:'A2',i:'Je comprends pas bien la demande.',f:'Je ne comprends pas bien la demande.',e:'I don\'t quite understand the request.'},
+{c:'it',l:'B1',i:'On peut revenir sur ce point plus tard ?',f:'Pouvons-nous revenir sur ce point plus tard ?',e:'Can we come back to this point later?'},
+{c:'it',l:'B1',i:'Est-ce que c\'est dans le périmètre du sprint ?',f:'Est-ce dans le périmètre du sprint ?',e:'Is this within the scope of the sprint?'},
+{c:'it',l:'B1',i:'Je peux avoir plus de contexte sur cette fonctionnalité ?',f:'Puis-je avoir plus de contexte sur cette fonctionnalité ?',e:'Can I have more context on this feature?'},
+{c:'it',l:'A2',i:'Je suis d\'accord avec cette approche.',f:'Je suis d\'accord avec cette approche.',e:'I agree with this approach.'},
+{c:'it',l:'B1',i:'Je pense qu\'il y a une meilleure solution.',f:'Je pense qu\'il existe une meilleure solution.',e:'I think there\'s a better solution.'},
+
+// CODE REVIEW / PR
+{c:'it',l:'B1',i:'J\'ai soumis ma pull request pour review.',f:'J\'ai soumis ma pull request pour révision.',e:'I submitted my pull request for review.'},
+{c:'it',l:'B1',i:'Il y a des commentaires sur mon code.',f:'Il y a des commentaires sur mon code.',e:'There are comments on my code.'},
+{c:'it',l:'B1',i:'Je vais refactoriser cette partie.',f:'Je vais refactoriser cette partie.',e:'I\'m going to refactor this part.'},
+{c:'it',l:'B1',i:'Le code est propre et bien documenté.',f:'Le code est propre et bien documenté.',e:'The code is clean and well documented.'},
+{c:'it',l:'B1',i:'J\'ai besoin d\'une deuxième paire d\'yeux sur ce code.',f:'J\'ai besoin d\'un second regard sur ce code.',e:'I need a second pair of eyes on this code.'},
+{c:'it',l:'A2',i:'La PR est prête à être mergée.',f:'La pull request est prête à être fusionnée.',e:'The PR is ready to be merged.'},
+
+// DEADLINES & DELIVERY
+{c:'it',l:'B1',i:'On va pas tenir le délai si on ne priorise pas.',f:'Nous n\'allons pas respecter le délai si nous ne priorisons pas.',e:'We won\'t meet the deadline if we don\'t prioritise.'},
+{c:'it',l:'B1',i:'J\'estime que ça prendra deux jours de plus.',f:'J\'estime que cela prendra deux jours supplémentaires.',e:'I estimate it will take two more days.'},
+{c:'it',l:'A2',i:'La livraison est pour vendredi.',f:'La livraison est prévue pour vendredi.',e:'The delivery is for Friday.'},
+{c:'it',l:'B1',i:'On peut négocier le délai avec le client ?',f:'Pouvons-nous négocier le délai avec le client ?',e:'Can we negotiate the deadline with the client?'},
+{c:'it',l:'B1',i:'Je suis bloqué sur cette tâche depuis hier.',f:'Je suis bloqué(e) sur cette tâche depuis hier.',e:'I\'ve been stuck on this task since yesterday.'},
+
+// REMOTE / TOOLS
+{c:'it',l:'A2',i:'Je suis en télétravail aujourd\'hui.',f:'Je travaille à distance aujourd\'hui.',e:'I\'m working remotely today.'},
+{c:'it',l:'B1',i:'On peut se faire un appel rapide sur Teams ?',f:'Pouvons-nous faire un appel rapide sur Teams ?',e:'Can we do a quick call on Teams?'},
+{c:'it',l:'A2',i:'Je t\'envoie le lien du repo.',f:'Je vous envoie le lien du dépôt.',e:'I\'ll send you the repo link.'},
+{c:'it',l:'B1',i:'Le pipeline CI/CD est cassé.',f:'Le pipeline CI/CD est cassé.',e:'The CI/CD pipeline is broken.'},
+{c:'it',l:'B1',i:'J\'ai mis à jour la documentation.',f:'J\'ai mis à jour la documentation.',e:'I\'ve updated the documentation.'},
+{c:'it',l:'A2',i:'Je pousse sur la branche develop.',f:'Je pousse sur la branche develop.',e:'I\'m pushing to the develop branch.'},
+{c:'it',l:'B1',i:'Le déploiement a échoué en prod.',f:'Le déploiement a échoué en production.',e:'The deployment failed in production.'},
+{c:'it',l:'B1',i:'Je fais une revue de sécurité du code.',f:'Je procède à une revue de sécurité du code.',e:'I\'m doing a security review of the code.'},
+
+// ═══════════════════════════════════════
+// 🤝 INTRODUCTIONS
+// ═══════════════════════════════════════
+{c:'intro',l:'A2',i:'Je m\'appelle Sunilvd, et toi ?',f:'Je me présente, je m\'appelle Sunilvd, et vous ?',e:'My name is Sunilvd, and you?'},
+{c:'intro',l:'A2',i:'Je viens d\'Inde.',f:'Je viens d\'Inde.',e:'I come from India.'},
+{c:'intro',l:'A2',i:'J\'habite à Paris depuis deux ans.',f:'J\'habite à Paris depuis deux ans.',e:'I\'ve been living in Paris for two years.'},
+{c:'intro',l:'B1',i:'Je suis ingénieur(e) en informatique.',f:'Je suis ingénieur(e) en informatique.',e:'I\'m a computer engineer.'},
+{c:'intro',l:'A2',i:'Je parle anglais, hindi et un peu français.',f:'Je parle anglais, hindi et un peu français.',e:'I speak English, Hindi and a little French.'},
+{c:'intro',l:'B1',i:'J\'apprends le français depuis six mois.',f:'J\'apprends le français depuis six mois.',e:'I\'ve been learning French for six months.'},
+{c:'intro',l:'A2',i:'Enchanté(e) de vous rencontrer.',f:'Enchanté(e) de faire votre connaissance.',e:'Pleased to meet you.'},
+{c:'intro',l:'B1',i:'Je travaille dans une entreprise tech à Paris.',f:'Je travaille dans une entreprise technologique à Paris.',e:'I work at a tech company in Paris.'},
+{c:'intro',l:'A2',i:'C\'est quoi votre prénom ?',f:'Quel est votre prénom ?',e:'What is your first name?'},
+{c:'intro',l:'B1',i:'On peut se tutoyer ?',f:'Pouvons-nous nous tutoyer ?',e:'Can we use informal "tu" with each other?'},
+{c:'intro',l:'A2',i:'J\'aime le cinéma et la randonnée.',f:'J\'apprécie le cinéma et la randonnée.',e:'I like cinema and hiking.'},
+{c:'intro',l:'B1',i:'Je suis arrivé(e) en France il y a un an.',f:'Je suis arrivé(e) en France il y a un an.',e:'I arrived in France a year ago.'},
+{c:'intro',l:'B1',i:'Je cherche à me faire des amis ici.',f:'Je cherche à me faire des amis ici.',e:'I\'m looking to make friends here.'},
+{c:'intro',l:'A2',i:'Vous faites quoi comme travail ?',f:'Quelle est votre profession ?',e:'What do you do for work?'},
+{c:'intro',l:'B1',i:'Je viens d\'une grande ville, mais je préfère Paris.',f:'Je viens d\'une grande ville, mais je préfère Paris.',e:'I come from a big city but I prefer Paris.'},
+{c:'intro',l:'A2',i:'J\'ai 28 ans.',f:'J\'ai 28 ans.',e:'I\'m 28 years old.'},
+{c:'intro',l:'B1',i:'Je suis célibataire et sans enfants pour l\'instant.',f:'Je suis célibataire et sans enfants pour l\'instant.',e:'I\'m single and without children for now.'},
+{c:'intro',l:'A2',i:'Je suis nouveau(elle) dans ce quartier.',f:'Je suis nouveau(elle) dans ce quartier.',e:'I\'m new to this neighbourhood.'},
+{c:'intro',l:'B1',i:'J\'essaie de m\'intégrer dans la culture française.',f:'J\'essaie de m\'intégrer dans la culture française.',e:'I\'m trying to integrate into French culture.'},
+{c:'intro',l:'A2',i:'Ravi(e) de faire ta connaissance.',f:'Ravi(e) de faire votre connaissance.',e:'Nice to meet you.'},
+{c:'intro',l:'B1',i:'Je travaille en remote la plupart du temps.',f:'Je travaille à distance la plupart du temps.',e:'I work remotely most of the time.'},
+{c:'intro',l:'A2',i:'Ma ville natale est Mumbai.',f:'Ma ville natale est Mumbai.',e:'My hometown is Mumbai.'},
+{c:'intro',l:'B1',i:'Je voyage souvent pour le travail.',f:'Je voyage fréquemment pour le travail.',e:'I travel often for work.'},
+{c:'intro',l:'A2',i:'C\'est quoi ton numéro ? On pourrait se retrouver.',f:'Quel est votre numéro ? Nous pourrions nous retrouver.',e:'What\'s your number? We could meet up.'},
+{c:'intro',l:'B1',i:'Je suis sur LinkedIn si tu veux garder contact.',f:'Je suis sur LinkedIn si vous souhaitez garder le contact.',e:'I\'m on LinkedIn if you want to stay in touch.'},
+
+// ═══════════════════════════════════════
+// ☀️ SUMMER HOLIDAYS
+// ═══════════════════════════════════════
+{c:'summer',l:'A2',i:'Tu pars en vacances cet été ?',f:'Partez-vous en vacances cet été ?',e:'Are you going on holiday this summer?'},
+{c:'summer',l:'A2',i:'Je pars deux semaines en juillet.',f:'Je pars deux semaines en juillet.',e:'I\'m going away for two weeks in July.'},
+{c:'summer',l:'B1',i:'J\'ai réservé un Airbnb à Barcelone.',f:'J\'ai réservé un Airbnb à Barcelone.',e:'I booked an Airbnb in Barcelona.'},
+{c:'summer',l:'A2',i:'J\'adore la mer.',f:'J\'adore la mer.',e:'I love the sea.'},
+{c:'summer',l:'B1',i:'On a loué une voiture pour visiter la région.',f:'Nous avons loué une voiture pour visiter la région.',e:'We rented a car to explore the region.'},
+{c:'summer',l:'A2',i:'Il fait très chaud là-bas en août.',f:'Il fait très chaud là-bas en août.',e:'It\'s very hot there in August.'},
+{c:'summer',l:'B1',i:'J\'ai visité des endroits incroyables.',f:'J\'ai visité des endroits incroyables.',e:'I visited incredible places.'},
+{c:'summer',l:'A2',i:'On est allés à la plage tous les jours.',f:'Nous sommes allés à la plage tous les jours.',e:'We went to the beach every day.'},
+{c:'summer',l:'B1',i:'J\'ai goûté des spécialités locales.',f:'J\'ai goûté des spécialités locales.',e:'I tasted local specialities.'},
+{c:'summer',l:'A2',i:'L\'hôtel était super.',f:'L\'hôtel était excellent.',e:'The hotel was great.'},
+// AIRPORT
+{c:'summer',l:'A2',i:'Mon vol est à 8h du matin.',f:'Mon vol est à 8 heures du matin.',e:'My flight is at 8 in the morning.'},
+{c:'summer',l:'B1',i:'J\'ai enregistré mes bagages en ligne.',f:'J\'ai enregistré mes bagages en ligne.',e:'I checked in my luggage online.'},
+{c:'summer',l:'A2',i:'Quelle est ma porte d\'embarquement ?',f:'Quelle est ma porte d\'embarquement ?',e:'What is my boarding gate?'},
+{c:'summer',l:'B1',i:'Mon vol a du retard.',f:'Mon vol a du retard.',e:'My flight is delayed.'},
+{c:'summer',l:'A2',i:'Je dois montrer mon passeport.',f:'Je dois présenter mon passeport.',e:'I need to show my passport.'},
+{c:'summer',l:'B1',i:'J\'ai un bagage en cabine seulement.',f:'J\'ai uniquement un bagage en cabine.',e:'I only have cabin luggage.'},
+// AT THE HOTEL
+{c:'summer',l:'A2',i:'J\'ai une réservation au nom de Sunilvd.',f:'J\'ai une réservation au nom de Sunilvd.',e:'I have a reservation under the name Sunilvd.'},
+{c:'summer',l:'A2',i:'À quelle heure est le check-out ?',f:'À quelle heure est le départ ?',e:'What time is check-out?'},
+{c:'summer',l:'B1',i:'La climatisation ne fonctionne pas dans ma chambre.',f:'La climatisation ne fonctionne pas dans ma chambre.',e:'The air conditioning isn\'t working in my room.'},
+{c:'summer',l:'A2',i:'Vous avez une piscine ?',f:'Disposez-vous d\'une piscine ?',e:'Do you have a swimming pool?'},
+// SHARING EXPERIENCES
+{c:'summer',l:'B1',i:'C\'était les meilleures vacances de ma vie.',f:'C\'était les meilleures vacances de ma vie.',e:'It was the best holiday of my life.'},
+{c:'summer',l:'B1',i:'Je recommande vraiment cette destination.',f:'Je recommande vivement cette destination.',e:'I really recommend this destination.'},
+{c:'summer',l:'A2',i:'On s\'est beaucoup reposés.',f:'Nous nous sommes beaucoup reposés.',e:'We rested a lot.'},
+{c:'summer',l:'B1',i:'J\'ai pris beaucoup de photos.',f:'J\'ai pris beaucoup de photos.',e:'I took lots of photos.'},
+{c:'summer',l:'B1',i:'Je me suis déconnecté(e) complètement du travail.',f:'Je me suis complètement déconnecté(e) du travail.',e:'I completely disconnected from work.'},
+{c:'summer',l:'A2',i:'On a fait de la randonnée tous les matins.',f:'Nous avons fait de la randonnée tous les matins.',e:'We hiked every morning.'},
+{c:'summer',l:'B1',i:'Je veux y retourner l\'année prochaine.',f:'Je souhaite y retourner l\'année prochaine.',e:'I want to go back next year.'},
+
+// ═══════════════════════════════════════
+// ❄️ WINTER HOLIDAYS
+// ═══════════════════════════════════════
+{c:'winter',l:'A2',i:'Tu fais quoi pour Noël ?',f:'Que faites-vous pour Noël ?',e:'What are you doing for Christmas?'},
+{c:'winter',l:'A2',i:'Je rentre dans ma famille.',f:'Je rentre dans ma famille.',e:'I\'m going back to my family.'},
+{c:'winter',l:'B1',i:'On fête le Nouvel An ensemble cette année.',f:'Nous fêtons le Nouvel An ensemble cette année.',e:'We\'re celebrating New Year together this year.'},
+{c:'winter',l:'A2',i:'J\'aime beaucoup l\'ambiance de Noël à Paris.',f:'J\'apprécie beaucoup l\'ambiance de Noël à Paris.',e:'I really love the Christmas atmosphere in Paris.'},
+{c:'winter',l:'B1',i:'Il fait très froid, j\'ai mis mon manteau d\'hiver.',f:'Il fait très froid, j\'ai mis mon manteau d\'hiver.',e:'It\'s very cold, I put on my winter coat.'},
+{c:'winter',l:'A2',i:'Il neige dehors !',f:'Il neige dehors !',e:'It\'s snowing outside!'},
+{c:'winter',l:'B1',i:'Je suis allé(e) au ski dans les Alpes.',f:'Je suis allé(e) skier dans les Alpes.',e:'I went skiing in the Alps.'},
+{c:'winter',l:'A2',i:'Je sais pas encore skier.',f:'Je ne sais pas encore skier.',e:'I can\'t ski yet.'},
+{c:'winter',l:'B1',i:'J\'ai pris des cours de ski pour débutants.',f:'J\'ai pris des cours de ski pour débutants.',e:'I took beginner ski lessons.'},
+{c:'winter',l:'A2',i:'La station de ski était magnifique.',f:'La station de ski était magnifique.',e:'The ski resort was beautiful.'},
+{c:'winter',l:'B1',i:'On a mangé une raclette après le ski.',f:'Nous avons mangé une raclette après le ski.',e:'We had raclette after skiing.'},
+{c:'winter',l:'A2',i:'J\'ai acheté des cadeaux pour tout le monde.',f:'J\'ai acheté des cadeaux pour tout le monde.',e:'I bought gifts for everyone.'},
+{c:'winter',l:'B1',i:'Le marché de Noël était vraiment sympa.',f:'Le marché de Noël était vraiment agréable.',e:'The Christmas market was really nice.'},
+{c:'winter',l:'A2',i:'On a regardé des films toute la journée.',f:'Nous avons regardé des films toute la journée.',e:'We watched films all day.'},
+{c:'winter',l:'B1',i:'J\'ai réveillonné avec des amis.',f:'J\'ai célébré le réveillon avec des amis.',e:'I celebrated New Year\'s Eve with friends.'},
+{c:'winter',l:'A2',i:'Bonne année !',f:'Je vous souhaite une bonne année.',e:'Happy New Year!'},
+{c:'winter',l:'A2',i:'Joyeux Noël !',f:'Je vous souhaite un joyeux Noël.',e:'Merry Christmas!'},
+{c:'winter',l:'B1',i:'Je prends dix jours de congé pour les fêtes.',f:'Je prends dix jours de congé pour les fêtes.',e:'I\'m taking ten days off for the holidays.'},
+{c:'winter',l:'B1',i:'Le temps était horrible mais on a passé un bon moment.',f:'Le temps était horrible mais nous avons passé un bon moment.',e:'The weather was awful but we had a good time.'},
+{c:'winter',l:'A2',i:'Mon pays ne fête pas Noël comme ici.',f:'Mon pays ne fête pas Noël comme ici.',e:'My country doesn\'t celebrate Christmas like here.'},
+{c:'winter',l:'B1',i:'J\'ai découvert les traditions françaises de fin d\'année.',f:'J\'ai découvert les traditions françaises de fin d\'année.',e:'I discovered French end-of-year traditions.'},
+{c:'winter',l:'A2',i:'On a bu du vin chaud au marché.',f:'Nous avons bu du vin chaud au marché.',e:'We drank mulled wine at the market.'},
+{c:'winter',l:'B1',i:'Les pistes de ski étaient bondées.',f:'Les pistes de ski étaient bondées.',e:'The ski slopes were packed.'},
+{c:'winter',l:'B1',i:'Je me suis blessé(e) en faisant du ski.',f:'Je me suis blessé(e) en faisant du ski.',e:'I injured myself skiing.'},
+{c:'winter',l:'A2',i:'Il fait moins dix dehors.',f:'Il fait moins dix degrés dehors.',e:'It\'s minus ten outside.'},
+
+// ═══════════════════════════════════════
+// 🆘 PROBLEMS & ASKING FOR HELP
+// ═══════════════════════════════════════
+{c:'problems',l:'A2',i:'J\'ai un problème, vous pouvez m\'aider ?',f:'J\'ai un problème, pourriez-vous m\'aider ?',e:'I have a problem, could you help me?'},
+{c:'problems',l:'B1',i:'Je suis dans une situation difficile.',f:'Je me trouve dans une situation difficile.',e:'I\'m in a difficult situation.'},
+{c:'problems',l:'A2',i:'Je sais pas quoi faire.',f:'Je ne sais pas quoi faire.',e:'I don\'t know what to do.'},
+{c:'problems',l:'B1',i:'Vous pouvez me conseiller ?',f:'Pourriez-vous me conseiller ?',e:'Could you advise me?'},
+{c:'problems',l:'A2',i:'Mon propriétaire répond pas.',f:'Mon propriétaire ne répond pas.',e:'My landlord isn\'t responding.'},
+{c:'problems',l:'B1',i:'Le chauffage est en panne depuis une semaine.',f:'Le chauffage est en panne depuis une semaine.',e:'The heating has been broken for a week.'},
+{c:'problems',l:'B1',i:'Il y a une fuite d\'eau dans mon appartement.',f:'Il y a une fuite d\'eau dans mon appartement.',e:'There\'s a water leak in my apartment.'},
+{c:'problems',l:'A2',i:'Mon loyer a augmenté sans explication.',f:'Mon loyer a augmenté sans explication.',e:'My rent went up without explanation.'},
+{c:'problems',l:'B1',i:'Je reçois des courriers que je comprends pas.',f:'Je reçois des courriers que je ne comprends pas.',e:'I\'m receiving letters I don\'t understand.'},
+{c:'problems',l:'B1',i:'J\'ai besoin d\'un interprète.',f:'J\'ai besoin d\'un interprète.',e:'I need an interpreter.'},
+{c:'problems',l:'A2',i:'Vous pouvez expliquer ça en termes simples ?',f:'Pourriez-vous expliquer cela en termes simples ?',e:'Could you explain that in simple terms?'},
+{c:'problems',l:'B1',i:'Je comprends pas ce que je dois faire.',f:'Je ne comprends pas ce que je dois faire.',e:'I don\'t understand what I need to do.'},
+{c:'problems',l:'A2',i:'Il y a une erreur dans ma facture.',f:'Il y a une erreur dans ma facture.',e:'There\'s a mistake on my bill.'},
+{c:'problems',l:'B1',i:'On m\'a facturé deux fois.',f:'On m\'a facturé deux fois.',e:'I\'ve been charged twice.'},
+{c:'problems',l:'A2',i:'Mon colis est perdu.',f:'Mon colis est perdu.',e:'My parcel is lost.'},
+{c:'problems',l:'B1',i:'Ma commande n\'est pas arrivée.',f:'Ma commande n\'est pas arrivée.',e:'My order hasn\'t arrived.'},
+{c:'problems',l:'B1',i:'Le produit est défectueux.',f:'Le produit est défectueux.',e:'The product is faulty.'},
+{c:'problems',l:'A2',i:'Je veux un remboursement.',f:'Je souhaite être remboursé(e).',e:'I want a refund.'},
+{c:'problems',l:'B1',i:'J\'ai fait une réclamation mais aucune réponse.',f:'J\'ai fait une réclamation mais je n\'ai reçu aucune réponse.',e:'I made a complaint but got no response.'},
+{c:'problems',l:'A2',i:'Qui je dois contacter pour ça ?',f:'Qui dois-je contacter pour cela ?',e:'Who should I contact about this?'},
+{c:'problems',l:'B1',i:'C\'est quel service qui s\'occupe de ça ?',f:'Quel service est chargé de cela ?',e:'Which department handles this?'},
+{c:'problems',l:'B1',i:'J\'ai besoin d\'une confirmation par écrit.',f:'J\'ai besoin d\'une confirmation par écrit.',e:'I need written confirmation.'},
+{c:'problems',l:'A2',i:'Vous avez un numéro de téléphone direct ?',f:'Avez-vous un numéro de téléphone direct ?',e:'Do you have a direct phone number?'},
+{c:'problems',l:'B1',i:'Je vais porter plainte si ce n\'est pas résolu.',f:'Je vais déposer une plainte si cela n\'est pas résolu.',e:'I\'ll file a complaint if this isn\'t resolved.'},
+{c:'problems',l:'A2',i:'Merci pour votre aide.',f:'Je vous remercie pour votre aide.',e:'Thank you for your help.'},
+
+// ═══════════════════════════════════════
+// 🔄 VARIATIONS — DIFFERENT WAYS TO SAY
+// ═══════════════════════════════════════
+// I DON'T UNDERSTAND (8 ways)
+{c:'variations',l:'A2',i:'Je comprends pas.',f:'Je ne comprends pas.',e:'I don\'t understand.'},
+{c:'variations',l:'A2',i:'J\'ai pas saisi.',f:'Je n\'ai pas saisi.',e:'I didn\'t catch that.'},
+{c:'variations',l:'A2',i:'C\'est pas clair pour moi.',f:'Ce n\'est pas clair pour moi.',e:'It\'s not clear to me.'},
+{c:'variations',l:'B1',i:'Je suis un peu perdu(e) là.',f:'Je suis un peu perdu(e).',e:'I\'m a little lost there.'},
+{c:'variations',l:'B1',i:'Ça me dépasse un peu.',f:'Cela me dépasse quelque peu.',e:'That\'s a bit over my head.'},
+{c:'variations',l:'A2',i:'J\'ai du mal à suivre.',f:'J\'ai du mal à suivre.',e:'I\'m having trouble following.'},
+{c:'variations',l:'B1',i:'Je pige pas du tout.',f:'Je ne comprends pas du tout.',e:'I have no idea what that means.'},
+{c:'variations',l:'B1',i:'Vous pouvez reformuler s\'il vous plaît ?',f:'Pourriez-vous reformuler, s\'il vous plaît ?',e:'Could you rephrase that please?'},
+
+// CAN YOU REPEAT (6 ways)
+{c:'variations',l:'A2',i:'Tu peux répéter ?',f:'Pourriez-vous répéter ?',e:'Can you repeat?'},
+{c:'variations',l:'A2',i:'Pardon ?',f:'Pardon ?',e:'Sorry? / Pardon?'},
+{c:'variations',l:'A2',i:'Comment ?',f:'Comment ?',e:'What? (I didn\'t hear)'},
+{c:'variations',l:'B1',i:'Tu peux parler plus lentement ?',f:'Pourriez-vous parler plus lentement ?',e:'Can you speak more slowly?'},
+{c:'variations',l:'B1',i:'Tu peux répéter plus fort ?',f:'Pourriez-vous répéter plus fort ?',e:'Can you repeat louder?'},
+{c:'variations',l:'B1',i:'Je t\'entends mal, tu peux redire ça ?',f:'Je vous entends mal, pourriez-vous répéter ?',e:'I can\'t hear you well, can you say that again?'},
+
+// I AGREE / I DISAGREE (10 ways)
+{c:'variations',l:'A2',i:'Je suis d\'accord.',f:'Je suis d\'accord.',e:'I agree.'},
+{c:'variations',l:'A2',i:'Tout à fait.',f:'Tout à fait.',e:'Absolutely / Exactly.'},
+{c:'variations',l:'B1',i:'C\'est exactement ce que je pense.',f:'C\'est exactement ce que je pense.',e:'That\'s exactly what I think.'},
+{c:'variations',l:'B1',i:'Je partage ton point de vue.',f:'Je partage votre point de vue.',e:'I share your point of view.'},
+{c:'variations',l:'A2',i:'Je suis pas d\'accord.',f:'Je ne suis pas d\'accord.',e:'I disagree.'},
+{c:'variations',l:'B1',i:'Je vois les choses différemment.',f:'Je vois les choses différemment.',e:'I see things differently.'},
+{c:'variations',l:'B1',i:'Je comprends ton point de vue mais je pense que…',f:'Je comprends votre point de vue mais je pense que…',e:'I understand your view but I think…'},
+{c:'variations',l:'B1',i:'Ce n\'est pas tout à fait juste.',f:'Ce n\'est pas tout à fait exact.',e:'That\'s not quite right.'},
+{c:'variations',l:'B1',i:'Je suis mitigé(e) sur ce point.',f:'Je suis mitigé(e) sur ce point.',e:'I\'m mixed on this point.'},
+{c:'variations',l:'A2',i:'Peut-être, je suis pas sûr(e).',f:'Peut-être, je n\'en suis pas certain(e).',e:'Maybe, I\'m not sure.'},
+
+// GREETINGS (10 ways)
+{c:'variations',l:'A2',i:'Salut !',f:'Bonjour.',e:'Hi! / Hello.'},
+{c:'variations',l:'A2',i:'Coucou !',f:'Bonjour, comment allez-vous ?',e:'Hey! (very casual)'},
+{c:'variations',l:'A2',i:'Ça va ?',f:'Comment allez-vous ?',e:'How are you?'},
+{c:'variations',l:'A2',i:'Ça roule ?',f:'Tout se passe bien ?',e:'Everything rolling? (casual)'},
+{c:'variations',l:'B1',i:'Quoi de neuf ?',f:'Quoi de neuf ?',e:'What\'s new?'},
+{c:'variations',l:'A2',i:'T\'as passé une bonne journée ?',f:'Avez-vous passé une bonne journée ?',e:'Did you have a good day?'},
+{c:'variations',l:'A2',i:'Comment tu vas ?',f:'Comment allez-vous ?',e:'How are you?'},
+{c:'variations',l:'B1',i:'Tu t\'en sors ?',f:'Vous en sortez-vous ?',e:'Are you managing?'},
+{c:'variations',l:'A2',i:'Tout va bien ?',f:'Tout va bien ?',e:'Is everything ok?'},
+{c:'variations',l:'B1',i:'T\'as l\'air en forme !',f:'Vous avez l\'air en forme !',e:'You look well!'},
+
+// GOODBYES (8 ways)
+{c:'variations',l:'A2',i:'Au revoir.',f:'Au revoir.',e:'Goodbye.'},
+{c:'variations',l:'A2',i:'À bientôt !',f:'À bientôt.',e:'See you soon!'},
+{c:'variations',l:'A2',i:'À plus !',f:'À plus tard.',e:'See you later! (casual)'},
+{c:'variations',l:'A2',i:'À demain !',f:'À demain.',e:'See you tomorrow!'},
+{c:'variations',l:'A2',i:'Bonne soirée !',f:'Je vous souhaite une bonne soirée.',e:'Have a good evening!'},
+{c:'variations',l:'A2',i:'Prends soin de toi.',f:'Prenez soin de vous.',e:'Take care of yourself.'},
+{c:'variations',l:'B1',i:'On se parle bientôt.',f:'Nous nous parlerons bientôt.',e:'We\'ll talk soon.'},
+{c:'variations',l:'A2',i:'Bonne continuation !',f:'Bonne continuation.',e:'All the best / Good luck with everything.'},
+
+// APOLOGISING (8 ways)
+{c:'variations',l:'A2',i:'Désolé(e).',f:'Je suis désolé(e).',e:'Sorry.'},
+{c:'variations',l:'A2',i:'Pardon !',f:'Je vous demande pardon.',e:'Pardon! / Excuse me!'},
+{c:'variations',l:'A2',i:'Excuse-moi.',f:'Excusez-moi.',e:'Excuse me.'},
+{c:'variations',l:'B1',i:'Je suis vraiment navré(e).',f:'Je suis vraiment navré(e).',e:'I\'m truly sorry.'},
+{c:'variations',l:'B1',i:'C\'est entièrement ma faute.',f:'C\'est entièrement ma faute.',e:'It\'s entirely my fault.'},
+{c:'variations',l:'B1',i:'Je m\'en excuse sincèrement.',f:'Je m\'en excuse sincèrement.',e:'I sincerely apologise for that.'},
+{c:'variations',l:'A2',i:'Je l\'ai pas fait exprès.',f:'Je ne l\'ai pas fait exprès.',e:'I didn\'t do it on purpose.'},
+{c:'variations',l:'B1',i:'Ça ne se reproduira plus.',f:'Cela ne se reproduira plus.',e:'It won\'t happen again.'},
+
+// THANKING (8 ways)
+{c:'variations',l:'A2',i:'Merci !',f:'Merci.',e:'Thank you!'},
+{c:'variations',l:'A2',i:'Merci beaucoup.',f:'Je vous remercie beaucoup.',e:'Thank you very much.'},
+{c:'variations',l:'A2',i:'Merci mille fois.',f:'Je vous remercie mille fois.',e:'Thanks a thousand times.'},
+{c:'variations',l:'B1',i:'C\'est vraiment gentil de ta part.',f:'C\'est vraiment aimable de votre part.',e:'That\'s really kind of you.'},
+{c:'variations',l:'B1',i:'Je t\'en suis reconnaissant(e).',f:'Je vous en suis reconnaissant(e).',e:'I\'m grateful to you for it.'},
+{c:'variations',l:'A2',i:'Super, merci !',f:'Excellent, merci.',e:'Great, thanks!'},
+{c:'variations',l:'B1',i:'Vraiment, ça m\'aide beaucoup.',f:'Vraiment, cela m\'aide beaucoup.',e:'Truly, that helps me a lot.'},
+{c:'variations',l:'B1',i:'Je sais pas comment te remercier.',f:'Je ne sais pas comment vous remercier.',e:'I don\'t know how to thank you.'},
+
+// MAKING EXCUSES (8 ways)
+{c:'variations',l:'A2',i:'J\'avais pas le temps.',f:'Je n\'avais pas le temps.',e:'I didn\'t have time.'},
+{c:'variations',l:'A2',i:'J\'ai oublié.',f:'J\'ai oublié.',e:'I forgot.'},
+{c:'variations',l:'B1',i:'J\'avais un empêchement.',f:'J\'avais un empêchement.',e:'Something came up.'},
+{c:'variations',l:'B1',i:'C\'était hors de mon contrôle.',f:'C\'était hors de mon contrôle.',e:'It was out of my control.'},
+{c:'variations',l:'A2',i:'Le métro était en grève.',f:'Le métro était en grève.',e:'The metro was on strike.'},
+{c:'variations',l:'B1',i:'J\'avais une urgence.',f:'J\'avais une urgence.',e:'I had an emergency.'},
+{c:'variations',l:'A2',i:'Je savais pas que c\'était aujourd\'hui.',f:'Je ne savais pas que c\'était aujourd\'hui.',e:'I didn\'t know it was today.'},
+{c:'variations',l:'B1',i:'Je pensais que c\'était annulé.',f:'Je pensais que c\'était annulé.',e:'I thought it was cancelled.'},
+
+// COMPLAINING POLITELY (8 ways)
+{c:'variations',l:'B1',i:'J\'aurais préféré que ce soit différent.',f:'J\'aurais préféré que ce soit différent.',e:'I would have preferred it to be different.'},
+{c:'variations',l:'B1',i:'Je suis un peu déçu(e) par le résultat.',f:'Je suis quelque peu déçu(e) par le résultat.',e:'I\'m a little disappointed by the result.'},
+{c:'variations',l:'A2',i:'C\'était pas comme prévu.',f:'Ce n\'était pas comme prévu.',e:'It wasn\'t as expected.'},
+{c:'variations',l:'B1',i:'Je pense que vous pouvez faire mieux.',f:'Je pense que vous pouvez faire mieux.',e:'I think you can do better.'},
+{c:'variations',l:'B1',i:'Je suis pas satisfait(e) de ce service.',f:'Je ne suis pas satisfait(e) de ce service.',e:'I\'m not satisfied with this service.'},
+{c:'variations',l:'A2',i:'Ce n\'est pas ce que j\'avais commandé.',f:'Ce n\'est pas ce que j\'avais commandé.',e:'This isn\'t what I ordered.'},
+{c:'variations',l:'B1',i:'Je vais devoir faire une réclamation.',f:'Je vais devoir faire une réclamation.',e:'I\'m going to have to make a complaint.'},
+{c:'variations',l:'B1',i:'Cela n\'est pas acceptable.',f:'Cela n\'est pas acceptable.',e:'This is not acceptable.'},
+
+// ASKING FOR TIME / PATIENCE (8 ways)
+{c:'variations',l:'A2',i:'Attends une seconde.',f:'Un instant, s\'il vous plaît.',e:'Wait a second.'},
+{c:'variations',l:'A2',i:'J\'arrive dans cinq minutes.',f:'J\'arrive dans cinq minutes.',e:'I\'ll be there in five minutes.'},
+{c:'variations',l:'B1',i:'Donnez-moi un moment pour réfléchir.',f:'Donnez-moi un moment pour réfléchir.',e:'Give me a moment to think.'},
+{c:'variations',l:'A2',i:'J\'ai besoin de plus de temps.',f:'J\'ai besoin de plus de temps.',e:'I need more time.'},
+{c:'variations',l:'B1',i:'Je reviens vers toi dès que possible.',f:'Je reviens vers vous dès que possible.',e:'I\'ll get back to you as soon as possible.'},
+{c:'variations',l:'A2',i:'Un peu de patience s\'il vous plaît.',f:'Un peu de patience s\'il vous plaît.',e:'A little patience please.'},
+{c:'variations',l:'B1',i:'Je suis sur le coup, laisse-moi le temps.',f:'Je m\'en occupe, laissez-moi le temps.',e:'I\'m on it, give me time.'},
+{c:'variations',l:'B1',i:'Je te tiens au courant très bientôt.',f:'Je vous tiendrai au courant très bientôt.',e:'I\'ll keep you updated very soon.'},
+
+// SAYING YES / NO (10 ways)
+{c:'variations',l:'A2',i:'Oui, bien sûr.',f:'Oui, bien sûr.',e:'Yes, of course.'},
+{c:'variations',l:'A2',i:'Absolument.',f:'Absolument.',e:'Absolutely.'},
+{c:'variations',l:'B1',i:'Avec plaisir.',f:'Avec plaisir.',e:'With pleasure.'},
+{c:'variations',l:'A2',i:'Non, désolé(e).',f:'Non, je suis désolé(e).',e:'No, sorry.'},
+{c:'variations',l:'B1',i:'Ce n\'est malheureusement pas possible.',f:'Ce n\'est malheureusement pas possible.',e:'Unfortunately that\'s not possible.'},
+{c:'variations',l:'B1',i:'Je préférerais ne pas.',f:'Je préférerais ne pas.',e:'I\'d rather not.'},
+{c:'variations',l:'A2',i:'Pourquoi pas.',f:'Pourquoi pas.',e:'Why not.'},
+{c:'variations',l:'B1',i:'Ça dépend.',f:'Cela dépend.',e:'It depends.'},
+{c:'variations',l:'A2',i:'J\'y réfléchis.',f:'J\'y réfléchis.',e:'I\'ll think about it.'},
+{c:'variations',l:'B1',i:'Je peux pas m\'engager là-dessus pour l\'instant.',f:'Je ne peux pas m\'engager là-dessus pour l\'instant.',e:'I can\'t commit to that right now.'},
+
+// MORE EMOTIONS
+{c:'emotions',l:'B1',i:'Je me sens nostalgique.',f:'Je me sens nostalgique.',e:'I feel nostalgic.'},
+{c:'emotions',l:'A2',i:'J\'ai la pêche aujourd\'hui !',f:'Je suis en pleine forme aujourd\'hui.',e:'I\'m full of energy today!'},
+{c:'emotions',l:'B1',i:'Je suis pas dans mon assiette.',f:'Je ne suis pas dans mon assiette.',e:'I\'m not feeling myself today.'},
+{c:'emotions',l:'A2',i:'Ça me fait vraiment sourire.',f:'Cela me fait vraiment sourire.',e:'That really makes me smile.'},
+{c:'emotions',l:'B1',i:'Je suis ému(e) aux larmes.',f:'Je suis ému(e) aux larmes.',e:'I\'m moved to tears.'},
+{c:'emotions',l:'A2',i:'J\'en reviens pas !',f:'Je n\'en reviens pas !',e:'I can\'t believe it!'},
+{c:'emotions',l:'B1',i:'J\'ai besoin de me ressourcer.',f:'J\'ai besoin de me ressourcer.',e:'I need to recharge.'},
+{c:'emotions',l:'A2',i:'Ça me rend heureux(se) de te voir.',f:'Cela me rend heureux(se) de vous voir.',e:'It makes me happy to see you.'},
+
+// MORE HEALTH
+{c:'health',l:'A2',i:'J\'ai mal aux oreilles.',f:'J\'ai mal aux oreilles.',e:'My ears hurt.'},
+{c:'health',l:'B1',i:'J\'ai une infection urinaire.',f:'J\'ai une infection urinaire.',e:'I have a urinary tract infection.'},
+{c:'health',l:'A2',i:'J\'ai la grippe.',f:'J\'ai la grippe.',e:'I have the flu.'},
+{c:'health',l:'B1',i:'Est-ce que je dois faire des analyses de sang ?',f:'Dois-je faire des analyses de sang ?',e:'Do I need to have blood tests?'},
+{c:'health',l:'A2',i:'J\'ai du mal à respirer.',f:'J\'ai du mal à respirer.',e:'I\'m having trouble breathing.'},
+{c:'health',l:'B1',i:'J\'ai une tension artérielle élevée.',f:'J\'ai une tension artérielle élevée.',e:'I have high blood pressure.'},
+{c:'health',l:'A2',i:'Je vais mieux, merci docteur.',f:'Je me sens mieux, merci docteur.',e:'I\'m feeling better, thank you doctor.'},
+{c:'health',l:'B1',i:'Combien de temps ça va durer ?',f:'Combien de temps cela va-t-il durer ?',e:'How long will this last?'},
+{c:'health',l:'A2',i:'C\'est contagieux ?',f:'Est-ce contagieux ?',e:'Is it contagious?'},
+{c:'health',l:'B1',i:'J\'ai besoin de garder le lit.',f:'Je dois garder le lit.',e:'I need to stay in bed.'},
+{c:'health',l:'A2',i:'Je dois boire beaucoup d\'eau.',f:'Je dois boire beaucoup d\'eau.',e:'I need to drink lots of water.'},
+{c:'health',l:'B1',i:'Vous pouvez me faire un certificat médical ?',f:'Pourriez-vous me rédiger un certificat médical ?',e:'Could you write me a medical certificate?'},
+
+// MORE PUBLIC LIFE
+{c:'public',l:'A2',i:'C\'est quel guichet pour les étrangers ?',f:'Quel est le guichet destiné aux étrangers ?',e:'Which window is for foreigners?'},
+{c:'public',l:'B1',i:'J\'ai pris rendez-vous mais je l\'ai pas reçu par mail.',f:'J\'ai pris rendez-vous mais je n\'ai pas reçu de confirmation par courriel.',e:'I made an appointment but didn\'t receive it by email.'},
+{c:'public',l:'A2',i:'Vous avez un stylo, s\'il vous plaît ?',f:'Auriez-vous un stylo, s\'il vous plaît ?',e:'Do you have a pen, please?'},
+{c:'public',l:'B1',i:'Je peux avoir une copie de ce document ?',f:'Puis-je avoir une copie de ce document ?',e:'Can I have a copy of this document?'},
+{c:'public',l:'A2',i:'Je dois remplir ce formulaire ?',f:'Dois-je remplir ce formulaire ?',e:'Do I need to fill in this form?'},
+{c:'public',l:'B1',i:'On m\'a demandé d\'apporter un justificatif de domicile.',f:'On m\'a demandé d\'apporter un justificatif de domicile.',e:'I was asked to bring proof of address.'},
+{c:'public',l:'A2',i:'Est-ce que la poste est ouverte maintenant ?',f:'La poste est-elle ouverte maintenant ?',e:'Is the post office open now?'},
+{c:'public',l:'B1',i:'Je veux envoyer un colis en recommandé.',f:'Je souhaite envoyer un colis en recommandé.',e:'I want to send a parcel by registered post.'},
+{c:'public',l:'A2',i:'C\'est combien le timbre pour l\'Inde ?',f:'Combien coûte le timbre pour l\'Inde ?',e:'How much is a stamp for India?'},
+{c:'public',l:'B1',i:'Mon voisin fait trop de bruit la nuit.',f:'Mon voisin fait trop de bruit la nuit.',e:'My neighbour is too noisy at night.'},
+{c:'public',l:'A2',i:'Je peux voir le responsable ?',f:'Puis-je parler au responsable ?',e:'Can I speak to the manager?'},
+{c:'public',l:'B1',i:'Je voudrais signaler un problème dans mon immeuble.',f:'Je souhaite signaler un problème dans mon immeuble.',e:'I\'d like to report a problem in my building.'},
+
+// MORE IT
+{c:'it',l:'B1',i:'J\'ai migré la base de données vers PostgreSQL.',f:'J\'ai migré la base de données vers PostgreSQL.',e:'I migrated the database to PostgreSQL.'},
+{c:'it',l:'B1',i:'Le temps de réponse de l\'API est trop long.',f:'Le temps de réponse de l\'API est trop long.',e:'The API response time is too long.'},
+{c:'it',l:'A2',i:'Je fais du développement front-end.',f:'Je fais du développement front-end.',e:'I do front-end development.'},
+{c:'it',l:'B1',i:'On utilise des microservices dans notre architecture.',f:'Nous utilisons des microservices dans notre architecture.',e:'We use microservices in our architecture.'},
+{c:'it',l:'B1',i:'Je dois écrire des tests d\'intégration.',f:'Je dois écrire des tests d\'intégration.',e:'I need to write integration tests.'},
+{c:'it',l:'A2',i:'Le serveur est en maintenance.',f:'Le serveur est en maintenance.',e:'The server is under maintenance.'},
+{c:'it',l:'B1',i:'On a un problème de sécurité à corriger.',f:'Nous avons un problème de sécurité à corriger.',e:'We have a security issue to fix.'},
+{c:'it',l:'B1',i:'J\'optimise les requêtes SQL.',f:'J\'optimise les requêtes SQL.',e:'I\'m optimising the SQL queries.'},
+{c:'it',l:'A2',i:'Je vais créer une nouvelle branche.',f:'Je vais créer une nouvelle branche.',e:'I\'m going to create a new branch.'},
+{c:'it',l:'B1',i:'Le code coverage est à 80 pourcent.',f:'La couverture de tests est à 80 pourcent.',e:'The code coverage is at 80 percent.'},
+{c:'it',l:'B1',i:'J\'ai fait une revue de code avec mon équipe.',f:'J\'ai effectué une revue de code avec mon équipe.',e:'I did a code review with my team.'},
+{c:'it',l:'A2',i:'Je travaille sur une nouvelle fonctionnalité.',f:'Je travaille sur une nouvelle fonctionnalité.',e:'I\'m working on a new feature.'},
+{c:'it',l:'B1',i:'Le MVP est prêt à être présenté.',f:'Le MVP est prêt à être présenté.',e:'The MVP is ready to be presented.'},
+{c:'it',l:'B1',i:'On a besoin de plus de ressources serveur.',f:'Nous avons besoin de plus de ressources serveur.',e:'We need more server resources.'},
+{c:'it',l:'A2',i:'Je fais du pair programming avec mon collègue.',f:'Je fais du pair programming avec mon collègue.',e:'I\'m doing pair programming with my colleague.'},
+{c:'it',l:'B1',i:'La dette technique s\'accumule.',f:'La dette technique s\'accumule.',e:'The technical debt is building up.'},
+{c:'it',l:'B1',i:'On utilise Docker pour les environnements.',f:'Nous utilisons Docker pour les environnements.',e:'We use Docker for environments.'},
+{c:'it',l:'A2',i:'Le build est cassé.',f:'Le build est cassé.',e:'The build is broken.'},
+{c:'it',l:'B1',i:'Je présente les résultats du sprint vendredi.',f:'Je présente les résultats du sprint vendredi.',e:'I\'m presenting the sprint results on Friday.'},
+{c:'it',l:'B1',i:'On a une démo client demain.',f:'Nous avons une démo client demain.',e:'We have a client demo tomorrow.'},
+
+// MORE INTRODUCTIONS
+{c:'intro',l:'B1',i:'Je suis passionné(e) par la technologie.',f:'Je suis passionné(e) par la technologie.',e:'I\'m passionate about technology.'},
+{c:'intro',l:'A2',i:'J\'aime cuisiner dans mon temps libre.',f:'J\'aime cuisiner dans mon temps libre.',e:'I like cooking in my free time.'},
+{c:'intro',l:'B1',i:'J\'ai fait mes études en informatique.',f:'J\'ai fait mes études en informatique.',e:'I studied computer science.'},
+{c:'intro',l:'A2',i:'Je suis végétarien(ne).',f:'Je suis végétarien(ne).',e:'I\'m vegetarian.'},
+{c:'intro',l:'B1',i:'Je m\'intéresse à la photographie et au cinéma.',f:'Je m\'intéresse à la photographie et au cinéma.',e:'I\'m interested in photography and cinema.'},
+{c:'intro',l:'A2',i:'J\'ai grandi à Mumbai.',f:'J\'ai grandi à Mumbai.',e:'I grew up in Mumbai.'},
+{c:'intro',l:'B1',i:'Je suis ici pour une mission de longue durée.',f:'Je suis ici pour une mission de longue durée.',e:'I\'m here for a long-term assignment.'},
+{c:'intro',l:'A2',i:'Je cherche à améliorer mon français.',f:'Je cherche à améliorer mon français.',e:'I\'m looking to improve my French.'},
+{c:'intro',l:'B1',i:'Je fais partie d\'une équipe internationale.',f:'Je fais partie d\'une équipe internationale.',e:'I\'m part of an international team.'},
+{c:'intro',l:'A2',i:'J\'aime beaucoup la culture française.',f:'J\'apprécie beaucoup la culture française.',e:'I really like French culture.'},
+
+// MORE SUMMER
+{c:'summer',l:'B1',i:'J\'ai bronzé toute la semaine.',f:'J\'ai bronzé toute la semaine.',e:'I sunbathed all week.'},
+{c:'summer',l:'A2',i:'Il faisait 35 degrés.',f:'Il faisait 35 degrés.',e:'It was 35 degrees.'},
+{c:'summer',l:'B1',i:'On a fait une excursion en bateau.',f:'Nous avons fait une excursion en bateau.',e:'We went on a boat trip.'},
+{c:'summer',l:'A2',i:'J\'ai perdu mes lunettes de soleil.',f:'J\'ai perdu mes lunettes de soleil.',e:'I lost my sunglasses.'},
+{c:'summer',l:'B1',i:'La cuisine locale était extraordinaire.',f:'La cuisine locale était extraordinaire.',e:'The local food was extraordinary.'},
+{c:'summer',l:'A2',i:'On a visité beaucoup de musées.',f:'Nous avons visité beaucoup de musées.',e:'We visited lots of museums.'},
+{c:'summer',l:'B1',i:'J\'ai dépensé plus que prévu.',f:'J\'ai dépensé plus que prévu.',e:'I spent more than planned.'},
+{c:'summer',l:'A2',i:'C\'était un voyage inoubliable.',f:'C\'était un voyage inoubliable.',e:'It was an unforgettable trip.'},
+{c:'summer',l:'B1',i:'J\'ai rencontré des gens du monde entier.',f:'J\'ai rencontré des gens du monde entier.',e:'I met people from all over the world.'},
+{c:'summer',l:'A2',i:'Je veux voyager plus souvent.',f:'Je veux voyager plus souvent.',e:'I want to travel more often.'},
+
+// MORE WINTER
+{c:'winter',l:'B1',i:'On a fait un repas de fête en famille.',f:'Nous avons fait un repas de fête en famille.',e:'We had a festive meal with the family.'},
+{c:'winter',l:'A2',i:'Les décorations de Noël sont magnifiques.',f:'Les décorations de Noël sont magnifiques.',e:'The Christmas decorations are beautiful.'},
+{c:'winter',l:'B1',i:'J\'ai offert et reçu beaucoup de cadeaux.',f:'J\'ai offert et reçu beaucoup de cadeaux.',e:'I gave and received lots of gifts.'},
+{c:'winter',l:'A2',i:'Je regarde un film de Noël ce soir.',f:'Je regarde un film de Noël ce soir.',e:'I\'m watching a Christmas film tonight.'},
+{c:'winter',l:'B1',i:'Le froid m\'a pas empêché de sortir.',f:'Le froid ne m\'a pas empêché(e) de sortir.',e:'The cold didn\'t stop me from going out.'},
+{c:'winter',l:'A2',i:'J\'ai mis des gants et une écharpe.',f:'J\'ai mis des gants et une écharpe.',e:'I put on gloves and a scarf.'},
+{c:'winter',l:'B1',i:'On a compté le décompte du Nouvel An ensemble.',f:'Nous avons fait le décompte du Nouvel An ensemble.',e:'We did the New Year countdown together.'},
+{c:'winter',l:'A2',i:'Bonne année à toute ta famille.',f:'Je vous souhaite une bonne année à toute votre famille.',e:'Happy New Year to your whole family.'},
+
+// MORE PROBLEMS
+{c:'problems',l:'B1',i:'Ma situation administrative est compliquée.',f:'Ma situation administrative est compliquée.',e:'My administrative situation is complicated.'},
+{c:'problems',l:'A2',i:'Je peux avoir de l\'aide en anglais ?',f:'Puis-je avoir de l\'aide en anglais ?',e:'Can I get help in English?'},
+{c:'problems',l:'B1',i:'J\'ai reçu une amende injuste.',f:'J\'ai reçu une amende injuste.',e:'I received an unfair fine.'},
+{c:'problems',l:'A2',i:'Mon contrat a été résilié sans préavis.',f:'Mon contrat a été résilié sans préavis.',e:'My contract was cancelled without notice.'},
+{c:'problems',l:'B1',i:'Je cherche un avocat spécialisé.',f:'Je cherche un avocat spécialisé.',e:'I\'m looking for a specialist lawyer.'},
+{c:'problems',l:'A2',i:'Je sais pas comment remplir ce formulaire.',f:'Je ne sais pas comment remplir ce formulaire.',e:'I don\'t know how to fill in this form.'},
+{c:'problems',l:'B1',i:'Le délai est dépassé, que faire ?',f:'Le délai est dépassé, que dois-je faire ?',e:'The deadline has passed, what should I do?'},
+{c:'problems',l:'A2',i:'J\'ai besoin d\'une traduction de ce document.',f:'J\'ai besoin d\'une traduction de ce document.',e:'I need a translation of this document.'},
+{c:'problems',l:'B1',i:'On me réclame des documents que j\'ai déjà envoyés.',f:'On me réclame des documents que j\'ai déjà envoyés.',e:'They\'re asking for documents I\'ve already sent.'},
+{c:'problems',l:'A2',i:'Je comprends pas pourquoi ma demande a été refusée.',f:'Je ne comprends pas pourquoi ma demande a été refusée.',e:'I don\'t understand why my request was refused.'},
+{c:'emotions',l:'B1',i:'Je me sens incompétent(e) aujourd\'hui.',f:'Je me sens incompétent(e) aujourd\'hui.',e:'I feel incompetent today.'},
+{c:'emotions',l:'A2',i:'Ça m\'a beaucoup manqué.',f:'Cela m\'a beaucoup manqué.',e:'I missed it a lot.'},
+{c:'emotions',l:'B1',i:'Je me sens de plus en plus à l\'aise ici.',f:'Je me sens de plus en plus à l\'aise ici.',e:'I\'m feeling more and more comfortable here.'},
+{c:'health',l:'B1',i:'J\'ai des vertiges depuis hier.',f:'J\'ai des vertiges depuis hier.',e:'I\'ve been dizzy since yesterday.'},
+{c:'health',l:'A2',i:'Je souffre de maux de dos chroniques.',f:'Je souffre de maux de dos chroniques.',e:'I suffer from chronic back pain.'},
+{c:'health',l:'B1',i:'J\'ai besoin d\'un suivi régulier.',f:'J\'ai besoin d\'un suivi régulier.',e:'I need regular check-ups.'},
+{c:'it',l:'B1',i:'Je dois refactoriser ce module entier.',f:'Je dois refactoriser ce module entier.',e:'I need to refactor this entire module.'},
+{c:'it',l:'A2',i:'Le log d\'erreur montre une exception.',f:'Le journal d\'erreurs montre une exception.',e:'The error log shows an exception.'},
+{c:'it',l:'B1',i:'On a besoin d\'une architecture plus scalable.',f:'Nous avons besoin d\'une architecture plus évolutive.',e:'We need a more scalable architecture.'},
+{c:'intro',l:'B1',i:'Je lis beaucoup sur la culture française.',f:'Je lis beaucoup sur la culture française.',e:'I read a lot about French culture.'},
+{c:'intro',l:'A2',i:'Mon français s\'améliore chaque semaine.',f:'Mon français s\'améliore chaque semaine.',e:'My French is improving every week.'},
+{c:'summer',l:'B1',i:'On a fait du snorkeling dans une eau cristalline.',f:'Nous avons fait du snorkeling dans une eau cristalline.',e:'We went snorkelling in crystal clear water.'},
+{c:'summer',l:'A2',i:'J\'ai attrapé un coup de soleil.',f:'J\'ai attrapé un coup de soleil.',e:'I got sunburnt.'},
+{c:'winter',l:'B1',i:'Je suis resté(e) au chaud toute la journée.',f:'Je suis resté(e) au chaud toute la journée.',e:'I stayed warm all day.'},
+{c:'winter',l:'A2',i:'Il gelait la nuit.',f:'Il gelait la nuit.',e:'It was freezing at night.'},
+{c:'public',l:'B1',i:'La pharmacie de garde est ouverte toute la nuit ?',f:'La pharmacie de garde est-elle ouverte toute la nuit ?',e:'Is the duty pharmacy open all night?'},
+{c:'public',l:'A2',i:'Vous pouvez m\'appeler un taxi ?',f:'Pourriez-vous m\'appeler un taxi ?',e:'Could you call me a taxi?'},
+{c:'variations',l:'B1',i:'Je vais devoir y réfléchir.',f:'Je vais devoir y réfléchir.',e:'I\'m going to have to think about it.'},
+{c:'variations',l:'A2',i:'T\'inquiète pas.',f:'Ne vous inquiétez pas.',e:'Don\'t worry.'},
+{c:'variations',l:'B1',i:'On en reparle plus tard si tu veux.',f:'Nous en reparlerons plus tard si vous le souhaitez.',e:'We\'ll talk about it again later if you want.'},
+
+// ASKING FOR HELP (8 ways)
+{c:'variations',l:'A2',i:'Tu peux m\'aider ?',f:'Pourriez-vous m\'aider ?',e:'Can you help me?'},
+{c:'variations',l:'A2',i:'J\'ai besoin d\'un coup de main.',f:'J\'ai besoin d\'assistance.',e:'I need a hand.'},
+{c:'variations',l:'B1',i:'Je suis un peu perdu(e), vous avez deux minutes ?',f:'Je suis un peu perdu(e), avez-vous deux minutes ?',e:'I\'m a bit lost, do you have two minutes?'},
+{c:'variations',l:'A2',i:'Vous pouvez faire ça pour moi ?',f:'Pourriez-vous faire cela pour moi ?',e:'Could you do this for me?'},
+{c:'variations',l:'B1',i:'Je ne sais pas comment m\'y prendre.',f:'Je ne sais pas comment m\'y prendre.',e:'I don\'t know how to go about it.'},
+{c:'variations',l:'A2',i:'Est-ce que tu saurais comment faire ?',f:'Sauriez-vous comment faire ?',e:'Would you know how to do it?'},
+{c:'variations',l:'B1',i:'Je me retrouve dans une impasse.',f:'Je me retrouve dans une impasse.',e:'I\'ve hit a dead end.'},
+{c:'variations',l:'B1',i:'Tu aurais un conseil à me donner ?',f:'Auriez-vous un conseil à me donner ?',e:'Do you have any advice for me?'},
+
+];
+
+let curCat='all', curLv='all';
+
+function render(){
+  const q = document.getElementById('q').value.toLowerCase().trim();
+  const wrap = document.getElementById('table-wrap');
+  wrap.innerHTML = '';
+
+  const cats = [...new Set(DATA.map(d=>d.c))];
+  const catLabels = {
+    emotions:'😊 Emotions & Expressing Yourself',
+    health:'🤒 Health — Feeling Unwell',
+    public:'🏪 Public Life — Strangers & Services',
+    it:'💻 IT & Software Engineering',
+    intro:'🤝 Introductions & Meeting People',
+    summer:'☀️ Summer Holidays',
+    winter:'❄️ Winter Holidays',
+    problems:'🆘 Problems & Asking for Help',
+    variations:'🔄 Variations — Different Ways to Say the Same Thing'
+  };
+
+  let totalVis = 0;
+  cats.forEach(cat => {
+    if(curCat !== 'all' && curCat !== cat) return;
+    const rows = DATA.filter(d => {
+      if(d.c !== cat) return false;
+      if(curLv !== 'all' && d.l !== curLv) return false;
+      if(q && !d.i.toLowerCase().includes(q) && !d.f.toLowerCase().includes(q) && !d.e.toLowerCase().includes(q)) return false;
+      return true;
+    });
+    if(rows.length === 0) return;
+    totalVis += rows.length;
+
+    const sec = document.createElement('div');
+    sec.className = 'cat-sec';
+    const icon = catLabels[cat]?.split(' ')[0] || '📌';
+    sec.innerHTML = `<div class="cat-hd"><span class="cat-icon">${icon}</span><span class="cat-title">${catLabels[cat]||cat}</span><span class="cat-count">${rows.length} sentences</span></div>`;
+
+    const table = document.createElement('table');
+    table.className = 'tbl';
+    table.innerHTML = `<thead><tr><th>#</th><th>🗣️ Informal French</th><th>🎩 Formal French</th><th>🇬🇧 English</th><th>Lvl</th><th></th></tr></thead>`;
+    const tbody = document.createElement('tbody');
+    rows.forEach((d,i) => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td class="td-num">${i+1}</td>
+        <td class="td-inf">${d.i}</td>
+        <td class="td-for">${d.f}</td>
+        <td class="td-en">${d.e}</td>
+        <td><span class="lv-badge lv-${d.l.toLowerCase()}">${d.l}</span></td>
+        <td><button class="copy-btn" onclick="copyRow(this,'${d.i.replace(/'/g,"\\'").replace(/"/g,'&quot;')}','${d.f.replace(/'/g,"\\'").replace(/"/g,'&quot;')}')">📋</button></td>`;
+      tbody.appendChild(tr);
+    });
+    table.appendChild(tbody);
+    sec.appendChild(table);
+    wrap.appendChild(sec);
+  });
+
+  document.getElementById('empty').classList.toggle('show', totalVis === 0);
+  document.getElementById('total-count').textContent = totalVis;
+}
+
+function copyRow(btn, inf, form){
+  const text = `Informal: ${inf}\nFormal: ${form}`;
+  navigator.clipboard.writeText(text).then(()=>{
+    btn.textContent = '✅';
+    btn.classList.add('copied');
+    setTimeout(()=>{ btn.textContent = '📋'; btn.classList.remove('copied'); }, 1500);
+  });
+}
+
+function setCat(c, btn){
+  curCat = c;
+  document.querySelectorAll('#ctabs .tb').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  render();
+}
+function setLv(l, btn){
+  curLv = l;
+  document.querySelectorAll('.lv-row .lv').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  render();
+}
+function run(){ render(); }
+window.onload = render;
+</script>
+
+<div id="table-wrap"></div>
+<p style="text-align:center;color:var(--t3);font-size:.75rem;font-family:'DM Mono',monospace;margin-top:8px">Showing <span id="total-count">500</span> sentences</p>
+</div>
+
+</body>
+</html>
