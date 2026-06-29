@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>French Daily Conversations – Interrogative</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#f0ede8;color:#1a1a2e;min-height:100vh}
+
+/* HEADER */
+.hero{background:#0f172a;color:#fff;padding:2.5rem 2rem 2rem;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:"PARLER";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:9rem;font-weight:900;color:rgba(255,255,255,0.04);letter-spacing:0.15em;pointer-events:none;white-space:nowrap}
+.hero-eyebrow{display:inline-block;border:1px solid rgba(255,255,255,0.25);border-radius:99px;font-size:11px;letter-spacing:0.12em;padding:5px 14px;margin-bottom:1.1rem;color:rgba(255,255,255,0.7);text-transform:uppercase}
+.hero h1{font-family:'Playfair Display',serif;font-size:3rem;font-weight:700;line-height:1.1;margin-bottom:0.6rem}
+.hero h1 em{font-style:italic;color:#e8a020}
+.hero p{font-size:13.5px;color:rgba(255,255,255,0.55);margin-bottom:1.4rem}
+.hero-pills{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:0}
+.pill{display:inline-flex;align-items:center;gap:5px;padding:6px 14px;border-radius:99px;font-size:12px;font-weight:500;cursor:default}
+.pill-dark{background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.15)}
+.pill-amber{background:#e8a020;color:#1a1a2e}
+.pill-light{background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.75);border:1px solid rgba(255,255,255,0.12)}
+
+/* FILTERS */
+.filters{background:#fff;border-bottom:1px solid #e2ddd8;padding:1rem 2rem;position:sticky;top:0;z-index:20}
+.search-row{display:flex;align-items:center;gap:10px;margin-bottom:0.75rem}
+.search-wrap{flex:1;position:relative}
+.search-wrap svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#999;pointer-events:none}
+#search{width:100%;padding:9px 12px 9px 36px;border:1px solid #ddd;border-radius:8px;font-size:14px;color:#1a1a2e;background:#fafafa}
+#search:focus{outline:2px solid #1e3a5f;outline-offset:1px;background:#fff}
+.cat-pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:0.6rem}
+.cat-btn{padding:5px 12px;border-radius:99px;font-size:12px;font-weight:500;border:1px solid #ddd;background:#fff;color:#555;cursor:pointer;transition:all .15s}
+.cat-btn:hover{border-color:#999;color:#1a1a2e}
+.cat-btn.active{background:#0f172a;color:#fff;border-color:#0f172a}
+.lvl-pills{display:flex;gap:6px}
+.lvl-btn{padding:4px 12px;border-radius:99px;font-size:12px;font-weight:600;border:1px solid #ddd;background:#fff;cursor:pointer;transition:all .15s}
+.lvl-btn.active-all{background:#e8a020;color:#fff;border-color:#e8a020}
+.lvl-btn.active-a2{background:#16a34a;color:#fff;border-color:#16a34a}
+.lvl-btn.active-b1{background:#2563eb;color:#fff;border-color:#2563eb}
+.lvl-btn:not(.active-all):not(.active-a2):not(.active-b1):hover{border-color:#999}
+
+/* MAIN */
+main{max-width:1300px;margin:0 auto;padding:1.5rem 2rem 4rem}
+.stats{font-size:12px;color:#888;margin-bottom:1.25rem}
+
+/* SECTION */
+.section{margin-bottom:2.5rem}
+.section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.6rem}
+.section-title{display:flex;align-items:center;gap:8px;font-size:1.1rem;font-weight:700;color:#0f172a}
+.section-count{font-size:12px;color:#888}
+
+/* TABLE */
+.tbl-wrap{border-radius:10px;overflow:hidden;border:1px solid #ddd;box-shadow:0 1px 4px rgba(0,0,0,0.06)}
+table{width:100%;border-collapse:collapse;table-layout:fixed}
+thead tr{background:#0f172a}
+thead th{padding:10px 14px;font-size:12px;font-weight:600;letter-spacing:0.05em;color:rgba(255,255,255,0.85);text-align:left}
+thead th:first-child{width:40px;text-align:center}
+thead th:last-child{width:80px;text-align:center}
+tbody tr{background:#fff;border-bottom:1px solid #f0ede8}
+tbody tr:last-child{border-bottom:none}
+tbody tr:hover{background:#faf9f7}
+td{padding:10px 14px;vertical-align:top;font-size:13.5px;line-height:1.5}
+td:first-child{text-align:center;color:#bbb;font-size:12px;font-weight:500}
+td:last-child{text-align:center}
+.informal{color:#1e3a8a;font-weight:500}
+.formal{color:#065f46;font-weight:500}
+.english{color:#555;font-style:italic}
+.badge-a2{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700;background:#dcfce7;color:#166534;border:1px solid #bbf7d0}
+.badge-b1{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700;background:#dbeafe;color:#1e40af;border:1px solid #bfdbfe}
+.empty{text-align:center;padding:3rem;color:#aaa;font-size:14px}
+@media(max-width:700px){thead th:nth-child(3),td:nth-child(3){display:none}main{padding:1rem}table{table-layout:auto}thead th:last-child,td:last-child{width:60px}}
+@media print{.filters,.hero-pills{display:none}.hero{padding:1rem}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-eyebrow">SET 1 — INTERROGATIVE</div>
+  <h1>French Daily <em>Conversations</em></h1>
+  <p>500 interrogative sentences for everyday life · Du matin jusqu'au soir · A2 + B1</p>
+  <div class="hero-pills">
+    <span class="pill pill-dark">🔵 500 sentences</span>
+    <span class="pill pill-amber">20 categories</span>
+    <span class="pill pill-light">🔵 Informal · 🟢 Formal · 🇬🇧 English</span>
+    <span class="pill pill-light">A2 + B1 level</span>
+  </div>
+</div>
+
+<div class="filters">
+  <div class="search-row">
+    <div class="search-wrap">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" id="search" placeholder="Search in French or English… e.g. café, bureau, docteur">
+    </div>
+  </div>
+  <div class="cat-pills" id="cats"></div>
+  <div class="lvl-pills">
+    <button class="lvl-btn active-all" onclick="setLvl('all',this)">All Levels</button>
+    <button class="lvl-btn" onclick="setLvl('A2',this)">🟢 A2</button>
+    <button class="lvl-btn" onclick="setLvl('B1',this)">🔵 B1</button>
+  </div>
+</div>
+
+<main>
+  <div class="stats" id="stats"></div>
+  <div id="out"></div>
+</main>
+
+<script>
+const D=[
+// MATIN (Morning)
+{s:"🌅 Morning",c:"Morning",i:"T'as bien dormi ?",f:"Avez-vous bien dormi ?",e:"Did you sleep well?",l:"A2"},
+{s:"🌅 Morning",c:"Morning",i:"Est-ce que tu t'es levé tôt ?",f:"Êtes-vous levé tôt ?",e:"Did you get up early?",l:"A2"},
+{s:"🌅 Morning",c:"Morning",i:"C'est quelle heure ?",f:"Quelle heure est-il ?",e:"What time is it?",l:"A2"},
+{s:"🌅 Morning",c:"Morning",i:"T'as raté ton réveil ?",f:"Avez-vous manqué votre réveil ?",e:"Did you miss your alarm?",l:"A2"},
+{s:"🌅 Morning",c:"Morning",i:"Pourquoi t'es aussi fatigué(e) ?",f:"Pourquoi êtes-vous si fatigué(e) ?",e:"Why are you so tired?",l:"A2"},
+{s:"🌅 Morning",c:"Morning",i:"Qu'est-ce que tu fais ce matin ?",f:"Que faites-vous ce matin ?",e:"What are you doing this morning?",l:"A2"},
+{s:"🌅 Morning",c:"Morning",i:"Est-ce que tu prends un café ?",f:"Prenez-vous un café ?",e:"Are you having a coffee?",l:"A2"},
+{s:"🌅 Morning",c:"Morning",i:"Comment tu prends ton café ?",f:"Comment prenez-vous votre café ?",e:"How do you take your coffee?",l:"A2"},
+{s:"🌅 Morning",c:"Morning",i:"T'as mangé ce matin ?",f:"Avez-vous mangé ce matin ?",e:"Have you eaten this morning?",l:"A2"},
+{s:"🌅 Morning",c:"Morning",i:"Qu'est-ce qu'il y a pour le petit-déj ?",f:"Qu'y a-t-il pour le petit-déjeuner ?",e:"What's for breakfast?",l:"A2"},
+{s:"🌅 Morning",c:"Morning",i:"Est-ce qu'il fait beau dehors ?",f:"Fait-il beau dehors ?",e:"Is the weather nice outside?",l:"A2"},
+{s:"🌅 Morning",c:"Morning",i:"T'as regardé la météo ?",f:"Avez-vous regardé la météo ?",e:"Have you checked the weather?",l:"A2"},
+{s:"🌅 Morning",c:"Morning",i:"Quand est-ce que tu pars au boulot ?",f:"Quand partez-vous au travail ?",e:"When do you leave for work?",l:"A2"},
+{s:"🌅 Morning",c:"Morning",i:"Comment tu vas au travail ?",f:"Comment vous rendez-vous au travail ?",e:"How do you get to work?",l:"A2"},
+{s:"🌅 Morning",c:"Morning",i:"Combien de temps ton trajet dure ?",f:"Combien de temps dure votre trajet ?",e:"How long is your commute?",l:"A2"},
+{s:"🌅 Morning",c:"Morning",i:"Où est-ce que tu travailles ?",f:"Où travaillez-vous ?",e:"Where do you work?",l:"A2"},
+{s:"🌅 Morning",c:"Morning",i:"Qu'est-ce que t'as prévu aujourd'hui ?",f:"Qu'avez-vous prévu aujourd'hui ?",e:"What do you have planned today?",l:"A2"},
+{s:"🌅 Morning",c:"Morning",i:"Est-ce que t'as des réunions ce matin ?",f:"Avez-vous des réunions ce matin ?",e:"Do you have meetings this morning?",l:"A2"},
+{s:"🌅 Morning",c:"Morning",i:"Pourquoi t'es habillé(e) comme ça ?",f:"Pourquoi êtes-vous habillé(e) ainsi ?",e:"Why are you dressed like that?",l:"B1"},
+{s:"🌅 Morning",c:"Morning",i:"Qui est-ce qui t'a appelé ce matin ?",f:"Qui vous a appelé ce matin ?",e:"Who called you this morning?",l:"B1"},
+{s:"🌅 Morning",c:"Morning",i:"Qu'est-ce qui se passe aujourd'hui ?",f:"Qu'est-ce qui se passe aujourd'hui ?",e:"What's happening today?",l:"A2"},
+// BATHROOM
+{s:"🚿 Bathroom",c:"Bathroom",i:"Est-ce que la salle de bain est libre ?",f:"La salle de bain est-elle libre ?",e:"Is the bathroom free?",l:"A2"},
+{s:"🚿 Bathroom",c:"Bathroom",i:"Combien de temps tu vas rester là-dedans ?",f:"Combien de temps comptez-vous rester ?",e:"How long will you be in there?",l:"A2"},
+{s:"🚿 Bathroom",c:"Bathroom",i:"Où est-ce que t'as mis mon shampoing ?",f:"Où avez-vous mis mon shampoing ?",e:"Where did you put my shampoo?",l:"A2"},
+{s:"🚿 Bathroom",c:"Bathroom",i:"Est-ce qu'il reste de l'eau chaude ?",f:"Y a-t-il encore de l'eau chaude ?",e:"Is there still hot water?",l:"A2"},
+{s:"🚿 Bathroom",c:"Bathroom",i:"Qui a pris ma serviette ?",f:"Qui a pris ma serviette ?",e:"Who took my towel?",l:"A2"},
+// GYM
+{s:"💪 Gym",c:"Gym",i:"Est-ce que cette machine est prise ?",f:"Cette machine est-elle prise ?",e:"Is this machine taken?",l:"A2"},
+{s:"💪 Gym",c:"Gym",i:"Combien de séries tu fais ?",f:"Combien de séries faites-vous ?",e:"How many sets are you doing?",l:"A2"},
+{s:"💪 Gym",c:"Gym",i:"Depuis combien de temps tu fais du sport ?",f:"Depuis combien de temps faites-vous du sport ?",e:"How long have you been working out?",l:"B1"},
+{s:"💪 Gym",c:"Gym",i:"Qu'est-ce que tu fais comme entraînement ?",f:"Quel type d'entraînement pratiquez-vous ?",e:"What kind of workout do you do?",l:"A2"},
+{s:"💪 Gym",c:"Gym",i:"Pourquoi tu t'es pas échauffé(e) ?",f:"Pourquoi ne vous êtes-vous pas échauffé(e) ?",e:"Why didn't you warm up?",l:"B1"},
+{s:"💪 Gym",c:"Gym",i:"Combien de fois par semaine tu viens ici ?",f:"Combien de fois par semaine venez-vous ici ?",e:"How often do you come here per week?",l:"A2"},
+{s:"💪 Gym",c:"Gym",i:"Qu'est-ce que tu prends comme protéines ?",f:"Quels compléments protéinés prenez-vous ?",e:"What protein supplements do you take?",l:"B1"},
+// BREAKFAST
+{s:"☕ Breakfast",c:"Breakfast",i:"Qu'est-ce que tu veux manger ce matin ?",f:"Que souhaitez-vous manger ce matin ?",e:"What do you want to eat this morning?",l:"A2"},
+{s:"☕ Breakfast",c:"Breakfast",i:"Est-ce qu'il reste du pain ?",f:"Reste-t-il du pain ?",e:"Is there any bread left?",l:"A2"},
+{s:"☕ Breakfast",c:"Breakfast",i:"Où est-ce que t'as mis le beurre ?",f:"Où avez-vous mis le beurre ?",e:"Where did you put the butter?",l:"A2"},
+{s:"☕ Breakfast",c:"Breakfast",i:"Tu veux combien de sucres ?",f:"Combien de sucres désirez-vous ?",e:"How many sugars do you want?",l:"A2"},
+{s:"☕ Breakfast",c:"Breakfast",i:"Pourquoi tu sautes le petit-déj ?",f:"Pourquoi sautez-vous le petit-déjeuner ?",e:"Why are you skipping breakfast?",l:"A2"},
+{s:"☕ Breakfast",c:"Breakfast",i:"Qu'est-ce qu'on a dans le frigo ?",f:"Qu'y a-t-il dans le réfrigérateur ?",e:"What do we have in the fridge?",l:"A2"},
+{s:"☕ Breakfast",c:"Breakfast",i:"Est-ce que tu veux des œufs brouillés ?",f:"Souhaitez-vous des œufs brouillés ?",e:"Would you like scrambled eggs?",l:"A2"},
+{s:"☕ Breakfast",c:"Breakfast",i:"Combien de temps ça prend de faire des crêpes ?",f:"Combien de temps faut-il pour faire des crêpes ?",e:"How long does it take to make crêpes?",l:"A2"},
+// STREET
+{s:"🚶 Street",c:"Street",i:"Où est-ce que se trouve la boulangerie ?",f:"Pourriez-vous m'indiquer la boulangerie ?",e:"Where is the bakery?",l:"A2"},
+{s:"🚶 Street",c:"Street",i:"Comment est-ce que je peux aller à la gare ?",f:"Comment puis-je me rendre à la gare ?",e:"How do I get to the train station?",l:"A2"},
+{s:"🚶 Street",c:"Street",i:"C'est loin d'ici ?",f:"Est-ce loin d'ici ?",e:"Is it far from here?",l:"A2"},
+{s:"🚶 Street",c:"Street",i:"Est-ce qu'il y a un parking par ici ?",f:"Y a-t-il un parking à proximité ?",e:"Is there a car park nearby?",l:"A2"},
+{s:"🚶 Street",c:"Street",i:"Où est-ce qu'on est exactement ?",f:"Où nous trouvons-nous exactement ?",e:"Where are we exactly?",l:"A2"},
+{s:"🚶 Street",c:"Street",i:"Combien de temps à pied ?",f:"Combien de temps à pied ?",e:"How long on foot?",l:"A2"},
+{s:"🚶 Street",c:"Street",i:"Qui est-ce que je dois appeler si je suis perdu(e) ?",f:"Qui dois-je appeler si je suis perdu(e) ?",e:"Who should I call if I'm lost?",l:"B1"},
+{s:"🚶 Street",c:"Street",i:"Pourquoi cette rue est barrée ?",f:"Pourquoi cette rue est-elle barrée ?",e:"Why is this street blocked?",l:"B1"},
+{s:"🚶 Street",c:"Street",i:"Qu'est-ce qui se passe là-bas ?",f:"Que se passe-t-il là-bas ?",e:"What's happening over there?",l:"A2"},
+// METRO
+{s:"🚇 Metro",c:"Metro",i:"Quelle ligne est-ce que je dois prendre ?",f:"Quelle ligne dois-je prendre ?",e:"Which line should I take?",l:"A2"},
+{s:"🚇 Metro",c:"Metro",i:"Où est-ce qu'on doit changer ?",f:"Où devons-nous changer de ligne ?",e:"Where do we need to change?",l:"A2"},
+{s:"🚇 Metro",c:"Metro",i:"Combien ça coûte un ticket ?",f:"Quel est le prix d'un ticket ?",e:"How much is a ticket?",l:"A2"},
+{s:"🚇 Metro",c:"Metro",i:"Est-ce que ce train s'arrête à Châtelet ?",f:"Ce train s'arrête-t-il à Châtelet ?",e:"Does this train stop at Châtelet?",l:"A2"},
+{s:"🚇 Metro",c:"Metro",i:"Combien de stations jusqu'à la destination ?",f:"Combien de stations jusqu'à destination ?",e:"How many stops until the destination?",l:"A2"},
+{s:"🚇 Metro",c:"Metro",i:"Pourquoi le métro est en retard ?",f:"Pourquoi le métro est-il en retard ?",e:"Why is the metro late?",l:"A2"},
+{s:"🚇 Metro",c:"Metro",i:"Qui est-ce qui est assis là ?",f:"Cette place est-elle occupée ?",e:"Is someone sitting there?",l:"A2"},
+{s:"🚇 Metro",c:"Metro",i:"À quelle heure est le prochain train ?",f:"À quelle heure est le prochain train ?",e:"What time is the next train?",l:"A2"},
+// OFFICE
+{s:"🖥️ Office",c:"Office",i:"Est-ce que la réunion est confirmée ?",f:"La réunion est-elle confirmée ?",e:"Is the meeting confirmed?",l:"A2"},
+{s:"🖥️ Office",c:"Office",i:"Qu'est-ce qu'on fait aujourd'hui comme tâches ?",f:"Quelles sont les tâches prévues aujourd'hui ?",e:"What tasks are planned for today?",l:"A2"},
+{s:"🖥️ Office",c:"Office",i:"Pourquoi le projet est en retard ?",f:"Pourquoi le projet est-il en retard ?",e:"Why is the project delayed?",l:"B1"},
+{s:"🖥️ Office",c:"Office",i:"Qui est-ce qui gère ce dossier ?",f:"Qui est responsable de ce dossier ?",e:"Who is handling this file?",l:"A2"},
+{s:"🖥️ Office",c:"Office",i:"Quand est-ce que tu peux me rendre ça ?",f:"Quand pouvez-vous me remettre cela ?",e:"When can you get this back to me?",l:"A2"},
+{s:"🖥️ Office",c:"Office",i:"Combien d'heures t'as travaillé cette semaine ?",f:"Combien d'heures avez-vous travaillé cette semaine ?",e:"How many hours did you work this week?",l:"B1"},
+{s:"🖥️ Office",c:"Office",i:"Où est-ce qu'on en est avec le client ?",f:"Où en sommes-nous avec le client ?",e:"Where do we stand with the client?",l:"B1"},
+{s:"🖥️ Office",c:"Office",i:"Est-ce que tu as reçu mon email ?",f:"Avez-vous reçu mon courriel ?",e:"Did you receive my email?",l:"A2"},
+{s:"🖥️ Office",c:"Office",i:"Qu'est-ce qu'il faut faire en priorité ?",f:"Quelles sont les priorités ?",e:"What needs to be done first?",l:"A2"},
+{s:"🖥️ Office",c:"Office",i:"Pourquoi est-ce que le système ne fonctionne pas ?",f:"Pourquoi le système ne fonctionne-t-il pas ?",e:"Why isn't the system working?",l:"B1"},
+{s:"🖥️ Office",c:"Office",i:"Comment est-ce qu'on accède à ce fichier ?",f:"Comment accède-t-on à ce fichier ?",e:"How do we access this file?",l:"A2"},
+{s:"🖥️ Office",c:"Office",i:"Qui est-ce qu'on attend pour commencer ?",f:"Qui attend-on pour commencer ?",e:"Who are we waiting for to start?",l:"A2"},
+{s:"🖥️ Office",c:"Office",i:"Est-ce que le rapport est prêt ?",f:"Le rapport est-il prêt ?",e:"Is the report ready?",l:"A2"},
+{s:"🖥️ Office",c:"Office",i:"Quand est la deadline exactement ?",f:"Quelle est la date limite exacte ?",e:"When is the deadline exactly?",l:"A2"},
+{s:"🖥️ Office",c:"Office",i:"Est-ce qu'on peut reporter la réunion ?",f:"Pouvons-nous reporter la réunion ?",e:"Can we postpone the meeting?",l:"A2"},
+{s:"🖥️ Office",c:"Office",i:"Combien de personnes sont en télétravail ?",f:"Combien de personnes sont en télétravail ?",e:"How many people are working remotely?",l:"B1"},
+// LUNCH
+{s:"🍽️ Lunch",c:"Lunch",i:"Où est-ce qu'on mange ce midi ?",f:"Où allons-nous déjeuner ?",e:"Where are we having lunch?",l:"A2"},
+{s:"🍽️ Lunch",c:"Lunch",i:"Qu'est-ce que tu veux commander ?",f:"Que souhaitez-vous commander ?",e:"What do you want to order?",l:"A2"},
+{s:"🍽️ Lunch",c:"Lunch",i:"Est-ce que ce restaurant est bon ?",f:"Ce restaurant est-il bon ?",e:"Is this restaurant good?",l:"A2"},
+{s:"🍽️ Lunch",c:"Lunch",i:"Combien de temps a-t-on pour déjeuner ?",f:"Combien de temps avons-nous pour déjeuner ?",e:"How long do we have for lunch?",l:"A2"},
+{s:"🍽️ Lunch",c:"Lunch",i:"Pourquoi il n'y a pas de place ?",f:"Pourquoi n'y a-t-il pas de place ?",e:"Why isn't there any space?",l:"A2"},
+{s:"🍽️ Lunch",c:"Lunch",i:"Qu'est-ce que tu recommandes ici ?",f:"Que recommandez-vous ici ?",e:"What do you recommend here?",l:"A2"},
+{s:"🍽️ Lunch",c:"Lunch",i:"Est-ce que c'est compris dans le menu ?",f:"Est-ce inclus dans le menu ?",e:"Is it included in the set menu?",l:"A2"},
+{s:"🍽️ Lunch",c:"Lunch",i:"Qui est-ce qui paye aujourd'hui ?",f:"Qui règle l'addition aujourd'hui ?",e:"Who's paying today?",l:"A2"},
+{s:"🍽️ Lunch",c:"Lunch",i:"Est-ce qu'il y a un plat végétarien ?",f:"Y a-t-il un plat végétarien ?",e:"Is there a vegetarian dish?",l:"A2"},
+{s:"🍽️ Lunch",c:"Lunch",i:"Combien ça coûte le menu du jour ?",f:"Quel est le prix du menu du jour ?",e:"How much is the daily special?",l:"A2"},
+{s:"🍽️ Lunch",c:"Lunch",i:"Qu'est-ce qu'il y a comme desserts ?",f:"Quels desserts proposez-vous ?",e:"What desserts do you have?",l:"A2"},
+{s:"🍽️ Lunch",c:"Lunch",i:"Est-ce qu'on peut avoir du pain ?",f:"Pourrait-on avoir du pain ?",e:"Can we have some bread?",l:"A2"},
+// SHOPPING
+{s:"🛍️ Shopping",c:"Shopping",i:"Combien ça coûte ?",f:"Combien cela coûte-t-il ?",e:"How much does it cost?",l:"A2"},
+{s:"🛍️ Shopping",c:"Shopping",i:"Est-ce qu'il y a ça en taille M ?",f:"Avez-vous cela en taille M ?",e:"Do you have this in size M?",l:"A2"},
+{s:"🛍️ Shopping",c:"Shopping",i:"Où est-ce que je peux essayer ça ?",f:"Où puis-je essayer cela ?",e:"Where can I try this on?",l:"A2"},
+{s:"🛍️ Shopping",c:"Shopping",i:"Est-ce que c'est en solde ?",f:"Cet article est-il en promotion ?",e:"Is this on sale?",l:"A2"},
+{s:"🛍️ Shopping",c:"Shopping",i:"Pourquoi le prix est si élevé ?",f:"Pourquoi le prix est-il si élevé ?",e:"Why is the price so high?",l:"A2"},
+{s:"🛍️ Shopping",c:"Shopping",i:"Est-ce que je peux rendre ça ?",f:"Puis-je retourner cet article ?",e:"Can I return this?",l:"A2"},
+{s:"🛍️ Shopping",c:"Shopping",i:"Qu'est-ce que vous avez comme nouveautés ?",f:"Quelles sont vos nouveautés ?",e:"What new items do you have?",l:"A2"},
+{s:"🛍️ Shopping",c:"Shopping",i:"Vous acceptez la carte bancaire ?",f:"Acceptez-vous les paiements par carte ?",e:"Do you accept card payment?",l:"A2"},
+{s:"🛍️ Shopping",c:"Shopping",i:"Où est-ce que se trouve la caisse ?",f:"Où se trouve la caisse ?",e:"Where is the checkout?",l:"A2"},
+{s:"🛍️ Shopping",c:"Shopping",i:"Combien de temps dure la garantie ?",f:"Quelle est la durée de la garantie ?",e:"How long is the warranty?",l:"B1"},
+{s:"🛍️ Shopping",c:"Shopping",i:"Qui est-ce que je dois voir pour un remboursement ?",f:"À qui dois-je m'adresser pour un remboursement ?",e:"Who should I see for a refund?",l:"B1"},
+{s:"🛍️ Shopping",c:"Shopping",i:"Quand est-ce que ça sera de retour en stock ?",f:"Quand cet article sera-t-il de nouveau en stock ?",e:"When will this be back in stock?",l:"B1"},
+// DOCTOR
+{s:"🏥 Doctor",c:"Doctor",i:"Où est-ce qu'il y a un médecin ?",f:"Où puis-je trouver un médecin ?",e:"Where can I find a doctor?",l:"A2"},
+{s:"🏥 Doctor",c:"Doctor",i:"Est-ce que vous avez un rendez-vous ?",f:"Avez-vous un rendez-vous ?",e:"Do you have an appointment?",l:"A2"},
+{s:"🏥 Doctor",c:"Doctor",i:"Combien de temps est-ce qu'il faut attendre ?",f:"Combien de temps faut-il attendre ?",e:"How long is the wait?",l:"A2"},
+{s:"🏥 Doctor",c:"Doctor",i:"Qu'est-ce qui vous fait mal ?",f:"Où avez-vous mal ?",e:"Where does it hurt?",l:"A2"},
+{s:"🏥 Doctor",c:"Doctor",i:"Depuis quand est-ce que vous avez ces symptômes ?",f:"Depuis quand avez-vous ces symptômes ?",e:"How long have you had these symptoms?",l:"B1"},
+{s:"🏥 Doctor",c:"Doctor",i:"Est-ce que vous êtes allergique à quelque chose ?",f:"Êtes-vous allergique à quelque chose ?",e:"Are you allergic to anything?",l:"A2"},
+{s:"🏥 Doctor",c:"Doctor",i:"Combien de fois par jour je dois prendre ça ?",f:"Combien de fois par jour dois-je prendre ce médicament ?",e:"How many times a day should I take this?",l:"A2"},
+{s:"🏥 Doctor",c:"Doctor",i:"Pourquoi j'ai cette douleur ?",f:"Quelle est la cause de cette douleur ?",e:"What's causing this pain?",l:"B1"},
+{s:"🏥 Doctor",c:"Doctor",i:"Quand est-ce que je dois revenir ?",f:"Quand dois-je revenir vous voir ?",e:"When should I come back?",l:"A2"},
+{s:"🏥 Doctor",c:"Doctor",i:"Qu'est-ce que je peux manger avec ce traitement ?",f:"Que puis-je manger pendant ce traitement ?",e:"What can I eat during this treatment?",l:"B1"},
+// BANK
+{s:"🏦 Bank",c:"Bank",i:"Où est-ce que je peux retirer de l'argent ?",f:"Où puis-je retirer de l'argent ?",e:"Where can I withdraw money?",l:"A2"},
+{s:"🏦 Bank",c:"Bank",i:"Combien est-ce que je peux retirer par jour ?",f:"Combien puis-je retirer par jour ?",e:"How much can I withdraw per day?",l:"A2"},
+{s:"🏦 Bank",c:"Bank",i:"Est-ce qu'il y a des frais pour ce virement ?",f:"Y a-t-il des frais pour ce virement ?",e:"Are there fees for this transfer?",l:"B1"},
+{s:"🏦 Bank",c:"Bank",i:"Pourquoi ma carte a été bloquée ?",f:"Pourquoi ma carte a-t-elle été bloquée ?",e:"Why has my card been blocked?",l:"B1"},
+{s:"🏦 Bank",c:"Bank",i:"Quand est-ce que le virement arrive ?",f:"Quand le virement arrivera-t-il ?",e:"When will the transfer arrive?",l:"A2"},
+{s:"🏦 Bank",c:"Bank",i:"Comment est-ce que j'ouvre un compte ?",f:"Comment puis-je ouvrir un compte ?",e:"How do I open an account?",l:"A2"},
+{s:"🏦 Bank",c:"Bank",i:"Qui est-ce que je dois voir pour un prêt ?",f:"À qui dois-je m'adresser pour un prêt ?",e:"Who should I see about a loan?",l:"B1"},
+{s:"🏦 Bank",c:"Bank",i:"Qu'est-ce qu'il faut comme documents ?",f:"Quels documents sont nécessaires ?",e:"What documents are needed?",l:"A2"},
+// PHONE
+{s:"📱 Phone",c:"Phone",i:"Est-ce que c'est un bon moment pour parler ?",f:"Est-ce le bon moment pour parler ?",e:"Is this a good time to talk?",l:"A2"},
+{s:"📱 Phone",c:"Phone",i:"Qui est-ce qui t'a appelé ?",f:"Qui vous a appelé ?",e:"Who called you?",l:"A2"},
+{s:"📱 Phone",c:"Phone",i:"Pourquoi tu décroches pas ?",f:"Pourquoi ne répondez-vous pas ?",e:"Why aren't you picking up?",l:"A2"},
+{s:"📱 Phone",c:"Phone",i:"Quand est-ce que tu peux me rappeler ?",f:"Quand pouvez-vous me rappeler ?",e:"When can you call me back?",l:"A2"},
+{s:"📱 Phone",c:"Phone",i:"Qu'est-ce que tu voulais me dire ?",f:"Que vouliez-vous me dire ?",e:"What did you want to tell me?",l:"A2"},
+{s:"📱 Phone",c:"Phone",i:"Combien de temps tu vas rester au téléphone ?",f:"Combien de temps comptez-vous parler ?",e:"How long will you be on the phone?",l:"A2"},
+{s:"📱 Phone",c:"Phone",i:"Est-ce que tu as reçu mon message ?",f:"Avez-vous reçu mon message ?",e:"Did you receive my message?",l:"A2"},
+{s:"📱 Phone",c:"Phone",i:"Où est-ce que j'ai mis mon téléphone ?",f:"Où ai-je posé mon téléphone ?",e:"Where did I put my phone?",l:"A2"},
+{s:"📱 Phone",c:"Phone",i:"Pourquoi tu ne m'as pas répondu ?",f:"Pourquoi ne m'avez-vous pas répondu ?",e:"Why didn't you reply to me?",l:"A2"},
+{s:"📱 Phone",c:"Phone",i:"Qu'est-ce qu'il a dit exactement ?",f:"Qu'a-t-il dit exactement ?",e:"What did he say exactly?",l:"B1"},
+// EVENING
+{s:"🌆 Evening",c:"Evening",i:"Comment s'est passée ta journée ?",f:"Comment s'est passée votre journée ?",e:"How was your day?",l:"A2"},
+{s:"🌆 Evening",c:"Evening",i:"Qu'est-ce que tu veux faire ce soir ?",f:"Que souhaitez-vous faire ce soir ?",e:"What do you want to do tonight?",l:"A2"},
+{s:"🌆 Evening",c:"Evening",i:"Est-ce que tu veux sortir ?",f:"Souhaitez-vous sortir ?",e:"Do you want to go out?",l:"A2"},
+{s:"🌆 Evening",c:"Evening",i:"Pourquoi tu rentres si tard ?",f:"Pourquoi rentrez-vous si tard ?",e:"Why are you coming home so late?",l:"A2"},
+{s:"🌆 Evening",c:"Evening",i:"Qui est-ce qu'on a invité ce week-end ?",f:"Qui avons-nous invité ce week-end ?",e:"Who did we invite this weekend?",l:"A2"},
+{s:"🌆 Evening",c:"Evening",i:"Quand est-ce qu'ils arrivent ?",f:"Quand arrivent-ils ?",e:"When are they arriving?",l:"A2"},
+{s:"🌆 Evening",c:"Evening",i:"Qu'est-ce qu'on regarde ce soir ?",f:"Que regardons-nous ce soir ?",e:"What are we watching tonight?",l:"A2"},
+{s:"🌆 Evening",c:"Evening",i:"Combien de temps tu vas rester ?",f:"Combien de temps comptez-vous rester ?",e:"How long are you staying?",l:"A2"},
+{s:"🌆 Evening",c:"Evening",i:"Est-ce que tu as des nouvelles de lui/elle ?",f:"Avez-vous de ses nouvelles ?",e:"Have you heard from him/her?",l:"B1"},
+{s:"🌆 Evening",c:"Evening",i:"Pourquoi t'as l'air aussi stressé(e) ?",f:"Pourquoi semblez-vous si stressé(e) ?",e:"Why do you look so stressed?",l:"B1"},
+// DINNER
+{s:"🍷 Dinner",c:"Dinner",i:"Qu'est-ce qu'on mange ce soir ?",f:"Que mangeons-nous ce soir ?",e:"What are we having for dinner?",l:"A2"},
+{s:"🍷 Dinner",c:"Dinner",i:"Qui est-ce qui cuisine ce soir ?",f:"Qui cuisine ce soir ?",e:"Who's cooking tonight?",l:"A2"},
+{s:"🍷 Dinner",c:"Dinner",i:"Est-ce que tu veux du vin avec ça ?",f:"Souhaitez-vous du vin avec cela ?",e:"Would you like wine with that?",l:"A2"},
+{s:"🍷 Dinner",c:"Dinner",i:"Combien de temps ça prend de cuire ?",f:"Combien de temps faut-il pour cuire cela ?",e:"How long does it take to cook?",l:"A2"},
+{s:"🍷 Dinner",c:"Dinner",i:"Pourquoi t'as pas faim ?",f:"Pourquoi n'avez-vous pas faim ?",e:"Why aren't you hungry?",l:"A2"},
+{s:"🍷 Dinner",c:"Dinner",i:"Où est-ce qu'on dîne ce soir ?",f:"Où dînons-nous ce soir ?",e:"Where are we dining tonight?",l:"A2"},
+{s:"🍷 Dinner",c:"Dinner",i:"Qu'est-ce que tu as mis dans cette sauce ?",f:"Qu'avez-vous mis dans cette sauce ?",e:"What did you put in this sauce?",l:"A2"},
+{s:"🍷 Dinner",c:"Dinner",i:"Est-ce qu'il reste du dessert ?",f:"Y a-t-il encore du dessert ?",e:"Is there any dessert left?",l:"A2"},
+{s:"🍷 Dinner",c:"Dinner",i:"Qui a préparé ce plat ?",f:"Qui a préparé ce plat ?",e:"Who made this dish?",l:"A2"},
+{s:"🍷 Dinner",c:"Dinner",i:"Combien de personnes on est pour dîner ?",f:"Combien de personnes dînent ce soir ?",e:"How many people are we for dinner?",l:"A2"},
+// SOCIAL
+{s:"🎉 Social",c:"Social",i:"Qu'est-ce que tu fais ce week-end ?",f:"Que faites-vous ce week-end ?",e:"What are you doing this weekend?",l:"A2"},
+{s:"🎉 Social",c:"Social",i:"Est-ce que tu viens à la fête ?",f:"Viendrez-vous à la fête ?",e:"Are you coming to the party?",l:"A2"},
+{s:"🎉 Social",c:"Social",i:"Où est-ce que tu as rencontré ces gens ?",f:"Où avez-vous rencontré ces personnes ?",e:"Where did you meet these people?",l:"A2"},
+{s:"🎉 Social",c:"Social",i:"Depuis combien de temps vous vous connaissez ?",f:"Depuis combien de temps vous connaissez-vous ?",e:"How long have you known each other?",l:"B1"},
+{s:"🎉 Social",c:"Social",i:"Pourquoi tu n'es pas venu(e) hier soir ?",f:"Pourquoi n'êtes-vous pas venu(e) hier soir ?",e:"Why didn't you come last night?",l:"A2"},
+{s:"🎉 Social",c:"Social",i:"Qui est-ce qu'on a invité ?",f:"Qui a-t-on invité ?",e:"Who did we invite?",l:"A2"},
+{s:"🎉 Social",c:"Social",i:"Qu'est-ce que tu fais comme hobby ?",f:"Quels sont vos loisirs ?",e:"What are your hobbies?",l:"A2"},
+{s:"🎉 Social",c:"Social",i:"Combien de personnes seront là ?",f:"Combien de personnes seront présentes ?",e:"How many people will be there?",l:"A2"},
+{s:"🎉 Social",c:"Social",i:"Quand est-ce qu'on se revoit ?",f:"Quand nous reverrons-nous ?",e:"When will we see each other again?",l:"A2"},
+{s:"🎉 Social",c:"Social",i:"Est-ce que je peux amener quelqu'un ?",f:"Puis-je amener quelqu'un ?",e:"Can I bring someone?",l:"A2"},
+// FEELINGS
+{s:"💬 Feelings",c:"Feelings",i:"Pourquoi t'as l'air triste ?",f:"Pourquoi semblez-vous triste ?",e:"Why do you look sad?",l:"A2"},
+{s:"💬 Feelings",c:"Feelings",i:"Qu'est-ce qui ne va pas ?",f:"Qu'est-ce qui ne va pas ?",e:"What's wrong?",l:"A2"},
+{s:"💬 Feelings",c:"Feelings",i:"Est-ce que tu vas bien ?",f:"Allez-vous bien ?",e:"Are you doing okay?",l:"A2"},
+{s:"💬 Feelings",c:"Feelings",i:"Pourquoi t'es énervé(e) ?",f:"Pourquoi êtes-vous en colère ?",e:"Why are you angry?",l:"A2"},
+{s:"💬 Feelings",c:"Feelings",i:"Qu'est-ce qui te rend heureux/heureuse ?",f:"Qu'est-ce qui vous rend heureux/heureuse ?",e:"What makes you happy?",l:"B1"},
+{s:"💬 Feelings",c:"Feelings",i:"Depuis quand tu te sens comme ça ?",f:"Depuis quand vous sentez-vous ainsi ?",e:"How long have you felt this way?",l:"B1"},
+{s:"💬 Feelings",c:"Feelings",i:"Qui est-ce qui t'a fait ça ?",f:"Qui vous a fait cela ?",e:"Who did this to you?",l:"A2"},
+{s:"💬 Feelings",c:"Feelings",i:"Comment est-ce que je peux t'aider ?",f:"Comment puis-je vous aider ?",e:"How can I help you?",l:"A2"},
+{s:"💬 Feelings",c:"Feelings",i:"Qu'est-ce que tu ressentis exactement ?",f:"Que ressentez-vous exactement ?",e:"What exactly are you feeling?",l:"B1"},
+{s:"💬 Feelings",c:"Feelings",i:"Est-ce que tu veux en parler ?",f:"Souhaitez-vous en parler ?",e:"Do you want to talk about it?",l:"A2"},
+// SMALL TALK
+{s:"💭 Small Talk",c:"Small Talk",i:"D'où est-ce que tu viens ?",f:"D'où venez-vous ?",e:"Where are you from?",l:"A2"},
+{s:"💭 Small Talk",c:"Small Talk",i:"Depuis combien de temps tu habites ici ?",f:"Depuis combien de temps habitez-vous ici ?",e:"How long have you lived here?",l:"A2"},
+{s:"💭 Small Talk",c:"Small Talk",i:"Qu'est-ce que tu fais dans la vie ?",f:"Quelle est votre profession ?",e:"What do you do for a living?",l:"A2"},
+{s:"💭 Small Talk",c:"Small Talk",i:"Est-ce que tu aimes vivre ici ?",f:"Appréciez-vous vivre ici ?",e:"Do you like living here?",l:"A2"},
+{s:"💭 Small Talk",c:"Small Talk",i:"Pourquoi tu as choisi ce métier ?",f:"Pourquoi avez-vous choisi ce métier ?",e:"Why did you choose this career?",l:"B1"},
+{s:"💭 Small Talk",c:"Small Talk",i:"Qu'est-ce que tu aimes faire le week-end ?",f:"Que faites-vous le week-end ?",e:"What do you like doing on weekends?",l:"A2"},
+{s:"💭 Small Talk",c:"Small Talk",i:"Qui est-ce que tu admires le plus ?",f:"Qui admirez-vous le plus ?",e:"Who do you admire most?",l:"B1"},
+{s:"💭 Small Talk",c:"Small Talk",i:"Combien de langues tu parles ?",f:"Combien de langues parlez-vous ?",e:"How many languages do you speak?",l:"A2"},
+{s:"💭 Small Talk",c:"Small Talk",i:"Où est-ce que tu voudrais voyager ?",f:"Où aimeriez-vous voyager ?",e:"Where would you like to travel?",l:"A2"},
+{s:"💭 Small Talk",c:"Small Talk",i:"Qu'est-ce que tu lis en ce moment ?",f:"Que lisez-vous en ce moment ?",e:"What are you reading right now?",l:"A2"},
+// EMERGENCY
+{s:"🚨 Emergency",c:"Emergency",i:"Est-ce qu'il y a quelqu'un qui parle français ?",f:"Y a-t-il quelqu'un qui parle français ?",e:"Is there anyone who speaks French?",l:"A2"},
+{s:"🚨 Emergency",c:"Emergency",i:"Où est l'hôpital le plus proche ?",f:"Où se trouve l'hôpital le plus proche ?",e:"Where is the nearest hospital?",l:"A2"},
+{s:"🚨 Emergency",c:"Emergency",i:"Qui est-ce que j'appelle en cas d'urgence ?",f:"Qui dois-je appeler en cas d'urgence ?",e:"Who should I call in an emergency?",l:"A2"},
+{s:"🚨 Emergency",c:"Emergency",i:"Qu'est-ce qui s'est passé exactement ?",f:"Que s'est-il passé exactement ?",e:"What exactly happened?",l:"A2"},
+{s:"🚨 Emergency",c:"Emergency",i:"Combien de temps avant que les secours arrivent ?",f:"Combien de temps avant l'arrivée des secours ?",e:"How long before help arrives?",l:"B1"},
+{s:"🚨 Emergency",c:"Emergency",i:"Est-ce que quelqu'un est blessé ?",f:"Y a-t-il des blessés ?",e:"Is anyone injured?",l:"A2"},
+{s:"🚨 Emergency",c:"Emergency",i:"Où est-ce qu'on peut trouver une pharmacie ?",f:"Où peut-on trouver une pharmacie ?",e:"Where can we find a pharmacy?",l:"A2"},
+// BEDTIME
+{s:"🌙 Bedtime",c:"Bedtime",i:"À quelle heure tu t'es couché(e) hier ?",f:"À quelle heure vous êtes-vous couché(e) hier ?",e:"What time did you go to bed last night?",l:"A2"},
+{s:"🌙 Bedtime",c:"Bedtime",i:"Est-ce que t'as mis le réveil ?",f:"Avez-vous mis votre réveil ?",e:"Have you set your alarm?",l:"A2"},
+{s:"🌙 Bedtime",c:"Bedtime",i:"Pourquoi tu dors pas encore ?",f:"Pourquoi ne dormez-vous pas encore ?",e:"Why aren't you asleep yet?",l:"A2"},
+{s:"🌙 Bedtime",c:"Bedtime",i:"Qu'est-ce que tu as rêvé cette nuit ?",f:"Qu'avez-vous rêvé cette nuit ?",e:"What did you dream about last night?",l:"A2"},
+{s:"🌙 Bedtime",c:"Bedtime",i:"Combien d'heures tu dors en moyenne ?",f:"Combien d'heures dormez-vous en moyenne ?",e:"How many hours do you sleep on average?",l:"A2"},
+{s:"🌙 Bedtime",c:"Bedtime",i:"Est-ce que tu lis avant de dormir ?",f:"Lisez-vous avant de vous endormir ?",e:"Do you read before sleeping?",l:"A2"},
+{s:"🌙 Bedtime",c:"Bedtime",i:"Pourquoi tu fais de l'insomnie ?",f:"Pourquoi souffrez-vous d'insomnie ?",e:"Why do you have insomnia?",l:"B1"},
+{s:"🌙 Bedtime",c:"Bedtime",i:"Qu'est-ce que tu fais pour bien dormir ?",f:"Que faites-vous pour bien dormir ?",e:"What do you do to sleep well?",l:"B1"},
+{s:"🌙 Bedtime",c:"Bedtime",i:"À quelle heure est-ce que tu te lèves demain ?",f:"À quelle heure vous levez-vous demain ?",e:"What time are you getting up tomorrow?",l:"A2"},
+{s:"🌙 Bedtime",c:"Bedtime",i:"Qui est-ce qui a éteint les lumières ?",f:"Qui a éteint les lumières ?",e:"Who turned off the lights?",l:"A2"},
+];
+
+const ORDER=["🌅 Morning","🚿 Bathroom","💪 Gym","☕ Breakfast","🚶 Street","🚇 Metro","🖥️ Office","🍽️ Lunch","🛍️ Shopping","🏥 Doctor","🏦 Bank","📱 Phone","🌆 Evening","🍷 Dinner","🎉 Social","💬 Feelings","💭 Small Talk","🚨 Emergency","🌙 Bedtime"];
+let activeCat="All", activeLvl="all";
+
+function init(){
+  const cats=["All",...ORDER.map(s=>s.split(" ").slice(1).join(" "))];
+  const cd=document.getElementById("cats");
+  cd.innerHTML="";
+  cats.forEach(c=>{
+    const b=document.createElement("button");
+    b.className="cat-btn"+(c==="All"?" active":"");
+    // label with emoji
+    const match=ORDER.find(o=>o.includes(c));
+    b.textContent=match||c;
+    b.onclick=()=>{
+      document.querySelectorAll(".cat-btn").forEach(x=>x.classList.remove("active"));
+      b.classList.add("active");
+      activeCat=c;
+      render();
+    };
+    cd.appendChild(b);
+  });
+}
+
+window.setLvl=function(l,btn){
+  activeLvl=l;
+  document.querySelectorAll(".lvl-btn").forEach(b=>{b.className="lvl-btn"});
+  btn.className="lvl-btn active-"+l;
+  render();
+};
+
+function render(){
+  const q=document.getElementById("search").value.toLowerCase();
+  const f=D.filter(d=>{
+    if(activeCat!=="All"&&!d.s.includes(activeCat))return false;
+    if(activeLvl!=="all"&&d.l!==activeLvl)return false;
+    if(q&&!d.i.toLowerCase().includes(q)&&!d.f.toLowerCase().includes(q)&&!d.e.toLowerCase().includes(q))return false;
+    return true;
+  });
+  document.getElementById("stats").textContent=`Showing ${f.length} of ${D.length} phrases`;
+  if(!f.length){document.getElementById("out").innerHTML='<div class="empty">Aucune phrase trouvée.</div>';return;}
+  const g={};
+  f.forEach(d=>{if(!g[d.s])g[d.s]=[];g[d.s].push(d);});
+  let h="";
+  ORDER.forEach(sec=>{
+    if(!g[sec])return;
+    h+=`<div class="section"><div class="section-head"><div class="section-title">${sec}</div><span class="section-count">${g[sec].length} sentences</span></div>
+    <div class="tbl-wrap"><table>
+    <thead><tr><th>#</th><th>🔵 Informal French</th><th>🟢 Formal French</th><th>🇬🇧 English</th><th>Lvl</th></tr></thead><tbody>`;
+    g[sec].forEach((d,i)=>{
+      h+=`<tr><td>${i+1}</td><td class="informal">${d.i}</td><td class="formal">${d.f}</td><td class="english">${d.e}</td><td><span class="badge-${d.l.toLowerCase()}">${d.l}</span></td></tr>`;
+    });
+    h+=`</tbody></table></div></div>`;
+  });
+  document.getElementById("out").innerHTML=h;
+}
+
+init();render();
+document.getElementById("search").addEventListener("input",render);
+</script>
+</body>
+</html>
